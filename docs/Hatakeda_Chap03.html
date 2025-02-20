@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; 統計 – 畠田 証券投資論</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Hatakeda_Chap04.html" rel="next">
+<link href="./Hatakeda_Chap02.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8c83531f58a316a53440c7989064c356.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">畠田 証券投資論</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">ガイダンス</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap02.html"> 
+<span class="menu-text">確率</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap03.html"> 
+<span class="menu-text">統計</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap04.html"> 
+<span class="menu-text">選好</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap05.html"> 
+<span class="menu-text">ポートフォリオ理論</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap06.html"> 
+<span class="menu-text">CAPM</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap07.html"> 
+<span class="menu-text">裁定価格</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap08.html"> 
+<span class="menu-text">市場の効率性</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap09.html"> 
+<span class="menu-text">行動</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://so-ichi.com"> <i class="bi bi-house" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/matsuura_rits"> <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Hatakeda_Chap03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">統計</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">確率</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">統計</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">効用</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ポートフォリオ理論</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CAPM</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">行動ファイナンス</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#期待値と分散標準偏差の推定" id="toc-期待値と分散標準偏差の推定" class="nav-link active" data-scroll-target="#期待値と分散標準偏差の推定"><span class="header-section-number">3.1</span> 期待値と分散(標準偏差)の推定</a></li>
+  <li><a href="#共分散と相関係数の推定" id="toc-共分散と相関係数の推定" class="nav-link" data-scroll-target="#共分散と相関係数の推定"><span class="header-section-number">3.2</span> 共分散と相関係数の推定</a></li>
+  <li><a href="#変数のアフィン変換" id="toc-変数のアフィン変換" class="nav-link" data-scroll-target="#変数のアフィン変換"><span class="header-section-number">3.3</span> 変数のアフィン変換</a></li>
+  <li><a href="#変数の線形結合" id="toc-変数の線形結合" class="nav-link" data-scroll-target="#変数の線形結合"><span class="header-section-number">3.4</span> 変数の線形結合</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">統計</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>前章で学習したように，ファイナンスではいろいろな理由から，資産価値それ自体より資産価値の<strong>変化率</strong>，すなわち<strong>リターン</strong>(return)で議論することが多いです。 ここで，リターンの定義を再度確認します。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(fontregisterer)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mystyle <span class="ot">&lt;-</span> <span class="fu">list</span> (<span class="co">#  ggplotのテーマ</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>(),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">size=</span><span class="dv">16</span>,  <span class="co">#  フォントサイズ</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span> <span class="co"># ヒラギノフォント</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+株式リターン
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>資産<span class="math inline">i</span>の<span class="math inline">t</span>期の(配当落ち)日次リターン<span class="math inline">r_{i,t}</span>は， <span class="math display">
+\begin{aligned}
+r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1 \tag{0'}
+\end{aligned}
+</span></p>
+<p>と定義されています。 ここで，</p>
+<ul>
+<li><span class="math inline">P</span>は資産価値(株価，債券価格，地価など)</li>
+<li><span class="math inline">i</span>は銘柄，</li>
+<li><span class="math inline">t</span>は時点や期間</li>
+</ul>
+<p>を表してます。</p>
+</div>
+</div>
+<p>では，トヨタ自動車の終値の日次データを用いて，株式リターンの値動きをグラフにしてみましょう。 <code>ggplot</code>パッケージの<code>geom_line()</code>を用いて折れ線グラフを作成します。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/stock_data.csv"</span>) <span class="co"># データの読み込み</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">%&gt;%</span> <span class="co"># トヨタ自動車を抽出</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> 終値) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="co"># 折れ線グラフ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>トヨタ自動車の2021年における株価の急落は，株式分割が原因です。 このとき，トヨタ自動車は1株を5株に分割しています。 そのため約10000円だった株価が約2000円と5分の1に下落したのです。</p>
+<p>次にこのデータから株式リターンを計算し、折れ線グラフにしてみます。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(企業名) <span class="sc">%&gt;%</span> <span class="co"># 企業名でグループ化</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">r_daily =</span> 終値 <span class="sc">/</span> <span class="fu">lag</span>(終値) <span class="sc">-</span><span class="dv">1</span> <span class="co"># リターンを計算</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(r_daily <span class="sc">&gt;</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="co"># 株式分割による異常値を除外</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">%&gt;%</span> <span class="co"># トヨタ自動車を抽出</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> r_daily) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="co"># 折れ線グラフ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>2021年の株式分割時の下落が異常な値となっていますが，それ以外の値動きは0を中心にランダムになっていることが分かります。</p>
+<section id="期待値と分散標準偏差の推定" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="期待値と分散標準偏差の推定"><span class="header-section-number">3.1</span> 期待値と分散(標準偏差)の推定</h2>
+<p>ある資産の価格やリターンを確率変数とみなしたとき，その背後にある<strong>確率分布</strong>の特徴を表す指標(つまり母数)を実際に観察することは不可能です。母集団のパラメータは観察不能なのです。 しかしながら，過去の観測値の集合である<strong>データ</strong>を用いて，確率分布の特徴やそれらの指標(期待値，分散，標準偏差)の<strong>推定値</strong>を求めることはできます。そこで，推定値を用いて確率変数の特徴を考察するようにします。</p>
+<p>例えば，データから作成される<strong>ヒストグラム</strong>(histogram)や度数分布表は確率変数を特徴付ける確率分布の仮想となります。 期待値，分散，標準偏差の推定値は，確率変数を特徴付ける母平均(期待値)，母分散，母標準偏差の仮想です。 この期待値，分散，標準偏差の推定値は，より具体的に<strong>標本平均</strong>(期待値)，<strong>標本分散</strong>，<strong>標本標準偏差</strong>とよばれます。 ただし「標本」という言葉はしばしば省略されることが多いので注意しましょう。</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(標本)単純平均
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>観測値<span class="math inline">x_k</span>の単純平均値は， <span class="math display">
+\begin{aligned}
+\bar X = \frac 1T \sum_{k=1}^T x_k
+\end{aligned}
+</span> となる。 ここで<span class="math inline">T</span>は観測値の数(これを<strong>標本サイズ</strong>という)を表します。</p>
+</div>
+</div>
+<p><span class="math inline">t-1</span>から<span class="math inline">t-T</span>までの期間における資産<span class="math inline">i</span>の標本期待(平均)リターン<span class="math inline">\bar r_i</span>は，</p>
+<p><span class="math display">
+\begin{align}
+\bar r_i = \frac 1T \sum _{k=1}^T r_{i,t-k}
+\end{align}
+</span> となります。</p>
+<p><code>R</code>の基本関数だと<code>mean()</code>で計算できます。 たとえば，トヨタの株式リターンの平均は次の通りです。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.000225068</code></pre>
+</div>
+</div>
+<p>このコードの意味するところは，<code>mean()</code>で引数のベクトルの平均を計算しています。 引数の<code>df$r_daily</code>とすることで，<code>df</code>というデータフレームの<code>r_daily</code>という変数をしていしています。 さらに，<code>[df$企業名 == "トヨタ自動車"]</code>と続けることで，<code>df</code>の<code>企業名</code>が<code>"トヨタ自動車"</code>となる行のみを抽出しています。 最後の<code>na.rm = TRUE</code>は，平均を出そうとするベクトルに欠損値が含まれている場合，その欠損値を除外して平均を計算することを意味しています。</p>
+<p>計算されたトヨタ自動車の期待リターンは，<code>2.145399e-05</code>となりました。 これは指数表記で科学研究よく利用される書き方です。 数式で表現すると，</p>
+<p><span class="math display">
+2.145399 \times 10^{-5}
+</span></p>
+<p>のことで，具体的には，<span class="math inline">0.00002145399</span>ということです。</p>
+<p>標本(不偏)分散は，観測値<span class="math inline">x_k</span>とその標本平均<span class="math inline">\bar X</span>からの乖離の単純平均である。</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+標本分散
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\begin{aligned}
+s^2 [X] = \frac{1}{T-1} \sum _{k=1} (x_k - \bar X)^2
+\end{aligned}
+</span></p>
+</div>
+</div>
+<p><span class="math inline">t-1</span>から<span class="math inline">t-T</span>までの期間における資産<span class="math inline">i</span>のリターンの標本分散<span class="math inline">s^2[r_i]</span>は，次の通りである。</p>
+<p><span class="math display">
+\begin{aligned}
+s^2[r_i] = \frac{1}{T-1} \sum_{k=1}^T ( r_{i,t-k} - \bar r_i)^2
+\end{aligned}
+</span></p>
+<p><code>R</code>の基本関数だと<code>var()</code>で計算できます。 たとえば，トヨタの株式リターンの標本分散は次の通りです。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0003337524</code></pre>
+</div>
+</div>
+<p>標本標準偏差は，分散の平方根です。</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+標本標準偏差
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\begin{align}
+s [X] = \sqrt{s^2[X]}
+\end{align}
+</span></p>
+</div>
+</div>
+<p><span class="math inline">t-1</span>から<span class="math inline">t-T</span>までの期間における資産<span class="math inline">i</span>のリターンの標本標準偏差<span class="math inline">s[r_i]</span>は，次の通りである。</p>
+<p><span class="math display">
+\begin{align}
+s [r_i] = \sqrt{s^2 [r_i]}
+\end{align}
+</span></p>
+<p><code>R</code>の基本関数で標準偏差を返す関数は<code>sd()</code>です。 たとえば，トヨタの株式リターンの標本標準偏差は次の通りです。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01826889</code></pre>
+</div>
+</div>
+<p>データから確率分布の特性を表す指標にはほかにも色々あります。 たとえば尖度や歪度などです。尖度(skewness)とは，確率分布の尖り具合を表す指標です。 歪度(kurtosis)とは，確率分布の裾の重さを表す指標です。</p>
+<p>多様な統計量から分布の特徴を捉えることも重要ですが、グラフの1つである<strong>ヒストグラム</strong>(histogram)は数値よりも直観的に分布の形を確認できるため，まず度数分布表やヒストグラムを作成することをお勧めします。 <code>R</code>の基本関数でヒストグラムを作成するには<code>hist()</code>を用います。 いままでと同様に、トヨタ自動車の株式リターンのヒストグラムを作成してみましょう。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>) <span class="co"># macの文字化け対策 winの人はコメントアウト</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>]) <span class="co"># 基本関数でヒストグラム</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>これでももちろんヒストグラムを作成することはできるのですが、 よりキレイなグラフを作成したいなら、<code>tidyverse</code>の<code>ggplot2</code>パッケージが便利です。 ただし，<code>ggplot2</code>で利用できるデータの型は<code>data.frame</code>型に限るので注意しましょう。</p>
+<p>まず、作図のためのデータを用意します。 トヨタ自動車の日次リターンと日付を抽出し、<code>data.frame</code>型に変換して，<code>df_toyota</code>という変数に格納します。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_toyota <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(date, r_daily)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>つぎに，<code>ggplot()</code>関数で作図してみます。 ggplot2パッケージでは，以下の要素を指定してグラフを作ります。</p>
+<ul>
+<li><code>ggplot()</code>関数でデータを指定</li>
+<li><code>aes()</code>関数でx軸とy軸の変数を指定</li>
+<li><code>geom_***</code>関数でグラフの種類を指定</li>
+</ul>
+<p>たとえば，<code>geom_histogram()</code>関数を用いるとヒストグラムを作成できます。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_toyota) <span class="sc">+</span> <span class="co"># データを指定</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> r_daily) <span class="sc">+</span>  <span class="co"># 変数を指定</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() <span class="co"># グラフを指定</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span>) <span class="sc">+</span> mystyle <span class="co"># x軸の範囲を指定</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"日次リターン"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"度数"</span>) <span class="co"># x軸とy軸のラベルを指定</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g) <span class="co"># 出力</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>正規分布のように左右対称の分布になっていることが分かります。</p>
+<p>ここまでの学習から，1変数の離散確率変数の特徴を表す指標として，期待値，分散，標準偏差を学習し，またデータの分布を視覚的に把握するグラフとしてヒストグラムの作り方を学習しました。 それぞれの定義，計算方法，作図方法を理解し，説明できるようになっていれば，この節は終了です。 次節から，2変数間の関係を表す統計量について学習します。</p>
+</section>
+<section id="共分散と相関係数の推定" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="共分散と相関係数の推定"><span class="header-section-number">3.2</span> 共分散と相関係数の推定</h2>
+<p>2つの確率変数間の特徴を表す指標として、<strong>共分散</strong>(covariance)と<strong>相関係数</strong>(correlation coefficient)を学習します。 いま，観察される確率変数<span class="math inline">X</span>と<span class="math inline">Z</span>の実現値の組<span class="math inline">(x_i, z_i), i = 1, \dots , N</span>がデータとして手元にあるとします。 ここで，<span class="math inline">N</span>は標本サイズを表しています。つまり<span class="math inline">N</span>個のデータの組があるということです。 この<span class="math inline">N</span>個のデータを座標平面上で表したものを<strong>散布図</strong>(scatter diagram)といいます。 たとえば、トヨタ自動車と日産自動車の株式リターンの散布図を作成してみましょう。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(df)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>この散布図から，トヨタ自動車と日産自動車の株式リターンはどちらかの株式リターンが増加したら，もう片方も増加する，という関係にあるといえます。 この関係の強さを数値で表したものが共分散や相関係数となります。 共分散は，次のように定義される。</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+共分散
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>共分散の定義は，</p>
+<p><span class="math display">
+\begin{aligned}
+s_{XZ} = \frac{1}{N} \sum_{i=1}^N (x_i - \bar X)(z_i - \bar Z)
+\end{aligned}
+</span></p>
+</div>
+</div>
+<p>共分散は，<span class="math inline">X</span>と<span class="math inline">Z</span>の標本平均からの乖離の単純平均となります。 図で示すと，次のようになります。 <!-- この薄い赤色の領域が共分散の計算で正となる部分で，薄い青色の領域が負となる部分となります。 --></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>,<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>この第1象限(右上)に位置する実現値の組<span class="math inline">(x_i, z_i)</span>は，<span class="math inline">x_i &gt; \bar X</span>かつ<span class="math inline">z_i &gt; \bar Z</span>であり，また第3象限(左下)の領域の点も<span class="math inline">x_i &lt; \bar X</span>かつ<span class="math inline">z_i &lt; \bar Z</span>であるため，<span class="math inline">(x_i - \bar X)(z_i - \bar Z)</span>は正の値をとります。 つまり，第1象限と第3象限の点の組み合わせが多いとき，共分散の値を正にする方向に寄与し，第2象限と第4象限は負に寄与します。 よってトヨタ自動車と日産自動車の株式リターンの共分散は正になることが予想されます。 では計算してみましょう。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_cov <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span> <span class="co"># 変数を選択</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span> <span class="co"># 横データに</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>() <span class="co"># 欠損値を削除</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>(cov_toyota_nissan <span class="ot">&lt;-</span> <span class="fu">cov</span>(df_cov<span class="sc">$</span>トヨタ自動車, df_cov<span class="sc">$</span>日産自動車))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0003021892</code></pre>
+</div>
+</div>
+<p>トヨタ自動車と日産自動車の株式リターンの共分散は3^{-4}となり，正の値であることが分かりました。 共分散は2変数間の関係をします尺度ですが、その値の大きさは単位に依存するという問題があります。 そこで、共分散を標準化したものが相関係数です。 相関係数は、共分散を各変数の標準偏差で割ったものです。</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+相関係数
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>相関係数の定義は，</p>
+<p><span class="math display">
+\begin{aligned}
+\rho_{XZ} = \frac{\mathbb{COV}[XZ]}{s[X] \times  s[Z]}
+\end{aligned}
+</span></p>
+</div>
+</div>
+<p>相関係数は変数の単位に依存せず、<span class="math inline">-1 \leq \rho_{XZ} \leq 1</span>の値をとる尺度で、2変数間の関係の強さを表します。 相関係数が<span class="math inline">1</span>に近いほど正の相関が強く、<span class="math inline">-1</span>に近いほど負の相関が強いといえます。 また、相関係数が<span class="math inline">0</span>に近いほど2変数間の関係は弱いといえます。</p>
+<p>標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">0.5</span>の場合、以下のような散布図になります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">0.90</span>の場合、以下のような散布図になります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fl">0.9</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">-0.6</span>の場合、以下のような散布図になります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.6</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>無相関，つまり標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">0</span>の場合、以下のような散布図になります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>注意しないといけないのは，相関係数が線形関係を前提とした尺度であることです。もし2変数の関係が非線形である場合は，相関係数は役に立ちません。 たとえば，いかのような有名な図があります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("datasauRus")</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"datasauRus"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> dataset) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>dataset, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>アニメーションにするとこうなります。 <code>gganimate</code>パッケージの<code>transition_states()</code>関数を用いてアニメーションを作成しています。</p>
+<div class="cell" data-hash="Hatakeda_Chap03_cache/html/unnamed-chunk-17_20c27b2ae01f610c241cf47315aed1bd">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y))<span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(dataset, <span class="dv">3</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-17-1.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>この散布図のデータの基本統計量はほぼ同じで，相関係数はほぼ<span class="math inline">0</span>のデータですが，実際に散布図として可視化してみると全く異なるデータであることがわかります。 つまりは，手元のデータは一度可視化して，そのデータの特徴をつかむことが重要なのです。</p>
+</section>
+<section id="変数のアフィン変換" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="変数のアフィン変換"><span class="header-section-number">3.3</span> 変数のアフィン変換</h2>
+<p>線形変換(linear transformation)とは，線形性をもつ変換で， <span class="math display">
+f(\boldsymbol{x}) = \boldsymbol{A}\boldsymbol{x}
+</span> と表し，線形変換は，</p>
+<ol type="1">
+<li>直線を維持したまま，</li>
+<li>原点を固定</li>
+</ol>
+<p>した変換となります。この線形変換<span class="math inline">f</span>に平行移動<span class="math inline">g</span>を合成した変換を<strong>アフィン変換</strong>(affine transformation)といいます。</p>
+<p>確率変数の一次変換あるいは線形変換、より一般的にはアフィン変換について学習します。 一般に確率変数<span class="math inline">X</span>のアフィン変換は以下のように表されます。</p>
+<p><span class="math display">
+\begin{aligned}
+y = f \circ g (\boldsymbol{x}) = \boldsymbol{A}\boldsymbol{x} + \boldsymbol{b}
+\end{aligned}
+</span></p>
+<p>以下では，ある確率変数<span class="math inline">X</span>に対して，行列<span class="math inline">\boldsymbol{A}</span>がスカラー<span class="math inline">a</span>，ベクトル<span class="math inline">\boldsymbol{b}</span>がスカラー<span class="math inline">b</span>の場合を考えます。 つまり， <span class="math display">
+Y = a X + b
+</span> である場合について考えます。 このとき，変換後の確率変数<span class="math inline">Y</span>の期待値と分散は以下のようになります。</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}[Y] &amp;= a\mathbb{E}[X] + b \\
+\mathbb{V}[Y] &amp;= a^2 \mathbb{V}[X] \\
+\mathbb{SD}[Y] &amp;= |a| \mathbb{SD}[X]
+\end{aligned}
+</span></p>
+<p>以下の例で確認してみましょう。 従業員9名の1ヶ月の労働時間<span class="math inline">X</span>が以下の表に示されている。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    従業員 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>,<span class="st">"E"</span>,<span class="st">"F"</span>,<span class="st">"G"</span>,<span class="st">"H"</span>,<span class="st">"I"</span>),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    労働時間 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">45</span>,<span class="dv">50</span>,<span class="dv">35</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">55</span>,<span class="dv">60</span>,<span class="dv">45</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(labor), <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">従業員</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: left;">I</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">労働時間</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">45</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">60</td>
+<td style="text-align: left;">70</td>
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">60</td>
+<td style="text-align: left;">45</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--
+|従業員      | A  | B  | C  | D  | E  | F  | G  | H  | I |
+|:-----------|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+|労働時間(h)  |30  |45  | 50 |35  |60  | 70 |55  | 60 | 45 |
+-->
+<p>総賃金<span class="math inline">Y_2</span>は毎月の固定給100千円に時間給<span class="math inline">Y_1</span>(時給3千円)を合わせた額として支給される。 すなわち，<span class="math inline">Y_2 = 100 + Y_1 = 100 + 3X</span>の関係が成立している。 したがって，各従業員の労働時間と賃金は以下の通りとなる。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> labor <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        時間給 <span class="ot">=</span> 労働時間 <span class="sc">*</span> <span class="dv">3</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        総賃金 <span class="ot">=</span> <span class="dv">100</span> <span class="sc">+</span> 時間給</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(labor), <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">従業員</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: left;">I</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">労働時間</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">45</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">60</td>
+<td style="text-align: left;">70</td>
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">60</td>
+<td style="text-align: left;">45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">時間給</td>
+<td style="text-align: left;">90</td>
+<td style="text-align: left;">135</td>
+<td style="text-align: left;">150</td>
+<td style="text-align: left;">105</td>
+<td style="text-align: left;">180</td>
+<td style="text-align: left;">210</td>
+<td style="text-align: left;">165</td>
+<td style="text-align: left;">180</td>
+<td style="text-align: left;">135</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">総賃金</td>
+<td style="text-align: left;">190</td>
+<td style="text-align: left;">235</td>
+<td style="text-align: left;">250</td>
+<td style="text-align: left;">205</td>
+<td style="text-align: left;">280</td>
+<td style="text-align: left;">310</td>
+<td style="text-align: left;">265</td>
+<td style="text-align: left;">280</td>
+<td style="text-align: left;">235</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>この表からわかることは，<span class="math inline">Y_1=3X</span>であることから，<span class="math inline">Y_1</span>の標本平均と標本標準偏差はともに<span class="math inline">X</span>の標本平均と標本標準偏差の3倍になっている，ということです。 つまり，標本平均と標本標準偏差はともに比例的に変化していることがわかります。</p>
+<!--
+|従業員       |   A| B   | C   | D   | E   | F  | G  | H  | I |
+|:------------|---:|----:|----:|----:|----:|---:|---:|---:|---:|
+|労働時間($X$)   | 30  | 45    | 50   | 35  |  60  | 70   | 55   | 60 | 45 |
+|時間給($Y_1$)   | 90  | 135  | 150  | 105  | 180  | 210  | 165  | 180 | 135 |
+|総賃金($Y_2$)   | 190  | 235  | 250  | 205  | 280  | 310 | 265  | 280 | 235 |
+ -->
+<!--
+|              |  労働時間$X$ |  時間給$Y_1$  |  総賃金$Y_2$ |
+|:-------------|------------:|-------------:|------------:|
+|標本平均      |  $50.00$     |  $150.00$     |  $250.00$    |
+|標本標準偏差  |  $12.75$     |  $38.25$      |  $38.25$ |
+-->
+<p>このデータを元に，労働時間，時間給，総賃金の標本平均や標本標準偏差を計算してみましょう。 <!--
+
+::: {.cell}
+
+```{.r .cell-code}
+labor_summary <- labor %>%
+    summarise(
+        平均_労働時間 = mean(労働時間),
+        標準偏差_労働時間 = sd(労働時間),
+        平均_時間給 = mean(時間給),
+        標準偏差_時間給 = sd(時間給),
+        平均_総賃金 = mean(総賃金),
+        標準偏差_総賃金 = sd(総賃金)
+    )
+knitr::kable(t(labor_summary), booktabs = TRUE, digits = 2)
+```
+
+::: {.cell-output-display}
+|                  |       |
+|:-----------------|------:|
+|平均_労働時間     |  50.00|
+|標準偏差_労働時間 |  12.75|
+|平均_時間給       | 150.00|
+|標準偏差_時間給   |  38.24|
+|平均_総賃金       | 250.00|
+|標準偏差_総賃金   |  38.24|
+:::
+:::
+
+この表を平均と標準偏差の列に分けて書くと、 --></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>labor_summary <span class="ot">&lt;-</span> labor <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        平均 <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">mean</span>(労働時間), <span class="fu">mean</span>(時間給), <span class="fu">mean</span>(総賃金)),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        標準偏差 <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sd</span>(労働時間), <span class="fu">sd</span>(時間給), <span class="fu">sd</span>(総賃金))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>labor_summary<span class="sc">$</span>変数名 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"労働時間"</span>, <span class="st">"時間給"</span>, <span class="st">"総賃金"</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>labor_summary <span class="ot">&lt;-</span> labor_summary <span class="sc">%&gt;%</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(変数名, 平均, 標準偏差)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(labor_summary, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">変数名</th>
+<th style="text-align: right;">平均</th>
+<th style="text-align: right;">標準偏差</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">労働時間</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">12.75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">時間給</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">38.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">総賃金</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">38.24</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>総賃金は<span class="math inline">Y_2 = 100 + Y_1</span>であるため，総賃金<span class="math inline">Y_2</span>の標本平均は時間給<span class="math inline">Y_1</span>の標本平均に<span class="math inline">100</span>を加えたものになります。 また総賃金<span class="math inline">Y_2</span>の標本標準偏差は、時間給<span class="math inline">Y_1</span>と同じである。</p>
+</section>
+<section id="変数の線形結合" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="変数の線形結合"><span class="header-section-number">3.4</span> 変数の線形結合</h2>
+<p>より一般的に線形結合について考えてみましょう。 いま、<span class="math inline">k</span>個の変数<span class="math inline">X_1,\dots ,X_k</span>から一次結合<span class="math inline">Y = c_0 + c_1 X_1 + \cdots + c_k X_k</span>で表される変数<span class="math inline">Y</span>において(ただし<span class="math inline">c</span>はパラメータ)，データから計算される変数<span class="math inline">Y</span>の標本平均，標本分散(標本標準偏差)に対して次の関係が成立します。</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}[Y] &amp;= \mathbb{E}[c_0 + c_1 X_1 + \cdots + c_k X_k ]\\
+            &amp;= c_0 + c_1 \mathbb{E}[X_1] + \cdots + c_k\mathbb{E}[ X_k ] \\
+            &amp;= c_0 + c_1 \bar{X}_1 + \cdots + c_k\bar{X}_k \\
+\mathbb{V}[Y] &amp;= \mathbb{V}[c_0 + c_1 X_1 + \cdots + c_k X_k ]\\
+&amp;= c_0 + \mathbb{V}[c_1 X_1] + \cdots + \mathbb{V}[c_k X_k ] + \sum _{i \not = j}^k  \sum _{j \not = i}^k c_i c_j s_{ij}(X_i,X_j)\\
+&amp;= c_0 + c_1^2\mathbb{V}[X_1] + \cdots + c_k^2\mathbb{V}[X_k ] + \sum _{i \not = j}^k  \sum _{j \not = i}^k c_i c_j s_{ij}(X_i,X_j)
+\mathbb{V}[Y] &amp;= a^2 \mathbb{V}[X] \\
+\mathbb{SD}[Y] &amp;= |a| \mathbb{SD}[X]
+\end{aligned}
+</span></p>
+<p><span class="math display">
+\begin{aligned}
+\bar Y &amp;= c_0 + c_1 \bar X_1 + \cdots + c_k \bar X_k \\
+s^2[Y] &amp;= c_1^2 s^2[X_1] + \cdots + c_k^2 s^2[X_k] + \sum _{i \not = j}^k \sum _{j \not = i}^k c_i c_j s_{ij}(X_i,X_j)
+\end{aligned}
+</span></p>
+<p>ここで，<span class="math inline">\bar X_i</span>，<span class="math inline">s^2[X_i]</span>, <span class="math inline">s_{ij}(X_i,X_j)</span>はそれぞれ標本平均，標本分散，標本共分散を表す。</p>
+<p><span class="math inline">k=2</span>の場合，</p>
+<p><span class="math display">
+\begin{align}
+\bar Y &amp;= c_0 + c_1 \bar X_1 + c_2 \bar X_2 \\
+s^2[Y] &amp;= c_1^2 s^2[X_1] + c_2^2 s^2[X_2] + 2 c_1 c_2 s_{12}(X_1,X_2)
+\end{align}
+</span> となる。</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">k=2</span>のケースで，<span class="math inline">Y=0.5X_1 + 0.5 X_2</span>の期待値および分散を求める。 ただし，<span class="math inline">\bar X_1 = 0.07</span>，<span class="math inline">s^2[X_1] = 1.48</span>，<span class="math inline">\bar X _2 = -0.02</span>，<span class="math inline">s^2 [X_2] = 1.46</span>である。</p>
+<ul>
+<li><p>無相関(<span class="math inline">s _{ij} (X_i,X_j) = 0</span>)のケース <span class="math display">
+  \begin{aligned}
+  \bar Y   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
+  s^2 [Y]  &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times 0 = 0.735
+  \end{aligned}
+  </span></p>
+<p><span class="math inline">Y</span>の分散は，<span class="math inline">X_1</span>と<span class="math inline">X_2</span>の分散よりも小さい。</p></li>
+<li><p>負の相関($s _{ij}(X_i,X_j) = -1.46 $)のケース</p>
+<p><span class="math display">
+  \begin{aligned}
+  \bar Y   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
+  s^2 [Y]  &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times -1.46 = 0.005
+  \end{aligned}
+  </span></p>
+<p><span class="math inline">Y</span>の分散は，<span class="math inline">X_1</span>と<span class="math inline">X_2</span>の分散よりも小さい。</p></li>
+</ul>
+<p><span class="math inline">X_1</span>と<span class="math inline">X_2</span>の共分散は，<span class="math inline">Y</span>の分散に影響を与える。</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Hatakeda_Chap02.html" class="pagination-link" aria-label="確率">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">確率</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Hatakeda_Chap04.html" class="pagination-link" aria-label="効用">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">効用</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>ファイナンス基礎ノート</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>本書は <a href="https://quarto.org/">Quarto</a> で作成されました。</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

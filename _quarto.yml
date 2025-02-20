@@ -1,0 +1,94 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "畠田 証券投資論"
+  author: "松浦総一"
+  date: "7/24/2023"
+  reader-mode: true
+  language: "ja"
+  sidebar:
+    alignment: left
+    style: "docked"
+    search: true
+  navbar:
+    search: true
+    background: "#a10000"
+    left:
+      - text: "ガイダンス"
+        file: index.qmd
+      - text: "確率"
+        file: Hatakeda_Chap02.qmd
+      - text: "統計"
+        file: Hatakeda_Chap03.qmd
+      - text: "選好"
+        file: Hatakeda_Chap04.qmd
+      - text: "ポートフォリオ理論"
+        file: Hatakeda_Chap05.qmd
+      - text: "CAPM"
+        file: Hatakeda_Chap06.qmd
+      - text: "裁定価格"
+        file: Hatakeda_Chap07.qmd
+      - text: "市場の効率性"
+        file: Hatakeda_Chap08.qmd
+      - text: "行動"
+        file: Hatakeda_Chap09.qmd
+
+    right:
+      - icon: house
+        href: https://so-ichi.com
+      - icon: github
+        href: https://github.com/
+        aria-label: GitHub
+      - icon: twitter
+        href: https://twitter.com/matsuura_rits
+        aria-label: Twitter
+  page-footer:
+    left: |
+      ファイナンス基礎ノート
+    right: |
+      本書は <a href="https://quarto.org/">Quarto</a> で作成されました。
+  cover-image: "cover.png"
+
+  chapters:
+    - index.qmd
+    - Hatakeda_Chap02.qmd
+    - Hatakeda_Chap03.qmd
+    - Hatakeda_Chap04.qmd
+    - Hatakeda_Chap05.qmd
+    - Hatakeda_Chap06.qmd
+    - Hatakeda_Chap07.qmd
+    - Hatakeda_Chap08.qmd
+    - Hatakeda_Chap09.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    html-math-method: katex
+    grid:
+      sidebar-width: 200px
+      body-width: 1200px
+
+  pdf:
+    documentclass: bxjsarticle
+    classoption:
+      - pandoc
+      - ja=standard
+      - jafont = hiragino-pron
+
+code-block-bg: "#F6F6F6"
+
+imagify:
+  header-includes:
+    \usepackage{tikz}
+    \usetikzlibrary{positioning,shapes,arrows,intersections}
+    \usetikzlibrary{calc,decorations.markings,through}
+
+
+execute:
+  message : false
+  warning: false
+
