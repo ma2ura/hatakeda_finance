@@ -1,5 +1,71 @@
 [
   {
+    "objectID": "Hatakeda_Chap02.html",
+    "href": "Hatakeda_Chap02.html",
+    "title": "2  確率",
+    "section": "",
+    "text": "2.1 期待値と分散(標準偏差)の推定\n東証株価指数(Tokyo Stock Price Index: TOPIX)の値動きから何を感じますか？ 以下では、TOPIXの動きを通して確率について学びます。\nまずは、Rの環境を整えましょう。 いくつかのパッケージを読み込み，グラフ作成時のスタイルを設定しておきます。\n次にTOPIXのデータを読み込みんで、TOPIXの動きを確認します。 ここで読み込んでいるstock_data.csvには，2007年4月2日から2023年4月28日にわたる，TOPIX，トヨタ自動車，日産自動車，本田技術研究所の株価の終値が日次で記録されています。\nここで，TOPIXとは，東京証券取引所一部上場株式銘柄を対象として東京証券取引所が1秒ごとに算出・公表している株式ポートフォリオ(東証一部の時価総額)を株価指数で表したものです。 他の株価指数として有名なものに日経株価平均があります。 TOPIXの値動きを確認してみましょう。\n2008年のリーマンショックで暴落した株価も2014年からはじまったアベノミクスで株価は上昇し，2016年のマイナス金利，2020年の新型コロナウイルスの感染拡大による株価の下落など，TOPIXの値動きは経済の動向を反映していることが分かります。\nファイナンスの分野では，資産価値(たとえば株価)それ自体より，資産価値の変化率(これをリターンといいます)で議論することも多いです。 先のTOPIXのデータを使って，TOPIXのリターンを計算して作図してみましょう。 まずリターン(return)の定義を確認します。\n配当を受け取った場合，配当落ち日次リターンを計算することになります。上の式から配当Dを引いて計算します。\n同様に，TOPIXの(配当落ち)リターンr^{TOPIX}_{i,t}は\n\\begin{aligned}\nr^{TOPIX}_{i,t} = \\frac{p_{i,t}}{p_{i,t-1}} - 1\n\\end{aligned}\nとなります。具体的には、次のような表になります。\n# リターンの計算\ndf &lt;- df %&gt;%\n  mutate(\n      TOPIX_return = TOPIX / lag(TOPIX) - 1 # TOPIXのリターン\n      )\n# 作表\ndf %&gt;%\n  select(date, TOPIX, TOPIX_return) %&gt;%\n  head(10) %&gt;%\n  knitr::kable(digits = 3, booktabs = TRUE)\n\n\n\n\ndate\nTOPIX\nTOPIX_return\n\n\n\n\n2007-04-02\n1682.49\nNA\n\n\n2007-04-03\n1704.32\n0.013\n\n\n2007-04-04\n1730.52\n0.015\n\n\n2007-04-05\n1720.72\n-0.006\n\n\n2007-04-06\n1717.08\n-0.002\n\n\n2007-04-09\n1738.10\n0.012\n\n\n2007-04-10\n1735.69\n-0.001\n\n\n2007-04-11\n1739.01\n0.002\n\n\n2007-04-12\n1726.18\n-0.007\n\n\n2007-04-13\n1705.50\n-0.012\nこのTOPIX_returnを折れ線グラフにすると以下のようになります。\nggplot(df) + aes(x = date, y = TOPIX_return) + geom_line() + mystyle",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "Hatakeda_Chap02.html#期待値と分散標準偏差の推定",
+    "href": "Hatakeda_Chap02.html#期待値と分散標準偏差の推定",
+    "title": "2  確率",
+    "section": "",
+    "text": "リターン\n\n\n\n資産iのt期のリターンr_{i,t}は，\n\n\\begin{aligned}\nr_{i,t} &= \\frac{D_{i,t} + (P_{i,t} - P_{i,t-1})}{P_{i,t-1}} \\\\\n%&= \\frac{D_{i,t}}{P_{i,t-1}} + \\frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}}\\\\\n&= \\frac{D_{i,t} - P_{i,t}}{P_{i,t-1}} -1\n\\end{aligned}\n\nここで\n\nDはインカム(配当，クーポン，地代など)\nPは資産価値(株価，債券価格，地価など)\niは企業，tは期を表す。\n\n\n\n\n\n\n\n\n\n\n配当落ち日次リターン\n\n\n\n株式iのt期における(配当落ち)日次リターンr_{i,t}は，\n\n\\begin{aligned}\nr_{i,t} = \\frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \\frac{P_{i,t}}{P_{i,t-1}} - 1\n\\end{aligned}\n\n株式の日次リターンを上の式に従って計算する場合，インカムゲインは考慮されていないことに留意しましょう。",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "Hatakeda_Chap02.html#確率変数",
+    "href": "Hatakeda_Chap02.html#確率変数",
+    "title": "2  確率",
+    "section": "2.2 確率変数",
+    "text": "2.2 確率変数\nこれまでの観測データの値から，TOPIX，とりわけTOPIXのリターンはランダムな(確率的な)値をとっていることが分かります。 つまり予測不可能なデータということです。 TOPIXの長期的な傾向(Trend)はある程度予想することは可能ですが，明日明後日のTOPIXの値といった短期的な動向を予測することはほぼ不可能です。 つまり，TOPIXやTOPIXのリターンは，ある定まった値というよりも，不確実な値をとる変数であると考えることができます。 このような変数を確率変数(random variables)とよびます。\n\n\n\n\n\n\n確率変数\n\n\n\nある試行(trial)によって起こりうる事象\\omegaに対して，ある実数値x = X(\\omega)が与えられ，それぞれの値が起こりうる確率密度関数p(x)が与えられる場合，\\omegaからxへの関数X:\\omega \\mapsto xを確率変数(random variable)とよびます。 確率変数という名前がついていますが，実は関数なのです。\n\n\n\n\n\n\n\n\n例：コイン投げ\n\n\n\n1枚のコインを投げるという試行から起こりうる事象を\\boldsymbol{H}と\\boldsymbol{T}で表わします。\n\n試行(trial)：コイン投げ\n起こりうる結果(事象)：\\omega =\\boldsymbol{H}, \\boldsymbol{T}の2つの事象が起こりうる。\n試行の結果：\\boldsymbol{H}の数x = \\{X(\\boldsymbol{H}), X(\\boldsymbol{T}) \\} = \\{ 1,0 \\}\n各結果が起こる確率：p(1) = p(0) = 0.5\n\n\n\n実現した\\boldsymbol{H}の数(つまり表が出た回数)をxとするとき，事象\\omegaからxへの関数X(コイン投げによる表の数)は確率変数である。\n厳密な表現は分かりにくいですね…。 直感的には，確率を持った変数として理解してください。 でも，しばらく厳密にいきましょう！\n\n\\begin{tikzpicture}\n\\draw (0,1) node [left]{$X$};\n\\draw (0,3) node {before coin toss};\n\\draw (4,3) node {after coin toss};\n\\draw [thick, -&gt;] (0,1) -- (4,2) node[pos=0.5, sloped, above]{$p(1)=0.5$};\n\\draw (4,2) node [right] {$\\omega = \\boldsymbol{H}, x=1$};\n\\draw [thick, -&gt;] (0,1) -- (4,0) node[pos=0.5, sloped, below]{$p(0)=0.5$};\n\\draw (4,0) node [right] {$\\omega = \\boldsymbol{T}, x=0$};\n\\end{tikzpicture}\n\n\n\n\nコイン投げの例\n\n\n\n\n確率は対応する値がどのくらいの割合で発生するかを表します。\n\ndf &lt;- data.frame(\n  coin &lt;- c(\"H\", \"T\"),\n  p &lt;- c(0.5, 0.5)\n)\ng &lt;- ggplot(df) + aes(x = coin, y = p) + geom_col()\ng &lt;- g + ylim(0,1) + xlab(\"確率\") + ylab(\"結果\") + mystyle\nprint(g)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2枚コイン投げの例\n\n\n\n\n試行 (trial) : コイン投げ\n起こりうる事象 : $= { (H,H),(H,T),(T,H),(T,T)} $\n試行結果 : 表の数 x = \\{ X(H,H),X(H,T),X(T,H),X(T,T)\\} = \\{2,1,0\\}\n各結果が起こる確率 : p(2) = 0.25，p(1) = 0.25 ，p(0) = 0.25\n\n表の数をxとするとき，\\omegaからxへの関数X:\\omega \\mapsto x(2枚のコイン投げによる表の数)は確率変数です。\n\n\n\n\\begin{tikzpicture}\n\\draw (0,2) node [left]{$X$};\n\\draw (0,5) node {before coin toss};\n\\draw (4,5) node {after coin toss};\n\\draw [thick, -&gt;] (0,2) -- (4,4) node[pos=0.5, sloped,  above]{$p(2)=0.25$};\n\\draw (4,4) node [right] {$\\omega = (\\boldsymbol{H},\\boldsymbol{H}), x=2$};\n\\draw [thick, -&gt;] (0,2) -- (4,2) node[pos=0.5, above]{$p(1)=0.5$};\n\\draw (4,2) node [right] {$\\omega = (\\boldsymbol{H},\\boldsymbol{T}), x=1$};\n\\draw [thick, -&gt;] (0,2) -- (4,0) node[pos=0.5, sloped, below]{$p(0)=0.25$};\n\\draw (4,0) node [right] {$\\omega = (\\boldsymbol{T},\\boldsymbol{T}), x=0$};\n\\end{tikzpicture}\n\n\n\n\nコイン投げの例\n\n\n\n\n\ndf &lt;- data.frame(\n  coin &lt;- c(\"HH\", \"HT\",\"TT\"),\n  p &lt;- c(0.25, 0.5,0.25)\n)\ng &lt;- ggplot(df) + aes(x = coin, y = p) + geom_col()\ng &lt;- g + ylim(0,1) + xlab(\"確率\") + ylab(\"結果\") + mystyle\nprint(g)\n\n\n\n\n\n\n\n\n先の例と同様に、各確率の対応する値がどれくらいの割合で発生するかを表しています。 この確率分布は確率変数の特徴を表しています。\n\n\n\n\n\n\n練習問題\n\n\n\nコインを4枚投げたときに出た表の数をxで表すとします。 このとき，以下の(1)〜(4)について答えなさい。\n\n起こりうる事象\n試行結果\n各結果が起こる確率\n確率分布\n\n\n\n確率変数により，われわれは不確実性を伴う現象を記述できるようになりました。 確率変数という用語は，結果を観測する前の状況を指し示しています。 まとめると、\n\nこれからどうなるかを表しているのが確率変数です。\n試行後において，確率変数がとって具体的なxの値は実現値(realized value)といいます。\n確率変数に2つの側面(観測前と観測後)があり，これらを区別する必要があります。\n確率変数Xが取りうる値xに応じて，\n\n離散型確率変数(discrete random variables)\n連続型確率変数(continuous random variables)\n\nに区別することができます。\n\n当面は，離散型確率変数に着目します。\n(金融)資産を購入をする際，われわれはその資産を将来価値を確認した上で，購入の意思決定をしているのではありません。 その資産について将来においてどのような値が実現するのか知らないうちに，購入の意思決定を行います。 つまり，資産の価値は不確実性を伴う，したがって資産の価値は確率変数である。 このとき，どのようなことを考慮して購入の意思決定を行うのか？\n意思決定者は，不確実性に直面しているとき，実現するかもしれない特定の値よりも，実現する値の起こりやすさ，つまり確率分布に関心を持っている。 一般に，確率分布の特徴の中でも，中心とばらつきに関心を持つ傾向がある。 確率分布を意識しない人，具体的には宝くじの賞金(景品)にのみ関心をもつような人はたいてい失敗する結末が！！\n先に示した確率分布の特徴(中心とばらつき)は，指標として統計学的に定義されています。\n\n\n\n\n\n\n期待値\n\n\n\n期待値(expectation)とは、確率変数Xがとりうる値の加重平均であり、確率分布の中心の位置を表します。 起こりうる値をx_k，その確率をp_kとすると，確率変数Xの期待値の公式は以下ようになります。 \n\\begin{aligned}\n\\mathbb{E} [X] := \\sum _{k} p_k x_k\n\\end{aligned}\n\n\n\n\n\n\n\n\n\n分散\n\n\n\n分散(variance)とは、確率変数Xがとりうる値と期待値との乖離の期待値であり，確率分布のばらつきの程度を表します。 確率変数Xの分散の公式は以下ようになります。 \n\\begin{aligned}\n\\mathbb{V} [X] &:= \\mathbb{E} \\left [ (X - \\mathbb{E} [X])^2 \\right ] \\\\\n&=  \\sum _{k} p_k ( x_k - \\mathbb{E}[X] )^2\n\\end{aligned}\n\n\n\n\n\n\n\n\n\n標準偏差\n\n\n\n標準偏差(standard deviation)は分散の平方根であり，次のように定義されます。 \n\\begin{aligned}\n\\sigma [X] := \\sqrt{\\mathbb{V}[X]}\n\\end{aligned}\n\n\n\n先に示した確率分布の特徴は，分布の中心である期待値と，ばらつきの程度である分散(あるいは標準偏差)で表現されます。 ばらつきの程度の指標である分散は，不確実性の程度を表しており，ファイナンスではリスク(risk)とよびます。 重要なことですが、上で説明した期待値，分散，標準偏差といった指標はパラメータ(定数)であり，確率変数ではありません。\n\n\n\n\n\n\n例5：資産投資\n\n\n\n投資資産AとBを運用して得られるリターンが以下の通りとします。\n\n\n\n投資資産A\n\n\n\n\n\n\n\n\n\n状態\n1\n2\n3\n4\n5\n\n\n確率\n40\\%\n20\\%\n20\\%\n10\\%\n10\\%\n\n\nリターン\n-100\\%\n-75\\%\n-50\\%\n-25\\%\n1000\\%\n\n\n\n\n\n\n投資資産B\n\n\n\n\n\n\n\n\n\n状態\n1\n2\n3\n4\n5\n\n\n確率\n40\\%\n20\\%\n20\\%\n10\\%\n10\\%\n\n\nリターン\n-15\\%\n0\\%\n15\\%\n10\\%\n25\\%\n\n\n\n\n\n\n\n投資資産A\n投資資産B\n\n\n\n\n\\mathbb{E}[X]\n32.5\n0.5\n\n\n\\mathbb{SD}[X]\n323.5\n14.4\n\n\n\n\n\n\n\n\n\n\n\n練習問題\n\n\n\n上記設定のもとで、2つの資産が生み出すリターンの期待値と分散を求めてください。\n\n\n\n\n資産A\n資産B\n\n\n\n\n\\mathbb{E}[X]\n32.5\n(\\quad)\n\n\n\\mathbb{V}[X]\n323.5\n(\\quad)\n\n\n\n\n\n\n\n\n\n\n\n解答\n\n\n\n\n\n定義通りに、投資資産Aの期待値と分散を求めます。\n\n\n\n\n資産A\n資産B\n\n\n\n\n\\mathbb{E}[X]\n32.5\n(\\quad)\n\n\n\\mathbb{V}[X]\n323.5\n(\\quad)\n\n\n\n\n\\begin{aligned}\n\\mathbb{E}[A] &= 0.4 \\times (-100) + 0.2 \\times (-75) + 0.2 \\times (-50) \\\\\n&+ 0.1 \\times (-25) + 0.1 \\times 1000\\\\\n       &= 32.50\\% \\\\\n\\mathbb{V}[A]&= 0.4(-100 - 32.5)^2 + 0.2(-75 - 32.5)^2 + 0.2(-50 - 32.5)^2 \\\\\n&+ 0.1(-25 - 32.5)^2 + 0.1(1000 - 32.5)^2 \\\\\n        &= 104631.25\\\\\n\\sigma[A] & = \\sqrt{104631.25} = 323.47\\%\n\\end{aligned}\n\n\n\n\n\n2.2.1 2つの確率変数どうしの関係\n2つの確率変数の関連性は，共分散と相関係数で表します。 以下では、それぞれの定義とともに、その統計量の特徴を説明します。\n\n\n\n\n\n\n共分散\n\n\n\n確率変数X_iとX_jとの共分散(covariance)を\\mathbb{COV}[X_i,X_j]で表す。 \n\\begin{aligned}\n\\mathbb{COV} [X_i,X_j] &= \\sigma _{ij} \\\\\n&= \\mathbb{E} \\left[ (X_i - \\mathbb{E}[X_i])(X_j - \\mathbb{E}[X_j]) \\right]\\\\\n&= \\sum _k p_k (x_{i,k} - \\mathbb{E} [X_i])(x_{j,k} - \\mathbb{E} [X_j])\n\\end{aligned}\n\n\n\n定義より，i=jのとき，\\mathbb{COV} [X_i,X_j] = \\mathbb{V}[X_i]となります。 つまり分散は共分散の特殊ケース(i=jのケース)となります。\n\n\n\n\n\n\n相関係数\n\n\n\n2変数の関係を表すもう1つの尺度が相関係数(correlation)です。 X_iとX_jとの相関係数を\\rho _{ij}で表すとします。なぜか伝統的にギリシャ文字のロー\\rhoで相関係数を表すことが多いので覚えておきましょう。 相関係数は，2つの変数の共分散をそれぞれの標準偏差の積で除した値です。こうすることで，共分散の値が変数の単位に依存しない値となります。\n\n\\begin{aligned}\n\\rho _{ij} \\equiv \\frac{\\mathbb{COV}[X_i,X_j]}{\\sigma [X_i] \\sigma [X_j]}\n\\end{aligned}\n\n\n相関係数は，-1 \\leq \\rho _{ij} \\leq 1の値をとります。\n相関係数は，X_iとX_jとの線形関係の程度を表します\n相関係数の符号を決定づけるのは，\\mathbb{COV}[X_i, X_j]の符号です。\n相関係数の大きさは，共分散の大きさだけでなく，\\sigma [X_i]と\\sigma [X_j]の大きさに依存します。\n\n\n\n\n\n\n\n\n\n問題2：投資資産\n\n\n\n上記の投資資産の数値例に基づいて，投資資産AとBの共分散および相関係数を求めよ。\n\n\\sigma _{AB}\n\\rho _{AB}",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "Hatakeda_Chap02.html#演算規則",
+    "href": "Hatakeda_Chap02.html#演算規則",
+    "title": "2  確率",
+    "section": "2.3 演算規則",
+    "text": "2.3 演算規則\n\n2.3.1 期待値の演算規則\n期待値の演算について，次のような法則が成り立っています。 重要な法則ですので、一つ一つ確認しながら理解するようにしてください。\nまず，Xが確率変数ではなく，定数・パラメータであるとき， \n\\begin{aligned}\n\\mathbb{E} [X] = X\n\\end{aligned}\n\nたとえば，\n\n\\begin{aligned}\n\\mathbb{E} [10] = 10\n\\end{aligned}\n\n同様に，aがパラメータや代表値(期待値，分散，標準偏差)であるとき，\n\n\\begin{aligned}\n\\mathbb{E} [a] &= a\\\\\n\\mathbb{E} [ \\mathbb{E}[X]] &= \\mathbb{E}[X]\\\\\n\\mathbb{E} [\\mathbb{V} [X]] &= \\mathbb{V}[X]\n\\end{aligned}\n\nとなります。\n次に、Xが確率変数であり，bがパラメータであるとき， \n\\begin{aligned}\n\\mathbb{E} [bX] &= b \\mathbb{E}[X] \\\\\n\\mathbb{E} [\\mathbb{E}[X] X] &= \\mathbb{E}[X] \\times \\mathbb{E}[X] = \\mathbb{E}[X]^2\n\\end{aligned}\n\nパラメータは期待値の外に出すことができます。 したがって，\n\n\\begin{aligned}\n\\mathbb{E} [X]^2 \\not = \\mathbb{E} [X^2]\n\\end{aligned}\n\nXとYが確率変数であるとき，\n\n\\begin{aligned}\n\\mathbb{E}[X+Y] = \\mathbb{E} [X] + \\mathbb{E} [Y]\n\\end{aligned}\n\nのように，期待値を分解することができます。\naが確定変数であり，Xが確率変数であり，bがパラメータであるとき，\n\n\\begin{aligned}\n\\mathbb{E} [a + bX] = \\mathbb{E} [a] + \\mathbb{E} [bX] = a + b \\mathbb{E}[X]\n\\end{aligned}\n\nが成り立ちます。\n\n\n2.3.2 分散の演算規則\nXが確率変数ではなく，確定変数であるとき，\n\n\\begin{aligned}\n\\mathbb{V}[X] = 0\n\\end{aligned}\n\n\n\n\n\n\n\n証明\n\n\n\n\n\n分散の定義は \n\\begin{aligned}\n\\mathbb{V}[X] = \\sum _k p_k (x_i - \\mathbb{E}[X])\n\\end{aligned}\n\nです。いまXが確定変数であるため，x_i = Xかつ\\mathbb{E}[X] = Xとなります。 つまり\\mathbb{V}[X] = 0となります。\n\n\n\n同様に，aがパラメータや代表値(期待値・分散・標準偏差)であるとき， \n\\begin{aligned}\n\\mathbb{V} [a] &= 0 , & \\mathbb{V} [\\mathbb{E}[X]] &= 0,&  \\mathbb{V}[\\mathbb{V}[X]] &= 0\n\\end{aligned}\n が成立する。\nXが確率変数であり，bが定数やパラメータであるとき， \n\\begin{aligned}\n\\mathbb{V}[bX] &\\equiv \\mathbb{E} \\left [(bX -E[bx])^2 \\right ] \\qquad \\Leftarrow \\mathbb{E}[bX] = b\\mathbb{E}[X] \\nonumber \\\\\n         &= \\mathbb{E} \\left[(bX - b \\mathbb{E}[X])^2\\right ]\\nonumber \\\\\n         &= \\mathbb{E} \\left[b^2 (X-\\mathbb{E}[X])^2\\right ] \\qquad \\Leftarrow \\mathbb{E}[bX] = b\\mathbb{E}[X]\\nonumber \\\\\n         &= b^2 \\mathbb{E} \\left[(X-\\mathbb{E}[X])^2\\right ] \\qquad \\Leftarrow \\mathbb{V} [X] = \\mathbb{E} \\left [(X-\\mathbb{E}[X])^2 \\right ]\\nonumber \\\\\n         &= b^2 \\mathbb{V} [X]\n\\end{aligned}\n\nとなります。 パラメータは分散の外に出すことができるが，期待値のケースと異なり二乗されます。\n\n\\begin{aligned}\n\\mathbb{V}[X] &\\equiv \\mathbb{E} \\left [ (X - \\mathbb{E} [X])^2 \\right ] \\nonumber  \\\\\n        &=\\mathbb{E} \\left [ X^2 - 2X\\mathbb{E}[X] + \\mathbb{E}[X]^2 \\right ] \\qquad \\Leftarrow \\text{(9)式を適用し，期待値を分解}\\nonumber \\\\\n        &=\\mathbb{E} \\left [ X^2 \\right ] - \\mathbb{E} \\left [ 2 X \\mathbb{E}[X] \\right ] + \\mathbb{E} \\left [ \\mathbb{E}[X]^2 \\right ]\\nonumber \\\\\n        &=\\mathbb{E} \\left [ X^2 \\right ] - 2 X \\mathbb{E} [X] \\mathbb{E}[X] + \\mathbb{E} [X]^2\\nonumber \\\\\n        &=\\mathbb{E} \\left [ X^2 \\right ] - \\mathbb{E} [X]^2\n\\end{aligned}\n\n\n\n2.3.3 共分散の演算規則\n共分散については，以下の法則が成り立ちます。\n\n\\begin{aligned}\n\\mathbb{COV}[X_i,X_j] = \\sigma _{ij} &\\equiv \\mathbb{E}  \\left [(X_i - \\mathbb{E}[X_i])(X_j - \\mathbb{E}[X_j]) \\right ] \\nonumber \\\\\n&= \\mathbb{E}[X_i X_j - X_i \\mathbb{E}[X_j] - \\mathbb{E}[X_i]X_j + \\mathbb{E}[X_i]\\mathbb{E}[X_j]]\\nonumber \\\\\n&= \\mathbb{E}[X_i X_j] - \\mathbb{E}[X_i \\mathbb{E}[X_j]] - \\mathbb{E}[\\mathbb{E}[X_i]X_j] + \\mathbb{E}[\\mathbb{E}[X_i]\\mathbb{E}[X_j]]\\nonumber  \\\\\n&= \\mathbb{E}[X_i X_j] - \\mathbb{E}[X_i] \\mathbb{E}[X_j] - \\mathbb{E}[X_i]\\mathbb{E}[X_j] + \\mathbb{E}[X_i]\\mathbb{E}[X_j] \\nonumber \\\\\n&= \\mathbb{E}[X_i X_j] - \\mathbb{E}[X_i] \\mathbb{E}[X_j]\n\\end{aligned}\n\n\\mathbb{COV}[X_i,X_j]=0つまり無相関であるなら，次の関係が成り立つ。\n\n\\begin{aligned}\n\\mathbb{E}[X_iX_j] = \\mathbb{E}[X_i]\\mathbb{E}[X_j]\n\\end{aligned}",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "Hatakeda_Chap02.html#確率変数のアフィン変換",
+    "href": "Hatakeda_Chap02.html#確率変数のアフィン変換",
+    "title": "2  確率",
+    "section": "2.4 確率変数のアフィン変換",
+    "text": "2.4 確率変数のアフィン変換\n確率変数Xがアフィン変換(affine transformation)をする場合を考えます。\n\n\\begin{aligned}\nY = a + bX\n\\end{aligned}\n\nによって確率変数Xが確率変数Yに変換されたとします。 ここでaとbはパラメータです。 このとき，次の関係が成立します。\nまず期待値については\n\n\\begin{aligned}\n\\mathbb{E}[Y] &= \\mathbb{E}[a + bX] \\nonumber \\\\\n       &= \\mathbb{E}[a] + \\mathbb{E}[bX] \\nonumber\\\\\n       &= a + b \\mathbb{E}[X]\n\\end{aligned}\n となり，分散については， \n\\begin{aligned}\n\\mathbb{V}[Y]\n        &= \\mathbb{E}[(Y - \\mathbb{E}[Y])^2]      \\nonumber \\\\\n        &= \\mathbb{E}[(a + bX - (a+b\\mathbb{E}[X]))^2] \\nonumber\\\\\n        &= \\mathbb{E}[(bX - b \\mathbb{E}[X])^2]   \\nonumber\\\\\n        &= \\mathbb{E}[b^2 (X - \\mathbb{E}[X])^2]  \\nonumber\\\\\n        &= b^2 \\mathbb{E}[ (X - \\mathbb{E}[X])^2] \\nonumber\\\\\n        &= b^2 \\mathbb{V}[X]\n\\end{aligned}\n\nとなり，標準偏差については，\n\n\\begin{aligned}\n\\sigma _Y = \\sqrt{\\mathbb{V}[Y]} = |b| \\sqrt{\\mathbb{V}[X]}\n\\end{aligned}\n\nとなります。\n\n\n\n\n\n\nアフィン変換\n\n\n\nある工事が完了する日数とその確率が次のように予測されているとします。\n\n\n\n日数X\n1\n2\n3\n4\n5\n\n\n\n\n確率p(x)\n5\\%\n20\\%\n35\\%\n30\\%\n10\\%\n\n\n\nこのとき\n\n\\begin{aligned}\n\\mathbb{E}[X] &\\equiv \\sum _k p_k x_k \\text{より} & \\mathbb{E}[X] &= 3.2\\\\\n\\mathbb{V} [X] &\\equiv \\sum _k p_k (x_k - \\mathbb{E}[X])^2 \\text{より} & \\mathbb{V} [X] &= 1.06\n\\end{aligned}\n\nこの工事では，固定費として100万円，変動費として1日あたり10万円の費用がかかるとすると，総費用は，\n\n\\begin{aligned}\nY = 100  + 10 X\n\\end{aligned}\n\nとして表される。 このとき，総費用の期待値および分散は，\n\n\\begin{aligned}\n\\mathbb{E}[Y] &= 100 + 10 \\mathbb{E}[X] = 100 + 10 \\times 3.2 = 132\\\\\n\\mathbb{V}[Y] &= 10^2 \\mathbb{V}[X] = 100  \\times 1.06 = 106\n\\end{aligned}\n\nとなる。\n\n\nより一般的に，k個の確率変数X_i, i = 1, \\dots ,kの一次結合Y = c_0 + c_1 X_1 + \\cdots + c_k X_kで表される確率変数Yにおいて，次の関係が成立する。 ここで，c_0,c_1, \\dots, c_kはパラメータで，定数です。\n\n\\begin{aligned}\n\\mathbb{E}[Y] &= c_0 + c_1 \\mu _1 + \\cdots c_k \\mu_k\\\\\n\\mathbb{V} [Y] &= c_1^2 \\sigma_1^2 + \\cdots +  c_k^2 \\sigma _k^2 + \\sum _{i\\not = j}^k \\sum_{j \\not = i}^k c_i c_j \\sigma _{ij}\n\\end{aligned}\n\nここで，\\mu _i = \\mathbb{E}[X_i]，\\sigma _i^2 = \\mathbb{V}[X_i]，\\sigma _{ij} = \\mathbb{COV}[X_i,X_j]である。\n例えば，k=2のケースでは，\n\n\\begin{align}\n\\mathbb{E}[Y]   &= c_0 + c_1 \\mu _1 + c_2 \\mu_2\\\\\n\\mathbb{V} [Y] &= c_1^2 \\sigma_1^2 + c_2^2 \\sigma _2^2 + 2 c_1 c_2 \\sigma _{12}\n\\end{align}\n\n\n\n\n\n\n\n問題3\n\n\n\nk=3のケースにおける確率変数Yの期待値と分散を求めなさい。\n\n\n\n\n\n\n\n\n例8\n\n\n\nk=2のケースで，Y=0.5X_1 + 0.5 X_2の期待値および分散を求めます。 ただし，\\mu _1 = 0.07，\\sigma _1^2 = 1.48，\\mu_2 = -0.02，\\sigma _2^2 = 1.46とします。\n\n無相関(\\rho _{12} = 0, $[X_1,X_2] =0 $)のケース \n\\begin{aligned}\n  \\mathbb{E}[Y]   &= 0.5 \\times 0.07 + 0.5 \\times - 0.02 = 0.025\\\\\n  \\mathbb{V} [Y] &= 0.5^2 \\times 1.48 + 0.5^2 \\times 1.46 + 2 \\times 0.5 \\times 0.5 \\times 0 = 0.735\n  \\end{aligned}\n\nYの分散は，X_1とX_2の分散よりも小さい。\n負の相関($_{12} = -0.99 [X_1,X_2] = -1.46 $)のケース \n\\begin{aligned}\n  \\mathbb{E}[Y]   &= 0.5 \\times 0.07 + 0.5 \\times - 0.02 = 0.025\\\\\n  \\mathbb{V} [Y] &= 0.5^2 \\times 1.48 + 0.5^2 \\times 1.46 + 2 \\times 0.5 \\times 0.5 \\times -1.46 = 0.005\n  \\end{aligned}\n\nYの分散は，X_1とX_2の分散よりも小さい。\n\nX_1とX_2の共分散は，Yの分散に影響を与える。",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
+    "objectID": "Hatakeda_Chap02.html#共分散の重要公式",
+    "href": "Hatakeda_Chap02.html#共分散の重要公式",
+    "title": "2  確率",
+    "section": "2.5 共分散の重要公式",
+    "text": "2.5 共分散の重要公式\n共分散について，以下の公式が成立する。\n\n\\begin{aligned}\n\\mathbb{COV}[X, a + bY] & \\equiv \\mathbb{E}[(X - \\mathbb{E}[X])](a+bY - \\mathbb{E}[a + bY])\\nonumber \\\\\n                &= \\mathbb{E}[(X - \\mathbb{E}[X])(b(Y - \\mathbb{E}[Y]))]\\nonumber \\\\\n                &= b \\mathbb{E}[ (X - \\mathbb{E}[X])(Y - \\mathbb{E}[Y])]\\nonumber \\\\\n                &= b \\mathbb{COV}[X,Y]\n\\end{aligned}\n\n同様に，上の式の発展系として，以下が成立する。\n\n\\begin{aligned}\n\\mathbb{COV}[X_1, c_0 + c_1 X_1 + \\cdots + c_k X_k] = c_1 \\mathbb{V}[X_1] + \\cdots + c_2\\mathbb{COV}[X_1,X_2] + \\cdots + c_k \\mathbb{COV}[X_1,X_2]\n\\end{aligned}\n\nここで，\\mathbb{COV}[X,X] = \\mathbb{E}[ ( X - \\mathbb{E}[X])(X- \\mathbb{E}[X]) ] = \\mathbb{V}[X]であることを思い出そう。",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>確率</span>"
+    ]
+  },
+  {
     "objectID": "Hatakeda_Chap03.html",
     "href": "Hatakeda_Chap03.html",
     "title": "3  統計",
@@ -26,7 +92,7 @@
     "href": "Hatakeda_Chap03.html#共分散と相関係数の推定",
     "title": "3  統計",
     "section": "3.2 共分散と相関係数の推定",
-    "text": "3.2 共分散と相関係数の推定\n2つの確率変数間の特徴を表す指標として、共分散(covariance)と相関係数(correlation coefficient)を学習します。 いま，観察される確率変数XとZの実現値の組(x_i, z_i), i = 1, \\dots , Nがデータとして手元にあるとします。 ここで，Nは標本サイズを表しています。つまりN個のデータの組があるということです。 このN個のデータを座標平面上で表したものを散布図(scatter diagram)といいます。 たとえば、トヨタ自動車と日産自動車の株式リターンの散布図を作成してみましょう。\n\nview(df)\ndf %&gt;%\n    filter(企業名 == \"トヨタ自動車\" | 企業名 == \"日産自動車\") %&gt;%\n    select(企業名, date, r_daily) %&gt;%\n    pivot_wider(names_from = 企業名, values_from = r_daily) %&gt;%\n    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() + mystyle\n\n\n\n\n\n\n\n\nこの散布図から，トヨタ自動車と日産自動車の株式リターンはどちらかの株式リターンが増加したら，もう片方も増加する，という関係にあるといえます。 この関係の強さを数値で表したものが共分散や相関係数となります。 共分散は，次のように定義される。\n\n\n\n\n\n\n共分散\n\n\n\n共分散の定義は，\n\n\\begin{aligned}\ns_{XZ} = \\frac{1}{N} \\sum_{i=1}^N (x_i - \\bar X)(z_i - \\bar Z)\n\\end{aligned}\n\n\n\n共分散は，XとZの標本平均からの乖離の単純平均となります。 図で示すと，次のようになります。 \n\ndf %&gt;%\n    filter(企業名 == \"トヨタ自動車\" | 企業名 == \"日産自動車\") %&gt;%\n    select(企業名, date, r_daily) %&gt;%\n    pivot_wider(names_from = 企業名, values_from = r_daily) %&gt;%\n    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() + mystyle +\n    geom_vline(xintercept = mean(df$r_daily[df$企業名 == \"トヨタ自動車\"], na.rm = TRUE), linetype = \"dashed\",color = \"red\") +\n    geom_hline(yintercept = mean(df$r_daily[df$企業名 == \"日産自動車\"], na.rm = TRUE), linetype = \"dashed\", color = \"red\")\n\n\n\n\n\n\n\n\nこの第1象限(右上)に位置する実現値の組(x_i, z_i)は，x_i &gt; \\bar Xかつz_i &gt; \\bar Zであり，また第3象限(左下)の領域の点もx_i &lt; \\bar Xかつz_i &lt; \\bar Zであるため，(x_i - \\bar X)(z_i - \\bar Z)は正の値をとります。 つまり，第1象限と第3象限の点の組み合わせが多いとき，共分散の値を正にする方向に寄与し，第2象限と第4象限は負に寄与します。 よってトヨタ自動車と日産自動車の株式リターンの共分散は正になることが予想されます。 では計算してみましょう。\n\ndf_cov &lt;- df %&gt;%\n    filter(企業名 == \"トヨタ自動車\" | 企業名 == \"日産自動車\") %&gt;%\n    select(企業名, date, r_daily) %&gt;% # 変数を選択\n    pivot_wider(names_from = 企業名, values_from = r_daily) %&gt;% # 横データに\n    drop_na() # 欠損値を削除\n(cov_toyota_nissan &lt;- cov(df_cov$トヨタ自動車, df_cov$日産自動車))\n\n[1] 0.0003021892\n\n\nトヨタ自動車と日産自動車の株式リターンの共分散は3^{-4}となり，正の値であることが分かりました。 共分散は2変数間の関係をします尺度ですが、その値の大きさは単位に依存するという問題があります。 そこで、共分散を標準化したものが相関係数です。 相関係数は、共分散を各変数の標準偏差で割ったものです。\n\n\n\n\n\n\n相関係数\n\n\n\n相関係数の定義は，\n\n\\begin{aligned}\n\\rho_{XZ} = \\frac{\\mathbb{COV}[XZ]}{s[X] \\times  s[Z]}\n\\end{aligned}\n\n\n\n相関係数は変数の単位に依存せず、-1 \\leq \\rho_{XZ} \\leq 1の値をとる尺度で、2変数間の関係の強さを表します。 相関係数が1に近いほど正の相関が強く、-1に近いほど負の相関が強いといえます。 また、相関係数が0に近いほど2変数間の関係は弱いといえます。\n標本相関係数\\rho _{XZ}が0.5の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- 0.5 * X + rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n標本相関係数\\rho _{XZ}が0.90の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- 0.9 * X + rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n標本相関係数\\rho _{XZ}が-0.6の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- -0.6 * X + rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n無相関，つまり標本相関係数\\rho _{XZ}が0の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n注意しないといけないのは，相関係数が線形関係を前提とした尺度であることです。もし2変数の関係が非線形である場合は，相関係数は役に立ちません。 たとえば，いかのような有名な図があります。\n\nggplot(datasaurus_dozen) + aes(x = x, y = y, color = dataset) + geom_point() + facet_wrap(~dataset, ncol = 3) + theme_bw() + theme(panel.grid = element_blank()) + mystyle\n\n\n\n\n\n\n\n\nアニメーションにするとこうなります。 gganimateパッケージのtransition_states()関数を用いてアニメーションを作成しています。\n\nggplot(datasaurus_dozen, aes(x = x, y = y))+\n  geom_point() + theme_minimal() +\n  transition_states(dataset, 3, 1)\n\n\n\n\n\n\n\n\nこの散布図のデータの基本統計量はほぼ同じで，相関係数はほぼ0のデータですが，実際に散布図として可視化してみると全く異なるデータであることがわかります。 つまりは，手元のデータは一度可視化して，そのデータの特徴をつかむことが重要なのです。",
+    "text": "3.2 共分散と相関係数の推定\n2つの確率変数間の特徴を表す指標として、共分散(covariance)と相関係数(correlation coefficient)を学習します。 いま，観察される確率変数XとZの実現値の組(x_i, z_i), i = 1, \\dots , Nがデータとして手元にあるとします。 ここで，Nは標本サイズを表しています。つまりN個のデータの組があるということです。 このN個のデータを座標平面上で表したものを散布図(scatter diagram)といいます。 たとえば、トヨタ自動車と日産自動車の株式リターンの散布図を作成してみましょう。\n\ndf %&gt;%\n    filter(企業名 == \"トヨタ自動車\" | 企業名 == \"日産自動車\") %&gt;%\n    select(企業名, date, r_daily) %&gt;%\n    pivot_wider(names_from = 企業名, values_from = r_daily) %&gt;%\n    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() + mystyle\n\n\n\n\n\n\n\n\nこの散布図から，トヨタ自動車と日産自動車の株式リターンはどちらかの株式リターンが増加したら，もう片方も増加する，という関係にあるといえます。 この関係の強さを数値で表したものが共分散や相関係数となります。 共分散は，次のように定義される。\n\n\n\n\n\n\n共分散\n\n\n\n共分散の定義は，\n\n\\begin{aligned}\ns_{XZ} = \\frac{1}{N} \\sum_{i=1}^N (x_i - \\bar X)(z_i - \\bar Z)\n\\end{aligned}\n\n\n\n共分散は，XとZの標本平均からの乖離の単純平均となります。 図で示すと，次のようになります。 \n\ndf %&gt;%\n    filter(企業名 == \"トヨタ自動車\" | 企業名 == \"日産自動車\") %&gt;%\n    select(企業名, date, r_daily) %&gt;%\n    pivot_wider(names_from = 企業名, values_from = r_daily) %&gt;%\n    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() + mystyle +\n    geom_vline(xintercept = mean(df$r_daily[df$企業名 == \"トヨタ自動車\"], na.rm = TRUE), linetype = \"dashed\",color = \"red\") +\n    geom_hline(yintercept = mean(df$r_daily[df$企業名 == \"日産自動車\"], na.rm = TRUE), linetype = \"dashed\", color = \"red\")\n\n\n\n\n\n\n\n\nこの第1象限(右上)に位置する実現値の組(x_i, z_i)は，x_i &gt; \\bar Xかつz_i &gt; \\bar Zであり，また第3象限(左下)の領域の点もx_i &lt; \\bar Xかつz_i &lt; \\bar Zであるため，(x_i - \\bar X)(z_i - \\bar Z)は正の値をとります。 つまり，第1象限と第3象限の点の組み合わせが多いとき，共分散の値を正にする方向に寄与し，第2象限と第4象限は負に寄与します。 よってトヨタ自動車と日産自動車の株式リターンの共分散は正になることが予想されます。 では計算してみましょう。\n\ndf_cov &lt;- df %&gt;%\n    filter(企業名 == \"トヨタ自動車\" | 企業名 == \"日産自動車\") %&gt;%\n    select(企業名, date, r_daily) %&gt;% # 変数を選択\n    pivot_wider(names_from = 企業名, values_from = r_daily) %&gt;% # 横データに\n    drop_na() # 欠損値を削除\n(cov_toyota_nissan &lt;- cov(df_cov$トヨタ自動車, df_cov$日産自動車))\n\n[1] 0.0003021892\n\n\nトヨタ自動車と日産自動車の株式リターンの共分散は3^{-4}となり，正の値であることが分かりました。 共分散は2変数間の関係をします尺度ですが、その値の大きさは単位に依存するという問題があります。 そこで、共分散を標準化したものが相関係数です。 相関係数は、共分散を各変数の標準偏差で割ったものです。\n\n\n\n\n\n\n相関係数\n\n\n\n相関係数の定義は，\n\n\\begin{aligned}\n\\rho_{XZ} = \\frac{\\mathbb{COV}[XZ]}{s[X] \\times  s[Z]}\n\\end{aligned}\n\n\n\n相関係数は変数の単位に依存せず、-1 \\leq \\rho_{XZ} \\leq 1の値をとる尺度で、2変数間の関係の強さを表します。 相関係数が1に近いほど正の相関が強く、-1に近いほど負の相関が強いといえます。 また、相関係数が0に近いほど2変数間の関係は弱いといえます。\n標本相関係数\\rho _{XZ}が0.5の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- 0.5 * X + rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n標本相関係数\\rho _{XZ}が0.90の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- 0.9 * X + rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n標本相関係数\\rho _{XZ}が-0.6の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- -0.6 * X + rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n無相関，つまり標本相関係数\\rho _{XZ}が0の場合、以下のような散布図になります。\n\nX &lt;- rnorm(1000, mean = 0, sd = 1)\nZ &lt;- rnorm(1000, mean = 0, sd = 1)\ndf &lt;- data.frame(X, Z)\nggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle\n\n\n\n\n\n\n\n\n注意しないといけないのは，相関係数が線形関係を前提とした尺度であることです。もし2変数の関係が非線形である場合は，相関係数は役に立ちません。 たとえば，いかのような有名な図があります。\n\nggplot(datasaurus_dozen) + aes(x = x, y = y, color = dataset) + geom_point() + facet_wrap(~dataset, ncol = 3) + theme_bw() + theme(panel.grid = element_blank()) + mystyle\n\n\n\n\n\n\n\n\nアニメーションにするとこうなります。 gganimateパッケージのtransition_states()関数を用いてアニメーションを作成しています。\n\nggplot(datasaurus_dozen, aes(x = x, y = y))+\n  geom_point() + theme_minimal() +\n  transition_states(dataset, 3, 1)\n\n\n\n\n\n\n\n\nこの散布図のデータの基本統計量はほぼ同じで，相関係数はほぼ0のデータですが，実際に散布図として可視化してみると全く異なるデータであることがわかります。 つまりは，手元のデータは一度可視化して，そのデータの特徴をつかむことが重要なのです。",
     "crumbs": [
       "ガイダンス",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>統計</span>"
@@ -165,94 +231,6 @@
     ]
   },
   {
-    "objectID": "Hatakeda_Chap06.html",
-    "href": "Hatakeda_Chap06.html",
-    "title": "6  CAPM",
-    "section": "",
-    "text": "6.1 CAPM第1定理\n資本資産価格モデル(Capital Asset Pricing Model)\n「接点ポートフォリオ＝マーケット・ポートフォリオ」\n\\Rightarrow マーケット・ポートフォリオは効率的なポートフォリオ",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CAPM</span>"
-    ]
-  },
-  {
-    "objectID": "Hatakeda_Chap06.html#capm第1定理",
-    "href": "Hatakeda_Chap06.html#capm第1定理",
-    "title": "6  CAPM",
-    "section": "",
-    "text": "マーケット・ポートフォリオ： 市場に供給されるすべての証券からなるポートフォリオ。 マーケット・ポートフォリオにおける各証券の供給額の比率は，全ての証券の時価総額： M = \\sum _i X_i (ここで，X_i は第 i 証券の時価総額)に対する各証券の時価総額：X_i ，すなわち， w_i = \\frac{X_i}{M} となる。\n分離定理のもとで，投資家は安全資産と接点ポートフォリオの組み合わせによって最適なポートフォリオを選択する。このとき，効率的なポートフォリオである接点ポートフォリオは，すべての投資家で同一。\n市場が均衡する状態(需要と供給が一致する)では，\n\n\n\n\nマーケット・ポートフォリオとして，実際にはTOPIXが用いられる。",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CAPM</span>"
-    ]
-  },
-  {
-    "objectID": "Hatakeda_Chap06.html#資本市場線",
-    "href": "Hatakeda_Chap06.html#資本市場線",
-    "title": "6  CAPM",
-    "section": "6.2 資本市場線",
-    "text": "6.2 資本市場線\n\n効率的フロンティア上にあるポートフォリオの期待収益率のリスク(標準偏差)との関係を資本市場線(capital market line: CML)と呼ぶ。 資本市場線は， \nu_p = r_f + \\underbrace{\\frac{\\mu_M - r_f}{\\sigma_m}}_{\\rlap{マーケット\\\\リスクの価格}} \\times \\sigma_p\n\n\nで与えられる。1\nここで，\\mu_M ： マーケット・ポートフォリオの期待リターン，\\sigma _M : その標準偏差",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CAPM</span>"
-    ]
-  },
-  {
-    "objectID": "Hatakeda_Chap06.html#ベータ",
-    "href": "Hatakeda_Chap06.html#ベータ",
-    "title": "6  CAPM",
-    "section": "6.3 ベータ",
-    "text": "6.3 ベータ\nR_i : 証券 i のリターン，R_M : マーケット・ポートフォリオのリターンとするとき，証券 i のベータとは次の式で定義される。\n\n\\beta _i = \\frac{\\sigma _{i,M}}{\\sigma _M^2} = \\rho \\frac{\\sigma_i}{\\sigma _M}\n\n同様に，ポートフォリオ P のベータは\n\n\\beta_p \\equiv \\frac{\\sigma_{p,M}}{\\sigma_M^2} = \\rho \\frac{\\sigma_p}{\\sigma_M}\n\nベータはパラメータ！",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CAPM</span>"
-    ]
-  },
-  {
-    "objectID": "Hatakeda_Chap06.html#footnotes",
-    "href": "Hatakeda_Chap06.html#footnotes",
-    "title": "6  CAPM",
-    "section": "",
-    "text": "V.の(27)式を参照↩︎",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CAPM</span>"
-    ]
-  },
-  {
-    "objectID": "Hatakeda_Chap07.html",
-    "href": "Hatakeda_Chap07.html",
-    "title": "7  裁定価格",
-    "section": "",
-    "text": "裁定価格(Arbitrage Pricing)",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>裁定価格</span>"
-    ]
-  },
-  {
-    "objectID": "Hatakeda_Chap08.html",
-    "href": "Hatakeda_Chap08.html",
-    "title": "8  市場の効率性",
-    "section": "",
-    "text": "市場の効率性(market efficiency)",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>市場の効率性</span>"
-    ]
-  },
-  {
-    "objectID": "Hatakeda_Chap09.html",
-    "href": "Hatakeda_Chap09.html",
-    "title": "9  行動ファイナンス",
-    "section": "",
-    "text": "行動ファイナンス(behavioral finance theory)",
-    "crumbs": [
-      "ガイダンス",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>行動ファイナンス</span>"
-    ]
-  },
-  {
     "objectID": "Hatakeda_Chap05.html#基金分離定理",
     "href": "Hatakeda_Chap05.html#基金分離定理",
     "title": "5  ポートフォリオ理論",
@@ -261,6 +239,28 @@
     "crumbs": [
       "ガイダンス",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>ポートフォリオ理論</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "畠田 証券投資論",
+    "section": "",
+    "text": "1 はじめに\nこの資料は，神戸大学経営学研究科の畠田先生が立命館大学で開講した「証券投資論」という科目の資料をもとに，ファイナンスの基礎を学習するためのノートとして松浦が再編集したものです。 この資料の元ネタは，証券アナリスト協会が証券アナリスト試験の教材として推奨している教科書である\nです。 この教科書は，ファイナンスの基礎理論を体系的に学ぶことができる良書ですので，この資料とともに教科書も随時参照するようにしてください。 ファイナンスの基礎を理解するためには，確率論と統計学の基礎知識が必要です。そのための参考書として以下のものがオススメです。\n1は統計学の基礎を学ぶ教科書・問題集となっていて，独学に最適な教科書です。 2と3は統計学の基礎をしっかり学びたい人向けの，数学的な厳密性を重視した教科書です。 4は計量経済学の基礎から応用まで幅広く，かつ厳密に学ぶための教科書です。 5と6は4と同様に計量経済学の基礎を学ぶ教科書ですが，5はパネルデータ分析に詳しく，6は時系列分析に詳しいです。\nこの教科書では触れられていない行動ファイナンスの知識については，\nで補います。",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>はじめに</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#授業のテーマと到達目標",
+    "href": "index.html#授業のテーマと到達目標",
+    "title": "畠田 証券投資論",
+    "section": "1.1 1. 授業のテーマと到達目標",
+    "text": "1.1 1. 授業のテーマと到達目標\nファイナンスは，大きく分けると，金融市場(証券市場)とコーポレートファイナンスの分野に大別されます。 金融市場は金融資産への投資問題に焦点を向けることで，リターンとリスクの関係，ポートフォリオ選択，資産の価格づけ，リスクマネジメントを明らかにしようとする分野です。 本講義では，先ず，それらの内容について詳細に解説を行うことで，伝統的な証券投資論の考え方を理解します。 そして，その上で，最近，積極的に議論されている行動ファイナンスの考え方についての解説を行います。",
+    "crumbs": [
+      "ガイダンス",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>はじめに</span>"
     ]
   }
 ]

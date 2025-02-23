@@ -13,7 +13,7 @@ mystyle <- list (#  ggplotのテーマ
   theme(
     text = element_text(
       size=16,  #  フォントサイズ
-     family = "HiraKakuProN-W3" # ヒラギノフォント
+      family = "HiraKakuProN-W3" #
     )
   )
 )

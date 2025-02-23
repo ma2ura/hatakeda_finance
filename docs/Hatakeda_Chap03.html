@@ -571,12 +571,11 @@ s [r_i] = \sqrt{s^2 [r_i]}
 <h2 data-number="3.2" class="anchored" data-anchor-id="共分散と相関係数の推定"><span class="header-section-number">3.2</span> 共分散と相関係数の推定</h2>
 <p>2つの確率変数間の特徴を表す指標として、<strong>共分散</strong>(covariance)と<strong>相関係数</strong>(correlation coefficient)を学習します。 いま，観察される確率変数<span class="math inline">X</span>と<span class="math inline">Z</span>の実現値の組<span class="math inline">(x_i, z_i), i = 1, \dots , N</span>がデータとして手元にあるとします。 ここで，<span class="math inline">N</span>は標本サイズを表しています。つまり<span class="math inline">N</span>個のデータの組があるということです。 この<span class="math inline">N</span>個のデータを座標平面上で表したものを<strong>散布図</strong>(scatter diagram)といいます。 たとえば、トヨタ自動車と日産自動車の株式リターンの散布図を作成してみましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(df)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -889,8 +888,6 @@ Y = a X + b
 
 
 
-
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -921,8 +918,6 @@ knitr::kable(t(labor_summary), booktabs = TRUE, digits = 2)
 
 :::
 :::
-
-
 
 
 
