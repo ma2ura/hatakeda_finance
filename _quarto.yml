@@ -28,12 +28,12 @@ book:
         file: Hatakeda_Chap05.qmd
       - text: "CAPM"
         file: Hatakeda_Chap06.qmd
-      - text: "裁定価格"
-        file: Hatakeda_Chap07.qmd
-      - text: "市場の効率性"
-        file: Hatakeda_Chap08.qmd
-      - text: "行動"
-        file: Hatakeda_Chap09.qmd
+      # - text: "裁定価格"
+      #   file: Hatakeda_Chap07.qmd
+      # - text: "市場の効率性"
+      #   file: Hatakeda_Chap08.qmd
+      # - text: "行動"
+      #   file: Hatakeda_Chap09.qmd
 
     right:
       - icon: house
