@@ -468,13 +468,14 @@ $$
 \end{aligned}
 $${#eq-25}
 
-(@eq-24) 式を $\omega _1$ に関して解いて(@eq-25) 式に代入
+(@eq-24) 式を $\omega _1$ に関して解いて(@eq-25) 式に代入する。
 
 $(\mu _p , \sigma _p)$ の関係は双曲線である。
 後で見るように，相関係数の大きさに依存して双曲線の形状は変化する。
 以下で投資可能領域を図示する。
 
 ```{r diversified_investment}
+#| code-fold: true
 # text p.65
 # 設定
 rho = 0
@@ -505,42 +506,16 @@ df <- tibble(
   "1,0")
   )
 
-ggplot(df) + aes(y = sigma_p, x = mu_p) + geom_line() + geom_point(data = filter(df, label != ""), aes(label = label), size = 2) + coord_flip() + ylim(0, 0.2) + xlim(0, 0.14) + theme_classic()
+g <- ggplot(df) + aes(y = sigma_p, x = mu_p) + geom_line() + geom_point(data = filter(df, label != ""), aes(label = label), size = 2) + coord_flip() + ylim(0, 0.2) + xlim(0, 0.14) +
+  labs(title = "投資可能領域のプロット", x = "期待リターン", y = "リスク（標準偏差）") + theme_classic(base_family = "HiraKakuPro-W3") # Add labels for clarity
+# 資産Aと資産Bの文字を追加し，hiragino Kaku Gothic ProNはMacの場合のフォント指定
+g <- g +
+  geom_text(aes(label = "資産A"), x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(aes(label = "資産B"), x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(aes(label = "無相関のケース"), x = 0.09, y = 0.16, size = 4, family = "HiraKakuPro-W3") # Specify the font family for consistency
+print(g)
 ```
-
-
-
-```{r}
-# 必要なライブラリを読み込む
-
-# 資産のパラメータ
-sigma_A <- 0.18  # 資産Aの標準偏差
-sigma_B <- 0.12  # 資産Bの標準偏差
-mu_A <- 0.12     # 資産Aの期待リターン
-mu_B <- 0.06     # 資産Bの期待リターン
-
-# 重みω1の範囲（0から1まで100点）
-omega1 <- seq(0, 1, length.out = 100)
-
-# 期待リターンの計算
-mu_p <- mu_A * omega1 + mu_B * (1 - omega1)
-
-# 標準偏差（リスク）の計算（相関係数ρ=0のケース）
-sigma_p <- sqrt(sigma_A^2 * omega1^2 + sigma_B^2 * (1 - omega1)^2)
-
-# データフレームの作成
-data <- data.frame(sigma_p, mu_p)
-
-# ggplot2でプロット
-ggplot(data, aes(x = sigma_p, y = mu_p)) +
-  geom_line(color = "magenta", size = 1) +  # 双曲線を描画
-  labs(
-    x = expression(sigma[p]),  # x軸ラベル
-    y = expression(mu[p]),  # y軸ラベル
-    title = "ポートフォリオのリスク・リターン関係"
-  ) + xlim(0,1) + ylim(0,0.2) +
-  theme_minimal()
-```
+<!---
 
 ```{r tikz-example4, engine='tikz', out.width='90%'}
 #| echo: false
@@ -562,13 +537,231 @@ ggplot(data, aes(x = sigma_p, y = mu_p)) +
 \end{tikzpicture}
 ```
 
-曲線上の点が投資可能領域(ポートフォリオは実現リターンと標準偏差の組み合わせとなる)。
-安全資産(リターン $r_f$ )と1つのリスク資産(期待リターン $\mu _1$ ,その分散 $\sigma ^2_1$ )か
-らなるポートフォリオの期待リターン $\mu _p$ とその分散 $\sigma ^2_p$ は,
+--->
 
+曲線上の点が**投資可能領域**(ポートフォリオは実現リターンと標準偏差の組み合わせとなる)。
+
+2つのリスク資産のリターンの相関係数がリスク低減効果に与える影響を図示すると，次のようになる。
+相関係数がマイナス1に近づくほど，左に弓なりになる。つまり**ポートフォリオのリスク低減効果が高いことを意味する。
+
+```{r diversified_investment2}
+#| code-fold: true
+# 相関係数のリスト
+rho_values <- c(-1, 0, 1)
+
+# 資産の標準偏差と期待リターン
+sigma_A <- 0.18  # 資産Aの標準偏差
+sigma_B <- 0.12  # 資産Bの標準偏差
+mu_A <- 0.12     # 資産Aの期待リターン
+mu_B <- 0.06     # 資産Bの期待リターン
+
+# 保有比率
+wa <- seq(0, 1, by = 0.1)
+wb <- 1 - wa
+
+# データフレーム作成
+df <- expand.grid(wa = wa, rho = rho_values) |>
+  mutate(
+    wb = 1 - wa,
+    mu_p = wa * mu_A + wb * mu_B,
+    sigma_p = sqrt(wa^2 * sigma_A^2 + wb^2 * sigma_B^2 + 2 * rho * wa * wb * sigma_A * sigma_B),
+    rho_label = factor(rho, levels = c(-1, 0, 1), labels = c("相関 = -1", "相関 = 0", "相関 = 1"))
+  )
+
+# waが0.1刻みのデータを抽出
+label_points <- df |>
+  filter(wa %in% seq(0, 1, by = 0.1))
+
+# プロット
+g <- ggplot(df, aes(x = mu_p, y = sigma_p, color = rho_label)) +
+  geom_line(size = 1) +
+  geom_point(data = label_points, aes(x = mu_p, y = sigma_p, color = rho_label), size = 2) +  # 凡例と色を統一
+  coord_flip() +
+  scale_y_continuous(limits = c(0, 0.21), expand = c(0, 0)) +  # 0以下の余白を削除
+  scale_x_continuous(limits = c(0, 0.15), expand = c(0, 0)) + # x軸の余白も削除
+  labs(
+    title = "投資可能領域のプロット（相関の影響）",
+    x = "期待リターン",
+    y = "リスク（標準偏差）",
+    color = "相関係数"
+  ) +
+  theme_classic(base_family = "HiraKakuPro-W3") +
+  theme(legend.position = "bottom")  # 凡例を下に配置
+
+# 資産Aと資産B、無相関ケースのラベル追加
+# g <- g +
+#   geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+#   geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+#   geom_text(label = "無相関のケース", x = 0.09, y = 0.19, size = 4, family = "HiraKakuPro-W3")
+
+# 描画
+print(g)
+```
+
+3つのリスク資産のみのケースを考える。
+リスク資産が増えれば増えるほど，左に弓なりになる。
+つまりポートフォリオのリスク低減効果が大きくなる。
+
+```{r three_risk_assets}
+#| code-fold: true
+rho <- 0  # 相関係数（仮にすべての組み合わせで無相関とする）
+
+# 資産の標準偏差と期待リターン
+sigma_A <- 0.18  # 資産Aの標準偏差
+sigma_B <- 0.12  # 資産Bの標準偏差
+sigma_C <- 0.07  # 資産Cの標準偏差
+
+mu_A <- 0.12     # 資産Aの期待リターン
+mu_B <- 0.06     # 資産Bの期待リターン
+mu_C <- 0.04     # 資産Cの期待リターン
+
+# 保有比率（wa, wb の組み合わせを作成し、wc = 1 - wa - wb を計算）
+wa_wb_grid <- expand.grid(wa = seq(0, 1, by = 0.05), wb = seq(0, 1, by = 0.05)) |>
+  mutate(wc = 1 - wa - wb) |>
+  filter(wc >= 0)  # wcが負にならないように制限
+
+# 3資産ポートフォリオの計算
+df <- wa_wb_grid |>
+  mutate(
+    mu_p = wa * mu_A + wb * mu_B + wc * mu_C,
+    sigma_p = sqrt(
+      wa^2 * sigma_A^2 + wb^2 * sigma_B^2 + wc^2 * sigma_C^2 +
+      2 * rho * (wa * wb * sigma_A * sigma_B + wb * wc * sigma_B * sigma_C + wc * wa * sigma_C * sigma_A)
+    )
+  )
+
+# プロット
+g <- ggplot(df, aes(x = mu_p, y = sigma_p)) +
+  geom_point(alpha = 0.3, color = "blue") +  # 3資産の投資可能領域を点でプロット
+  coord_flip() +
+  scale_y_continuous(limits = c(0, 0.21), expand = c(0, 0)) +  # 0以下の余白を削除
+  scale_x_continuous(limits = c(0, 0.15), expand = c(0, 0)) + # x軸の余白も削除
+  labs(
+    title = "投資可能領域のプロット（資産A, B, C）",
+    x = "期待リターン",
+    y = "リスク（標準偏差）"
+  ) +
+  theme_classic(base_family = "HiraKakuPro-W3") +
+  theme(legend.position = "none")  # 凡例を非表示（点のプロットのため）
+
+# 資産A, B, Cのラベル追加
+g <- g +
+  geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産C", x = 0.04, y = 0.08, size = 4, family = "HiraKakuPro-W3")
+
+# 描画
+print(g)
+```
+
+3つのリスク資産への投資可能領域は，曲線上ではなく曲線に囲まれた領域(集合)となる。ただこのうち，同じリスク(同じ標準偏差)の下で最も高い期待リターンを実現するポートフォリオが最適となるため，双曲線の上半分が望ましいポートフォリオとなり，これを**効率的フロンティア**と呼ぶ。
+
+```{r}
+#| code-fold: true
+
+rho <- 0  # 相関係数（仮にすべての組み合わせで無相関とする）
+
+# 資産の標準偏差と期待リターン
+sigma_A <- 0.18  # 資産Aの標準偏差
+sigma_B <- 0.12  # 資産Bの標準偏差
+sigma_C <- 0.07  # 資産Cの標準偏差
+
+mu_A <- 0.12     # 資産Aの期待リターン
+mu_B <- 0.06     # 資産Bの期待リターン
+mu_C <- 0.04     # 資産Cの期待リターン
+
+# 保有比率（wa, wb の組み合わせを作成し、wc = 1 - wa - wb を計算）
+wa_wb_grid <- expand.grid(wa = seq(0, 1, by = 0.01), wb = seq(0, 1, by = 0.01)) |>
+  mutate(wc = 1 - wa - wb) |>
+  filter(wc >= 0)  # wcが負にならないように制限
+
+# 3資産ポートフォリオの計算
+df <- wa_wb_grid |>
+  mutate(
+    mu_p = wa * mu_A + wb * mu_B + wc * mu_C,
+    sigma_p = sqrt(
+      wa^2 * sigma_A^2 + wb^2 * sigma_B^2 + wc^2 * sigma_C^2 +
+      2 * rho * (wa * wb * sigma_A * sigma_B + wb * wc * sigma_B * sigma_C + wc * wa * sigma_C * sigma_A)
+    )
+  )
+
+# 効率的フロンティアを特定（sigma_p が同じなら mu_p が最大のものを選択）
+
+# プロット
+g <- ggplot(df, aes(x = mu_p, y = sigma_p)) +
+  geom_point(alpha = 0.1, color = "blue") +  # 3資産の投資可能領域を点でプロット
+  # geom_point(data = efficient_frontier, aes(x = mu_p, y = sigma_p), color = "red", size = 2) +  # 効率的フロンティアの点を赤色で表示
+  coord_flip() +
+  scale_y_continuous(limits = c(0, 0.21), expand = c(0, 0)) +  # 0以下の余白を削除
+  scale_x_continuous(limits = c(0, 0.15), expand = c(0, 0)) + # x軸の余白も削除
+  labs(
+    title = "投資可能領域と効率的フロンティア（資産A, B, C）",
+    x = "期待リターン",
+    y = "リスク（標準偏差）"
+  ) +
+  theme_classic(base_family = "HiraKakuPro-W3") +
+  theme(legend.position = "none")  # 凡例を非表示（点のプロットのため）
+
+g <- g +
+  geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産C", x = 0.04, y = 0.08, size = 4, family = "HiraKakuPro-W3")
+
+# 描画
+print(g)
+```
+
+
+```{r}
+# 変数の定義
+rho <- 0  # 無相関
+sigma_A <- 0.18
+sigma_B <- 0.12
+sigma_C <- 0.07
+
+mu_A <- 0.12
+mu_B <- 0.06
+mu_C <- 0.04
+
+# 共分散行列の作成（対角行列）
+cov_matrix <- matrix(c(sigma_A^2, 0, 0,
+                       0, sigma_B^2, 0,
+                       0, 0, sigma_C^2),
+                     nrow = 3, byrow = TRUE)
+
+# ポートフォリオの生成
+set.seed(123)
+n_portfolios <- 5000
+weights <- matrix(runif(3 * n_portfolios), ncol = 3)
+weights <- weights / rowSums(weights)  # 各行の合計を1にする
+
+# 期待リターンとリスクを計算
+port_returns <- weights %*% c(mu_A, mu_B, mu_C)
+port_risks <- sqrt(rowSums((weights %*% cov_matrix) * weights))
+
+# データフレームに格納
+portfolio_data <- tibble(Return = port_returns, Risk = port_risks)
+
+# 効率的フロンティアのプロット
+ggplot(portfolio_data, aes(x = Risk, y = Return)) +
+  geom_point(alpha = 0.5, color = "blue") +
+  labs(title = "Efficient Frontier",
+       x = "Risk (Standard Deviation)",
+       y = "Expected Return") +
+  scale_x_continuous(limits = c(0, 0.21), expand = c(0, 0)) +  # 0以下の余白を削除
+  scale_y_continuous(limits = c(0, 0.15), expand = c(0, 0)) + # x軸の余白も削除
+  theme_minimal()
+```
+
+### 複数資産のケース：安全資産も含む
+
+安全資産(リターン $r_f$ )と1つのリスク資産(期待リターン $\mu _1$ ,その分散 $\sigma ^2_1$ )か
+らなるポートフォリオの期待リターン $\mu _p$ は，
 $$
 \mu _p = \omega _1 \mu _1 + (1 - \omega _1)r_f = (\mu _1 - r_f)\omega _1 + r_f
 $$ {#eq-5-10}
+
+となり，その分散 $\sigma ^2_p$ は,
 
 $$
 \begin{aligned}
@@ -580,21 +773,28 @@ $$
 \end{aligned}
 $$ {#eq-5-11}
 
-(@eq-5-10) 式と (@eq-5-11}) 式より
-$$
-\mu_p = \left ( \frac{\mu _1- r_f}{\sigma_1} \right ) \sigma _p +r_f
-$$
 となる。
+つぎに，(@eq-5-11 ) 式を変形する。
+$\sigma_1>0$ かつ $\omega_1 >0$ であるため，$\sigma _p = \omega _1 \sigma _1$ となり，これより $\omega_1 = \sigma _p / \sigma_1$ と変形できる。この $\omega_1$ を(@eq-5-10 ) 式に代入し整理する。
+
+$$
+\begin{aligned}
+\mu_p &= (\mu_1 - r_f) \omega _1 + r_f \\
+      &= (\mu_1 - r_f) \frac{\sigma_p}{\sigma_1} + r_f \\
+      &= \left ( \frac{\mu _1- r_f}{\sigma_1} \right ) \sigma _p +r_f
+\end{aligned}
+$$
+となり，ポートフォリオの期待リターン $\mu _p$ は，無リスク利子率 $r_f$ を切片，傾きを $\frac{\mu _1 - r_f}{\sigma _1}$ とする $\sigma_p$ の線形関数となる。
 
 
 以下のように，$w_A \sigma _A = w_B \sigma_B$となるように$w_A$と$w_B$を選べば、$\sigma _P = 0$となるポートフォリオを作れる。
 
 ```{r}
 # text p.65
-mu_A <- 0.1
-sigma_A <- 0.2
-mu_B <- 0.2
-sigma_B <- 0.3
+sigma_A <- 0.18  # 資産Aの標準偏差
+sigma_B <- 0.12  # 資産Bの標準偏差
+mu_A <- 0.12     # 資産Aの期待リターン
+mu_B <- 0.06     # 資産Bの期待リターン
 
 wa <- seq(0,1,by = 0.01)
 wb <- 1 - wa
@@ -619,3 +819,35 @@ df <- tibble(
 ggplot(df) + aes(y = sigma_p, x = mu_p) + geom_line() + geom_point(data = filter(df, label != ""), aes(label = label), size = 2) + coord_flip()
 ```
 
+
+
+
+## 6． 2基金分離定理
+
+効率的フロンティアにおける特徴として，リスク回避的な投資家であるならば，効率的フロンティア上のポートフォリオを選択しようとする。
+また，安全資産と多数のリスク資産に投資する場合，効率的フロンティアは**接点ポートフォリオと安全資産からなる効率的フロンティア**(直線)であり，リスク回避的な投資家は，その効率的フロンティア上にあるポートフォリオを選択しようとする。
+
+効率的フロンティア上の点は、安全資産と接点ポートフォリオの投資比率によって決定される。
+効率的フロンティア上では，接点ポートフォリオを構成するリスク資産の投資比率は同一である。
+
+:::{.callout-important}
+### 2基金分離定理
+2基金分離（Two-Fund Separation）とは、効率的フロンティア上に存在する2つのポートフォリオに投資することで組成されるポートフォリオは、効率的フロンティア上に存在することを示した定理である。この定理より、フロンティア上の2つポートフォリオを見つけることができれば、効率的フロンティア上のすべてのポートフォリオを再現できることがわかる。投資信託定理とも呼ばれる。
+:::
+
+次のような投資家の期待効用関数を仮定する。
+
+$$
+\mathbb{E}{U} = \mu _p - \frac{\gamma }{2} \sigma _p^2
+$$ {#eq-6-1}
+
+ここで，$\gamma$ は絶対的リスク回避度であり，$\gamma$ が大きいほど，リスク回避的な投資家であることを示す。
+
+
+
+### 分離定理
+
+期待効用最大化を実現する最適なポートフォリオは，**安全資産と接点ポートフォリオの投資比率**を表しており，接点ポートフォリオを構成するリスク資産の投資率は，投資家の効用関数(投資家の選好)には依存しない。
+
+したがって，接点ポートフォリオを見つけることができれば，投資家の決定問題は，安全資産と接点ポートフォリオの投資比率として表すことができる。
+これを**分離定理**という。

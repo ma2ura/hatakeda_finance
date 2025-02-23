@@ -6,10 +6,7 @@
 まずは、Rの環境を整えましょう。
 いくつかのパッケージを読み込み，グラフ作成時のスタイルを設定しておきます。
 ```{r setup}
-library(tidyverse) # とりあえずこれ
-library(ggthemes) # ggplot2の拡張
-library(patchwork) # 図を並べる
-require(fontregisterer) # 日本語font
+pacman::p_load(tidyverse, ggthemes, patchwork, fontregisterer)
 
 mystyle <- list (#  ggplotのテーマ
   theme_few(), # ミニマルデザイン
@@ -523,7 +520,7 @@ $$
 $$
 \begin{aligned}
 \mathbb{V}[X] &\equiv \mathbb{E} \left [ (X - \mathbb{E} [X])^2 \right ] \nonumber  \\
-        &=\mathbb{E} \left [ X^2 - 2X\mathbb{E}[X] + \mathbb{E}[X]^2 \right ] \qquad \Leftarrow \mbox{(9)式を適用し，期待値を分解}\nonumber \\
+        &=\mathbb{E} \left [ X^2 - 2X\mathbb{E}[X] + \mathbb{E}[X]^2 \right ] \qquad \Leftarrow \text{(9)式を適用し，期待値を分解}\nonumber \\
         &=\mathbb{E} \left [ X^2 \right ] - \mathbb{E} \left [ 2 X \mathbb{E}[X] \right ] + \mathbb{E} \left [ \mathbb{E}[X]^2 \right ]\nonumber \\
         &=\mathbb{E} \left [ X^2 \right ] - 2 X \mathbb{E} [X] \mathbb{E}[X] + \mathbb{E} [X]^2\nonumber \\
         &=\mathbb{E} \left [ X^2 \right ] - \mathbb{E} [X]^2
@@ -537,7 +534,7 @@ $$
 
 $$
 \begin{aligned}
-\mathbb{COV}[X_i,X_j] = \sigma _{ij} &\equiv \E  \left [(X_i - \mathbb{E}[X_i])(X_j - \mathbb{E}[X_j]) \right ] \nonumber \\
+\mathbb{COV}[X_i,X_j] = \sigma _{ij} &\equiv \mathbb{E}  \left [(X_i - \mathbb{E}[X_i])(X_j - \mathbb{E}[X_j]) \right ] \nonumber \\
 &= \mathbb{E}[X_i X_j - X_i \mathbb{E}[X_j] - \mathbb{E}[X_i]X_j + \mathbb{E}[X_i]\mathbb{E}[X_j]]\nonumber \\
 &= \mathbb{E}[X_i X_j] - \mathbb{E}[X_i \mathbb{E}[X_j]] - \mathbb{E}[\mathbb{E}[X_i]X_j] + \mathbb{E}[\mathbb{E}[X_i]\mathbb{E}[X_j]]\nonumber  \\
 &= \mathbb{E}[X_i X_j] - \mathbb{E}[X_i] \mathbb{E}[X_j] - \mathbb{E}[X_i]\mathbb{E}[X_j] + \mathbb{E}[X_i]\mathbb{E}[X_j] \nonumber \\
