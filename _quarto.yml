@@ -49,7 +49,7 @@ book:
       ファイナンス基礎ノート
     right: |
       本書は <a href="https://quarto.org/">Quarto</a> で作成されました。
-  cover-image: "cover.png"
+  cover-image: "img/shoken.jpg"
 
   chapters:
     - index.qmd
@@ -66,7 +66,9 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: [flatly, r4ds.scss]
+      dark: [cyborg]
     html-math-method: katex
     grid:
       sidebar-width: 200px
