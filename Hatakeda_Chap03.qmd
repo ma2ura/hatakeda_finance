@@ -4,7 +4,7 @@
 ここで，リターンの定義を再度確認します。
 
 ```{r setup}
-pacman::p_load(tidyverse, ggthemes, patchwork, datasauRus, gganimate)
+pacman::p_load(tidyverse, ggthemes, patchwork, datasauRus, gganimate, gifski)
 mystyle <- list (#  ggplotのテーマ
   theme_few(),
   theme(
@@ -353,10 +353,24 @@ ggplot(datasaurus_dozen) + aes(x = x, y = y, color = dataset) + geom_point() + f
 `gganimate`パッケージの`transition_states()`関数を用いてアニメーションを作成しています。
 
 ```{r}
+#| echo: false
+# gganimate 適用前の通常の ggplot オブジェクト
+static_plot <- ggplot(datasaurus_dozen, aes(x = x, y = y)) +
+  geom_point() + theme_minimal()
 
-ggplot(datasaurus_dozen, aes(x = x, y = y))+
-  geom_point() + theme_minimal() +
-  transition_states(dataset, 3, 1)
+# gganimate を適用したアニメーションオブジェクト
+animated_plot <- static_plot + transition_states(dataset, transition_length = 3, state_length = 1)
+
+# 出力フォーマットによって処理を分ける
+if (knitr::is_html_output()) {
+  # HTML用: アニメーションGIFを保存して埋め込む
+  anim_save("animation.gif", animation = animate(animated_plot, renderer = gifski_renderer()))
+  knitr::include_graphics("animation.gif")
+} else {
+  # PDF用: 通常の ggplot を静止画として保存
+  ggsave("static_plot.png", plot = static_plot, device = "png")
+  knitr::include_graphics("static_plot.png")
+}
 ```
 
 この散布図のデータの基本統計量はほぼ同じで，相関係数はほぼ$0$のデータですが，実際に散布図として可視化してみると全く異なるデータであることがわかります。
