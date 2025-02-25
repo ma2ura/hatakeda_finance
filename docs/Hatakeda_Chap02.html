@@ -188,10 +188,6 @@ window.Quarto = {
     <a class="nav-link" href="./Hatakeda_Chap05.html"> 
 <span class="menu-text">ポートフォリオ理論</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap06.html"> 
-<span class="menu-text">CAPM</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -276,30 +272,6 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ポートフォリオ理論</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Hatakeda_Chap06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CAPM</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Hatakeda_Chap07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Hatakeda_Chap08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Hatakeda_Chap09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">行動ファイナンス</span></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -351,17 +323,7 @@ window.Quarto = {
 <p>東証株価指数(Tokyo Stock Price Index: TOPIX)の値動きから何を感じますか？ 以下では、TOPIXの動きを通して確率について学びます。</p>
 <p>まずは、Rの環境を整えましょう。 いくつかのパッケージを読み込み，グラフ作成時のスタイルを設定しておきます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes, patchwork, fontregisterer)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mystyle <span class="ot">&lt;-</span> <span class="fu">list</span> (<span class="co">#  ggplotのテーマ</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>(), <span class="co"># ミニマルデザイン</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">size=</span><span class="dv">16</span>,  <span class="co">#  フォントサイズ</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span> <span class="co">#</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes, patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>次にTOPIXのデータを読み込みんで、TOPIXの動きを確認します。 ここで読み込んでいる<code>stock_data.csv</code>には，2007年4月2日から2023年4月28日にわたる，TOPIX，トヨタ自動車，日産自動車，本田技術研究所の株価の終値が日次で記録されています。</p>
 <div class="cell">
@@ -369,7 +331,7 @@ window.Quarto = {
 </div>
 <p>ここで，TOPIXとは，東京証券取引所一部上場株式銘柄を対象として東京証券取引所が1秒ごとに算出・公表している株式ポートフォリオ(東証一部の時価総額)を株価指数で表したものです。 他の株価指数として有名なものに日経株価平均があります。 TOPIXの値動きを確認してみましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -525,7 +487,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 198310 | $685.51$ | $-0.81\%$　| -->
 <p>この<code>TOPIX_return</code>を折れ線グラフにすると以下のようになります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX_return) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX_return) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -598,7 +560,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>) <span class="sc">+</span> mystyle</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -654,7 +616,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>,<span class="fl">0.25</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>) <span class="sc">+</span> mystyle</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -1237,10 +1199,10 @@ Y = 100  + 10 X
 <p>ここで，<span class="math inline">\mu _i = \mathbb{E}[X_i]</span>，<span class="math inline">\sigma _i^2 = \mathbb{V}[X_i]</span>，<span class="math inline">\sigma _{ij} = \mathbb{COV}[X_i,X_j]</span>である。</p>
 <p>例えば，<span class="math inline">k=2</span>のケースでは，</p>
 <p><span class="math display">
-\begin{align}
+\begin{aligned}
 \mathbb{E}[Y]   &amp;= c_0 + c_1 \mu _1 + c_2 \mu_2\\
 \mathbb{V} [Y] &amp;= c_1^2 \sigma_1^2 + c_2^2 \sigma _2^2 + 2 c_1 c_2 \sigma _{12}
-\end{align}
+\end{aligned}
 </span></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1267,14 +1229,14 @@ Y = 100  + 10 X
 <div class="callout-body-container callout-body">
 <p><span class="math inline">k=2</span>のケースで，<span class="math inline">Y=0.5X_1 + 0.5 X_2</span>の期待値および分散を求めます。 ただし，<span class="math inline">\mu _1 = 0.07</span>，<span class="math inline">\sigma _1^2 = 1.48</span>，<span class="math inline">\mu_2 = -0.02</span>，<span class="math inline">\sigma _2^2 = 1.46</span>とします。</p>
 <ul>
-<li><p>無相関(<span class="math inline">\rho _{12} = 0</span>, $[X_1,X_2] =0 $)のケース <span class="math display">
+<li><p>無相関(<span class="math inline">\rho _{12} = 0</span>, <span class="math inline">\mathbb{COV}[X_1, X_2] = 0</span> )のケース <span class="math display">
 \begin{aligned}
   \mathbb{E}[Y]   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
   \mathbb{V} [Y] &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times 0 = 0.735
   \end{aligned}
 </span></p>
 <p><span class="math inline">Y</span>の分散は，<span class="math inline">X_1</span>と<span class="math inline">X_2</span>の分散よりも小さい。</p></li>
-<li><p>負の相関($_{12} = -0.99 [X_1,X_2] = -1.46 $)のケース <span class="math display">
+<li><p>負の相関(<span class="math inline">\rho _{12} = -0.99 \Leftrightarrow \mathbb{COV}[X_1,X_2] = -1.46</span>)のケース <span class="math display">
 \begin{aligned}
   \mathbb{E}[Y]   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
   \mathbb{V} [Y] &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times -1.46 = 0.005
@@ -1303,7 +1265,7 @@ Y = 100  + 10 X
 \mathbb{COV}[X_1, c_0 + c_1 X_1 + \cdots + c_k X_k] = c_1 \mathbb{V}[X_1] + \cdots + c_2\mathbb{COV}[X_1,X_2] + \cdots + c_k \mathbb{COV}[X_1,X_2]
 \end{aligned}
 </span></p>
-<p>ここで，<span class="math inline">\mathbb{COV}[X,X] = \mathbb{E}[ ( X - \mathbb{E}[X])(X- \mathbb{E}[X]) ] = \mathbb{V}[X]</span>であることを思い出そう。</p>
+<p>ここで， <span class="math inline">\mathbb{COV}[X,X] = \mathbb{E}[ ( X - \mathbb{E}[X])(X- \mathbb{E}[X]) ] = \mathbb{V}[X]</span> であることを思い出そう。</p>
 
 
 </section>

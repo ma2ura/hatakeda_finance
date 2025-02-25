@@ -181,7 +181,7 @@ df <- data.frame(
     X <- seq(0, 300, 1),
     U <- 300*X - X^2
 )
-ggplot(df) + aes(x = X, y = U) + geom_path() + xlim(0,140) + mystyle
+ggplot(df) + aes(x = X, y = U) + geom_path() + xlim(0,140)# + mystyle
 ```
 
 
@@ -275,7 +275,7 @@ df <- data.frame(
 )
 x1 <- 30
 x2 <- 130
-g <- ggplot(df) + aes(x = X, y = U) + geom_path() + xlim(0,140) + mystyle
+g <- ggplot(df) + aes(x = X, y = U) + geom_path() + xlim(0,140)# + mystyle
 g <- g + geom_segment(aes(x = x1, y = U[x1], xend = x2, yend = U[x2]), color = "red", size = 1)
 g <- g + geom_point(aes(x = x1, y = U[x1]), color = "red", size = 1)
 g <- g + geom_point(aes(x = x2, y = U[x2]), color = "red", size = 1)

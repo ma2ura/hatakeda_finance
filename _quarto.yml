@@ -26,8 +26,8 @@ book:
         file: Hatakeda_Chap04.qmd
       - text: "ポートフォリオ理論"
         file: Hatakeda_Chap05.qmd
-      - text: "CAPM"
-        file: Hatakeda_Chap06.qmd
+      # - text: "CAPM"
+      #   file: Hatakeda_Chap06.qmd
       # - text: "裁定価格"
       #   file: Hatakeda_Chap07.qmd
       # - text: "市場の効率性"
@@ -57,10 +57,10 @@ book:
     - Hatakeda_Chap03.qmd
     - Hatakeda_Chap04.qmd
     - Hatakeda_Chap05.qmd
-    - Hatakeda_Chap06.qmd
-    - Hatakeda_Chap07.qmd
-    - Hatakeda_Chap08.qmd
-    - Hatakeda_Chap09.qmd
+    # - Hatakeda_Chap06.qmd
+    # - Hatakeda_Chap07.qmd
+    # - Hatakeda_Chap08.qmd
+    # - Hatakeda_Chap09.qmd
 
 bibliography: references.bib
 
@@ -75,16 +75,30 @@ format:
       body-width: 1200px
 
   pdf:
-    documentclass: bxjsarticle
+    pdf-engine: lualatex
+    theme: sandstone
+    keep-tex: true
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+    documentclass: ltjsbook
+    documentclassoptions: [report]
+    monofontoptions:
+    - Scale=0.8
     classoption:
       - pandoc
       - ja=standard
       - jafont = hiragino-pron
+    fig-width: 6
+    fig-height: 4
+
 
 code-block-bg: "#F6F6F6"
 
 imagify:
   header-includes:
+    \usepackage{amsmath,amsfonts}
     \usepackage{tikz}
     \usetikzlibrary{positioning,shapes,arrows,intersections}
     \usetikzlibrary{calc,decorations.markings,through}
@@ -94,3 +108,4 @@ execute:
   message : false
   warning: false
 
+dev: cairo_pdf

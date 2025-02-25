@@ -267,7 +267,7 @@ $$
 ```
 --->
 
-```{r}
+```{r dev="quartz_pdf", warning=FALSE}
 #| echo: false
 # パラメータの定義
 sigma_A <- 0.18  # 資産Aの標準偏差
@@ -297,7 +297,7 @@ ggplot(data, aes(x = omega1, y = sigma_p)) +
   scale_x_continuous(breaks = x_ticks) +  # x軸の目盛りを設定
   scale_y_continuous(breaks = y_ticks) +  # y軸の目盛りを設定
 	# hiragino Kaku Gothic ProNはMacの場合のフォント指定
-	theme_classic(base_family = "HiraKakuProN-W3") +
+	theme_classic(base_family = "Japan1GothicBBB") +
   theme(
     axis.text.x = element_text(size = 12),
     axis.text.y = element_text(size = 12),
@@ -474,7 +474,7 @@ $(\mu _p , \sigma _p)$ の関係は双曲線である。
 後で見るように，相関係数の大きさに依存して双曲線の形状は変化する。
 以下で投資可能領域を図示する。
 
-```{r diversified_investment}
+```{r diversified_investment, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 # text p.65
 # 設定
@@ -544,7 +544,7 @@ print(g)
 2つのリスク資産のリターンの相関係数がリスク低減効果に与える影響を図示すると，次のようになる。
 相関係数がマイナス1に近づくほど，左に弓なりになる。つまり**ポートフォリオのリスク低減効果が高いことを意味する。
 
-```{r diversified_investment2}
+```{r diversified_investment2, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 # 相関係数のリスト
 rho_values <- c(-1, 0, 1)
@@ -602,7 +602,7 @@ print(g)
 リスク資産が増えれば増えるほど，左に弓なりになる。
 つまりポートフォリオのリスク低減効果が大きくなる。
 
-```{r three_risk_assets}
+```{r three_risk_assets, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 rho <- 0  # 相関係数（仮にすべての組み合わせで無相関とする）
 
@@ -656,7 +656,7 @@ print(g)
 
 3つのリスク資産への投資可能領域は，曲線上ではなく曲線に囲まれた領域(集合)となる。ただこのうち，同じリスク(同じ標準偏差)の下で最も高い期待リターンを実現するポートフォリオが最適となるため，双曲線の上半分が望ましいポートフォリオとなり，これを**効率的フロンティア**と呼ぶ。
 
-```{r}
+```{r, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 
 rho <- 0  # 相関係数（仮にすべての組み合わせで無相関とする）
@@ -712,7 +712,7 @@ print(g)
 ```
 
 
-```{r}
+```{r, dev="quartz_pdf", warning=FALSE}
 # 変数の定義
 rho <- 0  # 無相関
 sigma_A <- 0.18
@@ -789,7 +789,7 @@ $$
 
 以下のように，$w_A \sigma _A = w_B \sigma_B$となるように$w_A$と$w_B$を選べば、$\sigma _P = 0$となるポートフォリオを作れる。
 
-```{r}
+```{r, dev="quartz_pdf", warning=FALSE}
 # text p.65
 sigma_A <- 0.18  # 資産Aの標準偏差
 sigma_B <- 0.12  # 資産Bの標準偏差

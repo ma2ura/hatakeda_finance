@@ -22,7 +22,7 @@ mystyle <- list (#  ggplotのテーマ
 資産$i$の$t$期の(配当落ち)日次リターン$r_{i,t}$は，
 $$
 \begin{aligned}
-r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1 \tag{0'}
+r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
 \end{aligned}
 $$
 
@@ -92,9 +92,9 @@ $$
 $t-1$から$t-T$までの期間における資産$i$の標本期待(平均)リターン$\bar r_i$は，
 
 $$
-\begin{align}
+\begin{aligned}
 \bar r_i = \frac 1T \sum _{k=1}^T r_{i,t-k}
-\end{align}
+\end{aligned}
 $$
 となります。
 
@@ -152,9 +152,9 @@ var(df$r_daily[df$企業名 == "トヨタ自動車"], na.rm = TRUE)
 ## 標本標準偏差
 
 $$
-\begin{align}
+\begin{aligned}
 s [X] = \sqrt{s^2[X]}
-\end{align}
+\end{aligned}
 $$
 :::
 
@@ -162,9 +162,9 @@ $$
 $t-1$から$t-T$までの期間における資産$i$のリターンの標本標準偏差$s[r_i]$は，次の通りである。
 
 $$
-\begin{align}
+\begin{aligned}
 s [r_i] = \sqrt{s^2 [r_i]}
-\end{align}
+\end{aligned}
 $$
 
 `R`の基本関数で標準偏差を返す関数は`sd()`です。
@@ -182,7 +182,7 @@ sd(df$r_daily[df$企業名 == "トヨタ自動車"], na.rm = TRUE)
 いままでと同様に、トヨタ自動車の株式リターンのヒストグラムを作成してみましょう。
 
 ```{r}
-par(family = "HiraKakuProN-W3") # macの文字化け対策 winの人はコメントアウト
+# par(family = "HiraKakuProN-W3") # macの文字化け対策 winの人はコメントアウト
 hist(df$r_daily[df$企業名 == "トヨタ自動車"]) # 基本関数でヒストグラム
 ```
 
@@ -211,7 +211,7 @@ ggplot2パッケージでは，以下の要素を指定してグラフを作り�
 g <- ggplot(df_toyota) + # データを指定
     aes(x = r_daily) +  # 変数を指定
     geom_histogram() # グラフを指定
-g <- g + xlim(-0.1, 0.1) + mystyle # x軸の範囲を指定
+g <- g + xlim(-0.1, 0.1) # x軸の範囲を指定
 g <- g + xlab("日次リターン") + ylab("度数") # x軸とy軸のラベルを指定
 print(g) # 出力
 ```
@@ -237,7 +237,7 @@ df %>%
     filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") %>%
     select(企業名, date, r_daily) %>%
     pivot_wider(names_from = 企業名, values_from = r_daily) %>%
-    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() + mystyle
+    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point()
 ```
 
 この散布図から，トヨタ自動車と日産自動車の株式リターンはどちらかの株式リターンが増加したら，もう片方も増加する，という関係にあるといえます。
@@ -264,7 +264,7 @@ df %>%
     filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") %>%
     select(企業名, date, r_daily) %>%
     pivot_wider(names_from = 企業名, values_from = r_daily) %>%
-    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() + mystyle +
+    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() +
     geom_vline(xintercept = mean(df$r_daily[df$企業名 == "トヨタ自動車"], na.rm = TRUE), linetype = "dashed",color = "red") +
     geom_hline(yintercept = mean(df$r_daily[df$企業名 == "日産自動車"], na.rm = TRUE), linetype = "dashed", color = "red")
 ```
@@ -310,7 +310,7 @@ $$
 X <- rnorm(1000, mean = 0, sd = 1)
 Z <- 0.5 * X + rnorm(1000, mean = 0, sd = 1)
 df <- data.frame(X, Z)
-ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
+ggplot(df) + aes(x = X, y = Z) + geom_point()
 ```
 
 標本相関係数$\rho _{XZ}$が$0.90$の場合、以下のような散布図になります。
@@ -319,7 +319,7 @@ ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
 X <- rnorm(1000, mean = 0, sd = 1)
 Z <- 0.9 * X + rnorm(1000, mean = 0, sd = 1)
 df <- data.frame(X, Z)
-ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
+ggplot(df) + aes(x = X, y = Z) + geom_point()
 ```
 
 標本相関係数$\rho _{XZ}$が$-0.6$の場合、以下のような散布図になります。
@@ -328,7 +328,7 @@ ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
 X <- rnorm(1000, mean = 0, sd = 1)
 Z <- -0.6 * X + rnorm(1000, mean = 0, sd = 1)
 df <- data.frame(X, Z)
-ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
+ggplot(df) + aes(x = X, y = Z) + geom_point()
 ```
 
 無相関，つまり標本相関係数$\rho _{XZ}$が$0$の場合、以下のような散布図になります。
@@ -337,7 +337,7 @@ ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
 X <- rnorm(1000, mean = 0, sd = 1)
 Z <- rnorm(1000, mean = 0, sd = 1)
 df <- data.frame(X, Z)
-ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
+ggplot(df) + aes(x = X, y = Z) + geom_point()
 ```
 
 注意しないといけないのは，相関係数が線形関係を前提とした尺度であることです。もし2変数の関係が非線形である場合は，相関係数は役に立ちません。
@@ -346,7 +346,7 @@ ggplot(df) + aes(x = X, y = Z) + geom_point() + mystyle
 ```{r}
 #| fig-height: 8
 
-ggplot(datasaurus_dozen) + aes(x = x, y = y, color = dataset) + geom_point() + facet_wrap(~dataset, ncol = 3) + theme_bw() + theme(panel.grid = element_blank()) + mystyle
+ggplot(datasaurus_dozen) + aes(x = x, y = y, color = dataset) + geom_point() + facet_wrap(~dataset, ncol = 3) + theme_bw() + theme(panel.grid = element_blank())
 ```
 
 アニメーションにするとこうなります。
@@ -510,10 +510,10 @@ $$
 $k=2$の場合，
 
 $$
-\begin{align}
+\begin{aligned}
 \bar Y &= c_0 + c_1 \bar X_1 + c_2 \bar X_2 \\
 s^2[Y] &= c_1^2 s^2[X_1] + c_2^2 s^2[X_2] + 2 c_1 c_2 s_{12}(X_1,X_2)
-\end{align}
+\end{aligned}
 $$
 となる。
 

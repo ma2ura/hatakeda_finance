@@ -6,17 +6,7 @@
 まずは、Rの環境を整えましょう。
 いくつかのパッケージを読み込み，グラフ作成時のスタイルを設定しておきます。
 ```{r setup}
-pacman::p_load(tidyverse, ggthemes, patchwork, fontregisterer)
-
-mystyle <- list (#  ggplotのテーマ
-  theme_few(), # ミニマルデザイン
-  theme(
-    text = element_text(
-      size=16,  #  フォントサイズ
-      family = "HiraKakuProN-W3" #
-    )
-  )
-)
+pacman::p_load(tidyverse, ggthemes, patchwork)
 ```
 
 次にTOPIXのデータを読み込みんで、TOPIXの動きを確認します。
@@ -30,7 +20,7 @@ df <- read_csv("data/stock_data.csv")
 TOPIXの値動きを確認してみましょう。
 
 ```{r}
-ggplot(df) + aes(x = date, y = TOPIX) + geom_line() + mystyle
+ggplot(df) + aes(x = date, y = TOPIX) + geom_line()
 ```
 
 2008年のリーマンショックで暴落した株価も2014年からはじまったアベノミクスで株価は上昇し，2016年のマイナス金利，2020年の新型コロナウイルスの感染拡大による株価の下落など，TOPIXの値動きは経済の動向を反映していることが分かります。
@@ -116,7 +106,7 @@ df %>%
 この`TOPIX_return`を折れ線グラフにすると以下のようになります。
 
 ```{r}
-ggplot(df) + aes(x = date, y = TOPIX_return) + geom_line() + mystyle
+ggplot(df) + aes(x = date, y = TOPIX_return) + geom_line()
 ```
 
 ## 確率変数
@@ -170,7 +160,7 @@ df <- data.frame(
   p <- c(0.5, 0.5)
 )
 g <- ggplot(df) + aes(x = coin, y = p) + geom_col()
-g <- g + ylim(0,1) + xlab("確率") + ylab("結果") + mystyle
+g <- g + ylim(0,1) + xlab("確率") + ylab("結果")
 print(g)
 ```
 
@@ -205,7 +195,7 @@ df <- data.frame(
   p <- c(0.25, 0.5,0.25)
 )
 g <- ggplot(df) + aes(x = coin, y = p) + geom_col()
-g <- g + ylim(0,1) + xlab("確率") + ylab("結果") + mystyle
+g <- g + ylim(0,1) + xlab("確率") + ylab("結果")
 print(g)
 ```
 
@@ -654,10 +644,10 @@ $$
 例えば，$k=2$のケースでは，
 
 $$
-\begin{align}
+\begin{aligned}
 \mathbb{E}[Y]   &= c_0 + c_1 \mu _1 + c_2 \mu_2\\
 \mathbb{V} [Y] &= c_1^2 \sigma_1^2 + c_2^2 \sigma _2^2 + 2 c_1 c_2 \sigma _{12}
-\end{align}
+\end{aligned}
 $$
 
 :::{.callout-warning}
@@ -672,7 +662,7 @@ $k=3$のケースにおける確率変数$Y$の期待値と分散を求めなさ
 $k=2$のケースで，$Y=0.5X_1 + 0.5 X_2$の期待値および分散を求めます。
 ただし，$\mu _1 = 0.07$，$\sigma _1^2 = 1.48$，$\mu_2 = -0.02$，$\sigma _2^2 = 1.46$とします。
 
-- 無相関($\rho _{12} = 0$, $\mathbb{COV}[X_1,X_2] =0 $)のケース
+- 無相関($\rho _{12} = 0$, $\mathbb{COV}[X_1, X_2] = 0$ )のケース
 	$$
   \begin{aligned}
 	\mathbb{E}[Y]   &= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
@@ -682,7 +672,7 @@ $k=2$のケースで，$Y=0.5X_1 + 0.5 X_2$の期待値および分散を求め�
 
   $Y$の分散は，$X_1$と$X_2$の分散よりも小さい。
 
-- 負の相関($\rho _{12} = -0.99 \Leftrightarrow \mathbb{COV}[X_1,X_2] = -1.46 $)のケース
+- 負の相関($\rho _{12} = -0.99 \Leftrightarrow \mathbb{COV}[X_1,X_2] = -1.46$)のケース
 	$$
   \begin{aligned}
 	\mathbb{E}[Y]   &= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
@@ -717,4 +707,4 @@ $$
 \end{aligned}
 $$
 
-ここで，$\mathbb{COV}[X,X] = \mathbb{E}[ ( X - \mathbb{E}[X])(X- \mathbb{E}[X]) ] = \mathbb{V}[X]$であることを思い出そう。
+ここで， $\mathbb{COV}[X,X] = \mathbb{E}[ ( X - \mathbb{E}[X])(X- \mathbb{E}[X]) ] = \mathbb{V}[X]$ であることを思い出そう。
