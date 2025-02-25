@@ -7,6 +7,8 @@
 いくつかのパッケージを読み込み，グラフ作成時のスタイルを設定しておきます。
 ```{r setup}
 pacman::p_load(tidyverse, ggthemes, patchwork)
+
+theme_set(theme_minimal())
 ```
 
 次にTOPIXのデータを読み込みんで、TOPIXの動きを確認します。
