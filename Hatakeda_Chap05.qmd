@@ -343,7 +343,7 @@ ggplot(data, aes(x = omega1, y = sigma_p)) +
   ) +
   scale_x_continuous(breaks = x_ticks, expand = c(0, 0)) +  # x軸の目盛り
   scale_y_continuous(breaks = y_ticks, expand = c(0, 0)) +  # y軸の目盛り
-  theme_classic(base_family = "Hiragino Kaku Gothic ProN") +  # Mac用フォント指定
+  theme_classic(base_family = "Japan1GothicBBB") +  # Mac用フォント指定
   theme(
     axis.text.x = element_text(size = 12),
     axis.text.y = element_text(size = 12),
