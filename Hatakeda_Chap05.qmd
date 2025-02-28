@@ -4,15 +4,6 @@
 
 ```{r}
 pacman::p_load(tidyverse, ggthemes, patchwork)
-mystyle <- list (#  ggplotのテーマ
-  theme_few(),
-  theme(
-    text = element_text(
-      size=16,  #  フォントサイズ
-     family = "HiraKakuProN-W3" # ヒラギノフォント
-    )
-  )
-)
 ```
 
 ## 投資のリターン
@@ -276,6 +267,8 @@ $$
 ```
 --->
 
+
+<!----
 ```{r dev="quartz_pdf", warning=FALSE}
 #| echo: false
 # パラメータの定義
@@ -314,8 +307,51 @@ ggplot(data, aes(x = omega1, y = sigma_p)) +
     axis.title.y = element_text(size = 14)
   ) + xlim(0, 1) + ylim(0, 0.20)
 ```
+--->
 
 
+```{r}
+#| code-fold: true
+#| fig-width: 8
+#| fig-height: 5
+
+
+# パラメータの定義
+sigma_A <- 0.18  # 資産Aの標準偏差
+sigma_B <- 0.12  # 資産Bの標準偏差
+
+# 資産Aの比率（ω1）を0から1まで100点で作成
+omega1 <- seq(0, 1, length.out = 100)
+
+# ポートフォリオの標準偏差（リスク）の計算
+sigma_p <- sqrt(omega1^2 * sigma_A^2 + (1 - omega1)^2 * sigma_B^2)
+
+# データフレームの作成
+data <- data.frame(omega1, sigma_p)
+
+# 目盛り用のデータフレーム（X軸とY軸の目盛り）
+x_ticks <- seq(0.1, 1.0, by = 0.1)
+y_ticks <- seq(0.02, 0.20, by = 0.02)
+
+# ggplot2でプロット
+ggplot(data, aes(x = omega1, y = sigma_p)) +
+  geom_line(color = "magenta", size = 1) +  # 曲線を描画
+  labs(
+    x = expression(omega[1]),  # x軸ラベル
+    y = expression(sigma[p]),  # y軸ラベル
+    title = "ポートフォリオの標準偏差と資産配分"
+  ) +
+  scale_x_continuous(breaks = x_ticks, expand = c(0, 0)) +  # x軸の目盛り
+  scale_y_continuous(breaks = y_ticks, expand = c(0, 0)) +  # y軸の目盛り
+  theme_classic(base_family = "Hiragino Kaku Gothic ProN") +  # Mac用フォント指定
+  theme(
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12),
+    axis.title.x = element_text(size = 14),
+    axis.title.y = element_text(size = 14)
+  ) +
+  coord_cartesian(xlim = c(0, 1), ylim = c(0, 0.20))  # 余白を削除
+```
 
 リスク低減効果の源泉について考える。
 
@@ -345,6 +381,7 @@ $$
 リスク分散効果への相関係数のインパクトについて見ていく。
 リスク分散の効果は，$\rho$ の大きさに依存している。
 
+<!----
 ```{r tikz-example3, engine='tikz', out.width='90%'}
 \begin{tikzpicture}[domain=0:1,yscale = 20, xscale=10]%, samples=100, very thick] % 定義域、点の数、線幅
 % \draw (0,0) node[below left]{O}; % 原点、0でも、above, below, left, rightで位置指定
@@ -371,6 +408,45 @@ $$
 \end{tikzpicture}
 ```
 
+--->
+
+
+```{r}
+#| code-fold: true
+#| fig-width: 10
+#| fig-height: 5
+
+
+# x軸の範囲
+x_vals <- seq(0, 1, length.out = 100)
+
+# y軸の計算
+sigma_p_rho0 <- sqrt(x_vals^2 * 0.18^2 + (1 - x_vals)^2 * 0.12^2)  # マゼンタ
+sigma_p_rho1 <- x_vals * 0.18 + (1 - x_vals) * 0.12  # シアン
+sigma_p_rho_neg1 <- round(sqrt(0.0144 - 0.072 * x_vals + 0.09 * x_vals^2), digits = 5)
+
+# データフレームの作成
+df <- data.frame(
+  omega1 = rep(x_vals, 3),
+  sigma_p = c(sigma_p_rho0, sigma_p_rho1, sigma_p_rho_neg1),
+  rho = factor(rep(c("rho = 0", "rho = 1", "rho = -1"), each = length(x_vals)))
+)
+
+# プロット
+ggplot(df, aes(x = omega1, y = sigma_p, color = rho)) +
+  geom_line(size = 1) +
+  scale_color_manual(values = c("cyan", "magenta", "orange")) +
+  theme_classic() +
+  theme(
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 12)
+  ) +
+  # 0以下の余白を削除
+  scale_x_continuous(breaks = seq(0.1, 1, by = 0.1), expand = c(0, 0)) +
+  scale_y_continuous(breaks = seq(0.02, 0.18, by = 0.02), expand = c(0, 0))
+```
 
 
 
@@ -483,7 +559,8 @@ $(\mu _p , \sigma _p)$ の関係は双曲線である。
 後で見るように，相関係数の大きさに依存して双曲線の形状は変化する。
 以下で投資可能領域を図示する。
 
-```{r diversified_investment}
+
+```{r diversified_investment, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 # text p.65
 # 設定
@@ -516,12 +593,12 @@ df <- tibble(
   )
 
 g <- ggplot(df) + aes(y = sigma_p, x = mu_p) + geom_line() + geom_point(data = filter(df, label != ""), aes(label = label), size = 2) + coord_flip() + ylim(0, 0.2) + xlim(0, 0.14) +
-  labs(title = "投資可能領域のプロット", x = "期待リターン", y = "リスク（標準偏差）") + theme_classic(base_family = "Japan1GothicBBB") # Add labels for clarity
+  labs(title = "投資可能領域のプロット", x = "期待リターン", y = "リスク（標準偏差）") + theme_classic(base_family = "HiraKakuPro-W3") # Add labels for clarity
 # 資産Aと資産Bの文字を追加し，hiragino Kaku Gothic ProNはMacの場合のフォント指定
 g <- g +
-  geom_text(aes(label = "資産A"), x = 0.12, y = 0.19, size = 4, family = "Japan1GothicBBB") +
-  geom_text(aes(label = "資産B"), x = 0.06, y = 0.13, size = 4, family = "Japan1GothicBBB") +
-  geom_text(aes(label = "無相関のケース"), x = 0.09, y = 0.16, size = 4, family = "Japan1GothicBBB") # Specify the font family for consistency
+  geom_text(aes(label = "資産A"), x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(aes(label = "資産B"), x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(aes(label = "無相関のケース"), x = 0.09, y = 0.16, size = 4, family = "HiraKakuPro-W3") # Specify the font family for consistency
 print(g)
 ```
 <!---
@@ -553,7 +630,7 @@ print(g)
 2つのリスク資産のリターンの相関係数がリスク低減効果に与える影響を図示すると，次のようになる。
 相関係数がマイナス1に近づくほど，左に弓なりになる。つまり**ポートフォリオのリスク低減効果が高いことを意味する。
 
-```{r diversified_investment2}
+```{r diversified_investment2, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 # 相関係数のリスト
 rho_values <- c(-1, 0, 1)
@@ -594,14 +671,14 @@ g <- ggplot(df, aes(x = mu_p, y = sigma_p, color = rho_label)) +
     y = "リスク（標準偏差）",
     color = "相関係数"
   ) +
-  theme_classic(base_family = "Japan1GothicBBB") +
+  theme_classic(base_family = "HiraKakuPro-W3") +
   theme(legend.position = "bottom")  # 凡例を下に配置
 
 # 資産Aと資産B、無相関ケースのラベル追加
 # g <- g +
-#   geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "Japan1GothicBBB") +
-#   geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "Japan1GothicBBB") +
-#   geom_text(label = "無相関のケース", x = 0.09, y = 0.19, size = 4, family = "Japan1GothicBBB")
+#   geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+#   geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+#   geom_text(label = "無相関のケース", x = 0.09, y = 0.19, size = 4, family = "HiraKakuPro-W3")
 
 # 描画
 print(g)
@@ -611,7 +688,7 @@ print(g)
 リスク資産が増えれば増えるほど，左に弓なりになる。
 つまりポートフォリオのリスク低減効果が大きくなる。
 
-```{r three_risk_assets}
+```{r three_risk_assets, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 rho <- 0  # 相関係数（仮にすべての組み合わせで無相関とする）
 
@@ -650,14 +727,14 @@ g <- ggplot(df, aes(x = mu_p, y = sigma_p)) +
     x = "期待リターン",
     y = "リスク（標準偏差）"
   ) +
-  theme_classic(base_family = "Japan1GothicBBB") +
+  theme_classic(base_family = "HiraKakuPro-W3") +
   theme(legend.position = "none")  # 凡例を非表示（点のプロットのため）
 
 # 資産A, B, Cのラベル追加
 g <- g +
-  geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "Japan1GothicBBB") +
-  geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "Japan1GothicBBB") +
-  geom_text(label = "資産C", x = 0.04, y = 0.08, size = 4, family = "Japan1GothicBBB")
+  geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産C", x = 0.04, y = 0.08, size = 4, family = "HiraKakuPro-W3")
 
 # 描画
 print(g)
@@ -665,7 +742,7 @@ print(g)
 
 3つのリスク資産への投資可能領域は，曲線上ではなく曲線に囲まれた領域(集合)となる。ただこのうち，同じリスク(同じ標準偏差)の下で最も高い期待リターンを実現するポートフォリオが最適となるため，双曲線の上半分が望ましいポートフォリオとなり，これを**効率的フロンティア**と呼ぶ。
 
-```{r}
+```{r, dev="quartz_pdf", warning=FALSE}
 #| code-fold: true
 
 rho <- 0  # 相関係数（仮にすべての組み合わせで無相関とする）
@@ -708,20 +785,20 @@ g <- ggplot(df, aes(x = mu_p, y = sigma_p)) +
     x = "期待リターン",
     y = "リスク（標準偏差）"
   ) +
-  theme_classic(base_family = "Japan1GothicBBB") +
+  theme_classic(base_family = "HiraKakuPro-W3") +
   theme(legend.position = "none")  # 凡例を非表示（点のプロットのため）
 
 g <- g +
-  geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "Japan1GothicBBB") +
-  geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "Japan1GothicBBB") +
-  geom_text(label = "資産C", x = 0.04, y = 0.08, size = 4, family = "Japan1GothicBBB")
+  geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +
+  geom_text(label = "資産C", x = 0.04, y = 0.08, size = 4, family = "HiraKakuPro-W3")
 
 # 描画
 print(g)
 ```
 
 
-```{r}
+```{r, dev="quartz_pdf", warning=FALSE}
 # 変数の定義
 rho <- 0  # 無相関
 sigma_A <- 0.18
@@ -798,7 +875,7 @@ $$
 
 以下のように，$w_A \sigma _A = w_B \sigma_B$となるように$w_A$と$w_B$を選べば、$\sigma _P = 0$となるポートフォリオを作れる。
 
-```{r}
+```{r, dev="quartz_pdf", warning=FALSE}
 # text p.65
 sigma_A <- 0.18  # 資産Aの標準偏差
 sigma_B <- 0.12  # 資産Bの標準偏差

@@ -319,16 +319,7 @@ window.Quarto = {
 
 <p>この章では，ファイナンスの主要分野の1つである<strong>ポートフォリオ理論</strong>(portfolio theory)について説明します。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes, patchwork)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mystyle <span class="ot">&lt;-</span> <span class="fu">list</span> (<span class="co">#  ggplotのテーマ</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>(),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">size=</span><span class="dv">16</span>,  <span class="co">#  フォントサイズ</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span> <span class="co"># ヒラギノフォント</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes, patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="投資のリターン" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="投資のリターン"><span class="header-section-number">5.1</span> 投資のリターン</h2>
@@ -551,6 +542,8 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 
 
 
+
+
 ::: {.cell}
 
 ```{.tex .cell-code}
@@ -583,12 +576,73 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 
 
 
+
+
+--->
+<!----
+
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](Hatakeda_Chap05_files/figure-html/unnamed-chunk-3-1.pdf){width=672}
+:::
+:::
+
+
+
+
+
+
+
 --->
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># パラメータの定義</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産Aの比率（ω1）を0から1まで100点で作成</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>omega1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ポートフォリオの標準偏差（リスク）の計算</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>sigma_p <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(omega1<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_A<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> omega1)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_B<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームの作成</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(omega1, sigma_p)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 目盛り用のデータフレーム（X軸とY軸の目盛り）</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">1.0</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.02</span>, <span class="fl">0.20</span>, <span class="at">by =</span> <span class="fl">0.02</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2でプロット</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> omega1, <span class="at">y =</span> sigma_p)) <span class="sc">+</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># 曲線を描画</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(omega[<span class="dv">1</span>]),  <span class="co"># x軸ラベル</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(sigma[p]),  <span class="co"># y軸ラベル</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"ポートフォリオの標準偏差と資産配分"</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> x_ticks, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># x軸の目盛り</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> y_ticks, <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># y軸の目盛り</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"Hiragino Kaku Gothic ProN"</span>) <span class="sc">+</span>  <span class="co"># Mac用フォント指定</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.20</span>))  <span class="co"># 余白を削除</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><embed src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-3-1.pdf" class="img-fluid" width="672"></p>
+<p><img src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
@@ -611,34 +665,93 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 \end{aligned}
 </span></p>
 <p>リスク分散効果への相関係数のインパクトについて見ていく。 リスク分散の効果は，<span class="math inline">\rho</span> の大きさに依存している。</p>
+<!----
+
+
+
+
+
+
+
+::: {.cell}
+
+```{.tex .cell-code}
+\begin{tikzpicture}[domain=0:1,yscale = 20, xscale=10]%, samples=100, very thick] % 定義域、点の数、線幅
+% \draw (0,0) node[below left]{O}; % 原点、0でも、above, below, left, rightで位置指定
+ % 位置指定はanchor=north, south, east, westでも可能
+\draw[thick, ->] (-0.02,0) -- (1.1,0) node[right] {$\omega _1$}; % x軸、[->]で矢印、他に[-stealth]等
+\draw[thick, ->] (0,-0.01) -- (0,0.20) node[above] {$\sigma _p$}; % y軸
+\foreach \x in {0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80,0.90,1.00} {
+    \draw (\x,0) -- (\x, -0.01);
+    \draw (\x,-.01) node[below]{$\x$};
+    }
+\foreach \y in {0.02,0.04,0.06,0.08,0.10,0.12,0.14,0.16,0.18} {
+    \draw (0,\y) -- (-0.01,\y);
+    \draw (0,\y) node[left]{$\y$};
+}
+
+\draw [magenta,thick] plot(\x, { sqrt(\x^2*0.18^2 + (1-\x)^2*0.12^2) });% rho =0
+\draw [cyan,thick] plot(\x, { \x *0.18 + (1-\x)*0.12 });% rho=1
+% \draw [orange,thick] plot(\x, { sqrt( \x^2 * 0.18^2 + ( 1 - \x)^2 * 0.12^2 - 2*\x*(1-\x)*0.18*0.12) });% rho=1
+\draw [orange,thick] plot(\x, { sqrt(0.014400000 - 0.072000000*\x + 0.0900000000*\x^2)});% rho=1
+
+% \draw [magenta,thick] plot(\x, { sqrt(\x^2*0.18^2 + (1-\x)^2*0.12^2) });% node at(5.5,2) {$\mu _p = \omega_1 \times  0.12 + (1-\omega _1 )\times 0.06$}; % atでnodeの位置指定
+% \draw (0,0.6) node[left]{$0.06$};
+% \draw (5.5,1) node {$\phantom{\mu _p }= \omega_1 0.06 + 0.06$}; % atでnodeの位置指定
+\end{tikzpicture}
+```
+
+
+::: {.cell-output-display}
+![](Hatakeda_Chap05_files/figure-html/tikz-example3-1.png){width=90%}
+:::
+:::
+
+
+
+
+
+
+
+
+--->
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode tex code-with-copy"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}[domain=0:1,yscale = 20, xscale=10]<span class="co">%, samples=100, very thick] % 定義域、点の数、線幅</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">% \draw (0,0) node[below left]{O}; % 原点、0でも、above, below, left, rightで位置指定</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="co">% 位置指定はanchor=north, south, east, westでも可能</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[thick, -&gt;] (-0.02,0) -- (1.1,0) node[right] {<span class="ss">$</span><span class="sc">\omega</span><span class="ss"> _1$</span>}; <span class="co">% x軸、[-&gt;]で矢印、他に[-stealth]等</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span>[thick, -&gt;] (0,-0.01) -- (0,0.20) node[above] {<span class="ss">$</span><span class="sc">\sigma</span><span class="ss"> _p$</span>}; <span class="co">% y軸</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\foreach</span> <span class="fu">\x</span> in {0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80,0.90,1.00} {</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\draw</span> (<span class="fu">\x</span>,0) -- (<span class="fu">\x</span>, -0.01);</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\draw</span> (<span class="fu">\x</span>,-.01) node[below]{<span class="ss">$</span><span class="sc">\x</span><span class="ss">$</span>};</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\foreach</span> <span class="fu">\y</span> in {0.02,0.04,0.06,0.08,0.10,0.12,0.14,0.16,0.18} {</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\draw</span> (0,<span class="fu">\y</span>) -- (-0.01,<span class="fu">\y</span>);</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\draw</span> (0,<span class="fu">\y</span>) node[left]{<span class="ss">$</span><span class="sc">\y</span><span class="ss">$</span>};</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [magenta,thick] plot(<span class="fu">\x</span>, { sqrt(<span class="fu">\x</span>^2*0.18^2 + (1-<span class="fu">\x</span>)^2*0.12^2) });<span class="co">% rho =0</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [cyan,thick] plot(<span class="fu">\x</span>, { <span class="fu">\x</span> *0.18 + (1-<span class="fu">\x</span>)*0.12 });<span class="co">% rho=1</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">% \draw [orange,thick] plot(\x, { sqrt( \x^2 * 0.18^2 + ( 1 - \x)^2 * 0.12^2 - 2*\x*(1-\x)*0.18*0.12) });% rho=1</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [orange,thick] plot(<span class="fu">\x</span>, { sqrt(0.014400000 - 0.072000000*<span class="fu">\x</span> + 0.0900000000*<span class="fu">\x</span>^2)});<span class="co">% rho=1</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">% \draw [magenta,thick] plot(\x, { sqrt(\x^2*0.18^2 + (1-\x)^2*0.12^2) });% node at(5.5,2) {$\mu _p = \omega_1 \times  0.12 + (1-\omega _1 )\times 0.06$}; % atでnodeの位置指定</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">% \draw (0,0.6) node[left]{$0.06$};</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">% \draw (5.5,1) node {$\phantom{\mu _p }= \omega_1 0.06 + 0.06$}; % atでnodeの位置指定</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x軸の範囲</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># y軸の計算</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sigma_p_rho0 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_vals<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> <span class="fl">0.18</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> x_vals)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> <span class="fl">0.12</span><span class="sc">^</span><span class="dv">2</span>)  <span class="co"># マゼンタ</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sigma_p_rho1 <span class="ot">&lt;-</span> x_vals <span class="sc">*</span> <span class="fl">0.18</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> x_vals) <span class="sc">*</span> <span class="fl">0.12</span>  <span class="co"># シアン</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>sigma_p_rho_neg1 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="fl">0.0144</span> <span class="sc">-</span> <span class="fl">0.072</span> <span class="sc">*</span> x_vals <span class="sc">+</span> <span class="fl">0.09</span> <span class="sc">*</span> x_vals<span class="sc">^</span><span class="dv">2</span>), <span class="at">digits =</span> <span class="dv">5</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームの作成</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">omega1 =</span> <span class="fu">rep</span>(x_vals, <span class="dv">3</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma_p =</span> <span class="fu">c</span>(sigma_p_rho0, sigma_p_rho1, sigma_p_rho_neg1),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"rho = 0"</span>, <span class="st">"rho = 1"</span>, <span class="st">"rho = -1"</span>), <span class="at">each =</span> <span class="fu">length</span>(x_vals)))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># プロット</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> omega1, <span class="at">y =</span> sigma_p, <span class="at">color =</span> rho)) <span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"cyan"</span>, <span class="st">"magenta"</span>, <span class="st">"orange"</span>)) <span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 0以下の余白を削除</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.02</span>, <span class="fl">0.18</span>, <span class="at">by =</span> <span class="fl">0.02</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Hatakeda_Chap05_files/figure-html/tikz-example3-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p><img src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -723,54 +836,56 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># text p.65</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 設定</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 保有費率</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>wa <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> wa</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb <span class="sc">*</span> mu_B,</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma_p =</span> <span class="fu">sqrt</span>(wa<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_A<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wb<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_B<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> rho <span class="sc">*</span> wa <span class="sc">*</span> wb <span class="sc">*</span> sigma_A <span class="sc">*</span> sigma_B),</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">label=</span> <span class="fu">c</span>(</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0,1"</span>, <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.1,0.9"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.2,0.8"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.3,0.7"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.4,0.6"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.5,0.5"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.6,0.4"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.7,0.3"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.8,0.2"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.9,0.1"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1,0"</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">y =</span> sigma_p, <span class="at">x =</span> mu_p) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(df, label <span class="sc">!=</span> <span class="st">""</span>), <span class="fu">aes</span>(<span class="at">label =</span> label), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.2</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.14</span>) <span class="sc">+</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"投資可能領域のプロット"</span>, <span class="at">x =</span> <span class="st">"期待リターン"</span>, <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="co"># Add labels for clarity</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産Aと資産Bの文字を追加し，hiragino Kaku Gothic ProNはMacの場合のフォント指定</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"資産A"</span>), <span class="at">x =</span> <span class="fl">0.12</span>, <span class="at">y =</span> <span class="fl">0.19</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"資産B"</span>), <span class="at">x =</span> <span class="fl">0.06</span>, <span class="at">y =</span> <span class="fl">0.13</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"無相関のケース"</span>), <span class="at">x =</span> <span class="fl">0.09</span>, <span class="at">y =</span> <span class="fl">0.16</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="co"># Specify the font family for consistency</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># text p.65</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 設定</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 保有費率</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>wa <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> wa</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb <span class="sc">*</span> mu_B,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma_p =</span> <span class="fu">sqrt</span>(wa<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_A<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wb<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_B<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> rho <span class="sc">*</span> wa <span class="sc">*</span> wb <span class="sc">*</span> sigma_A <span class="sc">*</span> sigma_B),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">label=</span> <span class="fu">c</span>(</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0,1"</span>, <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.1,0.9"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.2,0.8"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.3,0.7"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.4,0.6"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.5,0.5"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.6,0.4"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.7,0.3"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.8,0.2"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.9,0.1"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1,0"</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">y =</span> sigma_p, <span class="at">x =</span> mu_p) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(df, label <span class="sc">!=</span> <span class="st">""</span>), <span class="fu">aes</span>(<span class="at">label =</span> label), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.2</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.14</span>) <span class="sc">+</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"投資可能領域のプロット"</span>, <span class="at">x =</span> <span class="st">"期待リターン"</span>, <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="co"># Add labels for clarity</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産Aと資産Bの文字を追加し，hiragino Kaku Gothic ProNはMacの場合のフォント指定</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"資産A"</span>), <span class="at">x =</span> <span class="fl">0.12</span>, <span class="at">y =</span> <span class="fl">0.19</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"資産B"</span>), <span class="at">x =</span> <span class="fl">0.06</span>, <span class="at">y =</span> <span class="fl">0.13</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"無相関のケース"</span>), <span class="at">x =</span> <span class="fl">0.09</span>, <span class="at">y =</span> <span class="fl">0.16</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="co"># Specify the font family for consistency</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Hatakeda_Chap05_files/figure-html/diversified_investment-1.png" class="img-fluid figure-img" width="672"></p>
+<p><embed src="Hatakeda_Chap05_files/figure-html/diversified_investment-1.pdf" class="img-fluid" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <!---
+
+
 
 
 
@@ -788,133 +903,74 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 
 
 
+
+
 --->
 <p>曲線上の点が<strong>投資可能領域</strong>(ポートフォリオは実現リターンと標準偏差の組み合わせとなる)。</p>
 <p>2つのリスク資産のリターンの相関係数がリスク低減効果に与える影響を図示すると，次のようになる。 相関係数がマイナス1に近づくほど，左に弓なりになる。つまり**ポートフォリオのリスク低減効果が高いことを意味する。</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数のリスト</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>rho_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産の標準偏差と期待リターン</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 保有比率</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>wa <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> wa</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレーム作成</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">wa =</span> wa, <span class="at">rho =</span> rho_values) <span class="sc">|&gt;</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">wb =</span> <span class="dv">1</span> <span class="sc">-</span> wa,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb <span class="sc">*</span> mu_B,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma_p =</span> <span class="fu">sqrt</span>(wa<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_A<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wb<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_B<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> rho <span class="sc">*</span> wa <span class="sc">*</span> wb <span class="sc">*</span> sigma_A <span class="sc">*</span> sigma_B),</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">rho_label =</span> <span class="fu">factor</span>(rho, <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"相関 = -1"</span>, <span class="st">"相関 = 0"</span>, <span class="st">"相関 = 1"</span>))</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># waが0.1刻みのデータを抽出</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>label_points <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wa <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>))</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co"># プロット</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p, <span class="at">color =</span> rho_label)) <span class="sc">+</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> label_points, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p, <span class="at">color =</span> rho_label), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># 凡例と色を統一</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"投資可能領域のプロット（相関の影響）"</span>,</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"期待リターン"</span>,</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span>,</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"相関係数"</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)  <span class="co"># 凡例を下に配置</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産Aと資産B、無相関ケースのラベル追加</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># g &lt;- g +</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "Japan1GothicBBB") +</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "Japan1GothicBBB") +</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_text(label = "無相関のケース", x = 0.09, y = 0.19, size = 4, family = "Japan1GothicBBB")</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 描画</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数のリスト</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rho_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産の標準偏差と期待リターン</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 保有比率</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>wa <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> wa</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレーム作成</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">wa =</span> wa, <span class="at">rho =</span> rho_values) <span class="sc">|&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">wb =</span> <span class="dv">1</span> <span class="sc">-</span> wa,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb <span class="sc">*</span> mu_B,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma_p =</span> <span class="fu">sqrt</span>(wa<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_A<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wb<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_B<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> rho <span class="sc">*</span> wa <span class="sc">*</span> wb <span class="sc">*</span> sigma_A <span class="sc">*</span> sigma_B),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">rho_label =</span> <span class="fu">factor</span>(rho, <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"相関 = -1"</span>, <span class="st">"相関 = 0"</span>, <span class="st">"相関 = 1"</span>))</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># waが0.1刻みのデータを抽出</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>label_points <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wa <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>))</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co"># プロット</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p, <span class="at">color =</span> rho_label)) <span class="sc">+</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> label_points, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p, <span class="at">color =</span> rho_label), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># 凡例と色を統一</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"投資可能領域のプロット（相関の影響）"</span>,</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"期待リターン"</span>,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span>,</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"相関係数"</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)  <span class="co"># 凡例を下に配置</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産Aと資産B、無相関ケースのラベル追加</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="co"># g &lt;- g +</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_text(label = "資産A", x = 0.12, y = 0.19, size = 4, family = "HiraKakuPro-W3") +</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_text(label = "資産B", x = 0.06, y = 0.13, size = 4, family = "HiraKakuPro-W3") +</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_text(label = "無相関のケース", x = 0.09, y = 0.19, size = 4, family = "HiraKakuPro-W3")</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 描画</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Hatakeda_Chap05_files/figure-html/diversified_investment2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><embed src="Hatakeda_Chap05_files/figure-html/diversified_investment2-1.pdf" class="img-fluid" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>3つのリスク資産のみのケースを考える。 リスク資産が増えれば増えるほど，左に弓なりになる。 つまりポートフォリオのリスク低減効果が大きくなる。</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># 相関係数（仮にすべての組み合わせで無相関とする）</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産の標準偏差と期待リターン</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>sigma_C <span class="ot">&lt;-</span> <span class="fl">0.07</span>  <span class="co"># 資産Cの標準偏差</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>mu_C <span class="ot">&lt;-</span> <span class="fl">0.04</span>     <span class="co"># 資産Cの期待リターン</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 保有比率（wa, wb の組み合わせを作成し、wc = 1 - wa - wb を計算）</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>wa_wb_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">wa =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.05</span>), <span class="at">wb =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.05</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wc =</span> <span class="dv">1</span> <span class="sc">-</span> wa <span class="sc">-</span> wb) <span class="sc">|&gt;</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wc <span class="sc">&gt;=</span> <span class="dv">0</span>)  <span class="co"># wcが負にならないように制限</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3資産ポートフォリオの計算</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> wa_wb_grid <span class="sc">|&gt;</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb <span class="sc">*</span> mu_B <span class="sc">+</span> wc <span class="sc">*</span> mu_C,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma_p =</span> <span class="fu">sqrt</span>(</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>      wa<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_A<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wb<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_B<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wc<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_C<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span> <span class="sc">*</span> rho <span class="sc">*</span> (wa <span class="sc">*</span> wb <span class="sc">*</span> sigma_A <span class="sc">*</span> sigma_B <span class="sc">+</span> wb <span class="sc">*</span> wc <span class="sc">*</span> sigma_B <span class="sc">*</span> sigma_C <span class="sc">+</span> wc <span class="sc">*</span> wa <span class="sc">*</span> sigma_C <span class="sc">*</span> sigma_A)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co"># プロット</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p)) <span class="sc">+</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>  <span class="co"># 3資産の投資可能領域を点でプロット</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"投資可能領域のプロット（資産A, B, C）"</span>,</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"期待リターン"</span>,</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)  <span class="co"># 凡例を非表示（点のプロットのため）</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産A, B, Cのラベル追加</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産A"</span>, <span class="at">x =</span> <span class="fl">0.12</span>, <span class="at">y =</span> <span class="fl">0.19</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産B"</span>, <span class="at">x =</span> <span class="fl">0.06</span>, <span class="at">y =</span> <span class="fl">0.13</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産C"</span>, <span class="at">x =</span> <span class="fl">0.04</span>, <span class="at">y =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>)</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 描画</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap05_files/figure-html/three_risk_assets-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>3つのリスク資産への投資可能領域は，曲線上ではなく曲線に囲まれた領域(集合)となる。ただこのうち，同じリスク(同じ標準偏差)の下で最も高い期待リターンを実現するポートフォリオが最適となるため，双曲線の上半分が望ましいポートフォリオとなり，これを<strong>効率的フロンティア</strong>と呼ぶ。</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -930,7 +986,7 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>mu_C <span class="ot">&lt;-</span> <span class="fl">0.04</span>     <span class="co"># 資産Cの期待リターン</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 保有比率（wa, wb の組み合わせを作成し、wc = 1 - wa - wb を計算）</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>wa_wb_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">wa =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>), <span class="at">wb =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>wa_wb_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">wa =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.05</span>), <span class="at">wb =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.05</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wc =</span> <span class="dv">1</span> <span class="sc">-</span> wa <span class="sc">-</span> wb) <span class="sc">|&gt;</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wc <span class="sc">&gt;=</span> <span class="dv">0</span>)  <span class="co"># wcが負にならないように制限</span></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
@@ -944,82 +1000,143 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 効率的フロンティアを特定（sigma_p が同じなら mu_p が最大のものを選択）</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># プロット</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p)) <span class="sc">+</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>  <span class="co"># 3資産の投資可能領域を点でプロット</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_point(data = efficient_frontier, aes(x = mu_p, y = sigma_p), color = "red", size = 2) +  # 効率的フロンティアの点を赤色で表示</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"投資可能領域と効率的フロンティア（資産A, B, C）"</span>,</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"期待リターン"</span>,</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)  <span class="co"># 凡例を非表示（点のプロットのため）</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産A"</span>, <span class="at">x =</span> <span class="fl">0.12</span>, <span class="at">y =</span> <span class="fl">0.19</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産B"</span>, <span class="at">x =</span> <span class="fl">0.06</span>, <span class="at">y =</span> <span class="fl">0.13</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>) <span class="sc">+</span></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産C"</span>, <span class="at">x =</span> <span class="fl">0.04</span>, <span class="at">y =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"Japan1GothicBBB"</span>)</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 描画</span></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># プロット</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p)) <span class="sc">+</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>  <span class="co"># 3資産の投資可能領域を点でプロット</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"投資可能領域のプロット（資産A, B, C）"</span>,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"期待リターン"</span>,</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)  <span class="co"># 凡例を非表示（点のプロットのため）</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産A, B, Cのラベル追加</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産A"</span>, <span class="at">x =</span> <span class="fl">0.12</span>, <span class="at">y =</span> <span class="fl">0.19</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産B"</span>, <span class="at">x =</span> <span class="fl">0.06</span>, <span class="at">y =</span> <span class="fl">0.13</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産C"</span>, <span class="at">x =</span> <span class="fl">0.04</span>, <span class="at">y =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>)</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 描画</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><embed src="Hatakeda_Chap05_files/figure-html/three_risk_assets-1.pdf" class="img-fluid" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>3つのリスク資産への投資可能領域は，曲線上ではなく曲線に囲まれた領域(集合)となる。ただこのうち，同じリスク(同じ標準偏差)の下で最も高い期待リターンを実現するポートフォリオが最適となるため，双曲線の上半分が望ましいポートフォリオとなり，これを<strong>効率的フロンティア</strong>と呼ぶ。</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># 相関係数（仮にすべての組み合わせで無相関とする）</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 資産の標準偏差と期待リターン</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>sigma_C <span class="ot">&lt;-</span> <span class="fl">0.07</span>  <span class="co"># 資産Cの標準偏差</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>mu_C <span class="ot">&lt;-</span> <span class="fl">0.04</span>     <span class="co"># 資産Cの期待リターン</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 保有比率（wa, wb の組み合わせを作成し、wc = 1 - wa - wb を計算）</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>wa_wb_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">wa =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>), <span class="at">wb =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wc =</span> <span class="dv">1</span> <span class="sc">-</span> wa <span class="sc">-</span> wb) <span class="sc">|&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wc <span class="sc">&gt;=</span> <span class="dv">0</span>)  <span class="co"># wcが負にならないように制限</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3資産ポートフォリオの計算</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> wa_wb_grid <span class="sc">|&gt;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb <span class="sc">*</span> mu_B <span class="sc">+</span> wc <span class="sc">*</span> mu_C,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma_p =</span> <span class="fu">sqrt</span>(</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>      wa<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_A<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wb<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_B<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> wc<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sigma_C<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span> <span class="sc">*</span> rho <span class="sc">*</span> (wa <span class="sc">*</span> wb <span class="sc">*</span> sigma_A <span class="sc">*</span> sigma_B <span class="sc">+</span> wb <span class="sc">*</span> wc <span class="sc">*</span> sigma_B <span class="sc">*</span> sigma_C <span class="sc">+</span> wc <span class="sc">*</span> wa <span class="sc">*</span> sigma_C <span class="sc">*</span> sigma_A)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 効率的フロンティアを特定（sigma_p が同じなら mu_p が最大のものを選択）</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co"># プロット</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mu_p, <span class="at">y =</span> sigma_p)) <span class="sc">+</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>  <span class="co"># 3資産の投資可能領域を点でプロット</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_point(data = efficient_frontier, aes(x = mu_p, y = sigma_p), color = "red", size = 2) +  # 効率的フロンティアの点を赤色で表示</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"投資可能領域と効率的フロンティア（資産A, B, C）"</span>,</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"期待リターン"</span>,</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"リスク（標準偏差）"</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)  <span class="co"># 凡例を非表示（点のプロットのため）</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産A"</span>, <span class="at">x =</span> <span class="fl">0.12</span>, <span class="at">y =</span> <span class="fl">0.19</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産B"</span>, <span class="at">x =</span> <span class="fl">0.06</span>, <span class="at">y =</span> <span class="fl">0.13</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>) <span class="sc">+</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> <span class="st">"資産C"</span>, <span class="at">x =</span> <span class="fl">0.04</span>, <span class="at">y =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">"HiraKakuPro-W3"</span>)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 描画</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><embed src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-6-1.pdf" class="img-fluid" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数の定義</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># 無相関</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sigma_C <span class="ot">&lt;-</span> <span class="fl">0.07</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>mu_C <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 共分散行列の作成（対角行列）</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(sigma_A<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                       <span class="dv">0</span>, sigma_B<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>,</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                       <span class="dv">0</span>, <span class="dv">0</span>, sigma_C<span class="sc">^</span><span class="dv">2</span>),</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ポートフォリオの生成</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>n_portfolios <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">3</span> <span class="sc">*</span> n_portfolios), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> weights <span class="sc">/</span> <span class="fu">rowSums</span>(weights)  <span class="co"># 各行の合計を1にする</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 期待リターンとリスクを計算</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>port_returns <span class="ot">&lt;-</span> weights <span class="sc">%*%</span> <span class="fu">c</span>(mu_A, mu_B, mu_C)</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>port_risks <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">rowSums</span>((weights <span class="sc">%*%</span> cov_matrix) <span class="sc">*</span> weights))</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームに格納</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>portfolio_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Return =</span> port_returns, <span class="at">Risk =</span> port_risks)</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 効率的フロンティアのプロット</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(portfolio_data, <span class="fu">aes</span>(<span class="at">x =</span> Risk, <span class="at">y =</span> Return)) <span class="sc">+</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efficient Frontier"</span>,</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Risk (Standard Deviation)"</span>,</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Expected Return"</span>) <span class="sc">+</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数の定義</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># 無相関</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>sigma_C <span class="ot">&lt;-</span> <span class="fl">0.07</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>mu_C <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 共分散行列の作成（対角行列）</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(sigma_A<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                       <span class="dv">0</span>, sigma_B<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                       <span class="dv">0</span>, <span class="dv">0</span>, sigma_C<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ポートフォリオの生成</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>n_portfolios <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">3</span> <span class="sc">*</span> n_portfolios), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> weights <span class="sc">/</span> <span class="fu">rowSums</span>(weights)  <span class="co"># 各行の合計を1にする</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 期待リターンとリスクを計算</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>port_returns <span class="ot">&lt;-</span> weights <span class="sc">%*%</span> <span class="fu">c</span>(mu_A, mu_B, mu_C)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>port_risks <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">rowSums</span>((weights <span class="sc">%*%</span> cov_matrix) <span class="sc">*</span> weights))</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームに格納</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>portfolio_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Return =</span> port_returns, <span class="at">Risk =</span> port_risks)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 効率的フロンティアのプロット</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(portfolio_data, <span class="fu">aes</span>(<span class="at">x =</span> Risk, <span class="at">y =</span> Return)) <span class="sc">+</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efficient Frontier"</span>,</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Risk (Standard Deviation)"</span>,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Expected Return"</span>) <span class="sc">+</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.21</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># 0以下の余白を削除</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># x軸の余白も削除</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><embed src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-7-1.pdf" class="img-fluid" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1049,37 +1166,37 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 </span> となり，ポートフォリオの期待リターン <span class="math inline">\mu _p</span> は，無リスク利子率 <span class="math inline">r_f</span> を切片，傾きを <span class="math inline">\frac{\mu _1 - r_f}{\sigma _1}</span> とする <span class="math inline">\sigma_p</span> の線形関数となる。</p>
 <p>以下のように，<span class="math inline">w_A \sigma _A = w_B \sigma_B</span>となるように<span class="math inline">w_A</span>と<span class="math inline">w_B</span>を選べば、<span class="math inline">\sigma _P = 0</span>となるポートフォリオを作れる。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># text p.65</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>wa <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> wa</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb<span class="sc">*</span>mu_B,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma_p =</span> <span class="fu">abs</span>(wa<span class="sc">*</span>sigma_A <span class="sc">-</span> wb<span class="sc">*</span>sigma_B),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">label=</span> <span class="fu">c</span>(</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0,1"</span>, <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.1,0.9"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.2,0.8"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.3,0.7"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.4,0.6"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.5,0.5"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.6,0.4"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.7,0.3"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.8,0.2"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.9,0.1"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1,0"</span>)</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">y =</span> sigma_p, <span class="at">x =</span> mu_p) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(df, label <span class="sc">!=</span> <span class="st">""</span>), <span class="fu">aes</span>(<span class="at">label =</span> label), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># text p.65</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sigma_A <span class="ot">&lt;-</span> <span class="fl">0.18</span>  <span class="co"># 資産Aの標準偏差</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>sigma_B <span class="ot">&lt;-</span> <span class="fl">0.12</span>  <span class="co"># 資産Bの標準偏差</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mu_A <span class="ot">&lt;-</span> <span class="fl">0.12</span>     <span class="co"># 資産Aの期待リターン</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mu_B <span class="ot">&lt;-</span> <span class="fl">0.06</span>     <span class="co"># 資産Bの期待リターン</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>wa <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> wa</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">mu_p =</span> wa <span class="sc">*</span> mu_A <span class="sc">+</span> wb<span class="sc">*</span>mu_B,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma_p =</span> <span class="fu">abs</span>(wa<span class="sc">*</span>sigma_A <span class="sc">-</span> wb<span class="sc">*</span>sigma_B),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">label=</span> <span class="fu">c</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0,1"</span>, <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.1,0.9"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.2,0.8"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.3,0.7"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.4,0.6"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.5,0.5"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.6,0.4"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.7,0.3"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.8,0.2"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"0.9,0.1"</span>,<span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">9</span>),</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1,0"</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">y =</span> sigma_p, <span class="at">x =</span> mu_p) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(df, label <span class="sc">!=</span> <span class="st">""</span>), <span class="fu">aes</span>(<span class="at">label =</span> label), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><embed src="Hatakeda_Chap05_files/figure-html/unnamed-chunk-8-1.pdf" class="img-fluid" width="672"></p>
 </figure>
 </div>
 </div>
