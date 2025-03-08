@@ -50,3 +50,183 @@ $$
 **ベータはパラメータ！**
 
 
+
+## ベータの推定
+
+$\beta_i$ を推定するために，CAPMより次のような推定式(回帰式)を想定する。
+
+$$
+r_i - r_f = a_i + b_i (r_M - r_f) + \varepsilon
+$$
+
+ここで，$a_i$ は回帰直線の切片を，$b_i$ は回帰直線の傾きを， $\varepsilon_i$ は誤差を表す。
+
+改めて，上の式を書き直すと，
+
+$$
+Z_i = a_i + b_i Z_M + \varepsilon_i
+$$
+
+ここで，$Z_i \equiv r_i - r_f$ (証券 $i$ のリスクプレミアム)であり，$Z_M \equiv r_M - r_f$ (マーケット・ポートフォリオのリスクプレミアム)を意味する。
+
+計量経済学の言葉でいうと，$Z_i$ を被説明変数あるいは従属変数，$Z_M$ および定数項を説明変数あるいは独立変数，とよぶ。
+
+ベータの推定にあたり，資産 $i$ の過去のリターン，安全資産の過去の利子率，マーケット・ポートフォリオの過去のリターンを用いて，実情を最もうまく反映する $a_i$ と $b_i$ を計算する。
+このパラメータの推定方法の1つが**最小自乗推定法**(Orginal Least Squares: OLS)である。[^1]
+一定の条件下において，OLS推定量 $b_i$ は不偏推定量かつ一致推定量となる。つまり最小二乗法による推定は，真のパラメータに収束する。
+
+以下では，_R_を用いて非常に簡便的な方法によって，$\beta_i$ を推定する。
+
+[^1]: 推定方法に関する詳細な議論は，例えば，山本拓(1995)「計量経済学」新世社を参照せよ。
+
+### ソニーのベータを求める。
+
+必要なデータは，**月次**の株価，TOPIX，TBレートの3つである。
+日経NEEDS社会科学情報検索の「株価」データから，ソニーコーポレーションの終値，TOPIXの月次データをを2013年4月から2024年3月までのデータを取得する。
+
+```{r}
+setwd("/Users/soichi/SynologyDrive/R/Hatakeda_Finance/")
+pacman::p_load(tidyverse, ggthemes)
+df_tb <- read_csv("data/jgbcm_all.csv")
+```
+
+基準日が`S61.1.1`のような形式なので，これを西暦に変換したい。
+
+```{r}
+# 和暦の日付を変換する関数
+convert_wareki_to_seireki <- function(date_str) {
+  # 和暦の日付を分割
+  date_parts <- str_split(date_str, "\\.", simplify = TRUE)
+  era <- substr(date_parts[1], 1, 1)  # 元号 (S, H, R)
+  year <- as.numeric(substr(date_parts[1], 2, nchar(date_parts[1])))  # 和暦年
+  month <- as.numeric(date_parts[2])  # 月
+  day <- as.numeric(date_parts[3])  # 日
+
+  # 元号に応じて西暦を計算
+  if (era == "S") {
+    year <- 1925 + year  # 昭和
+  } else if (era == "H") {
+    year <- 1988 + year  # 平成
+  } else if (era == "R") {
+    year <- 2018 + year  # 令和
+  } else {
+    stop(paste("対応していない元号です:", era))
+  }
+
+  # "YYYY.MM.DD" 形式に変換
+  return(sprintf("%04d.%02d.%02d", year, month, day))
+}
+
+# 「基準日」を変換
+df_tb <- df_tb %>%
+  mutate(
+    基準日 = sapply(基準日, convert_wareki_to_seireki)
+  )
+
+```
+
+
+```{r}
+df_tb <- df_tb |>
+  select(基準日, `10年`)
+df_tb
+```
+
+## 補論 : CAPM第2定理の証明
+
+第1，第2資産がリスク資産，第3資産は安全資産という3資産からなるポートフォリオについて考える。
+
+投資家の期待効用関数 $U$ を次のように仮定する。
+このように仮定できる正当性は，第5回資料を参照せよ。
+
+$$
+U = \mu _ p - \frac{\gamma }{2} \sigma _ p^2
+$$
+ここで，$\gamma$ はリスク回避度係数である。
+
+第1資産と第2資産および安全資産のリターンを，それぞれ $R_1$ ， $R_2$ ，$r_f$ で表す。
+またポートフォリオのリターン $R_p$ を次式で表す。
+
+$$
+R_p = \omega _1 R_1 + w_2 R_2 + w_3 r_f
+$$
+
+ただし，$w_1 + w_2 + w_3 = 1$ である。
+
+第1資産と第2資産の期待リターンをそれぞれ $\mu_1$ ， $\mu_2$ で表すと，ポートフォリオの期待リターン $\mu_p$ は次のように表される。
+
+$$
+\begin{aligned}
+\mu _p &= w_1 \mu_1 + w_2 \mu_2 + w_3 r_f \\
+&= w_1 \mu_1 + w_2 \mu_2 + (1 - w_1 - w_2) r_f \\
+&= w_1 (\mu_1 - r_f) + w_2 (\mu_2 - r_f) + r_f
+\end{aligned}
+$$
+
+第1資産と第2資産のリターンの分散を，それぞれ $\sigma^2_1$ ， $\sigma^2_2$，共分散を $\sigma_{12}$ で表すと，ポートフォリオのリターンの分散を $\sigma ^2_p$ とする。
+
+$$
+\begin{aligned}
+\sigma^2_p & \equiv \mathbb{E} [(R_p - \mu_p )^2]\\
+&= \mathbb{E}[(w_1R_1 + w_2 R_2 + w_3 r_f - (w_1 \mu_1 + w_2 \mu_2 + w_3 r_f))^2]\\
+&= \mathbb{E}[(w_1 (R_1 - \mu_1) + w_2(R_2 - \mu_2))^2]\\
+&= \mathbb{E}[w_1^2 (R_1 - \mu_1)^2] + \mathbb{E}[w_2^2(R_1 - \mu_2 )^2] + \mathbb{E}[2 w_1 w_2 (R_1-\mu_1)(R_2 - \mu_2)]\\
+&= w_1^2 \mathbb{E}[(R_1 - \mu_1)^2] + w_2^2 \mathbb{E}[(R_2 - \mu_2)^2] + 2 w_1 w_2  \mathbb{E}[(R_1-\mu_1)(R_2 - \mu_2)]\\
+&= w_1^2 \sigma _1^2 + w_2^2 \sigma^2_2 + 2 w_1 w_2 \sigma _{12}
+\end{aligned}
+$$
+
+ポートフォリオのリターンの期待値と分散を投資家の効用関数に代入する。
+
+$$
+U = w_1 (\mu_1 - r_f) + w_2 (\mu_2 - r_f) + r_f  - \frac{\gamma}{2} (w_1^2 \sigma^2_1 + w_2^2 \sigma^2_2 + 2 w_1 w_2 \sigma_{12})
+$$
+
+最適化の1階条件を確認する。
+
+$$
+\begin{aligned}
+\frac{\partial U}{\partial w_1} = ( \mu_1 - r_f) - \gamma (w_1 \sigma^2_1 + w_2 \sigma_{12}) &= 0\\
+\frac{\partial U}{\partial w_2} = ( \mu_2 - r_f) - \gamma (w_2 \sigma^2_2 + w_1 \sigma_{12}) &= 0
+\end{aligned}
+$$
+
+ここで，
+
+$$
+\begin{aligned}
+\mathbb{Cov}(R_1, R_M) &= \mathbb{Cov}(R_1, w_1 R_1 + w_2 R_2 + w_3 r_f)\\
+&= \mathbb{Cov}(R_1, w_1 R_1) + \mathbb{Cov}(R_1, w_2 R_2) + \mathbb{Cov}(R_1, w_3 r_f)\\
+&= w_1 \mathbb{Cov}(R_1, R_1) + w_2 \mathbb{Cov}(R_1, R_2) + w_3 \mathbb{Cov}(R_1, r_f)\\
+&= w_1 \sigma^2_1 + w_2 \sigma_{12}
+\end{aligned}
+$$
+
+同様に，
+
+$$
+\mathbb{Cov}(R_2, R_M) = w_2 \sigma^2_2 + w_1 \sigma_{12}
+$$
+
+となる。
+これらを最適化の1階条件の式に代入すると，
+
+$$
+\begin{aligned}
+\mu_1 - r_f &= \gamma \mathbb{Cov}(R_1, R_M)\\
+\mu_2 - r_f &= \gamma \mathbb{Cov}(R_2, R_M)
+\end{aligned}
+$$
+
+ここで $N$ 資産のケースにおいても，任意の資産あるいはポートフォリオにおいて，この式は成立する。またマーケット・ポートフォリオについても成立する。
+すなわち，
+
+$$
+(\mu_M - r_f) = \gamma \mathbb{Cov}(R_M, R_M) = \gamma \sigma ^2_M
+$$
+
+これらのからリスク回避度 $\gamma$ を消去すると，
+
+$$
+(\mu_i - r_f) = \frac{\mathbb{Cov}(R_i, R_M)}{\sigma ^2_M} (\mu_M - r_f) = \beta_i (\mu_M - r_f), \quad \text{for} \quad i = 1,2
+$$
