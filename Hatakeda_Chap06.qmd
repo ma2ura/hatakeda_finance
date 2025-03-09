@@ -83,18 +83,39 @@ $$
 
 必要なデータは，**月次**の株価，TOPIX，TBレートの3つである。
 日経NEEDS社会科学情報検索の「株価」データから，ソニーコーポレーションの終値，TOPIXの月次データをを2013年4月から2024年3月までのデータを取得する。
+パッケージを読み込んでから、ソニーの株価データ`sony_stockprice.csv`を読み込む。
 
 ```{r}
-setwd("/Users/soichi/SynologyDrive/R/Hatakeda_Finance/")
 pacman::p_load(tidyverse, ggthemes)
+df_sony <- read_csv("data/sony_stockprice.csv")
+head(df_sony)
+```
+
+このデータから、`期間`、`終値`、`TOPIX`のデータを抽出する。
+
+```{r}
+df_sony <- df_sony |>
+  select(期間, 終値, TOPIX) |>
+  mutate(
+    期間 = ymd(paste0(期間, "/01")),
+    期間 = format(期間, "%Y-%m")
+  )
+head(df_sony)
+```
+
+次に、国債の利回りデータ`jgbcm_all.csv`を読み込む。
+
+```{r}
 df_tb <- read_csv("data/jgbcm_all.csv")
+head(df_tb)
 ```
 
 基準日が`S61.1.1`のような形式なので，これを西暦に変換したい。
+和暦を西暦に変換する関数`convert_to_seireki`を作成する。
 
 ```{r}
 # 和暦の日付を変換する関数
-convert_wareki_to_seireki <- function(date_str) {
+convert_to_seireki <- function(date_str) {
   # 和暦の日付を分割
   date_parts <- str_split(date_str, "\\.", simplify = TRUE)
   era <- substr(date_parts[1], 1, 1)  # 元号 (S, H, R)
@@ -116,21 +137,151 @@ convert_wareki_to_seireki <- function(date_str) {
   # "YYYY.MM.DD" 形式に変換
   return(sprintf("%04d.%02d.%02d", year, month, day))
 }
+```
 
+この関数`convert_to_seireki`を使って，`基準日`を西暦に変換する。
+
+```{r}
 # 「基準日」を変換
 df_tb <- df_tb %>%
   mutate(
-    基準日 = sapply(基準日, convert_wareki_to_seireki)
+    基準日 = sapply(基準日, convert_to_seireki),
+    基準日 = ymd(基準日)
   )
-
+head(df_tb)
 ```
 
+10年の利回りデータだけを選択し、2013年4月以降のデータだけを抽出する。
 
 ```{r}
 df_tb <- df_tb |>
-  select(基準日, `10年`)
-df_tb
+  filter(基準日 >= "2013-04-01") |>
+  select(基準日, `10年`) |>
+  rename(無リスク利子率 = `10年`) |>
+  mutate(無リスク利子率 = as.numeric(無リスク利子率) / 100)
+head(df_tb)
 ```
+
+利回りデータは日時なので、月次データにするため、月末の利回りデータのみを抽出し、`df_tb_month`というデータフレームに格納する。
+
+```{r}
+# 月末のデータだけ抽出
+df_tb_month <- df_tb |>
+  group_by(year(基準日), month(基準日)) |>
+  slice_max(基準日) |>
+  ungroup() |>
+  mutate(
+    期間 = format(基準日, "%Y-%m")
+  ) |>
+  select(期間, 無リスク利子率)
+
+head(df_tb_month)
+```
+
+最後に、ソニーの株価データに国債の利回りデータを結合する。
+
+
+```{r}
+df <- df_sony |>
+  left_join(df_tb_month, by = "期間") |>
+  select(期間, 終値, TOPIX, 無リスク利子率)
+head(df)
+```
+
+これでデータセットが完成したので、中身を確認します。
+
+```{r}
+glimpse(df)
+```
+
+次に、リターンを計算する。
+
+```{r}
+df <- df |>
+  mutate(
+    R_sony = 終値 / lag(終値) - 1,
+    R_topix = TOPIX / lag(TOPIX) - 1
+  )
+glimpse(df)
+```
+
+横軸をマーケット・ポートフォリオのリターン，縦軸をソニーのリターンとした散布図を描く。
+
+```{r}
+df |>
+  ggplot(aes(x = R_topix, y = R_sony)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+```
+
+Rで回帰分析を行い、この回帰直線の傾きと切片を求める。
+
+```{r}
+res <- lm(R_sony ~ R_topix, data = df)
+summary(res)
+```
+
+この結果から、ソニーのリターンをマーケット・ポートフォリオのリターンで説明する回帰分析より、切片 $a_i$ は $0.011789$、傾き $b_i$ は $1.029308$ であることがわかった。
+
+## CAPMの利用と実証
+
+株式や株式ファンドのパフォーマンスを評価するためにCAPMを利用することができる。
+株式やファンド(ポートフォリオ)について、
+
+$$
+Z_i = a_i + b_i Z_M + \varepsilon_i
+$$
+
+を推定する。
+CAPMが成立する世界では、$a_i = 0$ となる。
+
+CAPMが成立している下で、もし $a_i \neq 0$ であれば、その株式やファンドは市場が提供するリスクとリターンの関係を凌駕するリターンを達成していることになる。
+この $a_i$ を**ジェンセンのアルファ**(Jensen's alpha)と呼ぶ。
+
+しかしCAPMには実証分析における問題点がある。
+それは、**CAPMはあてはまりが悪い**という点である。
+
+CAPMの第2定理の下では、各証券のリターンとそのベータのプロットは証券市場線(SML)に沿っているはずである。しかしながら、実証分析では証券市場線上に集中しておらず、また $a_i = 0$ が成立していない。
+
+
+### アノマリーの存在
+
+CAPMの世界では，**各銘柄のリスクプレミアムはマーケット・ポートフォリオのベータによってのみ説明される**。
+ベータ以外の要因によって超過リターンが説明される場合，その要因は**アノマリー**(anomaly)と呼ばれる。
+よく知られたアノマリーとしては，以下のものがある。
+
+1. **小型株効果**：小型株(小規模企業)ほど実際のリスクプレミアムが大
+    - ジェンセンの $\alpha$ が資産規模の小さい企業銘柄ほど大きい。
+    - つまり、$a_i = a(SIZE_i)\,  (-)$ 
+
+2. **バリュー株効果**：割安株(簿価/時価比率が高い)ほど実際のリスクプレミアムが大
+    - ジェンセンの $\alpha$ が割安な企業銘柄ほど大きい。
+    - $a_i = a(VALUE_i)\ (+)$
+
+3. **短期モーメンタム**：直近のリターンが正である株式ほどその後のリスクプレミアムが大
+    - ジェンセンの $\alpha$ が直近のリターンが正である企業銘柄ほど大きい。
+    - $a_i = a(MOM_i)\ (+)$
+
+4. **長期リバーサル**：過去数年間のリターンが負である株式ほどその後のリスクプレミアムが大
+    - ジェンセンの $\alpha$ 過去数年間のリターンが負である企業銘柄ほど大きい。
+    - $a_i = a(REV_i)\ (-)$
+
+アノマリーの存在は，CAPM が妥当でないからだろうか？
+- ロールの批判 ⇒ マーケット・ポートフォリオは本当？
+- モデルが正しい？⇒ 1期間モデルではなく，多期間モデルへ
+
+
+ひょっとしたら，(15)式は，以下のような形で成立しているかも？。
+
+$$
+Z_i = a_i + b_{1,i} Z_M + b_{2,i} SIZE + b_{3,i} VALUE + b_{4,i} MOM + b_{5,i} REV + \varepsilon_i
+$$
+
+米国では，Fama and French (1993)以降の研究で，
+$b_{2,i} < 0, b_{3,i} > 0, b_{4,i} > 0, b_{5,i} < 0$ が報告されている。
+教科書は，日本において，$b_{2,i} > 0$ が報告されている。
+
 
 ## 補論 : CAPM第2定理の証明
 

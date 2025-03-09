@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-474c6d7e63be50eb6972897072b39b27.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5bda4110b75e38e932ffae446a848d73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-823d8ce6169aa3c8f409a98f47348726.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-00438af671115a5c76feb004a9a15e92.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b0e034859a901dbfbbe28485e46a269e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,6 +188,10 @@ window.Quarto = {
     <a class="nav-link" href="./Hatakeda_Chap05.html"> 
 <span class="menu-text">ポートフォリオ理論</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap06.html"> 
+<span class="menu-text">CAPM</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -270,6 +274,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./Hatakeda_Chap05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ポートフォリオ理論</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CAPM</span></span></a>
   </div>
 </li>
     </ul>
@@ -537,15 +547,6 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <p>実現した<span class="math inline">\boldsymbol{H}</span>の数(つまり表が出た回数)を<span class="math inline">x</span>とするとき，事象<span class="math inline">\omega</span>から<span class="math inline">x</span>への関数<span class="math inline">X</span>(コイン投げによる<strong>表の数</strong>)は確率変数である。</p>
 <p>厳密な表現は分かりにくいですね…。 直感的には，確率を持った変数として理解してください。 でも，しばらく厳密にいきましょう！</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode tex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (0,1) node [left]{<span class="ss">$X$</span>};</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (0,3) node {before coin toss};</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (4,3) node {after coin toss};</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [thick, -&gt;] (0,1) -- (4,2) node[pos=0.5, sloped, above]{<span class="ss">$p(1)=0.5$</span>};</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (4,2) node [right] {<span class="ss">$</span><span class="sc">\omega</span><span class="ss"> = </span><span class="sc">\boldsymbol</span><span class="ss">{H}, x=1$</span>};</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [thick, -&gt;] (0,1) -- (4,0) node[pos=0.5, sloped, below]{<span class="ss">$p(0)=0.5$</span>};</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (4,0) node [right] {<span class="ss">$</span><span class="sc">\omega</span><span class="ss"> = </span><span class="sc">\boldsymbol</span><span class="ss">{T}, x=0$</span>};</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -557,13 +558,13 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 <p>確率は対応する値がどのくらいの割合で発生するかを表します。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"T"</span>),</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"T"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -592,17 +593,6 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode tex code-with-copy"><code class="sourceCode latex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (0,2) node [left]{<span class="ss">$X$</span>};</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (0,5) node {before coin toss};</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (4,5) node {after coin toss};</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [thick, -&gt;] (0,2) -- (4,4) node[pos=0.5, sloped,  above]{<span class="ss">$p(2)=0.25$</span>};</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (4,4) node [right] {<span class="ss">$</span><span class="sc">\omega</span><span class="ss"> = (</span><span class="sc">\boldsymbol</span><span class="ss">{H},</span><span class="sc">\boldsymbol</span><span class="ss">{H}), x=2$</span>};</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [thick, -&gt;] (0,2) -- (4,2) node[pos=0.5, above]{<span class="ss">$p(1)=0.5$</span>};</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (4,2) node [right] {<span class="ss">$</span><span class="sc">\omega</span><span class="ss"> = (</span><span class="sc">\boldsymbol</span><span class="ss">{H},</span><span class="sc">\boldsymbol</span><span class="ss">{T}), x=1$</span>};</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> [thick, -&gt;] (0,2) -- (4,0) node[pos=0.5, sloped, below]{<span class="ss">$p(0)=0.25$</span>};</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\draw</span> (4,0) node [right] {<span class="ss">$</span><span class="sc">\omega</span><span class="ss"> = (</span><span class="sc">\boldsymbol</span><span class="ss">{T},</span><span class="sc">\boldsymbol</span><span class="ss">{T}), x=0$</span>};</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -613,13 +603,13 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"HH"</span>, <span class="st">"HT"</span>,<span class="st">"TT"</span>),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>,<span class="fl">0.25</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"HH"</span>, <span class="st">"HT"</span>,<span class="st">"TT"</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>,<span class="fl">0.25</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -646,6 +636,34 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <li>各結果が起こる確率</li>
 <li>確率分布</li>
 </ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+解答例
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>起こりうる事象は， <span class="math inline">x = \{0, 1, 2, 3, 4\}</span></p></li>
+<li><p>試行結果は， <span class="math inline">\omega = \{ (H,H,H,H), (H,H,H,T), (H,H,T,T), (H,T,T,T), (T,T,T,T) \}</span> の5つの事象が起こりうる。</p></li>
+<li><p>各結果が起こる確率は，<span class="math inline">p(0) = 0.0625, p(1) = 0.25, p(2) = 0.375, p(3) = 0.25, p(4) = 0.0625</span></p></li>
+<li><p>確率分布は，以下の通りです。</p>
+<ul>
+<li><span class="math inline">x = 0 : p(0) = 0.0625</span></li>
+<li><span class="math inline">x = 1 : p(1) = 0.25</span></li>
+<li><span class="math inline">x = 2 : p(2) = 0.375</span></li>
+<li><span class="math inline">x = 3 : p(3) = 0.25</span></li>
+<li><span class="math inline">x = 4 : p(4) = 0.0625</span></li>
+</ul></li>
+</ol>
+</div>
 </div>
 </div>
 <p>確率変数により，われわれは<strong>不確実性</strong>を伴う現象を記述できるようになりました。 確率変数という用語は，結果を観測する<strong>前</strong>の状況を指し示しています。 まとめると、</p>
@@ -862,7 +880,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -871,7 +889,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>定義通りに、投資資産<span class="math inline">A</span>の期待値と分散を求めます。</p>
 <table class="caption-top table">
@@ -1036,7 +1054,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 \end{aligned}
 </span></p>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1045,7 +1063,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>分散の定義は <span class="math display">
 \begin{aligned}
