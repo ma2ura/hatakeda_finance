@@ -28,8 +28,8 @@ book:
         file: Hatakeda_Chap05.qmd
       - text: "CAPM"
         file: Hatakeda_Chap06.qmd
-      # - text: "裁定価格"
-      #   file: Hatakeda_Chap07.qmd
+      - text: "裁定価格"
+        file: Hatakeda_Chap07.qmd
       # - text: "市場の効率性"
       #   file: Hatakeda_Chap08.qmd
       # - text: "行動"
@@ -58,7 +58,7 @@ book:
     - Hatakeda_Chap04.qmd
     - Hatakeda_Chap05.qmd
     - Hatakeda_Chap06.qmd
-    # - Hatakeda_Chap07.qmd
+    - Hatakeda_Chap07.qmd
     # - Hatakeda_Chap08.qmd
     # - Hatakeda_Chap09.qmd
 
@@ -109,3 +109,5 @@ execute:
   warning: false
 
 dev: cairo_pdf
+
+css: r4ds.scss¥
