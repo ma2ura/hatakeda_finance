@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,12 +70,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-474c6d7e63be50eb6972897072b39b27.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5bda4110b75e38e932ffae446a848d73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-823d8ce6169aa3c8f409a98f47348726.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-00438af671115a5c76feb004a9a15e92.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b0e034859a901dbfbbe28485e46a269e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,7 +148,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="r4ds.scss¥">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -278,7 +311,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#状態価格を用いた資産価格の導出" id="toc-状態価格を用いた資産価格の導出" class="nav-link" data-scroll-target="#状態価格を用いた資産価格の導出"><span class="header-section-number">7.3.1</span> 状態価格を用いた資産価格の導出</a></li>
   <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"><span class="header-section-number">7.3.2</span> まとめ</a></li>
+  <li><a href="#応用コールオプションとプットオプション" id="toc-応用コールオプションとプットオプション" class="nav-link" data-scroll-target="#応用コールオプションとプットオプション"><span class="header-section-number">7.3.3</span> 応用：コール・オプションとプット・オプション</a></li>
+  <li><a href="#応用2先物取引と先渡し取引" id="toc-応用2先物取引と先渡し取引" class="nav-link" data-scroll-target="#応用2先物取引と先渡し取引"><span class="header-section-number">7.3.4</span> 応用2：先物取引と先渡し取引</a></li>
   </ul></li>
+  <li><a href="#状態価格の導出" id="toc-状態価格の導出" class="nav-link" data-scroll-target="#状態価格の導出"><span class="header-section-number">7.4</span> 状態価格の導出</a></li>
   </ul>
 </nav>
     </div>
@@ -306,6 +342,9 @@ window.Quarto = {
 
 <section id="状態価格と資産価格" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="状態価格と資産価格"><span class="header-section-number">7.1</span> 状態価格と資産価格</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes, knitr, kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>ここでは，<span class="markp"><strong>裁定価格理論</strong>(arbitrage pricing theory: APT)において重要な概念である<strong>状態価格</strong>(state price)</span>について説明します。 状態価格を理解するために、無裁定機会について学習します。</p>
 <p>まずは次の例をみてみましょう。</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -494,9 +533,325 @@ P_i &amp;= \boldsymbol{q}^{\top} \boldsymbol{D}_i \\
 \end{aligned}
 \tag{7.1}</span></span></p>
 <p><a href="#eq-04" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> は、状態価格ベクトルを知ることができれば、資産価格を計算できることを示している。</p>
-
-
 </section>
+<section id="応用コールオプションとプットオプション" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="応用コールオプションとプットオプション"><span class="header-section-number">7.3.3</span> 応用：コール・オプションとプット・オプション</h3>
+<p>オプション取引とは，，原資産（対象資産）を，<span class="markp">将来の一定期日までに，特定の価格（権利行使価格）で売り付け・買い付けをする権利（オプション）の取引</span>をいう。 原資産を買う権利についてのオプションを<strong>コール</strong>，売る権利についてのオプションを<strong>プット</strong>という。</p>
+<p>権利行使価格を <span class="math inline">K</span> (一定の値)，満期日 <span class="math inline">T</span>における対象商品の価格を <span class="math inline">S_T</span> とすると，満期日におけるコール・オプションのCFは，</p>
+<p><span class="math display">
+\begin{aligned}
+\begin{cases}
+S_T - K &amp; \text{if } S_T &gt; K \text{のとき権利を行使} \\
+0 &amp; \text{if } S_T \leq K \text{のとき権利を放棄}
+\end{cases}
+\end{aligned}
+</span> より， <span class="math display">
+\max(S_T - K, 0)
+</span> となる。</p>
+<p>図にすると次のようになる。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ST =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">1</span>) <span class="co"># 証券価格</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>call <span class="ot">&lt;-</span> <span class="fu">pmax</span>(df<span class="sc">$</span>ST <span class="sc">-</span> <span class="dv">40</span>, <span class="dv">0</span>) <span class="co"># コールオプションのCFを計算</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> ST, <span class="at">y =</span> call) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"magenta"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"満期日Tにおける対象商品の価格ST"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"オプションのCF"</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuProN-W3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap07_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>つぎに，満期日におけるプット・オプションのCFは，</p>
+<p><span class="math display">
+\begin{aligned}
+\begin{cases}
+0       &amp; \text{if } S_T &gt; K \text{のとき権利を放棄} \\
+K - S_T &amp; \text{if } S_T \leq K \text{のとき権利を行使}
+\end{cases}
+\end{aligned}
+</span> より， <span class="math display">
+\max(K - S_T, 0)
+</span> となる。</p>
+<p>図にすると，</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">put =</span> <span class="fu">pmax</span>(<span class="dv">40</span> <span class="sc">-</span> ST, <span class="dv">0</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> ST, <span class="at">y =</span> put) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"満期日Tにおける対象商品の価格ST"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"オプションのCF"</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuProN-W3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap07_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>また，オプションには権利行使のタイミングにより，ヨーロピアン・オプションとアメリカン・オプションに分けられる。 権利行使がオプション<strong>満期日</strong>のみに限定されているオプションを<strong>ヨーロピアン・オプション</strong>といい，権利行使がオプション満期日までの期間であれば<strong>いつでも行使できる</strong>オプションを<strong>アメリカン・オプション</strong>といいます。</p>
+<p>またオプション取引の買い方が権利行使したときに利益が生じる状態のことを，<strong>イン・ザ・マネー</strong>という。 コール・オプションでは，権利行使価格 <span class="math inline">K</span> が対象資産の価格 <span class="math inline">S_T</span> より下回る場合(<span class="math inline">K &lt; S_T</span>)，プット・オプションでは，権利行使価格 <span class="math inline">K</span> が対象資産の価格 <span class="math inline">S_T</span> より上回る場合( <span class="math inline">K &gt; S_T</span> )が<strong>イン・ザ・マネー</strong>である。</p>
+<p>オプション取引の買い方が権利行使したときに損失が生じる状態のことを，<strong>アウト・オブ・ザ・マネー</strong>といい，何の損益も生じない状態のことを，<strong>アット・ザ・マネー</strong>といいます。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例4 : コール・オプションの価格
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>今日(<span class="math inline">t=0</span>)から1年後(<span class="math inline">t=1</span>)の状態について5通りのシナリオ(状態1，状態2，状態3，状態4，状態5)が存在し，状態価格ベクトル<span class="math inline">(q_1, q_2, q_3, q_4, q_5) = (0.15, 0.15, 0.15, 0.24, 0.27)</span>が与えられているとする。 X社株式と株式Xのコール・オプションについてのCFが，以下の表のように与えられているとき，X社の株価，コール・オプションの価格を求めましょう。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>資産</th>
+<th>状態1</th>
+<th>状態2</th>
+<th>状態3</th>
+<th>状態4</th>
+<th>状態5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X社株式</td>
+<td>8</td>
+<td>6</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>コールX (<span class="math inline">K=2</span>)</td>
+<td>6</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>コールX (<span class="math inline">K=4</span>)</td>
+<td>4</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+解答
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>価格は状態価格ベクトルとCFベクトルの内積で計算できます。 つまり， <span class="math display">
+P_i = \sum _{m = 1}^M q_m D_{i,m}
+</span> で計算できるため，次のように株価とオプション価格を計算します。</p>
+<p>X社の株価 <span class="math inline">P_X</span> は，</p>
+<p><span class="math display">
+0.15 \times 8 + 0.15 \times 6 + 0.15 \times 3 + 0.24 \times 0 + 0.27 \times 0 = 2.55
+</span></p>
+<p>となり，コール・オプションの価格は次のように計算されます。 <span class="math inline">K=2</span> の場合，</p>
+<p><span class="math display">
+0.15 \times 6 + 0.15 \times 4 + 0.15 \times 1 + 0.24 \times 0 + 0.27 \times 0 = 1.65
+</span></p>
+<p><span class="math inline">K=4</span> の場合，</p>
+<p><span class="math display">
+0.15 \times 4 + 0.15 \times 2 + 0.15 \times 0 + 0.24 \times 0 + 0.27 \times 0 = 0.9
+</span></p>
+<p>となる。</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例5 : プット・オプションの価格
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>今日(<span class="math inline">t=0</span>)から1年後(<span class="math inline">t=1</span>)の状態について5通りのシナリオ(状態1，状態2，状態3，状態4，状態5)が存在し，状態価格ベクトル<span class="math inline">(q_1, q_2, q_3, q_4, q_5) = (0.15, 0.15, 0.15, 0.24, 0.27)</span>が与えられているとする。 X社株式と株式Xのプット・オプションについてのCFが，以下の表のように与えられているとき，X社の株価，プット・オプションの価格を求めましょう。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>資産</th>
+<th>状態1</th>
+<th>状態2</th>
+<th>状態3</th>
+<th>状態4</th>
+<th>状態5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X社株式</td>
+<td>8</td>
+<td>6</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>プットX (<span class="math inline">K=2</span>)</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>プットX (<span class="math inline">K=4</span>)</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+解答
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>プット・オプションの価格は次のように計算されます。</p>
+<p><span class="math inline">K=2</span> の場合，</p>
+<p><span class="math display">
+0.15 \times 0 + 0.15 \times 0 + 0.15 \times 0 + 0.24 \times 2 + 0.27 \times 2 = 1.02
+</span></p>
+<p><span class="math inline">K=4</span> の場合，</p>
+<p><span class="math display">
+0.15 \times 0 + 0.15 \times 0 + 0.15 \times 1 + 0.24 \times 4 + 0.27 \times 4 = 2.19
+</span></p>
+<p>となります。</p>
+</div>
+</div>
+</div>
+<p>オプション価格と権利行使価格 <span class="math inline">K</span> との関係は次のようになります。 コール・オプションにおいては，権利行使価格 <span class="math inline">K</span> が上昇すると，オプション価格は減少します。 プット・オプションにおいては，権利行使価格 <span class="math inline">K</span> が上昇すると，オプション価格は増加します。</p>
+</section>
+<section id="応用2先物取引と先渡し取引" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="応用2先物取引と先渡し取引"><span class="header-section-number">7.3.4</span> 応用2：先物取引と先渡し取引</h3>
+<p>先物取引(フューチャーズ取引)や先渡し取引(フォーワード取引)とは，<strong>事前に設定した取引条件で</strong>将来の一定期日に原資産（対象資産）の売買を行う契約を結ぶことである。 約定した受渡価格を <span class="math inline">K</span> ，満期日 <span class="math inline">T</span> における対象商品の価格を <span class="math inline">S_T</span> とすると，満期日に先物取引の買い方には， <span class="math inline">S_T - K</span> の価値が生じ，売り手には<span class="math inline">K - S_T</span>の価値が生じる。</p>
+<p>先物取引と先渡し取引の違いは，前者は取引が金融商品取引所を通じて行われるのに対して，後者は相対取引となることである。</p>
+<p>図にすると，次のようになります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 先物取引 K = 40 の買いポジションのペイオフ</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>K <span class="ot">=</span> <span class="dv">40</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ST <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">1</span>) <span class="co"># 証券価格</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ST =</span> ST,  <span class="co"># STをデータフレームに含める</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">futures =</span> ST <span class="sc">-</span> K,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">forward =</span> K <span class="sc">-</span> ST</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># データをlong形式に変換（凡例をつけるため）</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df, <span class="at">id.vars =</span> <span class="st">"ST"</span>, <span class="at">variable.name =</span> <span class="st">"Position"</span>, <span class="at">value.name =</span> <span class="st">"Payoff"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの描画</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_long, <span class="fu">aes</span>(<span class="at">x =</span> ST, <span class="at">y =</span> Payoff, <span class="at">color =</span> Position)) <span class="sc">+</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"futures"</span> <span class="ot">=</span> <span class="st">"magenta"</span>, <span class="st">"forward"</span> <span class="ot">=</span> <span class="st">"blue"</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"買いポジション"</span>, <span class="st">"売りポジション"</span>)) <span class="sc">+</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"満期日Tにおける対象商品の価格ST"</span>) <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"先物取引のCF"</span>) <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuProN-W3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap07_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="状態価格の導出" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="状態価格の導出"><span class="header-section-number">7.4</span> 状態価格の導出</h2>
+<p>ここまで状態価格は所与(given)として議論してきましたが，任意の証券から状態価格を求めることができます。</p>
+<p><a href="Hatakeda_Chap05.html#eq-24" class="quarto-xref">Equation&nbsp;<span>5.8</span></a> より，資産 <span class="math inline">i</span> <span class="math inline">i = 1, \dots, N</span> について，以下の式が成立します。</p>
+<p><span class="math display">
+P_i = \sum_{m=1}^{M} q_m D_{i,m}
+</span></p>
+<p>行列で表現すると，</p>
+<p><span class="math display">
+\begin{aligned}
+\begin{pmatrix}
+P_1 \\
+P_2 \\
+\vdots \\
+P_N
+\end{pmatrix}
+=
+\begin{pmatrix}
+D_{1,1} &amp; D_{1,2} &amp; \dots &amp; D_{1,M} \\
+D_{2,1} &amp; D_{2,2} &amp; \dots &amp; D_{2,M} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+D_{N,1} &amp; D_{N,2} &amp; \dots &amp; D_{N,M} \\
+\end{pmatrix}
+\begin{pmatrix}
+q_1 \\
+q_2 \\
+\vdots \\
+q_M
+\end{pmatrix}
+\end{aligned}
+</span></p>
+<p>まとめて書くと，</p>
+<p><span id="eq-27"><span class="math display">
+\begin{aligned}
+\underset{N \times 1}{\boldsymbol{P}} = \underset{N \times M}{\boldsymbol{D}} \underset{N \times 1}{\boldsymbol{q}}
+\end{aligned}
+\tag{7.2}</span></span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+定理 状態価格の存在定理
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>市場において，無裁定機会が成立していることは，<a href="#eq-27" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> 式を満たす状態価格ベクトル <span class="math inline">\boldsymbol{q}</span> が存在することと<strong>同値</strong>である。</p>
+<p>証明はテキスト第5章を参照</p>
+</div>
+</div>
+
+
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
