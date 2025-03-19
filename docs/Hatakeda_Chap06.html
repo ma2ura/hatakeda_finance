@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,14 +64,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Hatakeda_Chap07.html" rel="next">
 <link href="./Hatakeda_Chap05.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5bda4110b75e38e932ffae446a848d73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -148,6 +149,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="r4ds.scss¥">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -190,6 +192,10 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="./Hatakeda_Chap06.html"> 
 <span class="menu-text">CAPM</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap07.html"> 
+<span class="menu-text">裁定価格</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -281,6 +287,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CAPM</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -298,11 +310,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#ソニーのベータを求める" id="toc-ソニーのベータを求める" class="nav-link" data-scroll-target="#ソニーのベータを求める"><span class="header-section-number">6.4.1</span> ソニーのベータを求める。</a></li>
   </ul></li>
-  <li><a href="#capmの利用と実証" id="toc-capmの利用と実証" class="nav-link" data-scroll-target="#capmの利用と実証"><span class="header-section-number">6.5</span> CAPMの利用と実証</a>
-  <ul class="collapse">
-  <li><a href="#アノマリーの存在" id="toc-アノマリーの存在" class="nav-link" data-scroll-target="#アノマリーの存在"><span class="header-section-number">6.5.1</span> アノマリーの存在</a></li>
-  </ul></li>
-  <li><a href="#補論-capm第2定理の証明" id="toc-補論-capm第2定理の証明" class="nav-link" data-scroll-target="#補論-capm第2定理の証明"><span class="header-section-number">6.6</span> 補論 : CAPM第2定理の証明</a></li>
+  <li><a href="#補論-capm第2定理の証明" id="toc-補論-capm第2定理の証明" class="nav-link" data-scroll-target="#補論-capm第2定理の証明"><span class="header-section-number">6.5</span> 補論 : CAPM第2定理の証明</a></li>
   </ul>
 </nav>
     </div>
@@ -381,293 +389,65 @@ Z_i = a_i + b_i Z_M + \varepsilon_i
 <p>以下では，_R_を用いて非常に簡便的な方法によって，<span class="math inline">\beta_i</span> を推定する。</p>
 <section id="ソニーのベータを求める" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="ソニーのベータを求める"><span class="header-section-number">6.4.1</span> ソニーのベータを求める。</h3>
-<p>必要なデータは，<strong>月次</strong>の株価，TOPIX，TBレートの3つである。 日経NEEDS社会科学情報検索の「株価」データから，ソニーコーポレーションの終値，TOPIXの月次データをを2013年4月から2024年3月までのデータを取得する。 パッケージを読み込んでから、ソニーの株価データ<code>sony_stockprice.csv</code>を読み込む。</p>
+<p>必要なデータは，<strong>月次</strong>の株価，TOPIX，TBレートの3つである。 日経NEEDS社会科学情報検索の「株価」データから，ソニーコーポレーションの終値，TOPIXの月次データをを2013年4月から2024年3月までのデータを取得する。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df_sony <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sony_stockprice.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_sony)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-  期間    TOPIX 株式コード 上場コード 銘柄名称       終値 `終値（権利落調整済）`
-  &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt;                  &lt;dbl&gt;
-1 2013/04 1165.       6758 011        ソニーグループ……  1613                   1613
-2 2013/05 1136.       6758 011        ソニーグループ……  2049                   2049
-3 2013/06 1134.       6758 011        ソニーグループ……  2078                   2078
-4 2013/07 1132.       6758 011        ソニーグループ……  2068                   2068
-5 2013/08 1106.       6758 011        ソニーグループ……  1972                   1972
-6 2013/09 1194.       6758 011        ソニーグループ……  2098                   2098
-# ℹ 1 more variable: `時価総額（発行済み株式数ベース）` &lt;dbl&gt;</code></pre>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df_tb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/jgbcm_all.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_tb |&gt; names()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>このデータから、<code>期間</code>、<code>終値</code>、<code>TOPIX</code>のデータを抽出する。</p>
+<p>基準日が<code>S61.1.1</code>のような形式なので，これを西暦に変換したい。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_sony <span class="ot">&lt;-</span> df_sony <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(期間, 終値, TOPIX) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    期間 <span class="ot">=</span> <span class="fu">ymd</span>(<span class="fu">paste0</span>(期間, <span class="st">"/01"</span>)),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    期間 <span class="ot">=</span> <span class="fu">format</span>(期間, <span class="st">"%Y-%m"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_sony)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  期間     終値 TOPIX
-  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
-1 2013-04  1613 1165.
-2 2013-05  2049 1136.
-3 2013-06  2078 1134.
-4 2013-07  2068 1132.
-5 2013-08  1972 1106.
-6 2013-09  2098 1194.</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 和暦の日付を変換する関数</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>convert_wareki_to_seireki <span class="ot">&lt;-</span> <span class="cf">function</span>(date_str) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 和暦の日付を分割</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  date_parts <span class="ot">&lt;-</span> <span class="fu">str_split</span>(date_str, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  era <span class="ot">&lt;-</span> <span class="fu">substr</span>(date_parts[<span class="dv">1</span>], <span class="dv">1</span>, <span class="dv">1</span>)  <span class="co"># 元号 (S, H, R)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(date_parts[<span class="dv">1</span>], <span class="dv">2</span>, <span class="fu">nchar</span>(date_parts[<span class="dv">1</span>])))  <span class="co"># 和暦年</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  month <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(date_parts[<span class="dv">2</span>])  <span class="co"># 月</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  day <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(date_parts[<span class="dv">3</span>])  <span class="co"># 日</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 元号に応じて西暦を計算</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (era <span class="sc">==</span> <span class="st">"S"</span>) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">&lt;-</span> <span class="dv">1925</span> <span class="sc">+</span> year  <span class="co"># 昭和</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (era <span class="sc">==</span> <span class="st">"H"</span>) {</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">&lt;-</span> <span class="dv">1988</span> <span class="sc">+</span> year  <span class="co"># 平成</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (era <span class="sc">==</span> <span class="st">"R"</span>) {</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">&lt;-</span> <span class="dv">2018</span> <span class="sc">+</span> year  <span class="co"># 令和</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">paste</span>(<span class="st">"対応していない元号です:"</span>, era))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># "YYYY.MM.DD" 形式に変換</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">sprintf</span>(<span class="st">"%04d.%02d.%02d"</span>, year, month, day))</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 「基準日」を変換</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>df_tb <span class="ot">&lt;-</span> df_tb <span class="sc">%&gt;%</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    基準日 <span class="ot">=</span> <span class="fu">ymd</span>(<span class="fu">sapply</span>(基準日, convert_wareki_to_seireki))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>次に、国債の利回りデータ<code>jgbcm_all.csv</code>を読み込む。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_tb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/jgbcm_all.csv"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_tb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 16
-  基準日   `1年`  `2年` `3年` `4年` `5年` `6年` `7年` `8年` `9年` `10年` `15年`
-  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; 
-1 S49.9.24 10.327 9.362 8.83   8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-2 S49.9.25 10.333 9.364 8.831  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-3 S49.9.26 10.34  9.366 8.832  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-4 S49.9.27 10.347 9.367 8.833  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-5 S49.9.28 10.354 9.369 8.834  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-6 S49.9.30 10.368 9.373 8.836  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-# ℹ 4 more variables: `20年` &lt;chr&gt;, `25年` &lt;chr&gt;, `30年` &lt;chr&gt;, `40年` &lt;chr&gt;</code></pre>
-</div>
-</div>
-<p>基準日が<code>S61.1.1</code>のような形式なので，これを西暦に変換したい。 和暦を西暦に変換する関数<code>convert_to_seireki</code>を作成する。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 和暦の日付を変換する関数</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>convert_to_seireki <span class="ot">&lt;-</span> <span class="cf">function</span>(date_str) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 和暦の日付を分割</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  date_parts <span class="ot">&lt;-</span> <span class="fu">str_split</span>(date_str, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  era <span class="ot">&lt;-</span> <span class="fu">substr</span>(date_parts[<span class="dv">1</span>], <span class="dv">1</span>, <span class="dv">1</span>)  <span class="co"># 元号 (S, H, R)</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(date_parts[<span class="dv">1</span>], <span class="dv">2</span>, <span class="fu">nchar</span>(date_parts[<span class="dv">1</span>])))  <span class="co"># 和暦年</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  month <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(date_parts[<span class="dv">2</span>])  <span class="co"># 月</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  day <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(date_parts[<span class="dv">3</span>])  <span class="co"># 日</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 元号に応じて西暦を計算</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (era <span class="sc">==</span> <span class="st">"S"</span>) {</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">&lt;-</span> <span class="dv">1925</span> <span class="sc">+</span> year  <span class="co"># 昭和</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (era <span class="sc">==</span> <span class="st">"H"</span>) {</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">&lt;-</span> <span class="dv">1988</span> <span class="sc">+</span> year  <span class="co"># 平成</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (era <span class="sc">==</span> <span class="st">"R"</span>) {</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">&lt;-</span> <span class="dv">2018</span> <span class="sc">+</span> year  <span class="co"># 令和</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">paste</span>(<span class="st">"対応していない元号です:"</span>, era))</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># "YYYY.MM.DD" 形式に変換</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">sprintf</span>(<span class="st">"%04d.%02d.%02d"</span>, year, month, day))</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>この関数<code>convert_to_seireki</code>を使って，<code>基準日</code>を西暦に変換する。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 「基準日」を変換</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_tb <span class="ot">&lt;-</span> df_tb <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    基準日 <span class="ot">=</span> <span class="fu">sapply</span>(基準日, convert_to_seireki),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    基準日 <span class="ot">=</span> <span class="fu">ymd</span>(基準日)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_tb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_tb <span class="ot">&lt;-</span> df_tb <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(基準日 <span class="sc">&gt;=</span> <span class="dv">2014</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_tb <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 16
   基準日     `1年` `2年` `3年` `4年` `5年` `6年` `7年` `8年` `9年` `10年` `15年`
   &lt;date&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; 
-1 1974-09-24 10.3… 9.362 8.83   8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-2 1974-09-25 10.3… 9.364 8.831  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-3 1974-09-26 10.34 9.366 8.832  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-4 1974-09-27 10.3… 9.367 8.833  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-5 1974-09-28 10.3… 9.369 8.834  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
-6 1974-09-30 10.3… 9.373 8.836  8.52  8.35  8.29  8.24  8.12  8.13 -      -     
+1 1975-07-08 9.772 9.53  9.073  8.68  8.46  8.34  8.28  8.25  8.31 -      -     
+2 1975-07-09 9.78  9.534 9.074  8.68  8.46  8.34  8.28  8.25  8.31 -      -     
+3 1975-07-10 9.788 9.537 9.075  8.68  8.46  8.34  8.28  8.25  8.31 -      -     
+4 1975-07-11 9.796 9.54  9.076  8.69  8.46  8.34  8.28  8.25  8.31 -      -     
+5 1975-07-12 9.804 9.543 9.077  8.69  8.46  8.34  8.28  8.25  8.32 -      -     
+6 1975-07-14 9.82  9.549 9.078  8.69  8.46  8.34  8.28  8.26  8.32 -      -     
 # ℹ 4 more variables: `20年` &lt;chr&gt;, `25年` &lt;chr&gt;, `30年` &lt;chr&gt;, `40年` &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p>10年の利回りデータだけを選択し、2013年4月以降のデータだけを抽出する。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_tb <span class="ot">&lt;-</span> df_tb <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(基準日 <span class="sc">&gt;=</span> <span class="st">"2013-04-01"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(基準日, <span class="st">`</span><span class="at">10年</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(無リスク利子率 <span class="ot">=</span> <span class="st">`</span><span class="at">10年</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(無リスク利子率 <span class="ot">=</span> <span class="fu">as.numeric</span>(無リスク利子率) <span class="sc">/</span> <span class="dv">100</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_tb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-  基準日     無リスク利子率
-  &lt;date&gt;              &lt;dbl&gt;
-1 2013-04-01        0.00565
-2 2013-04-02        0.00565
-3 2013-04-03        0.00555
-4 2013-04-04        0.00442
-5 2013-04-05        0.00534
-6 2013-04-08        0.00525</code></pre>
-</div>
-</div>
-<p>利回りデータは日時なので、月次データにするため、月末の利回りデータのみを抽出し、<code>df_tb_month</code>というデータフレームに格納する。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 月末のデータだけ抽出</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_tb_month <span class="ot">&lt;-</span> df_tb <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="fu">year</span>(基準日), <span class="fu">month</span>(基準日)) <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(基準日) <span class="sc">|&gt;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    期間 <span class="ot">=</span> <span class="fu">format</span>(基準日, <span class="st">"%Y-%m"</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(期間, 無リスク利子率)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_tb_month)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-  期間    無リスク利子率
-  &lt;chr&gt;            &lt;dbl&gt;
-1 2013-04        0.00611
-2 2013-05        0.00865
-3 2013-06        0.00845
-4 2013-07        0.00797
-5 2013-08        0.00735
-6 2013-09        0.00685</code></pre>
-</div>
-</div>
-<p>最後に、ソニーの株価データに国債の利回りデータを結合する。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_sony <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_tb_month, <span class="at">by =</span> <span class="st">"期間"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(期間, 終値, TOPIX, 無リスク利子率)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  期間     終値 TOPIX 無リスク利子率
-  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;          &lt;dbl&gt;
-1 2013-04  1613 1165.        0.00611
-2 2013-05  2049 1136.        0.00865
-3 2013-06  2078 1134.        0.00845
-4 2013-07  2068 1132.        0.00797
-5 2013-08  1972 1106.        0.00735
-6 2013-09  2098 1194.        0.00685</code></pre>
-</div>
-</div>
-<p>これでデータセットが完成したので、中身を確認します。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 132
-Columns: 4
-$ 期間           &lt;chr&gt; "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", …
-$ 終値           &lt;dbl&gt; 1613.0, 2049.0, 2078.0, 2068.0, 1972.0, 2098.0, 1877.0,…
-$ TOPIX          &lt;dbl&gt; 1165.13, 1135.78, 1133.84, 1131.70, 1106.05, 1194.10, 1…
-$ 無リスク利子率 &lt;dbl&gt; 0.00611, 0.00865, 0.00845, 0.00797, 0.00735, 0.00685, 0…</code></pre>
-</div>
-</div>
-<p>次に、リターンを計算する。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">R_sony =</span> 終値 <span class="sc">/</span> <span class="fu">lag</span>(終値) <span class="sc">-</span> <span class="dv">1</span>,</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">R_topix =</span> TOPIX <span class="sc">/</span> <span class="fu">lag</span>(TOPIX) <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 132
-Columns: 6
-$ 期間           &lt;chr&gt; "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", …
-$ 終値           &lt;dbl&gt; 1613.0, 2049.0, 2078.0, 2068.0, 1972.0, 2098.0, 1877.0,…
-$ TOPIX          &lt;dbl&gt; 1165.13, 1135.78, 1133.84, 1131.70, 1106.05, 1194.10, 1…
-$ 無リスク利子率 &lt;dbl&gt; 0.00611, 0.00865, 0.00845, 0.00797, 0.00735, 0.00685, 0…
-$ R_sony         &lt;dbl&gt; NA, 0.2703037818, 0.0141532455, -0.0048123195, -0.04642…
-$ R_topix        &lt;dbl&gt; NA, -0.0251903221, -0.0017080773, -0.0018873915, -0.022…</code></pre>
-</div>
-</div>
-<p>横軸をマーケット・ポートフォリオのリターン，縦軸をソニーのリターンとした散布図を描く。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> R_topix, <span class="at">y =</span> R_sony)) <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap06_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Rで回帰分析を行い、この回帰直線の傾きと切片を求める。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">lm</span>(R_sony <span class="sc">~</span> R_topix, <span class="at">data =</span> df)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = R_sony ~ R_topix, data = df)
-
-Residuals:
-      Min        1Q    Median        3Q       Max 
--0.181162 -0.049134 -0.004954  0.045031  0.284444 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 0.011789   0.006481   1.819   0.0713 .  
-R_topix     1.029308   0.151800   6.781 3.87e-10 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.07302 on 129 degrees of freedom
-  (1 個の観測値が欠損のため削除されました)
-Multiple R-squared:  0.2628,    Adjusted R-squared:  0.257 
-F-statistic: 45.98 on 1 and 129 DF,  p-value: 3.871e-10</code></pre>
-</div>
-</div>
-<p>この結果から、ソニーのリターンをマーケット・ポートフォリオのリターンで説明する回帰分析より、切片 <span class="math inline">a_i</span> は <span class="math inline">0.011789</span>、傾き <span class="math inline">b_i</span> は <span class="math inline">1.029308</span> であることがわかった。</p>
 </section>
 </section>
-<section id="capmの利用と実証" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="capmの利用と実証"><span class="header-section-number">6.5</span> CAPMの利用と実証</h2>
-<p>株式や株式ファンドのパフォーマンスを評価するためにCAPMを利用することができる。 株式やファンド(ポートフォリオ)について、</p>
-<p><span class="math display">
-Z_i = a_i + b_i Z_M + \varepsilon_i
-</span></p>
-<p>を推定する。 CAPMが成立する世界では、<span class="math inline">a_i = 0</span> となる。</p>
-<p>CAPMが成立している下で、もし <span class="math inline">a_i \neq 0</span> であれば、その株式やファンドは市場が提供するリスクとリターンの関係を凌駕するリターンを達成していることになる。 この <span class="math inline">a_i</span> を<strong>ジェンセンのアルファ</strong>(Jensen’s alpha)と呼ぶ。</p>
-<p>しかしCAPMには実証分析における問題点がある。 それは、<strong>CAPMはあてはまりが悪い</strong>という点である。</p>
-<p>CAPMの第2定理の下では、各証券のリターンとそのベータのプロットは証券市場線(SML)に沿っているはずである。しかしながら、実証分析では証券市場線上に集中しておらず、また <span class="math inline">a_i = 0</span> が成立していない。</p>
-<section id="アノマリーの存在" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="アノマリーの存在"><span class="header-section-number">6.5.1</span> アノマリーの存在</h3>
-<p>CAPMの世界では，<strong>各銘柄のリスクプレミアムはマーケット・ポートフォリオのベータによってのみ説明される</strong>。 ベータ以外の要因によって超過リターンが説明される場合，その要因は<strong>アノマリー</strong>(anomaly)と呼ばれる。 よく知られたアノマリーとしては，以下のものがある。</p>
-<ol type="1">
-<li><strong>小型株効果</strong>：小型株(小規模企業)ほど実際のリスクプレミアムが大
-<ul>
-<li>ジェンセンの <span class="math inline">\alpha</span> が資産規模の小さい企業銘柄ほど大きい。</li>
-<li>つまり、<span class="math inline">a_i = a(SIZE_i)\,  (-)</span></li>
-</ul></li>
-<li><strong>バリュー株効果</strong>：割安株(簿価/時価比率が高い)ほど実際のリスクプレミアムが大
-<ul>
-<li>ジェンセンの <span class="math inline">\alpha</span> が割安な企業銘柄ほど大きい。</li>
-<li><span class="math inline">a_i = a(VALUE_i)\ (+)</span></li>
-</ul></li>
-<li><strong>短期モーメンタム</strong>：直近のリターンが正である株式ほどその後のリスクプレミアムが大
-<ul>
-<li>ジェンセンの <span class="math inline">\alpha</span> が直近のリターンが正である企業銘柄ほど大きい。</li>
-<li><span class="math inline">a_i = a(MOM_i)\ (+)</span></li>
-</ul></li>
-<li><strong>長期リバーサル</strong>：過去数年間のリターンが負である株式ほどその後のリスクプレミアムが大
-<ul>
-<li>ジェンセンの <span class="math inline">\alpha</span> 過去数年間のリターンが負である企業銘柄ほど大きい。</li>
-<li><span class="math inline">a_i = a(REV_i)\ (-)</span></li>
-</ul></li>
-</ol>
-<p>アノマリーの存在は，CAPM が妥当でないからだろうか？ - ロールの批判 ⇒ マーケット・ポートフォリオは本当？ - モデルが正しい？⇒ 1期間モデルではなく，多期間モデルへ</p>
-<p>ひょっとしたら，(15)式は，以下のような形で成立しているかも？。</p>
-<p><span class="math display">
-Z_i = a_i + b_{1,i} Z_M + b_{2,i} SIZE + b_{3,i} VALUE + b_{4,i} MOM + b_{5,i} REV + \varepsilon_i
-</span></p>
-<p>米国では，Fama and French (1993)以降の研究で， <span class="math inline">b_{2,i} &lt; 0, b_{3,i} &gt; 0, b_{4,i} &gt; 0, b_{5,i} &lt; 0</span> が報告されている。 教科書は，日本において，<span class="math inline">b_{2,i} &gt; 0</span> が報告されている。</p>
-</section>
-</section>
-<section id="補論-capm第2定理の証明" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="補論-capm第2定理の証明"><span class="header-section-number">6.6</span> 補論 : CAPM第2定理の証明</h2>
+<section id="補論-capm第2定理の証明" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="補論-capm第2定理の証明"><span class="header-section-number">6.5</span> 補論 : CAPM第2定理の証明</h2>
 <p>第1，第2資産がリスク資産，第3資産は安全資産という3資産からなるポートフォリオについて考える。</p>
 <p>投資家の期待効用関数 <span class="math inline">U</span> を次のように仮定する。 このように仮定できる正当性は，第5回資料を参照せよ。</p>
 <p><span class="math display">
@@ -1316,6 +1096,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Hatakeda_Chap07.html" class="pagination-link" aria-label="裁定価格理論">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

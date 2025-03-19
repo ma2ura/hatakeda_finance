@@ -2,14 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="松浦総一">
-<meta name="dcterms.date" content="2023-07-24">
 
-<title>畠田 証券投資論</title>
+<title>7&nbsp; 裁定価格理論 – 畠田 証券投資論</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,14 +30,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Hatakeda_Chap02.html" rel="next">
+<link href="./Hatakeda_Chap06.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5bda4110b75e38e932ffae446a848d73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -72,7 +70,51 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="r4ds.scss¥">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -116,6 +158,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./Hatakeda_Chap06.html"> 
 <span class="menu-text">CAPM</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap07.html"> 
+<span class="menu-text">裁定価格</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -150,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Hatakeda_Chap07.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -172,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
@@ -206,6 +252,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CAPM</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap07.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -216,9 +268,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに"><span class="header-section-number">1</span> はじめに</a>
+  <li><a href="#状態価格と資産価格" id="toc-状態価格と資産価格" class="nav-link active" data-scroll-target="#状態価格と資産価格"><span class="header-section-number">7.1</span> 状態価格と資産価格</a></li>
+  <li><a href="#無裁定機会" id="toc-無裁定機会" class="nav-link" data-scroll-target="#無裁定機会"><span class="header-section-number">7.2</span> 無裁定機会</a>
   <ul class="collapse">
-  <li><a href="#授業のテーマと到達目標" id="toc-授業のテーマと到達目標" class="nav-link" data-scroll-target="#授業のテーマと到達目標"><span class="header-section-number">1.1</span> 1. 授業のテーマと到達目標</a></li>
+  <li><a href="#一物一価の法則の下での資産価格" id="toc-一物一価の法則の下での資産価格" class="nav-link" data-scroll-target="#一物一価の法則の下での資産価格"><span class="header-section-number">7.2.1</span> 一物一価の法則の下での資産価格</a></li>
+  <li><a href="#一物一価の法則と市場均衡" id="toc-一物一価の法則と市場均衡" class="nav-link" data-scroll-target="#一物一価の法則と市場均衡"><span class="header-section-number">7.2.2</span> 一物一価の法則と市場均衡</a></li>
+  </ul></li>
+  <li><a href="#資産価格と状態価格" id="toc-資産価格と状態価格" class="nav-link" data-scroll-target="#資産価格と状態価格"><span class="header-section-number">7.3</span> 資産価格と状態価格</a>
+  <ul class="collapse">
+  <li><a href="#状態価格を用いた資産価格の導出" id="toc-状態価格を用いた資産価格の導出" class="nav-link" data-scroll-target="#状態価格を用いた資産価格の導出"><span class="header-section-number">7.3.1</span> 状態価格を用いた資産価格の導出</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"><span class="header-section-number">7.3.2</span> まとめ</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -228,26 +287,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">畠田 証券投資論</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>松浦総一 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 24, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -257,35 +304,205 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
-<section id="はじめに" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> はじめに</h1><p><img src="img/shoken.jpg" title="畠田 証券投資論" class="quarto-cover-image img-fluid"></p>
-<p>この資料は，神戸大学経営学研究科の畠田先生が立命館大学で開講した「証券投資論」という科目の資料をもとに，ファイナンスの基礎を学習するためのノートとして松浦が再編集したものです。 この資料の元ネタは，<span class="markp">証券アナリスト協会が証券アナリスト試験の教材として推奨している教科書</span></p>
+<section id="状態価格と資産価格" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="状態価格と資産価格"><span class="header-section-number">7.1</span> 状態価格と資産価格</h2>
+<p>ここでは，<span class="markp"><strong>裁定価格理論</strong>(arbitrage pricing theory: APT)において重要な概念である<strong>状態価格</strong>(state price)</span>について説明します。 状態価格を理解するために、無裁定機会について学習します。</p>
+<p>まずは次の例をみてみましょう。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>小林孝雄，芹田敏夫 (2009) 「<strong>新・証券投資論 I 理論編</strong>」日本経済新聞社</li>
+<li>今日( <span class="math inline">t=0</span> )から1年後( <span class="math inline">t = 1</span> )の状態について2通りの状態(状態1，状態2)が存在し，次のような2つの金融資産(<span class="math inline">A</span>，<span class="math inline">B</span>)が存在する。</li>
+<li>金融資産 <span class="math inline">A</span> を今日1単位購入すると，1年後に状態 1である場合，キャッシュフロー(<span class="math inline">CF_A</span>)として1千円が発生し，状態2である場合には，<span class="math inline">CF_A</span> は発生しない。</li>
+<li>金融資産 <span class="math inline">B</span> を今日1単位購入すると，1年後に状態 1である場合，<span class="math inline">CF_B</span> は発生しないが，状態2である場合には，1千円の <span class="math inline">CF_B</span> が発生する。</li>
+<li>2つの金融資産 <span class="math inline">A</span>，<span class="math inline">B</span> の今日の価格 <span class="math inline">P_A, P_B</span> はそれぞれ <span class="math inline">0.8</span> 千円，<span class="math inline">0.6</span> 千円である。</li>
 </ul>
-<p>です。 この教科書は，ファイナンスの基礎理論を体系的に学ぶことができる良書ですので，この資料とともに教科書も随時参照するようにしてください。 ファイナンスの基礎を理解するためには，確率論と統計学の基礎知識が必要です。そのための参考書として以下のものがオススメです。</p>
+<p>ここで，もし金融資産 <span class="math inline">C</span> が存在し，1年後に状態1である場合には2千円のCFが発生し，状態2である場合には4千円のCFが発生するとき，金融資産Cの価格 <span class="math inline">P_C</span> はいくらになるか？</p>
+</div>
+</div>
+<p>まとめると次のような設定になります。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>状態</th>
+<th>資産AのCF</th>
+<th>資産BのCF</th>
+<th>資産CのCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>状態1</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>状態2</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>資産 <span class="math inline">A</span> : <span class="math inline">P_A = 0.8</span></li>
+<li>資産 <span class="math inline">B</span> : <span class="math inline">P_B = 0.6</span></li>
+<li>資産 <span class="math inline">C</span> : <span class="math inline">P_C = ?</span></li>
+</ul>
+<p>ここで，金融資産Aを2単位，金融資産Bを4単位からなるポートフォリオPを考える。 このポートフォリオPの1年後のCFは，</p>
+<ul>
+<li>状態1 : <span class="math inline">CF_A \times 2 \text{単位}  + CF_B \times 4 \text{単位} = 2 \times 1 + 4 \times 0 = 2</span></li>
+<li>状態2 : <span class="math inline">CF_A \times 2 \text{単位}  + CF_B \times 4 \text{単位} = 2 \times 0 + 4 \times 1 = 4</span></li>
+</ul>
+<p>よって，</p>
 <ol type="1">
-<li>石井俊全 著 (2018) 「<strong>1冊でマスター 大学の統計学</strong>」 技術評論社</li>
-<li>木村俊一，鈴川晶夫，古澄英男 (2003) 「<strong>確率と統計 – 基礎と応用</strong>」 朝倉書店</li>
-<li>森棟公夫・照井伸彦・中川満・西埜晴久・黒住英司 著「<strong>統計学</strong>」 有斐閣</li>
-<li>西山慶彦・新谷元嗣・川口大司・奥井亮 著 (2019) 「<strong>計量経済学</strong>」 有斐閣</li>
-<li>浅野皙・中村二朗 著 (2009)「<strong>計量経済学</strong> 第2版」有斐閣</li>
-<li>山本拓 (2022)「<strong>計量経済学</strong> 第2版」 新世社</li>
+<li>金融資産Cの1年後のCFは，ポートフォリオPの1年後のCFと同じ <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ol>
-<p>1は統計学の基礎を学ぶ教科書・問題集となっていて，独学に最適な教科書です。 2と3は統計学の基礎をしっかり学びたい人向けの，数学的な厳密性を重視した教科書です。 4は計量経済学の基礎から応用まで幅広く，かつ厳密に学ぶための教科書です。 5と6は4と同様に計量経済学の基礎を学ぶ教科書ですが，5はパネルデータ分析に詳しく，6は時系列分析に詳しいです。</p>
-<p>この教科書では触れられていない行動ファイナンスの知識については，</p>
+<p><strong>CFが同じなら，価値(価格)は同じ</strong>になるなら，</p>
+<ol start="2" type="1">
+<li>金融資産Cの価格 <span class="math inline">P_C</span>は，ポートフォリオPの価格となる。よって</li>
+</ol>
+<p><span class="math display">
+P_C = P_A \times 2 + P_B \times 4 = 0.8 \times 2 + 0.6 \times 4 = 4.0
+</span></p>
+<p>金融資産Cの価格が <span class="math inline">P_C = 3.0</span> ならどうなるのか，考えてみましょう。 投資戦略は，資産 <span class="math inline">A</span>を2単位購入し，資産 <span class="math inline">B</span>を4単位空売り，資産 <span class="math inline">C</span>を1.5単位購入するとします。</p>
+<p><span class="math inline">t=0</span>時点でのキャッシュフローは，</p>
+<p><span class="math display">
+0.8 \times 2 + 0.6 \times 4 - 3.0 \times 1.5 = 0
+</span></p>
+<p>となり， <span class="math inline">t=1</span> 時点でのキャッシュフローは，</p>
 <ul>
-<li>Shefrin, H. (2002) “<strong>Beyond Greed and Fear</strong>”, Oxford University Press, Chapter 1-4. (鈴木一功訳「行動ファイナンスと投資の心理学」東洋経済新報社，2005年)</li>
-<li>Montier, J, (2002) “<strong>Behavioural Finance: Insights into irrational minds and markets</strong>”, Wiley &amp; Sons, Chapter 1. (真壁昭夫，川西諭、栗田昌孝訳「行動ファイナンスの実践 – 投資家心理が動かす金融市場を読む—」，ダイヤモンド社，2005年)</li>
+<li>状態1 : <span class="math inline">- (1 \times 2 + 0 \times 4 + 2.0 \times 1.5) = 1</span></li>
+<li>状態2 : <span class="math inline">- (0 \times 2 + 1 \times 4 + 4.0 \times 1.5) = 2</span></li>
 </ul>
-<p>で補います。</p>
-<section id="授業のテーマと到達目標" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="授業のテーマと到達目標"><span class="header-section-number">1.1</span> 1. 授業のテーマと到達目標</h2>
-<p>ファイナンスは，大きく分けると，<strong>金融市場</strong>(証券市場)とコーポレートファイナンスの分野に大別されます。 金融市場は金融資産への投資問題に焦点を向けることで，リターンとリスクの関係，ポートフォリオ選択，資産の価格づけ，リスクマネジメントを明らかにしようとする分野です。 本講義では，先ず，それらの内容について詳細に解説を行うことで，伝統的な証券投資論の考え方を理解します。 そして，その上で，最近，積極的に議論されている行動ファイナンスの考え方についての解説を行います。</p>
+<p>すなわち，<span class="math inline">t = 0</span> において，<span class="math inline">CF = 0</span> でありながら，<span class="math inline">t = 1</span> 時点において，いずれの状態においても <span class="math inline">CF &gt; 0</span> が実現できる。 これを<strong>裁定機会(arbitrage opportunity)</strong>という。</p>
+<p>このような裁定機会が存在すると，市場参加者はその機会を利用して利益を得ることができるため，市場は効率的でないといえる。</p>
+<p>次に，金融資産Cの価格 <span class="math inline">P_C = 5.4</span> ならどうなるか考えてみよう。</p>
+<p>投資戦略は，金融資産Cを1単位空売り，金融資産Aを3.0単位，金融資産Bを5.0単位購入するとします。</p>
+<p><span class="math inline">t=0</span> 時点でのキャッシュフローは，</p>
+<p><span class="math display">
+5.4 \times 1 - (0.8 \times 3.0 + 0.6 \times 5.0) = 0
+</span></p>
+<p>となり，<span class="math inline">t=1</span> 時点でのキャッシュフローは，</p>
+<ul>
+<li>状態1 : <span class="math inline">- 2.0 \times 1 + ( 1.0 \times 3.0 + 0.0 \times 5.0) = 2</span></li>
+<li>状態2 : <span class="math inline">- 4.0 \times 1 + ( 0.0 \times 3.0 + 1.0 \times 5.0) = 1</span></li>
+</ul>
+<p>すなわち，<span class="math inline">t=0</span> 時点において資金0でありながら，<span class="math inline">t=1</span> 時点のいずれの状態においても <span class="math inline">CF &gt; 0</span> が実現できる。 これも裁定機会である。</p>
+</section>
+<section id="無裁定機会" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="無裁定機会"><span class="header-section-number">7.2</span> 無裁定機会</h2>
+<section id="一物一価の法則の下での資産価格" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="一物一価の法則の下での資産価格"><span class="header-section-number">7.2.1</span> 一物一価の法則の下での資産価格</h3>
+<p>APTでは裁定機会が存在しないと仮定します。 これをノー・フリーランチや一物一価の法則とも呼びます。</p>
+<p><span class="markp">無裁定機会が成立するとき，2つ以上の資産があって，それらの資産が同じCFを生み出すならば，それらの資産価格は同じになる。</span></p>
+<p><span class="math display">
+\begin{aligned}
+\text{金融資産Cの価格} P_C &amp;= \text{ポートフォリオPの価格} \\
+&amp;= 2.0 \times P_A + 4.0 \times P_B\\
+&amp;= 2.0 \times 0.8 + 4.0 \times 0.6 = 4.0
+\end{aligned}
+</span></p>
+<p><span class="marky">金融資産Aは状態1が発生したときのみ1単位のCFを支払う金融資産</span>であり、<span class="markb">金融資産Bは状態2が発生したときのみ1単位のCFを支払う金融資産</span>である。 このような資産を<strong>状態請求権付き証券</strong>(state-contingent claim)とか<strong>アロー・ドブリュー証券</strong>(A-D証券)という。 A-D証券の現在の価格のことを<strong>状態価格</strong>(state price)という (上の例では、<span class="math inline">P_A = 1.0</span>、 <span class="math inline">P_B = 0.6</span> )。 状態価格のベクトルのことを状態価格ベクトルという。 <span class="markp">状態価格は正の値を取る</span>。</p>
+</section>
+<section id="一物一価の法則と市場均衡" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="一物一価の法則と市場均衡"><span class="header-section-number">7.2.2</span> 一物一価の法則と市場均衡</h3>
+<p>金融資産Cの価格が <span class="math inline">P_C = 3.0</span> ならば、投資家は高い価格の資産(あるいはポートフォリオ)を空売りし、安い価格の資産(金融資産C)を購入する裁定取引を行おうとする。 したがって、金融資産Cに対する需要が上昇し、金融資産Cの価格が上昇する。</p>
+<p>いま、金融資産Cの価格を <span class="math inline">P_C = 5.4</span> とすると、投資家は金融資産Cを空売りし、安い価格の資産(ポートフォリオ)を購入する裁定取引を行おうとする。 したがって、金融資産Cに対する需要は低下し、金融資産Cの価格が下落する。</p>
+<p>金融資産Cの価格を <span class="math inline">P_C = 4.0</span> とすると、投資家には裁定取引を行う機会がない。したがって、金融資産に対する需要に変化はなく、結果価格も変化しない。 すなわち、<span class="markp">金融資産Cの市場は均衡状態にある</span>。</p>
+<p>言い換えると、<span class="marky">一物一価の法則が成立するとき、市場の需給は均衡状態にある</span>。</p>
+</section>
+</section>
+<section id="資産価格と状態価格" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="資産価格と状態価格"><span class="header-section-number">7.3</span> 資産価格と状態価格</h2>
+<section id="状態価格を用いた資産価格の導出" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="状態価格を用いた資産価格の導出"><span class="header-section-number">7.3.1</span> 状態価格を用いた資産価格の導出</h3>
+<p>状態価格ベクトル <span class="math inline">(q_1 , \dots , q_M)</span> が与えられているとき、裁定機会が存在しない状況下において、ある金融資産の将来CFのベクトル <span class="math inline">(D_1, \dots , D_M)</span> をA-D証券のポートフォリオを用いて表現することができます。 そして、金融資産の価格は状態価格ベクトルと第1期のCFベクトルとの内積となります。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例2 : 状態数2のケース
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{aligned}
+P_C  &amp;=
+\begin{pmatrix}
+q_1 &amp; q_2
+\end{pmatrix}
+\begin{pmatrix}
+D_1 \\
+D_2
+\end{pmatrix}
+\\
+&amp; = q_1 D_1 + q_2 D_2 \\
+&amp; = 0.8 \times 2 + 0.6 \times 4 \\
+&amp; = 4.0
+\end{aligned}</span>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例3 : 状態数4のケース
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>今日(<span class="math inline">t=0</span>)から1年後(<span class="math inline">t=1</span>)の状態について4通りのシナリオ(状態1〜状態4)が考えられるとする。 状態価格ベクトルが <span class="math inline">(1.0\  0.7\  0.5\  1.2)</span> で表されるとき、1年後のCFベクトルが <span class="math inline">(1\  5 \  3 \  1)</span> となる金融資産の価格 <span class="math inline">P_D</span> を求めましょう。</p>
+<p><span class="math display">
+\begin{aligned}
+P_D  &amp;=
+\begin{pmatrix}
+1.0 &amp; 0.7 &amp; 0.5 &amp; 1.2
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+5 \\
+3 \\
+1
+\end{pmatrix}
+\\
+&amp;= 1.0 \times 1 + 0.7 \times 5 + 0.5 \times 3 + 1.2 \times 1 \\
+&amp;= 7.2
+\end{aligned}
+</span></p>
+</div>
+</div>
+</section>
+<section id="まとめ" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">7.3.2</span> まとめ</h3>
+<p>状態数が<span class="math inline">M</span>であり、状態価格ベクトルが <span class="math inline">\boldsymbol{q}^{\top} = (q_1, \dots, q_M)</span> 、資産 <span class="math inline">i</span> のCFベクトルが <span class="math inline">\boldsymbol{D}_i = (D_{i,1}, \dots, D_{i,M})</span> ならば、資産 <span class="math inline">i</span> の価格 <span class="math inline">P_i</span> は次のように表される。</p>
+<p><span id="eq-04"><span class="math display">
+\begin{aligned}
+P_i &amp;= \boldsymbol{q}^{\top} \boldsymbol{D}_i \\
+    &amp;= q_1 D_{i,1} + \dots + q_M D_{i,M} \\
+    &amp;= \sum_{m=1}^{M} q_m D_{i,m}
+\end{aligned}
+\tag{7.1}</span></span></p>
+<p><a href="#eq-04" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> は、状態価格ベクトルを知ることができれば、資産価格を計算できることを示している。</p>
 
 
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>このとき金融資産CはポートフォリオPによって<strong>複製される</strong>という。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -852,11 +1069,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Hatakeda_Chap06.html" class="pagination-link" aria-label="CAPM">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CAPM</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Hatakeda_Chap02.html" class="pagination-link" aria-label="確率">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">確率</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
