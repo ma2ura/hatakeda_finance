@@ -109,5 +109,3 @@ execute:
   warning: false
 
 dev: cairo_pdf
-
-css: r4ds.scss¥
