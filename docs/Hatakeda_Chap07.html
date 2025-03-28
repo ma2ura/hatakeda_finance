@@ -313,8 +313,14 @@ window.Quarto = {
   <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"><span class="header-section-number">7.3.2</span> まとめ</a></li>
   <li><a href="#応用コールオプションとプットオプション" id="toc-応用コールオプションとプットオプション" class="nav-link" data-scroll-target="#応用コールオプションとプットオプション"><span class="header-section-number">7.3.3</span> 応用：コール・オプションとプット・オプション</a></li>
   <li><a href="#応用2先物取引と先渡し取引" id="toc-応用2先物取引と先渡し取引" class="nav-link" data-scroll-target="#応用2先物取引と先渡し取引"><span class="header-section-number">7.3.4</span> 応用2：先物取引と先渡し取引</a></li>
+  <li><a href="#先物価格" id="toc-先物価格" class="nav-link" data-scroll-target="#先物価格"><span class="header-section-number">7.3.5</span> 先物価格</a></li>
+  <li><a href="#先物のキャリー公式" id="toc-先物のキャリー公式" class="nav-link" data-scroll-target="#先物のキャリー公式"><span class="header-section-number">7.3.6</span> 先物のキャリー公式</a></li>
   </ul></li>
-  <li><a href="#状態価格の導出" id="toc-状態価格の導出" class="nav-link" data-scroll-target="#状態価格の導出"><span class="header-section-number">7.4</span> 状態価格の導出</a></li>
+  <li><a href="#リスクプレミアムとリスク調整割引公式" id="toc-リスクプレミアムとリスク調整割引公式" class="nav-link" data-scroll-target="#リスクプレミアムとリスク調整割引公式"><span class="header-section-number">7.4</span> リスクプレミアムとリスク調整割引公式</a>
+  <ul class="collapse">
+  <li><a href="#まとめ-1" id="toc-まとめ-1" class="nav-link" data-scroll-target="#まとめ-1"><span class="header-section-number">7.4.1</span> まとめ</a></li>
+  </ul></li>
+  <li><a href="#リスク中立確率公式" id="toc-リスク中立確率公式" class="nav-link" data-scroll-target="#リスク中立確率公式"><span class="header-section-number">7.5</span> リスク中立確率公式</a></li>
   </ul>
 </nav>
     </div>
@@ -504,6 +510,7 @@ D_2
 <p>今日(<span class="math inline">t=0</span>)から1年後(<span class="math inline">t=1</span>)の状態について4通りのシナリオ(状態1〜状態4)が考えられるとする。 状態価格ベクトルが <span class="math inline">(1.0\  0.7\  0.5\  1.2)</span> で表されるとき、1年後のCFベクトルが <span class="math inline">(1\  5 \  3 \  1)</span> となる金融資産の価格 <span class="math inline">P_D</span> を求めましょう。</p>
 <p><span class="math display">
 \begin{aligned}
+P_D  &amp;=
 P_D  &amp;=
 \begin{pmatrix}
 1.0 &amp; 0.7 &amp; 0.5 &amp; 1.2
@@ -777,18 +784,19 @@ P_i = \sum _{m = 1}^M q_m D_{i,m}
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># データをlong形式に変換（凡例をつけるため）</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df, <span class="at">id.vars =</span> <span class="st">"ST"</span>, <span class="at">variable.name =</span> <span class="st">"Position"</span>, <span class="at">value.name =</span> <span class="st">"Payoff"</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの描画</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_long, <span class="fu">aes</span>(<span class="at">x =</span> ST, <span class="at">y =</span> Payoff, <span class="at">color =</span> Position)) <span class="sc">+</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"futures"</span> <span class="ot">=</span> <span class="st">"magenta"</span>, <span class="st">"forward"</span> <span class="ot">=</span> <span class="st">"blue"</span>),</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"買いポジション"</span>, <span class="st">"売りポジション"</span>)) <span class="sc">+</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"満期日Tにおける対象商品の価格ST"</span>) <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"先物取引のCF"</span>) <span class="sc">+</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>) <span class="sc">+</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuProN-W3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"futures"</span>, <span class="st">"forward"</span>), <span class="at">names_to =</span> <span class="st">"Position"</span>, <span class="at">values_to =</span> <span class="st">"Payoff"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフの描画</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_long, <span class="fu">aes</span>(<span class="at">x =</span> ST, <span class="at">y =</span> Payoff, <span class="at">color =</span> Position)) <span class="sc">+</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"futures"</span> <span class="ot">=</span> <span class="st">"magenta"</span>, <span class="st">"forward"</span> <span class="ot">=</span> <span class="st">"blue"</span>),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"買いポジション"</span>, <span class="st">"売りポジション"</span>)) <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"満期日Tにおける対象商品の価格ST"</span>) <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"先物取引のCF"</span>) <span class="sc">+</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuProN-W3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -797,10 +805,363 @@ P_i = \sum _{m = 1}^M q_m D_{i,m}
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例6 : 先物契約の価値
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ある投資家がX社の株式を <span class="math inline">t=1</span> 時点で売買する複数の先物契約を過去 (<span class="math inline">t=0</span>) に結んでいるとする。 約定した受渡価格を <span class="math inline">K</span> で表す。 ここでは、先物の買い手側(ロングポジション側)に立って説明する。</p>
+<p><span class="math inline">K=2</span> の場合、 <span class="math inline">t=1</span> 時点になると、投資家は<span class="math inline">X</span>社の株式を2円で買うことになる。</p>
+<p><span class="math inline">t=1</span> 時点での株価</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>状態1</th>
+<th>状態2</th>
+<th>状態3</th>
+<th>状態4</th>
+<th>状態5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X社株式</td>
+<td>8</td>
+<td>6</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>この先物のロングポジションの <span class="math inline">t=1</span> 時点でのCFは、</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>状態1</th>
+<th>状態2</th>
+<th>状態3</th>
+<th>状態4</th>
+<th>状態5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>先物契約</td>
+<td><span class="math inline">6</span></td>
+<td><span class="math inline">4</span></td>
+<td><span class="math inline">1</span></td>
+<td><span class="math inline">-2</span></td>
+<td><span class="math inline">-2</span></td>
+</tr>
+</tbody>
+</table>
+<p>よって、この先物のロングポジションの <span class="math inline">t=0</span> での価値 <span class="math inline">FV</span> は，</p>
+<p><span class="math display">
+FV = 0.15 \times 6 + 0.15 \times 4 + 0.15 \times 1 + 0.24 \times (-2) + 0.27 \times (-2) = 0.63
+</span> となる。</p>
+<p><span class="math inline">K=3</span> の場合、この先物のロングポジションの <span class="math inline">t=1</span> 時点でのCFは、</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>状態1</th>
+<th>状態2</th>
+<th>状態3</th>
+<th>状態4</th>
+<th>状態5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>先物契約</td>
+<td><span class="math inline">5</span></td>
+<td><span class="math inline">3</span></td>
+<td><span class="math inline">0</span></td>
+<td><span class="math inline">-3</span></td>
+<td><span class="math inline">-3</span></td>
+</tr>
+</tbody>
+</table>
+<p>となり、よって、この先物のロングポジションの <span class="math inline">t=0</span> での価値 <span class="math inline">FV</span> は，</p>
+<p><span class="math display">
+FV = 0.15 \times 5 + 0.15 \times 3 + 0.15 \times 0 + 0.24 \times (-3) + 0.27 \times (-3) = -0.33
+</span></p>
+<p>先物の売り手側(ショートポジション側)に立って説明すると、</p>
+<ul>
+<li>受渡価格 <span class="math inline">K=2</span> のときの先物のショートポジションの <span class="math inline">t=0</span> での価値(FV)は、</li>
+</ul>
+<p><span class="math display">
+FV = 0.15 \times (-6) + 0.15 \times (-4) + 0.15 \times (-1) + 0.24 \times 2 + 0.27 \times 2 = -0.63
+</span></p>
+<ul>
+<li>受渡価格 <span class="math inline">K=3</span> のときの先物のショートポジションの <span class="math inline">t=0</span> での価値(FV)は，</li>
+</ul>
+<p><span class="math display">
+FV = 0.15 \times (-5) + 0.15 \times (-3) + 0.15 \times 0 + 0.24 \times 3 + 0.27 \times 3 = 0.33
+</span></p>
+</div>
+</div>
+</section>
+<section id="先物価格" class="level3" data-number="7.3.5">
+<h3 data-number="7.3.5" class="anchored" data-anchor-id="先物価格"><span class="header-section-number">7.3.5</span> 先物価格</h3>
+<p>先物取引の価格は，<strong>無裁定条件</strong>を満たすために，次のような関係が成り立ちます。</p>
+<ul>
+<li><span class="math inline">FV&gt;0</span> ならば、そのポジションの注文の需要が増加</li>
+<li><span class="math inline">FV&lt;0</span> ならば、そのポジションの注文の授業が減少</li>
+</ul>
+<p><span class="math inline">FV=0</span> が成立する(裁定機会がない)ように決定される受渡価格(<span class="math inline">K</span>)を<strong>先物価格</strong>といいます。 例6において、先物価格(<span class="math inline">K</span>)は、</p>
+<p><span class="math display">
+(8-K) \times 0.15 + (6-K) \times 0.15 + (3-K) \times 0.15 + (-K) \times 0.24 + (-K) \times 0.27 = 0
+</span></p>
+<p>つまり、</p>
+<p><span class="math display">
+K=2.656
+</span></p>
+</section>
+<section id="先物のキャリー公式" class="level3" data-number="7.3.6">
+<h3 data-number="7.3.6" class="anchored" data-anchor-id="先物のキャリー公式"><span class="header-section-number">7.3.6</span> 先物のキャリー公式</h3>
+<p>X社の株式の <span class="math inline">t=0</span> 時点の価格が <span class="math inline">2.55</span> であるとすると、株式を <span class="math inline">t=0</span> 時点で購入すれば、支払は <span class="math inline">2.55</span> となる。 X社の株式の <span class="math inline">t=1</span> 時点の先物価格が <span class="math inline">2.656</span> であるとすると、購入することを <span class="math inline">t=0</span> 時点で約束すれば、 <span class="math inline">t=1</span> 時点での支払は <span class="math inline">2.656</span> となる。</p>
+<p>2つの違いは、<span class="markp">株式を購入する場合は、<span class="math inline">t=0</span> 時点での支払いが発生するが、先物取引の場合は、<span class="math inline">t=1</span> 時点での支払いが発生する</span>という点である。 先物の場合、それまでの期間まで資金運用する機会が存在する。 すなわち、安全資産のリターンを <span class="math inline">r_f</span> とすると、<strong>先物のキャリー公式</strong>が成立する。</p>
+<p><span class="math display">
+\text{先物価格} = \text{現物価格} \times (1 + r_f)
+</span></p>
+<p>例6の場合、 <span class="math inline">r_f = 4.167\%</span> となる。</p>
 </section>
 </section>
-<section id="状態価格の導出" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="状態価格の導出"><span class="header-section-number">7.4</span> 状態価格の導出</h2>
+<section id="リスクプレミアムとリスク調整割引公式" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="リスクプレミアムとリスク調整割引公式"><span class="header-section-number">7.4</span> リスクプレミアムとリスク調整割引公式</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>今日(<span class="math inline">t=0</span>)から1年後(<span class="math inline">t=1</span>)の状態が5つ(状態1、状態2、状態3、状態4、状態5)存在し、状態価格ベクトル <span class="math inline">(q_1, q_2, q_3, q_4, q_5) = (0.15, 0.15, 0.15, 0.24, 0.27)</span> が与えられているとする。 国債とX社とY社の社債・株式についてのCF(1年後の価格)が、以下の表のように示されているとき、それぞれの価格を求めなさい。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">状態1</th>
+<th style="text-align: center;">状態2</th>
+<th style="text-align: center;">状態3</th>
+<th style="text-align: center;">状態4</th>
+<th style="text-align: center;">状態5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">状態確率</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">国債</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X社社債</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Y社社債</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X社株式</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Y社株式</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>図にすると、次のようになります。</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Hatakeda_Chap07_files/figure-html/tikz-example-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>状態価格の導出</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="国債の価格" class="level4" data-number="7.4.0.1">
+<h4 data-number="7.4.0.1" class="anchored" data-anchor-id="国債の価格"><span class="header-section-number">7.4.0.1</span> 国債の価格</h4>
+<p>国債の価格もいままでと同様に、状態価格ベクトル <span class="math inline">q</span> とCFベクトル <span class="math inline">D</span> の内積で計算できます。</p>
+<p><span class="math display">
+国債の価格 = 0.15 \times 1 + 0.15 \times 1 + 0.15 \times 1 + 0.24 \times 1 + 0.27 \times 1 = 0.96
+</span> となり、将来の期待CFは</p>
+<p><span class="math display">
+CF = 0.20 \times 1 + 0.20 \times 1 + 0.20 \times 1 + 0.20 \times 1 + 0.20 \times 1 = 1
+</span> となる。 リスクフリー・レート(国債の利回り <span class="math inline">r</span> )は、国債の価格と将来の期待CF(将来の国債価格)との関係から、</p>
+<p><span id="eq-7"><span class="math display">
+1 + r = \frac{t=1 \text{の期待CF} }{t=0 \text{の国債価格(投資額)}} = \frac{1}{0.96}
+\tag{7.2}</span></span></p>
+<p><span class="math inline">r</span> について解くと、</p>
+<p><span class="math display">
+r = 4.167\%
+</span></p>
+<p>となる。</p>
+<p><a href="#eq-7" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> より、国債の価格は将来の期待CFの割引現在価値で計算される。 ここで、割引に用いられる <span class="math inline">1+r</span> は割引率とも呼ばれており、 国債(無リスク資産)の割引率は、<strong>リスクフリー・レート</strong>である。</p>
+</section>
+<section id="社債の価格" class="level4" data-number="7.4.0.2">
+<h4 data-number="7.4.0.2" class="anchored" data-anchor-id="社債の価格"><span class="header-section-number">7.4.0.2</span> 社債の価格</h4>
+<p>無リスク資産であった国債とは異なり、社債はリスク資産であるため、リスクを考慮する必要がある。</p>
+<p>X社の社債の価格は、</p>
+<p><span class="math display">
+\begin{aligned}
+P_X &amp;= 0.15 \times 1 + 0.15 \times 1 + 0.15 \times 1 + 0.24 \times 1 + 0.27 \times 0 = 0.69\\
+CF_X &amp;= 0.20 \times 1 + 0.20 \times 1 + 0.20 \times 1 + 0.20 \times 1 + 0.20 \times 0 = 0.80
+\end{aligned}
+</span></p>
+<p>社債の利回りを <span class="math inline">r_c</span>とすると、現時点 (<span class="math inline">t=0</span>) の社債の価格と将来(<span class="math inline">t=1</span>)の社債の期待CFとの関係は次のようになる。</p>
+<p><span id="eq-11"><span class="math display">
+1 + r_c = \frac{\text{社債の将来の期待}CF}{\text{社債の現時点の価格(投資額)}} = \frac{0.80}{0.69}
+\tag{7.3}</span></span></p>
+<p><span class="math inline">r_c</span> について解くと、</p>
+<p><span id="eq-12"><span class="math display">
+r_c = 15.942\%
+\tag{7.4}</span></span></p>
+<p>国債の価格と同様に、社債の価格は、<a href="#eq-11" class="quarto-xref">Equation&nbsp;<span>7.3</span></a> 式より、将来の期待CFの割引現在価値として次のように計算される。</p>
+<p><span class="math display">
+社債の価格 = \frac{社債の将来の期待CF}{1 + r_c}
+</span></p>
+<p>ここで、社債の割引率はリスクを考慮した<strong>リスク調整割引率</strong>であり、 <span class="math inline">1+r</span> ではなく <span class="math inline">1+r_c</span> となっていることに注意しよう。</p>
+<p>社債の割引率が <span class="math inline">1+r</span> ではなく <span class="math inline">1+r_c</span> となる理由は、X社の社債の場合、 状態5でCFがゼロと也、<strong>デフォルトの可能性が存在</strong>するからである。 したがって、投資家(市場)はデフォルトの可能性を考慮して、国債よりも高いリターンを要求する。このときX社の社債のリスクプレミアム(<span class="math inline">\lambda _c</span>)は、</p>
+<p><span id="eq-14"><span class="math display">
+\lambda _c = r_c - r = 11.775\%
+\tag{7.5}</span></span></p>
+<p>確認問題：Y社の株価、割引率、リスクプレミアムを求めなさい。 また、Y社とX社社債の価格が異なっているならば、なぜかを答えなさい。</p>
+</section>
+<section id="株式の価格" class="level4" data-number="7.4.0.3">
+<h4 data-number="7.4.0.3" class="anchored" data-anchor-id="株式の価格"><span class="header-section-number">7.4.0.3</span> 株式の価格</h4>
+<p>X社の株価</p>
+<p><span class="math display">
+\begin{aligned}
+P_X &amp;= 0.15 \times 8 + 0.15 \times 6 + 0.15 \times 3 + 0.24 \times 0 + 0.27 \times 0\\
+  &amp;= 2.55
+\end{aligned}
+</span> また、将来の期待CFは</p>
+<p><span class="math display">
+\begin{aligned}
+CF_X &amp;= 0.20 \times 8 + 0.20 \times 6 + 0.20 \times 3 + 0.20 \times 0 + 0.20 \times 0 \\
+     &amp;= 3.4
+\end{aligned}
+</span></p>
+<p>株式のリターンをRとすると、現時点 (<span class="math inline">t=0</span>) の株価と将来(<span class="math inline">t=1</span>)の株式の期待CFとの関係は次のようになる。</p>
+<p><span id="eq-17"><span class="math display">
+1 + R = \frac{\text{株式の将来の期待}CF}{\text{株式の現時点の価格(投資額)}} = \frac{3.4}{2.55}
+\tag{7.6}</span></span></p>
+<p><span class="math inline">R</span> について解くと、</p>
+<p><span id="eq-18"><span class="math display">
+R = 33.333\%
+\tag{7.7}</span></span></p>
+<p>国債の価格と同様に、<a href="#eq-17" class="quarto-xref">Equation&nbsp;<span>7.6</span></a> 式より、期待CFの割引現在価値として表すことができる。 つまり、株価も将来の期待CFの割引現在価値として表すことができ、その割引率は <span class="math inline">1+R</span> となる。 X社の株式のリスクプレミアム(<span class="math inline">\lambda _s</span>)は次のとおりである。</p>
+<p><span id="eq-20"><span class="math display">
+\lambda _s \equiv R - r = 33.333 - 4.168 = 29.17\%
+\tag{7.8}</span></span></p>
+<p>確認問題：Y社の株価，割引率，リスクプレミアムを求めなさい。</p>
+</section>
+<section id="まとめ-1" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="まとめ-1"><span class="header-section-number">7.4.1</span> まとめ</h3>
+<p>国債の価格、社債の価格、株価のいずれも、期待CFの割引現在価値として表すことができる。 つまり資産価格 <span class="math inline">P_i</span> は次のように表せる。</p>
+<p><span class="math display">
+P_i = \frac{\text{期待}CF}{1 + \beta}
+</span></p>
+<p>ここで、<span class="math inline">1 + \beta</span> は割引率であり、資産価格の属性(リスク)に応じて異なるものである。</p>
+<p>このように、状態(生起)確率、割引率を知ることができれば、資産価格を計算することができる。 しかしながら、状態(生起)確率と割引率を知ることは困難であるため、上記以外の方法で資産価格を計算する方法がないかを考える。</p>
+</section>
+</section>
+<section id="リスク中立確率公式" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="リスク中立確率公式"><span class="header-section-number">7.5</span> リスク中立確率公式</h2>
+<p>リスク中立確率とは、市場参加者がリスクを考慮せずに投資判断を行うと仮定したときの確率を指します。 リスク中立確率を用いると、リスクプレミアムを考慮せずに価格を決定することができます。</p>
+<p>(割引)国債の価格 <span class="math inline">P_i</span> を次のように求めます。</p>
+<p><span id="eq-21"><span class="math display">
+\begin{aligned}
+P_i &amp;= q_1 \times 1 + q_2 \times 1 + q_3 \times 1 + q_4 \times 1 + q_5 \times 1 \\
+&amp;= q_1 + q_2 + q_3 + q_4 + q_5
+\end{aligned}
+\tag{7.9}</span></span></p>
+<p>次に、国債の価格と期待CFの関係は次式で表されます。</p>
+<p><span class="math display">
+P_i = \frac{期待CF}{1 + \beta}
+</span></p>
+<p>ここで期待CFは，</p>
+<p><span class="math display">
+CF_i = 0.2 \times 1 + 0.2 \times1 + 0.2 \times 1 + 0.2 \times 1 + 0.2 \times 1 = 1
+</span></p>
+<p>ここで， <span class="math inline">1 + \beta = 1 + r</span> より，</p>
+<p><span class="math display">
+1 + r = \frac{1}{q_1 + q_2 + q_3 + q_4 + q_5}
+</span></p>
+<p>一般に，状態数が <span class="math inline">M</span> 個あり，各状態における状態価格ベクトルが <span class="math inline">(q_1, q_2, \dots , q_M)</span> であるならば，リスクフリーレート(無リスク資産のリターン)は，</p>
+<p><span id="eq-23"><span class="math display">
+1 + r  = \frac{1}{\sum _{m = 1}^M q_m}
+\tag{7.10}</span></span></p>
+<p>ここで <span class="math inline">q_m^* = (1 + r) q_m</span> , <span class="math inline">m = 1,2, \dots , M</span> を定義するとき，この <span class="math inline">q_m^*</span> を 状態 <span class="math inline">m</span> の<strong>リスク中立確率</strong>とよぶ。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>例7のリスク中立確率を計算する。</p>
+<p><span class="math inline">r = 0.04167</span> ， <span class="math inline">q_1 = 0.15</span>，<span class="math inline">q_2 = 0.15</span>， <span class="math inline">q_3 = 0.15</span>， <span class="math inline">q_4 = 0.24</span>， <span class="math inline">q_5 = 0.27</span> なので，</p>
+<p><span class="math display">
+\begin{aligned}
+q_1^* &amp;= 0.4167 \times 0.15 = 0.15625 \\
+q_2^* &amp;= 0.4167 \times 0.15 = 0.15625 \\
+q_3^* &amp;= 0.4167 \times 0.15 = 0.15625 \\
+q_4^* &amp;= 0.4167 \times 0.24 = 0.250 \\
+q_5^* &amp;= 0.4167 \times 0.27 = 0.28125 \\
+\end{aligned}
+</span></p>
+<p>状態数が <span class="math inline">M</span> であり，状態価格ベクトルが <span class="math inline">(q_1, q_2, \dots q_M)</span>， 資産 <span class="math inline">i</span> のCFベクトル</p>
+<section id="状態価格の導出" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="状態価格の導出"><span class="header-section-number">7.6</span> 状態価格の導出</h2>
 <p>ここまで状態価格は所与(given)として議論してきましたが，任意の証券から状態価格を求めることができます。</p>
 <p><a href="Hatakeda_Chap05.html#eq-24" class="quarto-xref">Equation&nbsp;<span>5.8</span></a> より，資産 <span class="math inline">i</span> <span class="math inline">i = 1, \dots, N</span> について，以下の式が成立します。</p>
 <p><span class="math display">
@@ -835,7 +1196,7 @@ q_M
 \begin{aligned}
 \underset{N \times 1}{\boldsymbol{P}} = \underset{N \times M}{\boldsymbol{D}} \underset{N \times 1}{\boldsymbol{q}}
 \end{aligned}
-\tag{7.2}</span></span></p>
+\tag{7.11}</span></span></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -846,17 +1207,103 @@ q_M
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>市場において，無裁定機会が成立していることは，<a href="#eq-27" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> 式を満たす状態価格ベクトル <span class="math inline">\boldsymbol{q}</span> が存在することと<strong>同値</strong>である。</p>
+<p>市場において，無裁定機会が成立していることは，<a href="#eq-27" class="quarto-xref">Equation&nbsp;<span>7.11</span></a> 式を満たす状態価格ベクトル <span class="math inline">\boldsymbol{q}</span> が存在することと<strong>同値</strong>である。</p>
 <p>証明はテキスト第5章を参照</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例9：状態価格の導出
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>今日(<span class="math inline">t=0</span>)から1年後(<span class="math inline">t=1</span>)の状態が5つ(状態1、状態2、状態3、状態4、状態5)存在するとする。 国債とX社、Y社の社債・株式についての現在の価格及び1年後のCF(価格)が、以下の表のように示されているとき、それぞれの価格を求めなさい。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">　</th>
+<th style="text-align: center;">価格</th>
+<th style="text-align: center;">状態1</th>
+<th style="text-align: center;">状態2</th>
+<th style="text-align: center;">状態3</th>
+<th style="text-align: center;">状態4</th>
+<th style="text-align: center;">状態5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">状態確率</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">国債</td>
+<td style="text-align: center;">0.96</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X社社債</td>
+<td style="text-align: center;">0.69</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Y社社債</td>
+<td style="text-align: center;">0.72</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X社株式</td>
+<td style="text-align: center;">2.55</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Y社株式</td>
+<td style="text-align: center;">4.83</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
 
 
+</div>
+</div>
+</section>
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>このとき金融資産CはポートフォリオPによって<strong>複製される</strong>という。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>すべての <span class="math inline">q_m</span> は正であるので， <span class="math inline">q_m^* &gt; 0</span> であり，また <span class="math inline">\sum _{m=1}^M q_m^* = \boldsymbol{1}</span> (この計算は以下を参照)であることから，状態 <span class="math inline">m = 1,2, \dots M</span> の確率と見なすことができる。 <span class="math inline">\sum _{m = 1}^M q_m^* = \sum _{m = 1}^M (1 + r) q_m = (1+r) \sum _{m=1}^M q_m</span> 。 ここで <a href="#eq-23" class="quarto-xref">Equation&nbsp;<span>7.10</span></a> 式より， <span class="math inline">\sum_{m = 1}^M q_m = \frac{1}{1+r}</span> であることから，<span class="math inline">\sum _{m = 1}^M q_m^* = 1</span> となる。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
