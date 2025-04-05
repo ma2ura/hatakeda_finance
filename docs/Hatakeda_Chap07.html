@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Hatakeda_Chap08.html" rel="next">
 <link href="./Hatakeda_Chap06.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -195,6 +196,14 @@ window.Quarto = {
     <a class="nav-link" href="./Hatakeda_Chap07.html"> 
 <span class="menu-text">裁定価格</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap08.html"> 
+<span class="menu-text">市場の効率性</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap09.html"> 
+<span class="menu-text">行動</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -291,6 +300,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">行動ファイナンス</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -321,6 +342,7 @@ window.Quarto = {
   <li><a href="#まとめ-1" id="toc-まとめ-1" class="nav-link" data-scroll-target="#まとめ-1"><span class="header-section-number">7.4.1</span> まとめ</a></li>
   </ul></li>
   <li><a href="#リスク中立確率公式" id="toc-リスク中立確率公式" class="nav-link" data-scroll-target="#リスク中立確率公式"><span class="header-section-number">7.5</span> リスク中立確率公式</a></li>
+  <li><a href="#状態価格の導出" id="toc-状態価格の導出" class="nav-link" data-scroll-target="#状態価格の導出"><span class="header-section-number">7.6</span> 状態価格の導出</a></li>
   </ul>
 </nav>
     </div>
@@ -1159,11 +1181,29 @@ q_4^* &amp;= 0.4167 \times 0.24 = 0.250 \\
 q_5^* &amp;= 0.4167 \times 0.27 = 0.28125 \\
 \end{aligned}
 </span></p>
-<p>状態数が <span class="math inline">M</span> であり，状態価格ベクトルが <span class="math inline">(q_1, q_2, \dots q_M)</span>， 資産 <span class="math inline">i</span> のCFベクトル</p>
+</div>
+</div>
+<p>状態数が <span class="math inline">M</span> であり，状態価格ベクトルが <span class="math inline">(q_1, q_2, \dots q_M)</span>， 資産 <span class="math inline">i</span> のCFベクトルが <span class="math inline">(D_{i,1}, D_{i,2}, \dots, D_{i,M})</span> ならば，資産 <span class="math inline">i</span> の価格 (<span class="math inline">P_i</span>) は，</p>
+<p><span id="eq-24"><span class="math display">
+\begin{aligned}
+P_i &amp;= q_1 \times D_{i,1} + q_2 \times D_{i,2} + \dots + q_M \times D_{i,M}\\
+&amp;= \sum_{m=1}^{M} q_m D_{i,m}
+\end{aligned}
+\tag{7.11}</span></span></p>
+<p><a href="#eq-24" class="quarto-xref">Equation&nbsp;<span>7.11</span></a> 式をリスク中立確率(<span class="math inline">q_m^*</span>)を用いて表すと，</p>
+<p><span class="math display">
+\begin{aligned}
+P_i &amp;= \frac{q_1^*}{1 + r} D_{i,1} + \frac{q_2^*}{1 + r} D_{i,2} + \dots + \frac{q_M^*}{1 + r} D_{i,M}\\
+&amp;= \frac{1}{1 + r} \sum_{m=1}^{M} q_m^* D_{i,m}
+\end{aligned}
+</span></p>
+<p><span class="math inline">\sum _{m=1}^{M} q^*_m D_{i,m}</span> は，<span class="markp">リスク中立確率の下で計算された将来の期待CF</span>となる。 ここで，<span class="math inline">1+r</span> はリスク中立確率の下での資産 <span class="math inline">i</span> の割引率であり，それは<strong>リスクフリーレート</strong>に等しい。</p>
+<p>資産 <span class="math inline">i</span> の価格は，リスク中立確率の下で計算された将来の期待CFの割引現在価値として表現できる。 <span class="markp">状態価格ベクトルを知ることができれば，資産価格を計算することができる。</span></p>
+</section>
 <section id="状態価格の導出" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="状態価格の導出"><span class="header-section-number">7.6</span> 状態価格の導出</h2>
 <p>ここまで状態価格は所与(given)として議論してきましたが，任意の証券から状態価格を求めることができます。</p>
-<p><a href="Hatakeda_Chap05.html#eq-24" class="quarto-xref">Equation&nbsp;<span>5.8</span></a> より，資産 <span class="math inline">i</span> <span class="math inline">i = 1, \dots, N</span> について，以下の式が成立します。</p>
+<p><a href="#eq-24" class="quarto-xref">Equation&nbsp;<span>7.11</span></a> より，資産 <span class="math inline">i</span> <span class="math inline">i = 1, \dots, N</span> について，以下の式が成立します。</p>
 <p><span class="math display">
 P_i = \sum_{m=1}^{M} q_m D_{i,m}
 </span></p>
@@ -1196,7 +1236,7 @@ q_M
 \begin{aligned}
 \underset{N \times 1}{\boldsymbol{P}} = \underset{N \times M}{\boldsymbol{D}} \underset{N \times 1}{\boldsymbol{q}}
 \end{aligned}
-\tag{7.11}</span></span></p>
+\tag{7.12}</span></span></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1207,7 +1247,7 @@ q_M
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>市場において，無裁定機会が成立していることは，<a href="#eq-27" class="quarto-xref">Equation&nbsp;<span>7.11</span></a> 式を満たす状態価格ベクトル <span class="math inline">\boldsymbol{q}</span> が存在することと<strong>同値</strong>である。</p>
+<p>市場において，無裁定機会が成立していることは，<a href="#eq-27" class="quarto-xref">Equation&nbsp;<span>7.12</span></a> 式を満たす状態価格ベクトル <span class="math inline">\boldsymbol{q}</span> が存在することと<strong>同値</strong>である。</p>
 <p>証明はテキスト第5章を参照</p>
 </div>
 </div>
@@ -1293,9 +1333,6 @@ q_M
 </table>
 
 
-</div>
-</div>
-</section>
 </div>
 </div>
 </section>
@@ -1876,6 +1913,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Hatakeda_Chap08.html" class="pagination-link" aria-label="市場の効率性">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

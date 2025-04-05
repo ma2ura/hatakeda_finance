@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-474c6d7e63be50eb6972897072b39b27.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5bda4110b75e38e932ffae446a848d73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-823d8ce6169aa3c8f409a98f47348726.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-00438af671115a5c76feb004a9a15e92.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b0e034859a901dbfbbe28485e46a269e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -151,7 +151,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -195,6 +195,14 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="./Hatakeda_Chap07.html"> 
 <span class="menu-text">裁定価格</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap08.html"> 
+<span class="menu-text">市場の効率性</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap09.html"> 
+<span class="menu-text">行動</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -292,6 +300,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">行動ファイナンス</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -310,7 +330,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -331,7 +351,32 @@ window.Quarto = {
 </header>
 
 
-<p>前章で学習したように，ファイナンスではいろいろな理由から，資産価値それ自体より資産価値の<strong>変化率</strong>，すなわち<strong>リターン</strong>(return)で議論することが多いです。 ここで，リターンの定義を再度確認します。</p>
+<p><a href="Hatakeda_Chap02.html">前章</a>で学習したように，ファイナンスではいろいろな理由から，資産価値それ自体より<span class="markp">資産価値の<strong>変化率</strong>，すなわち<strong>リターン</strong>(return)で議論することが多い</span>です。 ここで，リターンの定義を再度確認します。</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+株式リターン
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>資産 <span class="math inline">i</span> の <span class="math inline">t</span> 期の(配当落ち)日次リターン <span class="math inline">r_{i,t}</span> は， <span class="math display">
+\begin{aligned}
+r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
+\end{aligned}
+</span></p>
+<p>と定義されています。 ここで，</p>
+<ul>
+<li><span class="math inline">P</span> は資産価値(株価，債券価格，地価など)</li>
+<li><span class="math inline">i</span> は銘柄，</li>
+<li><span class="math inline">t</span> は時点や期間</li>
+</ul>
+<p>を表してます。</p>
+</div>
+</div>
+<p>では，トヨタ自動車の終値の日次データを用いて，株式リターンの値動きをグラフにしてみましょう。 必要なパッケージとデータを読み込みます。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes, patchwork, datasauRus, gganimate, gifski)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mystyle <span class="ot">&lt;-</span> <span class="fu">list</span> (<span class="co">#  ggplotのテーマ</span></span>
@@ -344,36 +389,12 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-株式リターン
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>資産<span class="math inline">i</span>の<span class="math inline">t</span>期の(配当落ち)日次リターン<span class="math inline">r_{i,t}</span>は， <span class="math display">
-\begin{aligned}
-r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
-\end{aligned}
-</span></p>
-<p>と定義されています。 ここで，</p>
-<ul>
-<li><span class="math inline">P</span>は資産価値(株価，債券価格，地価など)</li>
-<li><span class="math inline">i</span>は銘柄，</li>
-<li><span class="math inline">t</span>は時点や期間</li>
-</ul>
-<p>を表してます。</p>
-</div>
-</div>
-<p>では，トヨタ自動車の終値の日次データを用いて，株式リターンの値動きをグラフにしてみましょう。 <code>ggplot</code>パッケージの<code>geom_line()</code>を用いて折れ線グラフを作成します。</p>
+<p><code>ggplot2</code>パッケージの<code>geom_line()</code>を用いて折れ線グラフを作成します。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/stock_data.csv"</span>) <span class="co"># データの読み込み</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">%&gt;%</span> <span class="co"># トヨタ自動車を抽出</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> 終値) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="co"># 折れ線グラフ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">|&gt;</span> <span class="co"># トヨタ自動車を抽出</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> 終値) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> mystyle<span class="co"># 折れ線グラフ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -382,18 +403,19 @@ r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
 </div>
 </div>
 </div>
-<p>トヨタ自動車の2021年における株価の急落は，株式分割が原因です。 このとき，トヨタ自動車は1株を5株に分割しています。 そのため約10000円だった株価が約2000円と5分の1に下落したのです。</p>
-<p>次にこのデータから株式リターンを計算し、折れ線グラフにしてみます。</p>
+<p>トヨタ自動車の2021年における株価の急落は，<strong>株式分割</strong>が原因です。 このとき，<span class="marky">トヨタ自動車は1株を5株に分割</span>しています。 そのため約10,000円だった株価が約2,000円と5分の1に低下しています。</p>
+<p>次にこの株価データから株式リターンを計算し、折れ線グラフにしてみます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(企業名) <span class="sc">%&gt;%</span> <span class="co"># 企業名でグループ化</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(企業名) <span class="sc">|&gt;</span> <span class="co"># 企業名でグループ化</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">r_daily =</span> 終値 <span class="sc">/</span> <span class="fu">lag</span>(終値) <span class="sc">-</span><span class="dv">1</span> <span class="co"># リターンを計算</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(r_daily <span class="sc">&gt;</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="co"># 株式分割による異常値を除外</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">%&gt;%</span> <span class="co"># トヨタ自動車を抽出</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> r_daily) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="co"># 折れ線グラフ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="co"># |&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filter(r_daily &gt; -0.5) # 株式分割による異常値を除外</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">|&gt;</span> <span class="co"># トヨタ自動車を抽出</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> r_daily) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span><span class="co"># 折れ線グラフ</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -403,10 +425,10 @@ r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
 </div>
 </div>
 <p>2021年の株式分割時の下落が異常な値となっていますが，それ以外の値動きは0を中心にランダムになっていることが分かります。</p>
-<section id="期待値と分散標準偏差の推定" class="level2" data-number="3.1">
+<section id="期待値と分散標準偏差の推定" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="期待値と分散標準偏差の推定"><span class="header-section-number">3.1</span> 期待値と分散(標準偏差)の推定</h2>
-<p>ある資産の価格やリターンを確率変数とみなしたとき，その背後にある<strong>確率分布</strong>の特徴を表す指標(つまり母数)を実際に観察することは不可能です。母集団のパラメータは観察不能なのです。 しかしながら，過去の観測値の集合である<strong>データ</strong>を用いて，確率分布の特徴やそれらの指標(期待値，分散，標準偏差)の<strong>推定値</strong>を求めることはできます。そこで，推定値を用いて確率変数の特徴を考察するようにします。</p>
-<p>例えば，データから作成される<strong>ヒストグラム</strong>(histogram)や度数分布表は確率変数を特徴付ける確率分布の仮想となります。 期待値，分散，標準偏差の推定値は，確率変数を特徴付ける母平均(期待値)，母分散，母標準偏差の仮想です。 この期待値，分散，標準偏差の推定値は，より具体的に<strong>標本平均</strong>(期待値)，<strong>標本分散</strong>，<strong>標本標準偏差</strong>とよばれます。 ただし「標本」という言葉はしばしば省略されることが多いので注意しましょう。</p>
+<p>ある資産の価格やリターンを確率変数とみなしたとき，<span class="markp">その背後にある<strong>確率分布</strong>の特徴を表す指標(つまり母数・パラメータ)を実際に観察することは不可能です。母集団のパラメータは観察不可能</span>なのです。 しかしながら，<span class="markb">過去の観測値の集合である<strong>データ</strong>を用いて，確率分布の特徴やそれらの指標(期待値，分散，標準偏差)の<strong>推定値</strong>を求めることは可能</span>です。 そこで，推定値を用いて確率変数の特徴を考察するようにします。</p>
+<p>例えば，データから作成される<strong>ヒストグラム</strong>(histogram)や度数分布表は確率変数を特徴付ける確率分布の仮想となります。 標本から計算される期待値，分散，標準偏差の推定値は，確率変数を特徴付ける母平均(期待値)，母分散，母標準偏差の<strong>仮想</strong>です。 この期待値，分散，標準偏差の推定値は，より具体的に<strong>標本平均</strong>(期待値)(sample mean)，<strong>標本分散</strong>(sample variance)，<strong>標本標準偏差</strong>(sample standard deviation)とよばれます。 ただし<span class="marky">「標本」という言葉はしばしば省略されることが多い</span>ので注意しましょう。</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -434,10 +456,13 @@ r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.000225068</code></pre>
+<pre><code>[1] 2.145399e-05</code></pre>
 </div>
 </div>
-<p>このコードの意味するところは，<code>mean()</code>で引数のベクトルの平均を計算しています。 引数の<code>df$r_daily</code>とすることで，<code>df</code>というデータフレームの<code>r_daily</code>という変数をしていしています。 さらに，<code>[df$企業名 == "トヨタ自動車"]</code>と続けることで，<code>df</code>の<code>企業名</code>が<code>"トヨタ自動車"</code>となる行のみを抽出しています。 最後の<code>na.rm = TRUE</code>は，平均を出そうとするベクトルに欠損値が含まれている場合，その欠損値を除外して平均を計算することを意味しています。</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><code>mean()</code>： 算術平均を返す。</p>
+</div></div><p>このコードの意味するところは，<code>mean()</code>で引数の数ベクトルの平均を計算しています。 引数を<code>df$r_daily</code>とすることで，<code>df</code>というデータフレームの<code>r_daily</code>という変数をしていしています。 さらに，<code>[df$企業名 == "トヨタ自動車"]</code>と続けることで，<code>df</code>の<code>企業名</code>が<code>"トヨタ自動車"</code>となる行のみを抽出しています。 最後の<code>na.rm = TRUE</code>は，平均を出そうとするベクトルに欠損値が含まれている場合，その欠損値を除外して平均を計算することを意味しています。</p>
 <p>計算されたトヨタ自動車の期待リターンは，<code>2.145399e-05</code>となりました。 これは指数表記で科学研究よく利用される書き方です。 数式で表現すると，</p>
 <p><span class="math display">
 2.145399 \times 10^{-5}
@@ -471,7 +496,7 @@ s^2[r_i] = \frac{1}{T-1} \sum_{k=1}^T ( r_{i,t-k} - \bar r_i)^2
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0003337524</code></pre>
+<pre><code>[1] 0.000496683</code></pre>
 </div>
 </div>
 <p>標本標準偏差は，分散の平方根です。</p>
@@ -502,13 +527,13 @@ s [r_i] = \sqrt{s^2 [r_i]}
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01826889</code></pre>
+<pre><code>[1] 0.02228639</code></pre>
 </div>
 </div>
 <p>データから確率分布の特性を表す指標にはほかにも色々あります。 たとえば尖度や歪度などです。尖度(skewness)とは，確率分布の尖り具合を表す指標です。 歪度(kurtosis)とは，確率分布の裾の重さを表す指標です。</p>
 <p>多様な統計量から分布の特徴を捉えることも重要ですが、グラフの1つである<strong>ヒストグラム</strong>(histogram)は数値よりも直観的に分布の形を確認できるため，まず度数分布表やヒストグラムを作成することをお勧めします。 <code>R</code>の基本関数でヒストグラムを作成するには<code>hist()</code>を用います。 いままでと同様に、トヨタ自動車の株式リターンのヒストグラムを作成してみましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># par(family = "HiraKakuProN-W3") # macの文字化け対策 winの人はコメントアウト</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>) <span class="co"># macの文字化け対策 winの人はコメントアウト</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>]) <span class="co"># 基本関数でヒストグラム</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -521,8 +546,8 @@ s [r_i] = \sqrt{s^2 [r_i]}
 <p>これでももちろんヒストグラムを作成することはできるのですが、 よりキレイなグラフを作成したいなら、<code>tidyverse</code>の<code>ggplot2</code>パッケージが便利です。 ただし，<code>ggplot2</code>で利用できるデータの型は<code>data.frame</code>型に限るので注意しましょう。</p>
 <p>まず、作図のためのデータを用意します。 トヨタ自動車の日次リターンと日付を抽出し、<code>data.frame</code>型に変換して，<code>df_toyota</code>という変数に格納します。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_toyota <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_toyota <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(date, r_daily)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>つぎに，<code>ggplot()</code>関数で作図してみます。 ggplot2パッケージでは，以下の要素を指定してグラフを作ります。</p>
@@ -538,7 +563,8 @@ s [r_i] = \sqrt{s^2 [r_i]}
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() <span class="co"># グラフを指定</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span>) <span class="co"># x軸の範囲を指定</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"日次リターン"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"度数"</span>) <span class="co"># x軸とy軸のラベルを指定</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g) <span class="co"># 出力</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> mystyle</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g) <span class="co"># 出力</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -550,19 +576,44 @@ s [r_i] = \sqrt{s^2 [r_i]}
 <p>正規分布のように左右対称の分布になっていることが分かります。</p>
 <p>ここまでの学習から，1変数の離散確率変数の特徴を表す指標として，期待値，分散，標準偏差を学習し，またデータの分布を視覚的に把握するグラフとしてヒストグラムの作り方を学習しました。 それぞれの定義，計算方法，作図方法を理解し，説明できるようになっていれば，この節は終了です。 次節から，2変数間の関係を表す統計量について学習します。</p>
 </section>
-<section id="共分散と相関係数の推定" class="level2" data-number="3.2">
+<section id="共分散と相関係数の推定" class="level2 page-columns page-full" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="共分散と相関係数の推定"><span class="header-section-number">3.2</span> 共分散と相関係数の推定</h2>
-<p>2つの確率変数間の特徴を表す指標として、<strong>共分散</strong>(covariance)と<strong>相関係数</strong>(correlation coefficient)を学習します。 いま，観察される確率変数<span class="math inline">X</span>と<span class="math inline">Z</span>の実現値の組<span class="math inline">(x_i, z_i), i = 1, \dots , N</span>がデータとして手元にあるとします。 ここで，<span class="math inline">N</span>は標本サイズを表しています。つまり<span class="math inline">N</span>個のデータの組があるということです。 この<span class="math inline">N</span>個のデータを座標平面上で表したものを<strong>散布図</strong>(scatter diagram)といいます。 たとえば、トヨタ自動車と日産自動車の株式リターンの散布図を作成してみましょう。</p>
+<p><span class="marky">2つの確率変数間の特徴を表す指標</span>として、<strong>共分散</strong>(covariance)と<strong>相関係数</strong>(correlation coefficient)を学習します。 いま，観察される確率変数<span class="math inline">x \in X</span>と<span class="math inline">z \in Z</span>の実現値の組<span class="math inline">(x_i, z_i), i = 1, \dots , N</span>がデータとして手元にあるとします。 ここで，<span class="math inline">N</span>は標本サイズ(sample size)を表しています。つまり<span class="math inline">N</span>個のデータの組があるということです。</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>標本の観測値数をサンプルサイズ(sample size)と言いますが，サンプルサイズの意味で標本数とかサンプル数という言い方をしているものがあります。多くの社会科学の定量分析で標本数は1です。 <span class="math inline">N</span> 個の観測値(observations)からなる1つの標本(sample)を用いて分析を行っているのです。</p>
+</div></div><p>この<span class="math inline">N</span>個のデータを座標平面上で表したものを<strong>散布図</strong>(scatter diagram)といいます。 たとえば、トヨタ自動車と日産自動車の株式リターンの散布図を作成してみましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># xlim(-1,1) + ylim(-1,1) +</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>トヨタ自動車の株式分割時の異常値のせいで，グラフがおかしくなっているので，異常値を取り除いた散布図を書いてみます。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="sc">-</span>.<span class="dv">2</span>,.<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span>.<span class="dv">2</span>,.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    mystyle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -588,31 +639,31 @@ s_{XZ} = \frac{1}{N} \sum_{i=1}^N (x_i - \bar X)(z_i - \bar Z)
 </div>
 <p>共分散は，<span class="math inline">X</span>と<span class="math inline">Z</span>の標本平均からの乖離の単純平均となります。 図で示すと，次のようになります。 <!-- この薄い赤色の領域が共分散の計算で正となる部分で，薄い青色の領域が負となる部分となります。 --></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>,<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> トヨタ自動車, <span class="at">y =</span> 日産自動車) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>,<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>r_daily[df<span class="sc">$</span>企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>この第1象限(右上)に位置する実現値の組<span class="math inline">(x_i, z_i)</span>は，<span class="math inline">x_i &gt; \bar X</span>かつ<span class="math inline">z_i &gt; \bar Z</span>であり，また第3象限(左下)の領域の点も<span class="math inline">x_i &lt; \bar X</span>かつ<span class="math inline">z_i &lt; \bar Z</span>であるため，<span class="math inline">(x_i - \bar X)(z_i - \bar Z)</span>は正の値をとります。 つまり，第1象限と第3象限の点の組み合わせが多いとき，共分散の値を正にする方向に寄与し，第2象限と第4象限は負に寄与します。 よってトヨタ自動車と日産自動車の株式リターンの共分散は正になることが予想されます。 では計算してみましょう。</p>
+<p>この第1象限(右上)に位置する実現値の組 <span class="math inline">(x_i, z_i)</span> は，<span class="math inline">x_i &gt; \bar X</span> かつ <span class="math inline">z_i &gt; \bar Z</span> であり，また第3象限(左下)の領域の点も <span class="math inline">x_i &lt; \bar X</span> かつ <span class="math inline">z_i &lt; \bar Z</span> であるため， <span class="math inline">(x_i - \bar X)(z_i - \bar Z)</span> は正の値をとります。 つまり，第1象限と第3象限の点の組み合わせが多いとき，共分散の値を正にする方向に寄与し，第2象限と第4象限は負に寄与します。 よってトヨタ自動車と日産自動車の株式リターンの共分散は正になることが予想されます。 では計算してみましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_cov <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">%&gt;%</span> <span class="co"># 変数を選択</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">%&gt;%</span> <span class="co"># 横データに</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>() <span class="co"># 欠損値を削除</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>(cov_toyota_nissan <span class="ot">&lt;-</span> <span class="fu">cov</span>(df_cov<span class="sc">$</span>トヨタ自動車, df_cov<span class="sc">$</span>日産自動車))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_cov <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(企業名 <span class="sc">==</span> <span class="st">"トヨタ自動車"</span> <span class="sc">|</span> 企業名 <span class="sc">==</span> <span class="st">"日産自動車"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(企業名, date, r_daily) <span class="sc">|&gt;</span> <span class="co"># 変数を選択</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> 企業名, <span class="at">values_from =</span> r_daily) <span class="sc">|&gt;</span> <span class="co"># 横データに</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>() <span class="co"># 欠損値を削除</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>(cov_toyota_nissan <span class="ot">&lt;-</span> <span class="fu">cov</span>(df_cov<span class="sc">$</span>トヨタ自動車, df_cov<span class="sc">$</span>日産自動車))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0003021892</code></pre>
+<pre><code>[1] 0.0003042497</code></pre>
 </div>
 </div>
 <p>トヨタ自動車と日産自動車の株式リターンの共分散は3^{-4}となり，正の値であることが分かりました。 共分散は2変数間の関係をします尺度ですが、その値の大きさは単位に依存するという問題があります。 そこで、共分散を標準化したものが相関係数です。 相関係数は、共分散を各変数の標準偏差で割ったものです。</p>
@@ -634,25 +685,11 @@ s_{XZ} = \frac{1}{N} \sum_{i=1}^N (x_i - \bar X)(z_i - \bar Z)
 </span></p>
 </div>
 </div>
-<p>相関係数は変数の単位に依存せず、<span class="math inline">-1 \leq \rho_{XZ} \leq 1</span>の値をとる尺度で、2変数間の関係の強さを表します。 相関係数が<span class="math inline">1</span>に近いほど正の相関が強く、<span class="math inline">-1</span>に近いほど負の相関が強いといえます。 また、相関係数が<span class="math inline">0</span>に近いほど2変数間の関係は弱いといえます。</p>
-<p>標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">0.5</span>の場合、以下のような散布図になります。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">0.90</span>の場合、以下のような散布図になります。</p>
+<p>相関係数は変数の単位に依存せず、 <span class="math inline">-1 \leq \rho_{XZ} \leq 1</span> の値をとる尺度で、2変数間の関係の強さを表します。 相関係数が <span class="math inline">1</span> に近いほど正の相関が強く、 <span class="math inline">-1</span> に近いほど負の相関が強いといえます。 また、相関係数が <span class="math inline">0</span> に近いほど2変数間の関係は弱いといえます。</p>
+<p>標本相関係数 <span class="math inline">\rho _{XZ}</span> が <span class="math inline">0.5</span> の場合、以下のような散布図になります。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fl">0.9</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -663,10 +700,10 @@ s_{XZ} = \frac{1}{N} \sum_{i=1}^N (x_i - \bar X)(z_i - \bar Z)
 </div>
 </div>
 </div>
-<p>標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">-0.6</span>の場合、以下のような散布図になります。</p>
+<p>標本相関係数 <span class="math inline">\rho _{XZ}</span> が <span class="math inline">0.90</span> の場合、以下のような散布図になります。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.6</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fl">0.9</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -677,10 +714,10 @@ s_{XZ} = \frac{1}{N} \sum_{i=1}^N (x_i - \bar X)(z_i - \bar Z)
 </div>
 </div>
 </div>
-<p>無相関，つまり標本相関係数<span class="math inline">\rho _{XZ}</span>が<span class="math inline">0</span>の場合、以下のような散布図になります。</p>
+<p>標本相関係数 <span class="math inline">\rho _{XZ}</span> が <span class="math inline">-0.6</span> の場合、以下のような散布図になります。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.6</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -691,13 +728,27 @@ s_{XZ} = \frac{1}{N} \sum_{i=1}^N (x_i - \bar X)(z_i - \bar Z)
 </div>
 </div>
 </div>
-<p>注意しないといけないのは，相関係数が線形関係を前提とした尺度であることです。もし2変数の関係が非線形である場合は，相関係数は役に立ちません。 たとえば，いかのような有名な図があります。</p>
+<p>無相関，つまり標本相関係数 <span class="math inline">\rho _{XZ}</span> が <span class="math inline">0</span> の場合、以下のような散布図になります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> dataset) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>dataset, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X, Z)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Z) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>注意しないといけないのは，相関係数が線形関係を前提とした尺度であることです。もし2変数の関係が非線形である場合は，相関係数は役に立ちません。 たとえば，いかのような有名な図があります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> dataset) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>dataset, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Hatakeda_Chap03_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -742,11 +793,11 @@ Y = a X + b
 </span></p>
 <p>以下の例で確認してみましょう。 従業員9名の1ヶ月の労働時間<span class="math inline">X</span>が以下の表に示されている。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    従業員 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>,<span class="st">"E"</span>,<span class="st">"F"</span>,<span class="st">"G"</span>,<span class="st">"H"</span>,<span class="st">"I"</span>),</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    労働時間 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">45</span>,<span class="dv">50</span>,<span class="dv">35</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">55</span>,<span class="dv">60</span>,<span class="dv">45</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(labor), <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    従業員 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>,<span class="st">"E"</span>,<span class="st">"F"</span>,<span class="st">"G"</span>,<span class="st">"H"</span>,<span class="st">"I"</span>),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    労働時間 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">45</span>,<span class="dv">50</span>,<span class="dv">35</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">55</span>,<span class="dv">60</span>,<span class="dv">45</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(labor), <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <tbody>
@@ -785,12 +836,12 @@ Y = a X + b
 -->
 <p>総賃金<span class="math inline">Y_2</span>は毎月の固定給100千円に時間給<span class="math inline">Y_1</span>(時給3千円)を合わせた額として支給される。 すなわち，<span class="math inline">Y_2 = 100 + Y_1 = 100 + 3X</span>の関係が成立している。 したがって，各従業員の労働時間と賃金は以下の通りとなる。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> labor <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        時間給 <span class="ot">=</span> 労働時間 <span class="sc">*</span> <span class="dv">3</span>,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        総賃金 <span class="ot">=</span> <span class="dv">100</span> <span class="sc">+</span> 時間給</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(labor), <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>labor <span class="ot">&lt;-</span> labor <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        時間給 <span class="ot">=</span> 労働時間 <span class="sc">*</span> <span class="dv">3</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        総賃金 <span class="ot">=</span> <span class="dv">100</span> <span class="sc">+</span> 時間給</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(labor), <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <tbody>
@@ -866,10 +917,12 @@ Y = a X + b
 
 
 
+
+
 ::: {.cell}
 
 ```{.r .cell-code}
-labor_summary <- labor %>%
+labor_summary <- labor |>
     summarise(
         平均_労働時間 = mean(労働時間),
         標準偏差_労働時間 = sd(労働時間),
@@ -901,17 +954,19 @@ knitr::kable(t(labor_summary), booktabs = TRUE, digits = 2)
 
 
 
+
+
 この表を平均と標準偏差の列に分けて書くと、 --></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>labor_summary <span class="ot">&lt;-</span> labor <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        平均 <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">mean</span>(労働時間), <span class="fu">mean</span>(時間給), <span class="fu">mean</span>(総賃金)),</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        標準偏差 <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sd</span>(労働時間), <span class="fu">sd</span>(時間給), <span class="fu">sd</span>(総賃金))</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>labor_summary<span class="sc">$</span>変数名 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"労働時間"</span>, <span class="st">"時間給"</span>, <span class="st">"総賃金"</span>)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>labor_summary <span class="ot">&lt;-</span> labor_summary <span class="sc">%&gt;%</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(変数名, 平均, 標準偏差)</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(labor_summary, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>labor_summary <span class="ot">&lt;-</span> labor <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        平均 <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">mean</span>(労働時間), <span class="fu">mean</span>(時間給), <span class="fu">mean</span>(総賃金)),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        標準偏差 <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sd</span>(労働時間), <span class="fu">sd</span>(時間給), <span class="fu">sd</span>(総賃金))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>labor_summary<span class="sc">$</span>変数名 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"労働時間"</span>, <span class="st">"時間給"</span>, <span class="st">"総賃金"</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>labor_summary <span class="ot">&lt;-</span> labor_summary <span class="sc">|&gt;</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(変数名, 平均, 標準偏差)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(labor_summary, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>

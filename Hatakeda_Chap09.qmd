@@ -1,3 +1,11 @@
 # 行動ファイナンス
 
-行動ファイナンス(behavioral finance theory)
+行動ファイナンス(behavioral finance theory)の主要参考文献
+
+- Beyond Green and Feear, 2002, (Shefrin, H. Oxford University Press, Chapter 1-4) (行動ファイナンスと投資の心理学，鈴木一功訳，東洋経済新聞社)
+- Behavioural Finance Insights into irrational minds and markets, 2002, Montier, J, Willey & Sons, Chapter 1 (行動ファイナンスの実践 投資家心理が動かす金融市場を読む，真壁昭夫，川西論，栗田昌孝訳，ダイヤモンド社，2005年)
+
+## 1. 行動ファイナンスの3つのテーマ
+
+通常の(伝統的)ファイナンスの枠組みで，現実の世界を説明しようとすると，さまざまなアノマリー(anomary)が存在する。
+ここでは，

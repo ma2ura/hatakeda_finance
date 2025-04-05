@@ -1,7 +1,31 @@
 # 統計
 
-前章で学習したように，ファイナンスではいろいろな理由から，資産価値それ自体より資産価値の**変化率**，すなわち**リターン**(return)で議論することが多いです。
+[前章](Hatakeda_Chap02.html)で学習したように，ファイナンスではいろいろな理由から，資産価値それ自体より<span class="markp">資産価値の**変化率**，すなわち**リターン**(return)で議論することが多い</span>です。
 ここで，リターンの定義を再度確認します。
+
+
+:::{.callout-important}
+## 株式リターン
+
+資産 $i$ の $t$ 期の(配当落ち)日次リターン $r_{i,t}$ は，
+$$
+\begin{aligned}
+r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
+\end{aligned}
+$$
+
+と定義されています。
+ここで，
+
+- $P$ は資産価値(株価，債券価格，地価など)
+- $i$ は銘柄，
+- $t$ は時点や期間
+
+を表してます。
+:::
+
+では，トヨタ自動車の終値の日次データを用いて，株式リターンの値動きをグラフにしてみましょう。
+必要なパッケージとデータを読み込みます。
 
 ```{r setup}
 pacman::p_load(tidyverse, ggthemes, patchwork, datasauRus, gganimate, gifski)
@@ -16,65 +40,46 @@ mystyle <- list (#  ggplotのテーマ
 )
 ```
 
-:::{.callout-important}
-## 株式リターン
-
-資産$i$の$t$期の(配当落ち)日次リターン$r_{i,t}$は，
-$$
-\begin{aligned}
-r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1
-\end{aligned}
-$$
-
-と定義されています。
-ここで，
-
-- $P$は資産価値(株価，債券価格，地価など)
-- $i$は銘柄，
-- $t$は時点や期間
-
-を表してます。
-:::
-
-では，トヨタ自動車の終値の日次データを用いて，株式リターンの値動きをグラフにしてみましょう。
-`ggplot`パッケージの`geom_line()`を用いて折れ線グラフを作成します。
+`ggplot2`パッケージの`geom_line()`を用いて折れ線グラフを作成します。
 
 ```{r}
 df <- read_csv("data/stock_data.csv") # データの読み込み
 df |>
-    filter(企業名 == "トヨタ自動車") %>% # トヨタ自動車を抽出
-    ggplot() + aes(x = date, y = 終値) + geom_line() # 折れ線グラフ
+    filter(企業名 == "トヨタ自動車") |> # トヨタ自動車を抽出
+    ggplot() + aes(x = date, y = 終値) + geom_line() + mystyle# 折れ線グラフ
 ```
 
-トヨタ自動車の2021年における株価の急落は，株式分割が原因です。
-このとき，トヨタ自動車は1株を5株に分割しています。
-そのため約10000円だった株価が約2000円と5分の1に下落したのです。
+トヨタ自動車の2021年における株価の急落は，**株式分割**が原因です。
+このとき，<span class="marky">トヨタ自動車は1株を5株に分割</span>しています。
+そのため約10,000円だった株価が約2,000円と5分の1に低下しています。
 
-次にこのデータから株式リターンを計算し、折れ線グラフにしてみます。
+次にこの株価データから株式リターンを計算し、折れ線グラフにしてみます。
 
 ```{r}
-df <- df %>%
-    group_by(企業名) %>% # 企業名でグループ化
+df <- df |>
+    group_by(企業名) |> # 企業名でグループ化
     mutate(
         r_daily = 終値 / lag(終値) -1 # リターンを計算
-    ) %>%
-    filter(r_daily > -0.5) # 株式分割による異常値を除外
-df %>%
-    filter(企業名 == "トヨタ自動車") %>% # トヨタ自動車を抽出
-    ggplot() + aes(x = date, y = r_daily) + geom_line() # 折れ線グラフ
+    ) # |>
+    # filter(r_daily > -0.5) # 株式分割による異常値を除外
+df |>
+    filter(企業名 == "トヨタ自動車") |> # トヨタ自動車を抽出
+    ggplot() + aes(x = date, y = r_daily) + geom_line() +# 折れ線グラフ
+    mystyle
 ```
 
 2021年の株式分割時の下落が異常な値となっていますが，それ以外の値動きは0を中心にランダムになっていることが分かります。
 
 ## 期待値と分散(標準偏差)の推定
 
-ある資産の価格やリターンを確率変数とみなしたとき，その背後にある**確率分布**の特徴を表す指標(つまり母数)を実際に観察することは不可能です。母集団のパラメータは観察不能なのです。
-しかしながら，過去の観測値の集合である**データ**を用いて，確率分布の特徴やそれらの指標(期待値，分散，標準偏差)の**推定値**を求めることはできます。そこで，推定値を用いて確率変数の特徴を考察するようにします。
+ある資産の価格やリターンを確率変数とみなしたとき，<span class="markp">その背後にある**確率分布**の特徴を表す指標(つまり母数・パラメータ)を実際に観察することは不可能です。母集団のパラメータは観察不可能</span>なのです。
+しかしながら，<span class="markb">過去の観測値の集合である**データ**を用いて，確率分布の特徴やそれらの指標(期待値，分散，標準偏差)の**推定値**を求めることは可能</span>です。
+そこで，推定値を用いて確率変数の特徴を考察するようにします。
 
 例えば，データから作成される**ヒストグラム**(histogram)や度数分布表は確率変数を特徴付ける確率分布の仮想となります。
-期待値，分散，標準偏差の推定値は，確率変数を特徴付ける母平均(期待値)，母分散，母標準偏差の仮想です。
-この期待値，分散，標準偏差の推定値は，より具体的に**標本平均**(期待値)，**標本分散**，**標本標準偏差**とよばれます。
-ただし「標本」という言葉はしばしば省略されることが多いので注意しましょう。
+標本から計算される期待値，分散，標準偏差の推定値は，確率変数を特徴付ける母平均(期待値)，母分散，母標準偏差の**仮想**です。
+この期待値，分散，標準偏差の推定値は，より具体的に**標本平均**(期待値)(sample mean)，**標本分散**(sample variance)，**標本標準偏差**(sample standard deviation)とよばれます。
+ただし<span class="marky">「標本」という言葉はしばしば省略されることが多い</span>ので注意しましょう。
 
 :::{.callout-important}
 ## (標本)単純平均
@@ -100,12 +105,17 @@ $$
 
 `R`の基本関数だと`mean()`で計算できます。
 たとえば，トヨタの株式リターンの平均は次の通りです。
+
 ```{r}
 mean(df$r_daily[df$企業名 == "トヨタ自動車"], na.rm = TRUE)
 ```
 
-このコードの意味するところは，`mean()`で引数のベクトルの平均を計算しています。
-引数の`df$r_daily`とすることで，`df`というデータフレームの`r_daily`という変数をしていしています。
+:::{.aside}
+`mean()`： 算術平均を返す。
+:::
+
+このコードの意味するところは，`mean()`で引数の数ベクトルの平均を計算しています。
+引数を`df$r_daily`とすることで，`df`というデータフレームの`r_daily`という変数をしていしています。
 さらに，`[df$企業名 == "トヨタ自動車"]`と続けることで，`df`の`企業名`が`"トヨタ自動車"`となる行のみを抽出しています。
 最後の`na.rm = TRUE`は，平均を出そうとするベクトルに欠損値が含まれている場合，その欠損値を除外して平均を計算することを意味しています。
 
@@ -146,6 +156,7 @@ $$
 ```{r}
 var(df$r_daily[df$企業名 == "トヨタ自動車"], na.rm = TRUE)
 ```
+
 標本標準偏差は，分散の平方根です。
 
 :::{.callout-important}
@@ -182,7 +193,7 @@ sd(df$r_daily[df$企業名 == "トヨタ自動車"], na.rm = TRUE)
 いままでと同様に、トヨタ自動車の株式リターンのヒストグラムを作成してみましょう。
 
 ```{r}
-# par(family = "HiraKakuProN-W3") # macの文字化け対策 winの人はコメントアウト
+par(family = "HiraKakuProN-W3") # macの文字化け対策 winの人はコメントアウト
 hist(df$r_daily[df$企業名 == "トヨタ自動車"]) # 基本関数でヒストグラム
 ```
 
@@ -193,8 +204,8 @@ hist(df$r_daily[df$企業名 == "トヨタ自動車"]) # 基本関数でヒス�
 まず、作図のためのデータを用意します。
 トヨタ自動車の日次リターンと日付を抽出し、`data.frame`型に変換して，`df_toyota`という変数に格納します。
 ```{r}
-df_toyota <- df %>%
-    filter(企業名 == "トヨタ自動車") %>%
+df_toyota <- df |>
+    filter(企業名 == "トヨタ自動車") |>
     select(date, r_daily)
 ```
 
@@ -213,6 +224,7 @@ g <- ggplot(df_toyota) + # データを指定
     geom_histogram() # グラフを指定
 g <- g + xlim(-0.1, 0.1) # x軸の範囲を指定
 g <- g + xlab("日次リターン") + ylab("度数") # x軸とy軸のラベルを指定
+g <- g + mystyle
 print(g) # 出力
 ```
 
@@ -226,18 +238,40 @@ print(g) # 出力
 
 ## 共分散と相関係数の推定
 
-2つの確率変数間の特徴を表す指標として、**共分散**(covariance)と**相関係数**(correlation coefficient)を学習します。
-いま，観察される確率変数$X$と$Z$の実現値の組$(x_i, z_i), i = 1, \dots , N$がデータとして手元にあるとします。
-ここで，$N$は標本サイズを表しています。つまり$N$個のデータの組があるということです。
+<span class="marky">2つの確率変数間の特徴を表す指標</span>として、**共分散**(covariance)と**相関係数**(correlation coefficient)を学習します。
+いま，観察される確率変数$x \in X$と$z \in Z$の実現値の組$(x_i, z_i), i = 1, \dots , N$がデータとして手元にあるとします。
+ここで，$N$は標本サイズ(sample size)を表しています。つまり$N$個のデータの組があるということです。
+
+:::{.aside}
+標本の観測値数をサンプルサイズ(sample size)と言いますが，サンプルサイズの意味で標本数とかサンプル数という言い方をしているものがあります。多くの社会科学の定量分析で標本数は1です。
+$N$ 個の観測値(observations)からなる1つの標本(sample)を用いて分析を行っているのです。
+:::
+
 この$N$個のデータを座標平面上で表したものを**散布図**(scatter diagram)といいます。
 たとえば、トヨタ自動車と日産自動車の株式リターンの散布図を作成してみましょう。
 
 ```{r}
-df %>%
-    filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") %>%
-    select(企業名, date, r_daily) %>%
-    pivot_wider(names_from = 企業名, values_from = r_daily) %>%
-    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point()
+df |>
+    filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") |>
+    select(企業名, date, r_daily) |>
+    pivot_wider(names_from = 企業名, values_from = r_daily) |>
+    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) +
+    geom_point() +
+    # xlim(-1,1) + ylim(-1,1) +
+    mystyle
+```
+
+トヨタ自動車の株式分割時の異常値のせいで，グラフがおかしくなっているので，異常値を取り除いた散布図を書いてみます。
+
+```{r}
+df |>
+    filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") |>
+    select(企業名, date, r_daily) |>
+    pivot_wider(names_from = 企業名, values_from = r_daily) |>
+    ggplot() + aes(x = トヨタ自動車, y = 日産自動車) +
+    geom_point() +
+    xlim(-.2,.2) + ylim(-.2,.2) +
+    mystyle
 ```
 
 この散布図から，トヨタ自動車と日産自動車の株式リターンはどちらかの株式リターンが増加したら，もう片方も増加する，という関係にあるといえます。
@@ -260,26 +294,26 @@ $$
 <!-- この薄い赤色の領域が共分散の計算で正となる部分で，薄い青色の領域が負となる部分となります。 -->
 
 ```{r}
-df %>%
-    filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") %>%
-    select(企業名, date, r_daily) %>%
-    pivot_wider(names_from = 企業名, values_from = r_daily) %>%
+df |>
+    filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") |>
+    select(企業名, date, r_daily) |>
+    pivot_wider(names_from = 企業名, values_from = r_daily) |>
     ggplot() + aes(x = トヨタ自動車, y = 日産自動車) + geom_point() +
     geom_vline(xintercept = mean(df$r_daily[df$企業名 == "トヨタ自動車"], na.rm = TRUE), linetype = "dashed",color = "red") +
     geom_hline(yintercept = mean(df$r_daily[df$企業名 == "日産自動車"], na.rm = TRUE), linetype = "dashed", color = "red")
 ```
 
 
-この第1象限(右上)に位置する実現値の組$(x_i, z_i)$は，$x_i > \bar X$かつ$z_i > \bar Z$であり，また第3象限(左下)の領域の点も$x_i < \bar X$かつ$z_i < \bar Z$であるため，$(x_i - \bar X)(z_i - \bar Z)$は正の値をとります。
+この第1象限(右上)に位置する実現値の組 $(x_i, z_i)$ は，$x_i > \bar X$ かつ $z_i > \bar Z$ であり，また第3象限(左下)の領域の点も $x_i < \bar X$ かつ $z_i < \bar Z$ であるため， $(x_i - \bar X)(z_i - \bar Z)$ は正の値をとります。
 つまり，第1象限と第3象限の点の組み合わせが多いとき，共分散の値を正にする方向に寄与し，第2象限と第4象限は負に寄与します。
 よってトヨタ自動車と日産自動車の株式リターンの共分散は正になることが予想されます。
 では計算してみましょう。
 
 ```{r}
-df_cov <- df %>%
-    filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") %>%
-    select(企業名, date, r_daily) %>% # 変数を選択
-    pivot_wider(names_from = 企業名, values_from = r_daily) %>% # 横データに
+df_cov <- df |>
+    filter(企業名 == "トヨタ自動車" | 企業名 == "日産自動車") |>
+    select(企業名, date, r_daily) |> # 変数を選択
+    pivot_wider(names_from = 企業名, values_from = r_daily) |> # 横データに
     drop_na() # 欠損値を削除
 (cov_toyota_nissan <- cov(df_cov$トヨタ自動車, df_cov$日産自動車))
 ```
@@ -300,11 +334,11 @@ $$
 $$
 :::
 
-相関係数は変数の単位に依存せず、$-1 \leq \rho_{XZ} \leq 1$の値をとる尺度で、2変数間の関係の強さを表します。
-相関係数が$1$に近いほど正の相関が強く、$-1$に近いほど負の相関が強いといえます。
-また、相関係数が$0$に近いほど2変数間の関係は弱いといえます。
+相関係数は変数の単位に依存せず、 $-1 \leq \rho_{XZ} \leq 1$ の値をとる尺度で、2変数間の関係の強さを表します。
+相関係数が $1$ に近いほど正の相関が強く、 $-1$ に近いほど負の相関が強いといえます。
+また、相関係数が $0$ に近いほど2変数間の関係は弱いといえます。
 
-標本相関係数$\rho _{XZ}$が$0.5$の場合、以下のような散布図になります。
+標本相関係数 $\rho _{XZ}$ が $0.5$ の場合、以下のような散布図になります。
 
 ```{r}
 X <- rnorm(1000, mean = 0, sd = 1)
@@ -313,7 +347,7 @@ df <- data.frame(X, Z)
 ggplot(df) + aes(x = X, y = Z) + geom_point()
 ```
 
-標本相関係数$\rho _{XZ}$が$0.90$の場合、以下のような散布図になります。
+標本相関係数 $\rho _{XZ}$ が $0.90$ の場合、以下のような散布図になります。
 
 ```{r}
 X <- rnorm(1000, mean = 0, sd = 1)
@@ -322,7 +356,7 @@ df <- data.frame(X, Z)
 ggplot(df) + aes(x = X, y = Z) + geom_point()
 ```
 
-標本相関係数$\rho _{XZ}$が$-0.6$の場合、以下のような散布図になります。
+標本相関係数 $\rho _{XZ}$ が $-0.6$ の場合、以下のような散布図になります。
 
 ```{r}
 X <- rnorm(1000, mean = 0, sd = 1)
@@ -331,7 +365,7 @@ df <- data.frame(X, Z)
 ggplot(df) + aes(x = X, y = Z) + geom_point()
 ```
 
-無相関，つまり標本相関係数$\rho _{XZ}$が$0$の場合、以下のような散布図になります。
+無相関，つまり標本相関係数 $\rho _{XZ}$ が $0$ の場合、以下のような散布図になります。
 
 ```{r}
 X <- rnorm(1000, mean = 0, sd = 1)
@@ -359,7 +393,8 @@ static_plot <- ggplot(datasaurus_dozen, aes(x = x, y = y)) +
   geom_point() + theme_minimal()
 
 # gganimate を適用したアニメーションオブジェクト
-animated_plot <- static_plot + transition_states(dataset, transition_length = 3, state_length = 1)
+animated_plot <- static_plot +
+    transition_states(dataset, transition_length = 3, state_length = 1)
 
 # 出力フォーマットによって処理を分ける
 if (knitr::is_html_output()) {
@@ -436,7 +471,7 @@ knitr::kable(t(labor), booktabs = TRUE)
 したがって，各従業員の労働時間と賃金は以下の通りとなる。
 
 ```{r}
-labor <- labor %>%
+labor <- labor |>
     mutate(
         時間給 = 労働時間 * 3,
         総賃金 = 100 + 時間給
@@ -465,7 +500,7 @@ knitr::kable(t(labor), booktabs = TRUE)
 このデータを元に，労働時間，時間給，総賃金の標本平均や標本標準偏差を計算してみましょう。
 <!--
 ```{r}
-labor_summary <- labor %>%
+labor_summary <- labor |>
     summarise(
         平均_労働時間 = mean(労働時間),
         標準偏差_労働時間 = sd(労働時間),
@@ -479,13 +514,13 @@ knitr::kable(t(labor_summary), booktabs = TRUE, digits = 2)
 この表を平均と標準偏差の列に分けて書くと、 -->
 
 ```{r}
-labor_summary <- labor %>%
+labor_summary <- labor |>
     summarise(
         平均 = c(mean(労働時間), mean(時間給), mean(総賃金)),
         標準偏差 = c(sd(労働時間), sd(時間給), sd(総賃金))
     )
 labor_summary$変数名 <- c("労働時間", "時間給", "総賃金")
-labor_summary <- labor_summary %>%
+labor_summary <- labor_summary |>
     select(変数名, 平均, 標準偏差)
 knitr::kable(labor_summary, booktabs = TRUE, digits = 2)
 ```

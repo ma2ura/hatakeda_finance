@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-474c6d7e63be50eb6972897072b39b27.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5bda4110b75e38e932ffae446a848d73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-823d8ce6169aa3c8f409a98f47348726.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-00438af671115a5c76feb004a9a15e92.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b0e034859a901dbfbbe28485e46a269e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -196,6 +196,10 @@ window.Quarto = {
     <a class="nav-link" href="./Hatakeda_Chap07.html"> 
 <span class="menu-text">裁定価格</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Hatakeda_Chap08.html"> 
+<span class="menu-text">市場の効率性</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -290,6 +294,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./Hatakeda_Chap07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></span></a>
   </div>
 </li>
     </ul>
@@ -519,7 +529,7 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 \mathrm{Var} [R_p] \equiv \sigma ^2_p = \omega _1^2 \sigma ^2_1 + \omega_2^2 \sigma ^2_2 + 2 \omega _1 \omega_2 \sigma _{12}
 \tag{5.2}</span></span></p>
 <p>となる(第2回講義資料の(23)式と(25)式を参照)。</p>
-<p>相関係数を <span class="math inline">\rho</span> で表すとき，(<a href="#eq-11" class="quarto-xref">Equation&nbsp;<span>5.2</span></a>) 式は， <span id="eq-12"><span class="math display">
+<p>相関係数を <span class="math inline">\rho</span> で表すとき，(<a href="Hatakeda_Chap07.html#eq-11" class="quarto-xref">Equation&nbsp;<span>7.3</span></a>) 式は， <span id="eq-12"><span class="math display">
 \mathrm{Var} [R_p] \equiv \sigma ^2_p = \omega _1^2 \sigma ^2_1 + \omega_2^2 \sigma ^2_2 + 2 \omega _1 \omega_2  \textcolor{red}{\rho \sigma _1 \sigma _2}
 \tag{5.3}</span></span></p>
 <p>ここで相関係数 <span class="math inline">\rho</span> の定義は次式となる。</p>
@@ -793,7 +803,7 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
    \tag{5.6}</span></span></li>
 </ul>
 <ol class="example" type="1">
-<li>式と (<a href="#eq-19" class="quarto-xref">Equation&nbsp;<span>5.6</span></a>) 式を (<a href="#eq-17" class="quarto-xref">Equation&nbsp;<span>5.4</span></a>) 式に代入</li>
+<li>式と (<a href="#eq-19" class="quarto-xref">Equation&nbsp;<span>5.6</span></a>) 式を (<a href="Hatakeda_Chap07.html#eq-17" class="quarto-xref">Equation&nbsp;<span>7.6</span></a>) 式に代入</li>
 </ol>
 <p><span class="math display">
 \mathrm{E}[U] = \mu _p - \frac{\gamma }{2} \sigma ^2_p = \omega _1 \mu_s + \omega _2 r_f - \frac{\gamma }{2}\omega ^2_1 \sigma ^2_s
@@ -802,7 +812,7 @@ R_i \equiv \frac{X_{i,1}}{X_{i,0}} - 1, \qquad  \omega _i \equiv \frac{X_{i,0}}{
 <p><span id="eq-20"><span class="math display">
 \mathrm{E}[U] = \omega _1 ( \mu_s - r_f) -\frac{\gamma }{2} \omega _1^2 \sigma ^2_s + r_f
 \tag{5.7}</span></span></p>
-<p>期待効用(<a href="#eq-20" class="quarto-xref">Equation&nbsp;<span>5.7</span></a>) 式を最大にする最適なポートフォリオとなる株式への投資率(<span class="math inline">\omega _1</span>)を求める。</p>
+<p>期待効用(<a href="Hatakeda_Chap07.html#eq-20" class="quarto-xref">Equation&nbsp;<span>7.8</span></a>) 式を最大にする最適なポートフォリオとなる株式への投資率(<span class="math inline">\omega _1</span>)を求める。</p>
 <p><span class="math display">
 %f(\omega _1) \equiv
 \mathrm{E}[U] = \omega _1 ( \mu_s - r_f) - \frac{\gamma }{2}\omega _1^2 \sigma^2_s + r_f
