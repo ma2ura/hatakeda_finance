@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.36">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,12 +36,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-474c6d7e63be50eb6972897072b39b27.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4379b0ccadffce622b03caf4c46266b3.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-00438af671115a5c76feb004a9a15e92.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b0e034859a901dbfbbe28485e46a269e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5bda4110b75e38e932ffae446a848d73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-823d8ce6169aa3c8f409a98f47348726.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,6 +70,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -245,6 +288,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#行動ファイナンスの3つのテーマ" id="toc-行動ファイナンスの3つのテーマ" class="nav-link active" data-scroll-target="#行動ファイナンスの3つのテーマ"><span class="header-section-number">9.1</span> 1. 行動ファイナンスの3つのテーマ</a></li>
+  <li><a href="#ヒューリスティックに起因するバイアス" id="toc-ヒューリスティックに起因するバイアス" class="nav-link" data-scroll-target="#ヒューリスティックに起因するバイアス"><span class="header-section-number">9.2</span> 2. ヒューリスティックに起因するバイアス</a>
+  <ul class="collapse">
+  <li><a href="#a.-代表性ヒューリスティック" id="toc-a.-代表性ヒューリスティック" class="nav-link" data-scroll-target="#a.-代表性ヒューリスティック"><span class="header-section-number">9.2.1</span> A. 代表性ヒューリスティック</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -277,9 +324,120 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <section id="行動ファイナンスの3つのテーマ" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="行動ファイナンスの3つのテーマ"><span class="header-section-number">9.1</span> 1. 行動ファイナンスの3つのテーマ</h2>
-<p>通常の(伝統的)ファイナンスの枠組みで，現実の世界を説明しようとすると，さまざまなアノマリー(anomary)が存在する。 ここでは，</p>
+<p>通常の(伝統的)ファイナンスの枠組みで，現実の世界を説明しようとすると，さまざまなアノマリー(anomary)が存在する。 ここでは，アノマリーの原因を<span class="markp">心理的な要因に関連づけた理論による説明</span>を紹介する。 これらの理論が，いわゆる<strong>行動ファイナンス</strong>(behavioral finance)である。</p>
+<p>行動ファイナンスは，アノマリーの原因を以下の3つのテーマから議論する。</p>
+<ol type="1">
+<li>投資家は，ヒューリスティック(heuristic)，すなわち経験則に基づいて意思決定を行う。そして，経験則に基づいて行動するがゆえに間違った意思決定を行う。</li>
+<li>投資家の意思決定は実質だけでなく，<strong>形式</strong>(framing)にも影響される。</li>
+<li>誤りと意思決定のフレームは，市場で成立する資産価格に影響を与える。</li>
+</ol>
+<p>p.3 の図を挿入</p>
+</section>
+<section id="ヒューリスティックに起因するバイアス" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="ヒューリスティックに起因するバイアス"><span class="header-section-number">9.2</span> 2. ヒューリスティックに起因するバイアス</h2>
+<p><span class="markp">人々は経験則に基づいて行動する傾向があり，それによって，人々は誤りを犯してしまう。言い換えると，予測可能な誤りを犯してしまう。</span></p>
+<ul>
+<li>経済学的な解釈の1つとして，期待効用を求める際に，<strong>主観的な確率</strong>を利用して期待効用を計算してしまうことによって発生する誤りが挙げられる。 通常のファイナンスの世界(以下では伝統的な考え方とよぶ)では，すべての人が客観的に認識している「生起確率分布」をもとに期待効用を計算する。しかしながら，人々は，経験則により，「主観的な確率分布」をもとに計算を行う。従って，歪められた確率分布をもとに期待効用を計算し，意思決定を行うので，客観的にみると誤った決断を下してしまう(誤差でない誤りを犯す)…。</li>
+<li>伝統的な考え方では，「人々が合理的に行動する限り，人々は(予測可能な)誤りを起こさない。」</li>
+</ul>
+<section id="a.-代表性ヒューリスティック" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="a.-代表性ヒューリスティック"><span class="header-section-number">9.2.1</span> A. 代表性ヒューリスティック</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+事例1：Kahaneman, Slovic and Tversky (1982)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>大学の入試事務局では，入学試験が成功しているかどうかを判断する1つの基準は，入学が認められた学生がよい成績を修めているかどうかである。 従って，入試担当者が，受験者の高校時代の平均成績値(GPA)の水準に基づき，入学後のGPAの予測を試みている状況を考える。 1990年から1992年の間にサンタクララ大学に入学した学部生に関する実際の成績データがあり，同期間中に大学に入学し卒業した学生の</p>
+<ul>
+<li>高校時代の GPA 平均 <span class="math inline">= 3.44</span> (標準偏差 <span class="math inline">=0.36</span>)</li>
+<li>大学在学中の GPA 平均 <span class="math inline">= 3.08</span> (標準偏差 <span class="math inline">=0.40</span>)</li>
+</ul>
+<p>であった。</p>
+<p><strong>質問</strong>：もしあなたが，高校時代のGPAが <span class="math inline">2.20</span>，<span class="math inline">3.00</span>，<span class="math inline">3.80</span> である3人の学生について，この高校時代の GPA のみに基づいて，大学在学中の GPAを予測するならば，どのような予測を立てるか？</p>
+</div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">高校時代のGPA</th>
+<th style="text-align: center;">大学在住中の実際GPA</th>
+<th style="text-align: center;">大学在住中の予想GPA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">2.20</span></td>
+<td style="text-align: center;"><span class="math inline">2.70</span></td>
+<td style="text-align: center;"><span class="math inline">2.03</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">3.00</span></td>
+<td style="text-align: center;"><span class="math inline">2.93</span></td>
+<td style="text-align: center;"><span class="math inline">2.77</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">3.80</span></td>
+<td style="text-align: center;"><span class="math inline">3.30</span></td>
+<td style="text-align: center;"><span class="math inline">3.46</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>GPA平均(3.08)の 90%の信頼区間(2.42,3.74)なので，3 つのグループ間の違いは誤差の範囲。</li>
+<li>しかしながら，予想 GPA 値から言えることは，3 つのグループ間の違いは誤差ではない。 特に，高校時代の GPA が低い人に対して，我々は，厳しい評価を行っている。
+<ul>
+<li>高校時代に高い GPA を持った学生⇔高い能力を持った学生の代表</li>
+<li>高校時代に低い GPA を持った学生⇔低い能力を持った学生の代表</li>
+</ul>
+⇒代表性ヒューリステックスが予測(予想 GPA)の誤りを引き起こす。</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+事例2：ギャンブラーの錯誤
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>普通のコインを6回連続して投げた結果，以下のような結果のどちらかが起こりやすいだろうか？</p>
+<ol type="1">
+<li>表裏表裏裏表</li>
+<li>表表表裏裏裏</li>
+</ol></li>
+<li><p>5回連続して表が出たとき，6回目の予想をしなさい。</p></li>
+</ol>
+</div>
+</div>
+<ol type="1">
+<li><p>多くの人は①と答える。<br> ①をよくある結果の代表，②を特異な結果の代表と捉えてしまう。</p></li>
+<li><p>多くの人は「裏」と答えがちになる。 「いままでめったにないことが起こっていた」と捉える。</p></li>
+</ol>
+<p>⇒ <span class="markp">代表性ヒューリスティックが意思決定の誤りを引き起こす</span>。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+事例3：敗者株と勝者株 De Bondt and Thaler (1985, 1987)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ある時点において，過去3年間に遡って極端にリターンが低かった株式(敗者株)は，極端にリターンの高かった株式(勝者株)に比べて，その後3年間においてはるかに株価が好調である。</p>
+<p><img src="img/DeBont_Thaler_1985_fig1.png" class="img-fluid" style="width:80.0%"></p>
 
 
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
