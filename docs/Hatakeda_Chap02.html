@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.36">
-
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
+<meta name="author" content="Soichi Matsuura">
 <title>2&nbsp; 確率 – 畠田 証券投資論</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,8 +19,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -56,7 +55,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -66,23 +64,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./Hatakeda_Chap03.html" rel="next">
 <link href="./index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<link href="./img/favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-474c6d7e63be50eb6972897072b39b27.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-00438af671115a5c76feb004a9a15e92.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b0e034859a901dbfbbe28485e46a269e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+<link href="site_libs/bootstrap/bootstrap-69a9052b974a41e2694cfa3b64b64ceb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-51a73a95415d95c9f0047f692c2c82dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-69a9052b974a41e2694cfa3b64b64ceb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -91,22 +96,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "一致なし",
+    "search-matching-documents-text": "一致した文書",
+    "search-copy-link-title": "検索へのリンクをコピー",
+    "search-hide-matches-text": "追加の検索結果を非表示",
+    "search-more-match-text": "追加の検索結果",
+    "search-more-matches-text": "追加の検索結果",
+    "search-clear-button-title": "消去",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
   }
-}</script>
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SFB56VHK63"></script><script type="text/javascript">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SFB56VHK63', { 'anonymize_ip': true});
+</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+.marky {
+  background: linear-gradient(transparent 60%, #FCFFC1 0%);
+}
+.markb {
+  background: linear-gradient(transparent 60%, #88E2EA 0%);
+}
+.markp{
+  background: linear-gradient(transparent 70%, #ffcdd2 0%)
+}
+</style>
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -119,9 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 <script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
@@ -133,7 +151,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -148,113 +166,213 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
+<meta name="twitter:title" content="2&nbsp; 確率 – 畠田 証券投資論">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://so-ichi.com/Hatakeda_Chap02_files/figure-html/plot-topix-1.png">
+<meta name="twitter:image-height" content="6000">
+<meta name="twitter:image-width" content="8400">
+<meta name="twitter:card" content="summary_large_image">
 </head>
-
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">畠田 証券投資論</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">ガイダンス</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap02.html"> 
-<span class="menu-text">確率</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap03.html"> 
-<span class="menu-text">統計</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap04.html"> 
-<span class="menu-text">選好</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap05.html"> 
-<span class="menu-text">ポートフォリオ理論</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap06.html"> 
-<span class="menu-text">CAPM</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap07.html"> 
-<span class="menu-text">裁定価格</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap08.html"> 
-<span class="menu-text">市場の効率性</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://so-ichi.com"> <i class="bi bi-house" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/matsuura_rits"> <i class="bi bi-twitter" role="img" aria-label="Twitter">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Hatakeda_Chap02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">確率</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">畠田 証券投資論</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/ma2ura/Hatakeda_Finance/" title="ソースコード" class="quarto-navigation-tool px-1" aria-label="ソースコード"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="リーダーモードの切り替え">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Hatakeda_Chap02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">確率</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="サーチ"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
@@ -302,38 +420,32 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hatakeda_Chap09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">行動ファイナンス</span></span></a>
+  </div>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+</div>
+    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">ここの目次</h2>
    
-  <ul>
-  <li><a href="#期待値と分散標準偏差の推定" id="toc-期待値と分散標準偏差の推定" class="nav-link active" data-scroll-target="#期待値と分散標準偏差の推定"><span class="header-section-number">2.1</span> 期待値と分散(標準偏差)の推定</a></li>
-  <li><a href="#確率変数" id="toc-確率変数" class="nav-link" data-scroll-target="#確率変数"><span class="header-section-number">2.2</span> 確率変数</a>
   <ul class="collapse">
-  <li><a href="#つの確率変数どうしの関係" id="toc-つの確率変数どうしの関係" class="nav-link" data-scroll-target="#つの確率変数どうしの関係"><span class="header-section-number">2.2.1</span> 2つの確率変数どうしの関係</a></li>
-  </ul></li>
-  <li><a href="#演算規則" id="toc-演算規則" class="nav-link" data-scroll-target="#演算規則"><span class="header-section-number">2.3</span> 演算規則</a>
-  <ul class="collapse">
-  <li><a href="#期待値の演算規則" id="toc-期待値の演算規則" class="nav-link" data-scroll-target="#期待値の演算規則"><span class="header-section-number">2.3.1</span> 期待値の演算規則</a></li>
-  <li><a href="#分散の演算規則" id="toc-分散の演算規則" class="nav-link" data-scroll-target="#分散の演算規則"><span class="header-section-number">2.3.2</span> 分散の演算規則</a></li>
-  <li><a href="#共分散の演算規則" id="toc-共分散の演算規則" class="nav-link" data-scroll-target="#共分散の演算規則"><span class="header-section-number">2.3.3</span> 共分散の演算規則</a></li>
-  </ul></li>
-  <li><a href="#確率変数のアフィン変換" id="toc-確率変数のアフィン変換" class="nav-link" data-scroll-target="#確率変数のアフィン変換"><span class="header-section-number">2.4</span> 確率変数のアフィン変換</a></li>
-  <li><a href="#共分散の重要公式" id="toc-共分散の重要公式" class="nav-link" data-scroll-target="#共分散の重要公式"><span class="header-section-number">2.5</span> 共分散の重要公式</a></li>
-  </ul>
-</nav>
+<li><a href="#%E6%9C%9F%E5%BE%85%E5%80%A4%E3%81%A8%E5%88%86%E6%95%A3%E6%A8%99%E6%BA%96%E5%81%8F%E5%B7%AE%E3%81%AE%E6%8E%A8%E5%AE%9A" id="toc-期待値と分散標準偏差の推定" class="nav-link active" data-scroll-target="#%E6%9C%9F%E5%BE%85%E5%80%A4%E3%81%A8%E5%88%86%E6%95%A3%E6%A8%99%E6%BA%96%E5%81%8F%E5%B7%AE%E3%81%AE%E6%8E%A8%E5%AE%9A"><span class="header-section-number">2.1</span> 期待値と分散(標準偏差)の推定</a></li>
+  <li><a href="#%E7%A2%BA%E7%8E%87%E5%A4%89%E6%95%B0" id="toc-確率変数" class="nav-link" data-scroll-target="#%E7%A2%BA%E7%8E%87%E5%A4%89%E6%95%B0"><span class="header-section-number">2.2</span> 確率変数</a></li>
+  <li><a href="#%E6%BC%94%E7%AE%97%E8%A6%8F%E5%89%87" id="toc-演算規則" class="nav-link" data-scroll-target="#%E6%BC%94%E7%AE%97%E8%A6%8F%E5%89%87"><span class="header-section-number">2.3</span> 演算規則</a></li>
+  <li><a href="#%E7%A2%BA%E7%8E%87%E5%A4%89%E6%95%B0%E3%81%AE%E3%82%A2%E3%83%95%E3%82%A3%E3%83%B3%E5%A4%89%E6%8F%9B" id="toc-確率変数のアフィン変換" class="nav-link" data-scroll-target="#%E7%A2%BA%E7%8E%87%E5%A4%89%E6%95%B0%E3%81%AE%E3%82%A2%E3%83%95%E3%82%A3%E3%83%B3%E5%A4%89%E6%8F%9B"><span class="header-section-number">2.4</span> 確率変数のアフィン変換</a></li>
+  <li><a href="#%E5%85%B1%E5%88%86%E6%95%A3%E3%81%AE%E9%87%8D%E8%A6%81%E5%85%AC%E5%BC%8F" id="toc-共分散の重要公式" class="nav-link" data-scroll-target="#%E5%85%B1%E5%88%86%E6%95%A3%E3%81%AE%E9%87%8D%E8%A6%81%E5%85%AC%E5%BC%8F"><span class="header-section-number">2.5</span> 共分散の重要公式</a></li>
+  </ul></nav>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">確率</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">確率</span>
+</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> コード</button></div></div>
 </div>
 
 
@@ -347,34 +459,60 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>東証株価指数(Tokyo Stock Price Index: TOPIX)の値動きから何を感じますか？ 以下では、TOPIXの動きを通して確率について学びます。</p>
+</header><p>東証株価指数(Tokyo Stock Price Index: TOPIX)の値動きから何を感じますか？ 以下では、TOPIXの動きを通して確率について学びます。</p>
 <p>まずは、Rの環境を整えましょう。 いくつかのパッケージを読み込み，グラフ作成時のスタイルを設定しておきます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, ggthemes, patchwork)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>パッケージの読み込みとテーマの設定</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  tidyverse,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  ggthemes,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  pdftools</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  )</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">theme_set</span>(<span class="fu">theme_economist_white</span>())</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 <p>次にTOPIXのデータを読み込みんで、TOPIXの動きを確認します。 ここで読み込んでいる<code>stock_data.csv</code>には，2007年4月2日から2023年4月28日にわたる，TOPIX，トヨタ自動車，日産自動車，本田技術研究所の株価の終値が日次で記録されています。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/stock_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>データの読み込み</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/stock_data.csv"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 11805 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): 上場コード, 企業名
+dbl  (5): 日経平均, TOPIX, 株式コード, 終値, 調整済み終値
+date (1): date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
 </div>
 <p>ここで，TOPIXとは，東京証券取引所一部上場株式銘柄を対象として東京証券取引所が1秒ごとに算出・公表している株式ポートフォリオ(東証一部の時価総額)を株価指数で表したものです。 他の株価指数として有名なものに日経株価平均があります。 TOPIXの値動きを確認してみましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>TOPIXの動きの確認</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><a href="Hatakeda_Chap02_files/figure-html/plot-topix-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="Hatakeda_Chap02_files/figure-html/plot-topix-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>2008年のリーマンショックで暴落した株価も2014年からはじまったアベノミクスで株価は上昇し，2016年のマイナス金利，2020年の新型コロナウイルスの感染拡大による株価の下落など，TOPIXの値動きは経済の動向を反映していることが分かります。</p>
-<section id="期待値と分散標準偏差の推定" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="期待値と分散標準偏差の推定"><span class="header-section-number">2.1</span> 期待値と分散(標準偏差)の推定</h2>
+<section id="期待値と分散標準偏差の推定" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="期待値と分散標準偏差の推定">
+<span class="header-section-number">2.1</span> 期待値と分散(標準偏差)の推定</h2>
 <p>ファイナンスの分野では，資産価値(たとえば株価)それ自体より，<strong>資産価値の変化率</strong>(これを<strong>リターン</strong>といいます)で議論することも多いです。 先のTOPIXのデータを使って，TOPIXのリターンを計算して作図してみましょう。 まずリターン(return)の定義を確認します。</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -382,7 +520,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-リターン
+<span class="screen-reader-only">重要</span>リターン
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -396,9 +534,12 @@ r_{i,t} &amp;= \frac{D_{i,t} + (P_{i,t} - P_{i,t-1})}{P_{i,t-1}} \\
 </span></p>
 <p>ここで</p>
 <ul>
-<li><span class="math inline">D</span>はインカム(配当，クーポン，地代など)</li>
-<li><span class="math inline">P</span>は資産価値(株価，債券価格，地価など)</li>
-<li><span class="math inline">i</span>は企業，<span class="math inline">t</span>は期を表す。</li>
+<li>
+<span class="math inline">D</span>はインカム(配当，クーポン，地代など)</li>
+<li>
+<span class="math inline">P</span>は資産価値(株価，債券価格，地価など)</li>
+<li>
+<span class="math inline">i</span>は企業，<span class="math inline">t</span>は期を表す。</li>
 </ul>
 </div>
 </div>
@@ -409,7 +550,7 @@ r_{i,t} &amp;= \frac{D_{i,t} + (P_{i,t} - P_{i,t-1})}{P_{i,t-1}} \\
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-配当落ち日次リターン
+<span class="screen-reader-only">重要</span>配当落ち日次リターン
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -430,25 +571,29 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </span></p>
 <p>となります。具体的には、次のような表になります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># リターンの計算</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">TOPIX_return =</span> TOPIX <span class="sc">/</span> <span class="fu">lag</span>(TOPIX) <span class="sc">-</span> <span class="dv">1</span> <span class="co"># TOPIXのリターン</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 作表</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, TOPIX, TOPIX_return) <span class="sc">%&gt;%</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>リターンの計算</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># リターンの計算</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># 分母がゼロかどうかを確認してから計算する</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-5"><a href="#cb5-5"></a>      <span class="at">TOPIX_return =</span> <span class="fu">ifelse</span>(<span class="fu">lag</span>(TOPIX) <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">NA</span>, TOPIX <span class="sc">/</span> <span class="fu">lag</span>(TOPIX) <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># TOPIXのリターン</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>      )</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># 作表</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">select</span>(date, TOPIX, TOPIX_return) <span class="sc">|&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="co"># 先頭10行</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="co"># 作表</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">date</th>
 <th style="text-align: right;">TOPIX</th>
 <th style="text-align: right;">TOPIX_return</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2007-04-02</td>
@@ -519,18 +664,25 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 198310 | $685.51$ | $-0.81\%$　| -->
 <p>この<code>TOPIX_return</code>を折れ線グラフにすると以下のようになります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX_return) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>TOPIXリターンのグラフ化</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX_return) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><a href="Hatakeda_Chap02_files/figure-html/plot-return-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Hatakeda_Chap02_files/figure-html/plot-return-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="確率変数" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="確率変数"><span class="header-section-number">2.2</span> 確率変数</h2>
+</section><section id="確率変数" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="確率変数">
+<span class="header-section-number">2.2</span> 確率変数</h2>
 <p>これまでの観測データの値から，TOPIX，とりわけTOPIXのリターンはランダムな(確率的な)値をとっていることが分かります。 つまり<strong>予測不可能</strong>なデータということです。 TOPIXの長期的な傾向(Trend)はある程度予想することは可能ですが，明日明後日のTOPIXの値といった短期的な動向を予測することはほぼ不可能です。 つまり，TOPIXやTOPIXのリターンは，ある定まった値というよりも，<strong>不確実な値をとる変数</strong>であると考えることができます。 このような変数を<strong>確率変数</strong>(random variables)とよびます。</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -538,7 +690,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-確率変数
+<span class="screen-reader-only">重要</span>確率変数
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -551,44 +703,51 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-例：コイン投げ
+<span class="screen-reader-only">ヒント</span>例：コイン投げ
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>1枚のコインを投げるという試行から起こりうる事象を<span class="math inline">\boldsymbol{H}</span>と<span class="math inline">\boldsymbol{T}</span>で表わします。</p>
 <ul>
-<li><strong>試行</strong>(trial)：コイン投げ</li>
-<li><strong>起こりうる結果</strong>(事象)：<span class="math inline">\omega =\boldsymbol{H}, \boldsymbol{T}</span>の2つの事象が起こりうる。</li>
-<li><strong>試行の結果</strong>：<span class="math inline">\boldsymbol{H}</span>の数<span class="math inline">x = \{X(\boldsymbol{H}), X(\boldsymbol{T}) \} = \{ 1,0 \}</span></li>
-<li><strong>各結果が起こる確率</strong>：<span class="math inline">p(1) = p(0) = 0.5</span></li>
+<li>
+<strong>試行</strong>(trial)：コイン投げ</li>
+<li>
+<strong>起こりうる結果</strong>(事象)：<span class="math inline">\omega =\boldsymbol{H}, \boldsymbol{T}</span>の2つの事象が起こりうる。</li>
+<li>
+<strong>試行の結果</strong>：<span class="math inline">\boldsymbol{H}</span>の数<span class="math inline">x = \{X(\boldsymbol{H}), X(\boldsymbol{T}) \} = \{ 1,0 \}</span>
+</li>
+<li>
+<strong>各結果が起こる確率</strong>：<span class="math inline">p(1) = p(0) = 0.5</span>
+</li>
 </ul>
 </div>
 </div>
-<p>実現した<span class="math inline">\boldsymbol{H}</span>の数(つまり表が出た回数)を<span class="math inline">x</span>とするとき，事象<span class="math inline">\omega</span>から<span class="math inline">x</span>への関数<span class="math inline">X</span>(コイン投げによる<strong>表の数</strong>)は確率変数である。</p>
-<p>厳密な表現は分かりにくいですね…。 直感的には，確率を持った変数として理解してください。 でも，しばらく厳密にいきましょう！</p>
+<p>実現した<span class="math inline">\boldsymbol{H}</span>の数(つまり表が出た回数)を<span class="math inline">x</span>とするとき，事象<span class="math inline">\omega</span>から<span class="math inline">x</span>への関数<span class="math inline">X</span>(コイン投げによる<strong>表の数</strong>)は確率変数である。 密な表現は分かりにくいですね…。 直感的には，確率を持った変数として理解してください。 でも，しばらく厳密にいきましょう！</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Hatakeda_Chap02_files/figure-html/tikz-example-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption>コイン投げの例</figcaption>
-</figure>
+<figure class="figure"><p><a href="Hatakeda_Chap02_files/figure-html/tikz-example-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="コイン投げの例"><img src="Hatakeda_Chap02_files/figure-html/tikz-example-1.png" class="img-fluid figure-img" style="width:90.0%" alt="コイン投げの例"></a></p>
+<figcaption>コイン投げの例</figcaption></figure>
 </div>
 </div>
 </div>
 <p>確率は対応する値がどのくらいの割合で発生するかを表します。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"T"</span>),</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>確率のグラフ化</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"T"</span>),</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
+<span id="cb8-6"><a href="#cb8-6"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="fu">print</span>(g)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap02_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><a href="Hatakeda_Chap02_files/figure-html/plot-prob-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Hatakeda_Chap02_files/figure-html/plot-prob-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -599,15 +758,21 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-2枚コイン投げの例
+<span class="screen-reader-only">ノート</span>2枚コイン投げの例
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>試行</strong> (trial) : コイン投げ</li>
-<li><strong>起こりうる事象</strong> : $= { (H,H),(H,T),(T,H),(T,T)} $</li>
-<li><strong>試行結果</strong> : 表の数 <span class="math inline">x = \{ X(H,H),X(H,T),X(T,H),X(T,T)\} = \{2,1,0\}</span></li>
-<li><strong>各結果が起こる確率</strong> : <span class="math inline">p(2) = 0.25</span>，<span class="math inline">p(1) = 0.25</span> ，<span class="math inline">p(0) = 0.25</span></li>
+<li>
+<strong>試行</strong> (trial) : コイン投げ</li>
+<li>
+<strong>起こりうる事象</strong> : $= { (H,H),(H,T),(T,H),(T,T)} $</li>
+<li>
+<strong>試行結果</strong> : 表の数 <span class="math inline">x = \{ X(H,H),X(H,T),X(T,H),X(T,T)\} = \{2,1,0\}</span>
+</li>
+<li>
+<strong>各結果が起こる確率</strong> : <span class="math inline">p(2) = 0.25</span>，<span class="math inline">p(1) = 0.25</span> ，<span class="math inline">p(0) = 0.25</span>
+</li>
 </ul>
 <p>表の数を<span class="math inline">x</span>とするとき，<span class="math inline">\omega</span>から<span class="math inline">x</span>への関数<span class="math inline">X:\omega \mapsto x</span>(2枚のコイン投げによる表の数)は確率変数です。</p>
 </div>
@@ -615,25 +780,29 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Hatakeda_Chap02_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption>コイン投げの例</figcaption>
-</figure>
+<figure class="figure"><p><a href="Hatakeda_Chap02_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="コイン投げの例"><img src="Hatakeda_Chap02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:90.0%" alt="コイン投げの例"></a></p>
+<figcaption>コイン投げの例</figcaption></figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"HH"</span>, <span class="st">"HT"</span>,<span class="st">"TT"</span>),</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>,<span class="fl">0.25</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>コイン投げの確率分布</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"HH"</span>, <span class="st">"HT"</span>,<span class="st">"TT"</span>), <span class="co"># 結果の組み合わせ</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>,<span class="fl">0.25</span>) <span class="co"># 確率</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="fu">print</span>(g)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap02_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><a href="Hatakeda_Chap02_files/figure-html/plot-coin-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="Hatakeda_Chap02_files/figure-html/plot-coin-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -645,7 +814,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-練習問題
+<span class="screen-reader-only">警告</span>練習問題
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -659,12 +828,12 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-解答例
+<span class="screen-reader-only">注意</span>解答例
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -674,14 +843,16 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <li><p>起こりうる事象は， <span class="math inline">x = \{0, 1, 2, 3, 4\}</span></p></li>
 <li><p>試行結果は， <span class="math inline">\omega = \{ (H,H,H,H), (H,H,H,T), (H,H,T,T), (H,T,T,T), (T,T,T,T) \}</span> の5つの事象が起こりうる。</p></li>
 <li><p>各結果が起こる確率は，<span class="math inline">p(0) = 0.0625, p(1) = 0.25, p(2) = 0.375, p(3) = 0.25, p(4) = 0.0625</span></p></li>
-<li><p>確率分布は，以下の通りです。</p>
+<li>
+<p>確率分布は，以下の通りです。</p>
 <ul>
 <li><span class="math inline">x = 0 : p(0) = 0.0625</span></li>
 <li><span class="math inline">x = 1 : p(1) = 0.25</span></li>
 <li><span class="math inline">x = 2 : p(2) = 0.375</span></li>
 <li><span class="math inline">x = 3 : p(3) = 0.25</span></li>
 <li><span class="math inline">x = 4 : p(4) = 0.0625</span></li>
-</ul></li>
+</ul>
+</li>
 </ol>
 </div>
 </div>
@@ -693,8 +864,10 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <li>確率変数に2つの側面(観測前と観測後)があり，これらを区別する必要があります。</li>
 <li>確率変数<span class="math inline">X</span>が取りうる値<span class="math inline">x</span>に応じて，
 <ul>
-<li><strong>離散型確率変数</strong>(discrete random variables)</li>
-<li><strong>連続型確率変数</strong>(continuous random variables)</li>
+<li>
+<strong>離散型確率変数</strong>(discrete random variables)</li>
+<li>
+<strong>連続型確率変数</strong>(continuous random variables)</li>
 </ul>
 に区別することができます。</li>
 </ul>
@@ -708,7 +881,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-期待値
+<span class="screen-reader-only">重要</span>期待値
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -725,7 +898,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-分散
+<span class="screen-reader-only">重要</span>分散
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -743,7 +916,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-標準偏差
+<span class="screen-reader-only">重要</span>標準偏差
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -761,22 +934,20 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-例5：資産投資
+<span class="screen-reader-only">ヒント</span>例5：資産投資
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>投資資産<span class="math inline">A</span>と<span class="math inline">B</span>を運用して得られるリターンが以下の通りとします。</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: center;">投資資産A</th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">状態</td>
@@ -805,16 +976,14 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </tbody>
 </table>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: center;">投資資産B</th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">状態</td>
@@ -843,13 +1012,11 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </tbody>
 </table>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;"></th>
 <th style="text-align: right;">投資資産A</th>
 <th style="text-align: right;">投資資産B</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\mathbb{E}[X]</span></td>
@@ -871,19 +1038,19 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-練習問題
+<span class="screen-reader-only">警告</span>練習問題
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>上記設定のもとで、2つの資産が生み出すリターンの期待値と分散を求めてください。</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: center;"></th>
-<th style="text-align: center;">資産<span class="math inline">A</span></th>
-<th style="text-align: center;">資産<span class="math inline">B</span></th>
-</tr>
-</thead>
+<th style="text-align: center;">資産<span class="math inline">A</span>
+</th>
+<th style="text-align: center;">資産<span class="math inline">B</span>
+</th>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\mathbb{E}[X]</span></td>
@@ -900,12 +1067,12 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-解答
+<span class="screen-reader-only">警告</span>解答
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -913,13 +1080,13 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <div class="callout-body-container callout-body">
 <p>定義通りに、投資資産<span class="math inline">A</span>の期待値と分散を求めます。</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: center;"></th>
-<th style="text-align: center;">資産<span class="math inline">A</span></th>
-<th style="text-align: center;">資産<span class="math inline">B</span></th>
-</tr>
-</thead>
+<th style="text-align: center;">資産<span class="math inline">A</span>
+</th>
+<th style="text-align: center;">資産<span class="math inline">B</span>
+</th>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\mathbb{E}[X]</span></td>
@@ -947,8 +1114,8 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </div>
 </div>
 </div>
-<section id="つの確率変数どうしの関係" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="つの確率変数どうしの関係"><span class="header-section-number">2.2.1</span> 2つの確率変数どうしの関係</h3>
+<section id="つの確率変数どうしの関係" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="つの確率変数どうしの関係">
+<span class="header-section-number">2.2.1</span> 2つの確率変数どうしの関係</h3>
 <p>2つの確率変数の関連性は，共分散と相関係数で表します。 以下では、それぞれの定義とともに、その統計量の特徴を説明します。</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -956,7 +1123,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-共分散
+<span class="screen-reader-only">重要</span>共分散
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -976,7 +1143,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-相関係数
+<span class="screen-reader-only">重要</span>相関係数
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1000,7 +1167,7 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-問題2：投資資産
+<span class="screen-reader-only">警告</span>問題2：投資資産
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1011,12 +1178,10 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 </ul>
 </div>
 </div>
-</section>
-</section>
-<section id="演算規則" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="演算規則"><span class="header-section-number">2.3</span> 演算規則</h2>
-<section id="期待値の演算規則" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="期待値の演算規則"><span class="header-section-number">2.3.1</span> 期待値の演算規則</h3>
+</section></section><section id="演算規則" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="演算規則">
+<span class="header-section-number">2.3</span> 演算規則</h2>
+<section id="期待値の演算規則" class="level3" data-number="2.3.1"><h3 data-number="2.3.1" class="anchored" data-anchor-id="期待値の演算規則">
+<span class="header-section-number">2.3.1</span> 期待値の演算規則</h3>
 <p>期待値の演算について，次のような法則が成り立っています。 重要な法則ですので、一つ一つ確認しながら理解するようにしてください。</p>
 <p>まず，<span class="math inline">X</span>が確率変数ではなく，定数・パラメータであるとき， <span class="math display">
 \begin{aligned}
@@ -1064,9 +1229,8 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 \end{aligned}
 </span></p>
 <p>が成り立ちます。</p>
-</section>
-<section id="分散の演算規則" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="分散の演算規則"><span class="header-section-number">2.3.2</span> 分散の演算規則</h3>
+</section><section id="分散の演算規則" class="level3" data-number="2.3.2"><h3 data-number="2.3.2" class="anchored" data-anchor-id="分散の演算規則">
+<span class="header-section-number">2.3.2</span> 分散の演算規則</h3>
 <p><span class="math inline">X</span>が確率変数ではなく，確定変数であるとき，</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1074,12 +1238,12 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 \end{aligned}
 </span></p>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-証明
+<span class="screen-reader-only">警告</span>証明
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1118,9 +1282,8 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
         &amp;=\mathbb{E} \left [ X^2 \right ] - \mathbb{E} [X]^2
 \end{aligned}
 </span></p>
-</section>
-<section id="共分散の演算規則" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="共分散の演算規則"><span class="header-section-number">2.3.3</span> 共分散の演算規則</h3>
+</section><section id="共分散の演算規則" class="level3" data-number="2.3.3"><h3 data-number="2.3.3" class="anchored" data-anchor-id="共分散の演算規則">
+<span class="header-section-number">2.3.3</span> 共分散の演算規則</h3>
 <p>共分散については，以下の法則が成り立ちます。</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1137,10 +1300,8 @@ r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1
 \mathbb{E}[X_iX_j] = \mathbb{E}[X_i]\mathbb{E}[X_j]
 \end{aligned}
 </span></p>
-</section>
-</section>
-<section id="確率変数のアフィン変換" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="確率変数のアフィン変換"><span class="header-section-number">2.4</span> 確率変数のアフィン変換</h2>
+</section></section><section id="確率変数のアフィン変換" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="確率変数のアフィン変換">
+<span class="header-section-number">2.4</span> 確率変数のアフィン変換</h2>
 <p>確率変数<span class="math inline">X</span>がアフィン変換(affine transformation)をする場合を考えます。</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1179,32 +1340,30 @@ Y = a + bX
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-アフィン変換
+<span class="screen-reader-only">ヒント</span>アフィン変換
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>ある工事が完了する日数とその確率が次のように予測されているとします。</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">日数<span class="math inline">X</span></th>
+<thead><tr class="header">
+<th style="text-align: center;">日数<span class="math inline">X</span>
+</th>
 <th style="text-align: center;">1</th>
 <th style="text-align: center;">2</th>
 <th style="text-align: center;">3</th>
 <th style="text-align: center;">4</th>
 <th style="text-align: center;">5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">確率<span class="math inline">p(x)</span></td>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: center;">確率<span class="math inline">p(x)</span>
+</td>
 <td style="text-align: center;"><span class="math inline">5\%</span></td>
 <td style="text-align: center;"><span class="math inline">20\%</span></td>
 <td style="text-align: center;"><span class="math inline">35\%</span></td>
 <td style="text-align: center;"><span class="math inline">30\%</span></td>
 <td style="text-align: center;"><span class="math inline">10\%</span></td>
-</tr>
-</tbody>
+</tr></tbody>
 </table>
 <p>このとき</p>
 <p><span class="math display">
@@ -1250,7 +1409,7 @@ Y = 100  + 10 X
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-問題3
+<span class="screen-reader-only">警告</span>問題3
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1263,33 +1422,36 @@ Y = 100  + 10 X
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-例8
+<span class="screen-reader-only">警告</span>例8
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><span class="math inline">k=2</span>のケースで，<span class="math inline">Y=0.5X_1 + 0.5 X_2</span>の期待値および分散を求めます。 ただし，<span class="math inline">\mu _1 = 0.07</span>，<span class="math inline">\sigma _1^2 = 1.48</span>，<span class="math inline">\mu_2 = -0.02</span>，<span class="math inline">\sigma _2^2 = 1.46</span>とします。</p>
 <ul>
-<li><p>無相関(<span class="math inline">\rho _{12} = 0</span>, <span class="math inline">\mathbb{COV}[X_1, X_2] = 0</span> )のケース <span class="math display">
+<li>
+<p>無相関(<span class="math inline">\rho _{12} = 0</span>, <span class="math inline">\mathbb{COV}[X_1, X_2] = 0</span> )のケース <span class="math display">
 \begin{aligned}
   \mathbb{E}[Y]   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
   \mathbb{V} [Y] &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times 0 = 0.735
   \end{aligned}
 </span></p>
-<p><span class="math inline">Y</span>の分散は，<span class="math inline">X_1</span>と<span class="math inline">X_2</span>の分散よりも小さい。</p></li>
-<li><p>負の相関(<span class="math inline">\rho _{12} = -0.99 \Leftrightarrow \mathbb{COV}[X_1,X_2] = -1.46</span>)のケース <span class="math display">
+<p><span class="math inline">Y</span>の分散は，<span class="math inline">X_1</span>と<span class="math inline">X_2</span>の分散よりも小さい。</p>
+</li>
+<li>
+<p>負の相関(<span class="math inline">\rho _{12} = -0.99 \Leftrightarrow \mathbb{COV}[X_1,X_2] = -1.46</span>)のケース <span class="math display">
 \begin{aligned}
   \mathbb{E}[Y]   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025\\
   \mathbb{V} [Y] &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times -1.46 = 0.005
   \end{aligned}
 </span></p>
-<p><span class="math inline">Y</span>の分散は，<span class="math inline">X_1</span>と<span class="math inline">X_2</span>の分散よりも小さい。</p></li>
+<p><span class="math inline">Y</span>の分散は，<span class="math inline">X_1</span>と<span class="math inline">X_2</span>の分散よりも小さい。</p>
+</li>
 </ul>
 <p><span class="math inline">X_1</span>と<span class="math inline">X_2</span>の共分散は，<span class="math inline">Y</span>の分散に影響を与える。</p>
 </div>
 </div>
-</section>
-<section id="共分散の重要公式" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="共分散の重要公式"><span class="header-section-number">2.5</span> 共分散の重要公式</h2>
+</section><section id="共分散の重要公式" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="共分散の重要公式">
+<span class="header-section-number">2.5</span> 共分散の重要公式</h2>
 <p>共分散について，以下の公式が成立する。</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1308,384 +1470,312 @@ Y = 100  + 10 X
 <p>ここで， <span class="math inline">\mathbb{COV}[X,X] = \mathbb{E}[ ( X - \mathbb{E}[X])(X- \mathbb{E}[X]) ] = \mathbb{V}[X]</span> であることを思い出そう。</p>
 
 
-</section>
+<!-- -->
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> トップに戻る</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "コピーしました");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "コピーしました");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/so-ichi\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1693,187 +1783,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link" aria-label="はじめに">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span>
       </a>          
@@ -1883,23 +1947,802 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">統計</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">ソースコード</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu"># 確率</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>東証株価指数(Tokyo Stock Price Index: TOPIX)の値動きから何を感じますか？</span>
+<span id="cb10-4"><a href="#cb10-4"></a>以下では、TOPIXの動きを通して確率について学びます。</span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a>まずは、Rの環境を整えましょう。</span>
+<span id="cb10-7"><a href="#cb10-7"></a>いくつかのパッケージを読み込み，グラフ作成時のスタイルを設定しておきます。</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="in">```{r setup, filename = "パッケージの読み込みとテーマの設定"}</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb10-10"><a href="#cb10-10"></a>  tidyverse,</span>
+<span id="cb10-11"><a href="#cb10-11"></a>  ggthemes,</span>
+<span id="cb10-12"><a href="#cb10-12"></a>  pdftools</span>
+<span id="cb10-13"><a href="#cb10-13"></a>  )</span>
+<span id="cb10-14"><a href="#cb10-14"></a></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="fu">theme_set</span>(<span class="fu">theme_economist_white</span>())</span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="in">```</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a></span>
+<span id="cb10-18"><a href="#cb10-18"></a>次にTOPIXのデータを読み込みんで、TOPIXの動きを確認します。</span>
+<span id="cb10-19"><a href="#cb10-19"></a>ここで読み込んでいる<span class="in">`stock_data.csv`</span>には，2007年4月2日から2023年4月28日にわたる，TOPIX，トヨタ自動車，日産自動車，本田技術研究所の株価の終値が日次で記録されています。</span>
+<span id="cb10-20"><a href="#cb10-20"></a></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="in">```{r read-data, filename = "データの読み込み"}</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/stock_data.csv"</span>)</span>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="in">```</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a></span>
+<span id="cb10-25"><a href="#cb10-25"></a>ここで，TOPIXとは，東京証券取引所一部上場株式銘柄を対象として東京証券取引所が1秒ごとに算出・公表している株式ポートフォリオ(東証一部の時価総額)を株価指数で表したものです。</span>
+<span id="cb10-26"><a href="#cb10-26"></a>他の株価指数として有名なものに日経株価平均があります。</span>
+<span id="cb10-27"><a href="#cb10-27"></a>TOPIXの値動きを確認してみましょう。</span>
+<span id="cb10-28"><a href="#cb10-28"></a></span>
+<span id="cb10-29"><a href="#cb10-29"></a><span class="in">```{r plot-topix, filename = "TOPIXの動きの確認"}</span></span>
+<span id="cb10-30"><a href="#cb10-30"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb10-31"><a href="#cb10-31"></a><span class="in">```</span></span>
+<span id="cb10-32"><a href="#cb10-32"></a></span>
+<span id="cb10-33"><a href="#cb10-33"></a>2008年のリーマンショックで暴落した株価も2014年からはじまったアベノミクスで株価は上昇し，2016年のマイナス金利，2020年の新型コロナウイルスの感染拡大による株価の下落など，TOPIXの値動きは経済の動向を反映していることが分かります。</span>
+<span id="cb10-34"><a href="#cb10-34"></a></span>
+<span id="cb10-35"><a href="#cb10-35"></a><span class="fu">## 期待値と分散(標準偏差)の推定</span></span>
+<span id="cb10-36"><a href="#cb10-36"></a></span>
+<span id="cb10-37"><a href="#cb10-37"></a>ファイナンスの分野では，資産価値(たとえば株価)それ自体より，**資産価値の変化率**(これを**リターン**といいます)で議論することも多いです。</span>
+<span id="cb10-38"><a href="#cb10-38"></a>先のTOPIXのデータを使って，TOPIXのリターンを計算して作図してみましょう。</span>
+<span id="cb10-39"><a href="#cb10-39"></a>まずリターン(return)の定義を確認します。</span>
+<span id="cb10-40"><a href="#cb10-40"></a></span>
+<span id="cb10-41"><a href="#cb10-41"></a>:::{.callout-important}</span>
+<span id="cb10-42"><a href="#cb10-42"></a><span class="fu">## リターン</span></span>
+<span id="cb10-43"><a href="#cb10-43"></a>資産$i$の$t$期のリターン$r_{i,t}$は，</span>
+<span id="cb10-44"><a href="#cb10-44"></a></span>
+<span id="cb10-45"><a href="#cb10-45"></a>$$</span>
+<span id="cb10-46"><a href="#cb10-46"></a>\begin{aligned}</span>
+<span id="cb10-47"><a href="#cb10-47"></a>r_{i,t} &amp;= \frac{D_{i,t} + (P_{i,t} - P_{i,t-1})}{P_{i,t-1}} <span class="sc">\\</span></span>
+<span id="cb10-48"><a href="#cb10-48"></a>%&amp;= \frac{D_{i,t}}{P_{i,t-1}} + \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}}<span class="sc">\\</span></span>
+<span id="cb10-49"><a href="#cb10-49"></a>&amp;= \frac{D_{i,t} - P_{i,t}}{P_{i,t-1}} -1</span>
+<span id="cb10-50"><a href="#cb10-50"></a>\end{aligned}</span>
+<span id="cb10-51"><a href="#cb10-51"></a>$$</span>
+<span id="cb10-52"><a href="#cb10-52"></a></span>
+<span id="cb10-53"><a href="#cb10-53"></a>ここで</span>
+<span id="cb10-54"><a href="#cb10-54"></a></span>
+<span id="cb10-55"><a href="#cb10-55"></a><span class="ss">- </span>$D$はインカム(配当，クーポン，地代など)</span>
+<span id="cb10-56"><a href="#cb10-56"></a><span class="ss">- </span>$P$は資産価値(株価，債券価格，地価など)</span>
+<span id="cb10-57"><a href="#cb10-57"></a><span class="ss">- </span>$i$は企業，$t$は期を表す。</span>
+<span id="cb10-58"><a href="#cb10-58"></a>:::</span>
+<span id="cb10-59"><a href="#cb10-59"></a></span>
+<span id="cb10-60"><a href="#cb10-60"></a>配当を受け取った場合，配当落ち日次リターンを計算することになります。上の式から配当$D$を引いて計算します。</span>
+<span id="cb10-61"><a href="#cb10-61"></a></span>
+<span id="cb10-62"><a href="#cb10-62"></a>:::{.callout-important}</span>
+<span id="cb10-63"><a href="#cb10-63"></a><span class="fu">## 配当落ち日次リターン</span></span>
+<span id="cb10-64"><a href="#cb10-64"></a></span>
+<span id="cb10-65"><a href="#cb10-65"></a>株式$i$の$t$期における(配当落ち)日次リターン$r_{i,t}$は，</span>
+<span id="cb10-66"><a href="#cb10-66"></a></span>
+<span id="cb10-67"><a href="#cb10-67"></a>$$</span>
+<span id="cb10-68"><a href="#cb10-68"></a>\begin{aligned}</span>
+<span id="cb10-69"><a href="#cb10-69"></a>r_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} = \frac{P_{i,t}}{P_{i,t-1}} - 1</span>
+<span id="cb10-70"><a href="#cb10-70"></a>\end{aligned}</span>
+<span id="cb10-71"><a href="#cb10-71"></a>$$</span>
+<span id="cb10-72"><a href="#cb10-72"></a></span>
+<span id="cb10-73"><a href="#cb10-73"></a>株式の日次リターンを上の式に従って計算する場合，インカムゲインは考慮されていないことに留意しましょう。</span>
+<span id="cb10-74"><a href="#cb10-74"></a>:::</span>
+<span id="cb10-75"><a href="#cb10-75"></a></span>
+<span id="cb10-76"><a href="#cb10-76"></a>同様に，TOPIXの(配当落ち)リターン$r^{TOPIX}_{i,t}$は</span>
+<span id="cb10-77"><a href="#cb10-77"></a></span>
+<span id="cb10-78"><a href="#cb10-78"></a>$$</span>
+<span id="cb10-79"><a href="#cb10-79"></a>\begin{aligned}</span>
+<span id="cb10-80"><a href="#cb10-80"></a>r^{TOPIX}_{i,t} = \frac{p_{i,t}}{p_{i,t-1}} - 1</span>
+<span id="cb10-81"><a href="#cb10-81"></a>\end{aligned}</span>
+<span id="cb10-82"><a href="#cb10-82"></a>$$</span>
+<span id="cb10-83"><a href="#cb10-83"></a></span>
+<span id="cb10-84"><a href="#cb10-84"></a>となります。具体的には、次のような表になります。</span>
+<span id="cb10-85"><a href="#cb10-85"></a></span>
+<span id="cb10-86"><a href="#cb10-86"></a><span class="in">```{r calc-return, filename = "リターンの計算"}</span></span>
+<span id="cb10-87"><a href="#cb10-87"></a><span class="co"># リターンの計算</span></span>
+<span id="cb10-88"><a href="#cb10-88"></a><span class="co"># 分母がゼロかどうかを確認してから計算する</span></span>
+<span id="cb10-89"><a href="#cb10-89"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb10-90"><a href="#cb10-90"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-91"><a href="#cb10-91"></a>      <span class="at">TOPIX_return =</span> <span class="fu">ifelse</span>(<span class="fu">lag</span>(TOPIX) <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">NA</span>, TOPIX <span class="sc">/</span> <span class="fu">lag</span>(TOPIX) <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># TOPIXのリターン</span></span>
+<span id="cb10-92"><a href="#cb10-92"></a>      )</span>
+<span id="cb10-93"><a href="#cb10-93"></a><span class="co"># 作表</span></span>
+<span id="cb10-94"><a href="#cb10-94"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb10-95"><a href="#cb10-95"></a>  <span class="fu">select</span>(date, TOPIX, TOPIX_return) <span class="sc">|&gt;</span></span>
+<span id="cb10-96"><a href="#cb10-96"></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="co"># 先頭10行</span></span>
+<span id="cb10-97"><a href="#cb10-97"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="co"># 作表</span></span>
+<span id="cb10-98"><a href="#cb10-98"></a><span class="in">```</span></span>
+<span id="cb10-99"><a href="#cb10-99"></a></span>
+<span id="cb10-100"><a href="#cb10-100"></a><span class="co">&lt;!--</span></span>
+<span id="cb10-101"><a href="#cb10-101"></a><span class="co">| 年月  |  TOPIX | 月次R |</span></span>
+<span id="cb10-102"><a href="#cb10-102"></a><span class="co">| :---: | :----: | :---: |</span></span>
+<span id="cb10-103"><a href="#cb10-103"></a><span class="co">198301 | $588.35$ | -  　|</span></span>
+<span id="cb10-104"><a href="#cb10-104"></a><span class="co">198302 | $592.18$ | $0.65\%$　|</span></span>
+<span id="cb10-105"><a href="#cb10-105"></a><span class="co">198303 | $617.69$ | $4.31\%$　|</span></span>
+<span id="cb10-106"><a href="#cb10-106"></a><span class="co">198304 | $631.96$ | $2.31\%$　|</span></span>
+<span id="cb10-107"><a href="#cb10-107"></a><span class="co">198305 | $636.84$ | $0.77\%$　|</span></span>
+<span id="cb10-108"><a href="#cb10-108"></a><span class="co">198306 | $656.13$ | $3.03\%$　|</span></span>
+<span id="cb10-109"><a href="#cb10-109"></a><span class="co">198307 | $665.54$ | $1.43\%$　|</span></span>
+<span id="cb10-110"><a href="#cb10-110"></a><span class="co">198308 | $678.53$ | $1.95\%$　|</span></span>
+<span id="cb10-111"><a href="#cb10-111"></a><span class="co">198309 | $691.08$ | $1.85\%$　|</span></span>
+<span id="cb10-112"><a href="#cb10-112"></a><span class="co">198310 | $685.51$ | $-0.81\%$　| --&gt;</span></span>
+<span id="cb10-113"><a href="#cb10-113"></a></span>
+<span id="cb10-114"><a href="#cb10-114"></a>この<span class="in">`TOPIX_return`</span>を折れ線グラフにすると以下のようになります。</span>
+<span id="cb10-115"><a href="#cb10-115"></a></span>
+<span id="cb10-116"><a href="#cb10-116"></a><span class="in">```{r plot-return, filename = "TOPIXリターンのグラフ化"}</span></span>
+<span id="cb10-117"><a href="#cb10-117"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> TOPIX_return) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb10-118"><a href="#cb10-118"></a><span class="in">```</span></span>
+<span id="cb10-119"><a href="#cb10-119"></a></span>
+<span id="cb10-120"><a href="#cb10-120"></a><span class="fu">## 確率変数</span></span>
+<span id="cb10-121"><a href="#cb10-121"></a></span>
+<span id="cb10-122"><a href="#cb10-122"></a>これまでの観測データの値から，TOPIX，とりわけTOPIXのリターンはランダムな(確率的な)値をとっていることが分かります。</span>
+<span id="cb10-123"><a href="#cb10-123"></a>つまり**予測不可能**なデータということです。</span>
+<span id="cb10-124"><a href="#cb10-124"></a>TOPIXの長期的な傾向(Trend)はある程度予想することは可能ですが，明日明後日のTOPIXの値といった短期的な動向を予測することはほぼ不可能です。</span>
+<span id="cb10-125"><a href="#cb10-125"></a>つまり，TOPIXやTOPIXのリターンは，ある定まった値というよりも，**不確実な値をとる変数**であると考えることができます。</span>
+<span id="cb10-126"><a href="#cb10-126"></a>このような変数を**確率変数**(random variables)とよびます。</span>
+<span id="cb10-127"><a href="#cb10-127"></a></span>
+<span id="cb10-128"><a href="#cb10-128"></a>:::{.callout-important}</span>
+<span id="cb10-129"><a href="#cb10-129"></a><span class="fu">## 確率変数</span></span>
+<span id="cb10-130"><a href="#cb10-130"></a>ある試行(trial)によって起こりうる事象$\omega$に対して，ある実数値$x = X(\omega)$が与えられ，それぞれの値が起こりうる確率密度関数$p(x)$が与えられる場合，$\omega$から$x$への関数$X:\omega \mapsto x$を**確率変数**(random variable)とよびます。</span>
+<span id="cb10-131"><a href="#cb10-131"></a>確率変数という名前がついていますが，実は関数なのです。</span>
+<span id="cb10-132"><a href="#cb10-132"></a>:::</span>
+<span id="cb10-133"><a href="#cb10-133"></a></span>
+<span id="cb10-134"><a href="#cb10-134"></a>:::{.callout-tip}</span>
+<span id="cb10-135"><a href="#cb10-135"></a><span class="fu">## 例：コイン投げ</span></span>
+<span id="cb10-136"><a href="#cb10-136"></a></span>
+<span id="cb10-137"><a href="#cb10-137"></a>1枚のコインを投げるという試行から起こりうる事象を$\boldsymbol{H}$と$\boldsymbol{T}$で表わします。</span>
+<span id="cb10-138"><a href="#cb10-138"></a></span>
+<span id="cb10-139"><a href="#cb10-139"></a><span class="ss">- </span>**試行**(trial)：コイン投げ</span>
+<span id="cb10-140"><a href="#cb10-140"></a><span class="ss">- </span>**起こりうる結果**(事象)：$\omega =\boldsymbol{H}, \boldsymbol{T}$の2つの事象が起こりうる。</span>
+<span id="cb10-141"><a href="#cb10-141"></a><span class="ss">- </span>**試行の結果**：$\boldsymbol{H}$の数$x = <span class="sc">\{</span>X(\boldsymbol{H}), X(\boldsymbol{T}) <span class="sc">\}</span> = <span class="sc">\{</span> 1,0 <span class="sc">\}</span>$</span>
+<span id="cb10-142"><a href="#cb10-142"></a><span class="ss">- </span>**各結果が起こる確率**：$p(1) = p(0) = 0.5$</span>
+<span id="cb10-143"><a href="#cb10-143"></a>:::</span>
+<span id="cb10-144"><a href="#cb10-144"></a></span>
+<span id="cb10-145"><a href="#cb10-145"></a>実現した$\boldsymbol{H}$の数(つまり表が出た回数)を$x$とするとき，事象$\omega$から$x$への関数$X$(コイン投げによる**表の数**)は確率変数である。</span>
+<span id="cb10-146"><a href="#cb10-146"></a>密な表現は分かりにくいですね...。</span>
+<span id="cb10-147"><a href="#cb10-147"></a>直感的には，確率を持った変数として理解してください。</span>
+<span id="cb10-148"><a href="#cb10-148"></a>でも，しばらく厳密にいきましょう！</span>
+<span id="cb10-149"><a href="#cb10-149"></a></span>
+<span id="cb10-150"><a href="#cb10-150"></a><span class="in">```{r tikz-example, engine='tikz', out.width='90%', fig.cap='コイン投げの例'}</span></span>
+<span id="cb10-151"><a href="#cb10-151"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-152"><a href="#cb10-152"></a>\begin{tikzpicture}</span>
+<span id="cb10-153"><a href="#cb10-153"></a>\<span class="fu">draw</span> (<span class="dv">0</span>,<span class="dv">1</span>) node [left]{<span class="sc">$</span>X<span class="sc">$</span>};</span>
+<span id="cb10-154"><a href="#cb10-154"></a>\<span class="fu">draw</span> (<span class="dv">0</span>,<span class="dv">3</span>) node {before coin toss};</span>
+<span id="cb10-155"><a href="#cb10-155"></a>\<span class="fu">draw</span> (<span class="dv">4</span>,<span class="dv">3</span>) node {after coin toss};</span>
+<span id="cb10-156"><a href="#cb10-156"></a>\draw [thick, <span class="ot">-&gt;</span>] (<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">--</span> (<span class="dv">4</span>,<span class="dv">2</span>) node[pos<span class="ot">=</span><span class="fl">0.5</span>, sloped, above]{<span class="sc">$</span><span class="fu">p</span>(<span class="dv">1</span>)<span class="ot">=</span><span class="fl">0.5</span><span class="sc">$</span>};</span>
+<span id="cb10-157"><a href="#cb10-157"></a>\<span class="fu">draw</span> (<span class="dv">4</span>,<span class="dv">2</span>) node [right] {<span class="sc">$</span>\omega <span class="ot">=</span> \boldsymbol{H}, x<span class="ot">=</span><span class="dv">1</span><span class="sc">$</span>};</span>
+<span id="cb10-158"><a href="#cb10-158"></a>\draw [thick, <span class="ot">-&gt;</span>] (<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">--</span> (<span class="dv">4</span>,<span class="dv">0</span>) node[pos<span class="ot">=</span><span class="fl">0.5</span>, sloped, below]{<span class="sc">$</span><span class="fu">p</span>(<span class="dv">0</span>)<span class="ot">=</span><span class="fl">0.5</span><span class="sc">$</span>};</span>
+<span id="cb10-159"><a href="#cb10-159"></a>\<span class="fu">draw</span> (<span class="dv">4</span>,<span class="dv">0</span>) node [right] {<span class="sc">$</span>\omega <span class="ot">=</span> \boldsymbol{T}, x<span class="ot">=</span><span class="dv">0</span><span class="sc">$</span>};</span>
+<span id="cb10-160"><a href="#cb10-160"></a>\end{tikzpicture}</span>
+<span id="cb10-161"><a href="#cb10-161"></a><span class="in">```</span></span>
+<span id="cb10-162"><a href="#cb10-162"></a></span>
+<span id="cb10-163"><a href="#cb10-163"></a>確率は対応する値がどのくらいの割合で発生するかを表します。</span>
+<span id="cb10-164"><a href="#cb10-164"></a></span>
+<span id="cb10-165"><a href="#cb10-165"></a><span class="in">```{r plot-prob, filename = "確率のグラフ化"}</span></span>
+<span id="cb10-166"><a href="#cb10-166"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-167"><a href="#cb10-167"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"T"</span>),</span>
+<span id="cb10-168"><a href="#cb10-168"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb10-169"><a href="#cb10-169"></a>)</span>
+<span id="cb10-170"><a href="#cb10-170"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
+<span id="cb10-171"><a href="#cb10-171"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
+<span id="cb10-172"><a href="#cb10-172"></a><span class="fu">print</span>(g)</span>
+<span id="cb10-173"><a href="#cb10-173"></a><span class="in">```</span></span>
+<span id="cb10-174"><a href="#cb10-174"></a></span>
+<span id="cb10-175"><a href="#cb10-175"></a>:::{.callout-note}</span>
+<span id="cb10-176"><a href="#cb10-176"></a><span class="fu">## 2枚コイン投げの例</span></span>
+<span id="cb10-177"><a href="#cb10-177"></a></span>
+<span id="cb10-178"><a href="#cb10-178"></a><span class="ss">- </span>**試行** (trial) : コイン投げ</span>
+<span id="cb10-179"><a href="#cb10-179"></a><span class="ss">- </span>**起こりうる事象** : $\omega = <span class="sc">\{</span> (H,H),(H,T),(T,H),(T,T)<span class="sc">\}</span> $</span>
+<span id="cb10-180"><a href="#cb10-180"></a><span class="ss">- </span>**試行結果** : 表の数 $x = <span class="sc">\{</span> X(H,H),X(H,T),X(T,H),X(T,T)<span class="sc">\}</span> = <span class="sc">\{</span>2,1,0<span class="sc">\}</span>$</span>
+<span id="cb10-181"><a href="#cb10-181"></a><span class="ss">- </span>**各結果が起こる確率** : $p(2) = 0.25$，$p(1) = 0.25$ ，$p(0) = 0.25$</span>
+<span id="cb10-182"><a href="#cb10-182"></a></span>
+<span id="cb10-183"><a href="#cb10-183"></a>表の数を$x$とするとき，$\omega$から$x$への関数$X:\omega \mapsto x$(2枚のコイン投げによる表の数)は確率変数です。</span>
+<span id="cb10-184"><a href="#cb10-184"></a>:::</span>
+<span id="cb10-185"><a href="#cb10-185"></a></span>
+<span id="cb10-186"><a href="#cb10-186"></a><span class="in">```{r engine='tikz', out.width='90%', fig.cap='コイン投げの例'}</span></span>
+<span id="cb10-187"><a href="#cb10-187"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-188"><a href="#cb10-188"></a>\begin{tikzpicture}</span>
+<span id="cb10-189"><a href="#cb10-189"></a>\<span class="fu">draw</span> (<span class="dv">0</span>,<span class="dv">2</span>) node [left]{<span class="sc">$</span>X<span class="sc">$</span>};</span>
+<span id="cb10-190"><a href="#cb10-190"></a>\<span class="fu">draw</span> (<span class="dv">0</span>,<span class="dv">5</span>) node {before coin toss};</span>
+<span id="cb10-191"><a href="#cb10-191"></a>\<span class="fu">draw</span> (<span class="dv">4</span>,<span class="dv">5</span>) node {after coin toss};</span>
+<span id="cb10-192"><a href="#cb10-192"></a>\draw [thick, <span class="ot">-&gt;</span>] (<span class="dv">0</span>,<span class="dv">2</span>) <span class="sc">--</span> (<span class="dv">4</span>,<span class="dv">4</span>) node[pos<span class="ot">=</span><span class="fl">0.5</span>, sloped,  above]{<span class="sc">$</span><span class="fu">p</span>(<span class="dv">2</span>)<span class="ot">=</span><span class="fl">0.25</span><span class="sc">$</span>};</span>
+<span id="cb10-193"><a href="#cb10-193"></a>\<span class="fu">draw</span> (<span class="dv">4</span>,<span class="dv">4</span>) node [right] {<span class="sc">$</span>\omega <span class="ot">=</span> (\boldsymbol{H},\boldsymbol{H}), x<span class="ot">=</span><span class="dv">2</span><span class="sc">$</span>};</span>
+<span id="cb10-194"><a href="#cb10-194"></a>\draw [thick, <span class="ot">-&gt;</span>] (<span class="dv">0</span>,<span class="dv">2</span>) <span class="sc">--</span> (<span class="dv">4</span>,<span class="dv">2</span>) node[pos<span class="ot">=</span><span class="fl">0.5</span>, above]{<span class="sc">$</span><span class="fu">p</span>(<span class="dv">1</span>)<span class="ot">=</span><span class="fl">0.5</span><span class="sc">$</span>};</span>
+<span id="cb10-195"><a href="#cb10-195"></a>\<span class="fu">draw</span> (<span class="dv">4</span>,<span class="dv">2</span>) node [right] {<span class="sc">$</span>\omega <span class="ot">=</span> (\boldsymbol{H},\boldsymbol{T}), x<span class="ot">=</span><span class="dv">1</span><span class="sc">$</span>};</span>
+<span id="cb10-196"><a href="#cb10-196"></a>\draw [thick, <span class="ot">-&gt;</span>] (<span class="dv">0</span>,<span class="dv">2</span>) <span class="sc">--</span> (<span class="dv">4</span>,<span class="dv">0</span>) node[pos<span class="ot">=</span><span class="fl">0.5</span>, sloped, below]{<span class="sc">$</span><span class="fu">p</span>(<span class="dv">0</span>)<span class="ot">=</span><span class="fl">0.25</span><span class="sc">$</span>};</span>
+<span id="cb10-197"><a href="#cb10-197"></a>\<span class="fu">draw</span> (<span class="dv">4</span>,<span class="dv">0</span>) node [right] {<span class="sc">$</span>\omega <span class="ot">=</span> (\boldsymbol{T},\boldsymbol{T}), x<span class="ot">=</span><span class="dv">0</span><span class="sc">$</span>};</span>
+<span id="cb10-198"><a href="#cb10-198"></a>\end{tikzpicture}</span>
+<span id="cb10-199"><a href="#cb10-199"></a><span class="in">```</span></span>
+<span id="cb10-200"><a href="#cb10-200"></a></span>
+<span id="cb10-201"><a href="#cb10-201"></a><span class="in">```{r plot-coin, filename = "コイン投げの確率分布"}</span></span>
+<span id="cb10-202"><a href="#cb10-202"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-203"><a href="#cb10-203"></a>  coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"HH"</span>, <span class="st">"HT"</span>,<span class="st">"TT"</span>), <span class="co"># 結果の組み合わせ</span></span>
+<span id="cb10-204"><a href="#cb10-204"></a>  p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>,<span class="fl">0.25</span>) <span class="co"># 確率</span></span>
+<span id="cb10-205"><a href="#cb10-205"></a>)</span>
+<span id="cb10-206"><a href="#cb10-206"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb10-207"><a href="#cb10-207"></a>  <span class="fu">aes</span>(<span class="at">x =</span> coin, <span class="at">y =</span> p) <span class="sc">+</span></span>
+<span id="cb10-208"><a href="#cb10-208"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb10-209"><a href="#cb10-209"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"確率"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"結果"</span>)</span>
+<span id="cb10-210"><a href="#cb10-210"></a><span class="fu">print</span>(g)</span>
+<span id="cb10-211"><a href="#cb10-211"></a><span class="in">```</span></span>
+<span id="cb10-212"><a href="#cb10-212"></a></span>
+<span id="cb10-213"><a href="#cb10-213"></a>先の例と同様に、各確率の対応する値がどれくらいの割合で発生するかを表しています。</span>
+<span id="cb10-214"><a href="#cb10-214"></a>この確率分布は確率変数の特徴を表しています。</span>
+<span id="cb10-215"><a href="#cb10-215"></a></span>
+<span id="cb10-216"><a href="#cb10-216"></a>:::{.callout-warning}</span>
+<span id="cb10-217"><a href="#cb10-217"></a><span class="fu">## 練習問題</span></span>
+<span id="cb10-218"><a href="#cb10-218"></a></span>
+<span id="cb10-219"><a href="#cb10-219"></a>コインを4枚投げたときに出た表の数を$x$で表すとします。</span>
+<span id="cb10-220"><a href="#cb10-220"></a>このとき，以下の(1)〜(4)について答えなさい。</span>
+<span id="cb10-221"><a href="#cb10-221"></a></span>
+<span id="cb10-222"><a href="#cb10-222"></a><span class="ss">1. </span>起こりうる事象</span>
+<span id="cb10-223"><a href="#cb10-223"></a><span class="ss">2. </span>試行結果</span>
+<span id="cb10-224"><a href="#cb10-224"></a><span class="ss">3. </span>各結果が起こる確率</span>
+<span id="cb10-225"><a href="#cb10-225"></a><span class="ss">4. </span>確率分布</span>
+<span id="cb10-226"><a href="#cb10-226"></a>:::</span>
+<span id="cb10-227"><a href="#cb10-227"></a></span>
+<span id="cb10-228"><a href="#cb10-228"></a>::: {.callout-caution collapse="true"}</span>
+<span id="cb10-229"><a href="#cb10-229"></a><span class="fu">## 解答例</span></span>
+<span id="cb10-230"><a href="#cb10-230"></a></span>
+<span id="cb10-231"><a href="#cb10-231"></a><span class="ss">1. </span>起こりうる事象は， $x = <span class="sc">\{</span>0, 1, 2, 3, 4<span class="sc">\}</span>$</span>
+<span id="cb10-232"><a href="#cb10-232"></a><span class="ss">2. </span>試行結果は， $\omega = <span class="sc">\{</span> (H,H,H,H), (H,H,H,T), (H,H,T,T), (H,T,T,T), (T,T,T,T) <span class="sc">\}</span>$ の5つの事象が起こりうる。</span>
+<span id="cb10-233"><a href="#cb10-233"></a><span class="ss">3. </span>各結果が起こる確率は，$p(0) = 0.0625, p(1) = 0.25, p(2) = 0.375, p(3) = 0.25, p(4) = 0.0625$</span>
+<span id="cb10-234"><a href="#cb10-234"></a><span class="ss">4. </span>確率分布は，以下の通りです。</span>
+<span id="cb10-235"><a href="#cb10-235"></a></span>
+<span id="cb10-236"><a href="#cb10-236"></a><span class="ss">   - </span>$x = 0 : p(0) = 0.0625$</span>
+<span id="cb10-237"><a href="#cb10-237"></a><span class="ss">   - </span>$x = 1 : p(1) = 0.25$</span>
+<span id="cb10-238"><a href="#cb10-238"></a><span class="ss">   - </span>$x = 2 : p(2) = 0.375$</span>
+<span id="cb10-239"><a href="#cb10-239"></a><span class="ss">   - </span>$x = 3 : p(3) = 0.25$</span>
+<span id="cb10-240"><a href="#cb10-240"></a><span class="ss">   - </span>$x = 4 : p(4) = 0.0625$</span>
+<span id="cb10-241"><a href="#cb10-241"></a>:::</span>
+<span id="cb10-242"><a href="#cb10-242"></a></span>
+<span id="cb10-243"><a href="#cb10-243"></a></span>
+<span id="cb10-244"><a href="#cb10-244"></a>確率変数により，われわれは**不確実性**を伴う現象を記述できるようになりました。</span>
+<span id="cb10-245"><a href="#cb10-245"></a>確率変数という用語は，結果を観測する**前**の状況を指し示しています。</span>
+<span id="cb10-246"><a href="#cb10-246"></a>まとめると、</span>
+<span id="cb10-247"><a href="#cb10-247"></a></span>
+<span id="cb10-248"><a href="#cb10-248"></a><span class="ss">- </span>これからどうなるかを表しているのが確率変数です。</span>
+<span id="cb10-249"><a href="#cb10-249"></a><span class="ss">- </span>試行後において，確率変数がとって具体的な$x$の値は実現値(realized value)といいます。</span>
+<span id="cb10-250"><a href="#cb10-250"></a><span class="ss">- </span>確率変数に2つの側面(観測前と観測後)があり，これらを区別する必要があります。</span>
+<span id="cb10-251"><a href="#cb10-251"></a><span class="ss">- </span>確率変数$X$が取りうる値$x$に応じて，</span>
+<span id="cb10-252"><a href="#cb10-252"></a><span class="ss">    - </span>**離散型確率変数**(discrete random variables)</span>
+<span id="cb10-253"><a href="#cb10-253"></a><span class="ss">    - </span>**連続型確率変数**(continuous random variables)</span>
+<span id="cb10-254"><a href="#cb10-254"></a></span>
+<span id="cb10-255"><a href="#cb10-255"></a>    に区別することができます。</span>
+<span id="cb10-256"><a href="#cb10-256"></a></span>
+<span id="cb10-257"><a href="#cb10-257"></a></span>
+<span id="cb10-258"><a href="#cb10-258"></a>当面は，**離散型確率変数**に着目します。</span>
+<span id="cb10-259"><a href="#cb10-259"></a></span>
+<span id="cb10-260"><a href="#cb10-260"></a>(金融)資産を購入をする際，われわれはその資産を将来価値を確認した上で，購入の意思決定をしているのではありません。</span>
+<span id="cb10-261"><a href="#cb10-261"></a>その資産について将来においてどのような値が実現するのか知らないうちに，購入の意思決定を行います。</span>
+<span id="cb10-262"><a href="#cb10-262"></a>つまり，資産の価値は不確実性を伴う，したがって資産の価値は確率変数である。</span>
+<span id="cb10-263"><a href="#cb10-263"></a>このとき，どのようなことを考慮して購入の意思決定を行うのか？</span>
+<span id="cb10-264"><a href="#cb10-264"></a></span>
+<span id="cb10-265"><a href="#cb10-265"></a></span>
+<span id="cb10-266"><a href="#cb10-266"></a>意思決定者は，不確実性に直面しているとき，実現するかもしれない特定の値よりも，実現する値の**起こりやすさ**，つまり**確率分布**に関心を持っている。</span>
+<span id="cb10-267"><a href="#cb10-267"></a>一般に，確率分布の特徴の中でも，中心とばらつきに関心を持つ傾向がある。</span>
+<span id="cb10-268"><a href="#cb10-268"></a>確率分布を意識しない人，具体的には宝くじの賞金(景品)にのみ関心をもつような人はたいてい失敗する結末が！！</span>
+<span id="cb10-269"><a href="#cb10-269"></a></span>
+<span id="cb10-270"><a href="#cb10-270"></a>先に示した確率分布の特徴(中心とばらつき)は，指標として統計学的に定義されています。</span>
+<span id="cb10-271"><a href="#cb10-271"></a></span>
+<span id="cb10-272"><a href="#cb10-272"></a></span>
+<span id="cb10-273"><a href="#cb10-273"></a>:::{.callout-important}</span>
+<span id="cb10-274"><a href="#cb10-274"></a><span class="fu">## 期待値</span></span>
+<span id="cb10-275"><a href="#cb10-275"></a>**期待値**(expectation)とは、確率変数$X$がとりうる値の加重平均であり、確率分布の**中心の位置**を表します。</span>
+<span id="cb10-276"><a href="#cb10-276"></a>起こりうる値を$x_k$，その確率を$p_k$とすると，確率変数$X$の期待値の公式は以下ようになります。</span>
+<span id="cb10-277"><a href="#cb10-277"></a>$$</span>
+<span id="cb10-278"><a href="#cb10-278"></a>\begin{aligned}</span>
+<span id="cb10-279"><a href="#cb10-279"></a>\mathbb{E} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> := \sum _{k} p_k x_k</span>
+<span id="cb10-280"><a href="#cb10-280"></a>\end{aligned}</span>
+<span id="cb10-281"><a href="#cb10-281"></a>$$</span>
+<span id="cb10-282"><a href="#cb10-282"></a>:::</span>
+<span id="cb10-283"><a href="#cb10-283"></a></span>
+<span id="cb10-284"><a href="#cb10-284"></a>:::{.callout-important}</span>
+<span id="cb10-285"><a href="#cb10-285"></a><span class="fu">## 分散</span></span>
+<span id="cb10-286"><a href="#cb10-286"></a>**分散**(variance)とは、確率変数$X$がとりうる値と期待値との乖離の期待値であり，確率分布の**ばらつきの程度**を表します。</span>
+<span id="cb10-287"><a href="#cb10-287"></a>確率変数$X$の分散の公式は以下ようになります。</span>
+<span id="cb10-288"><a href="#cb10-288"></a>$$</span>
+<span id="cb10-289"><a href="#cb10-289"></a>\begin{aligned}</span>
+<span id="cb10-290"><a href="#cb10-290"></a>\mathbb{V} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> &amp;:= \mathbb{E} \left <span class="co">[</span><span class="ot"> (X - \mathbb{E} [X])^2 \right </span><span class="co">]</span> <span class="sc">\\</span></span>
+<span id="cb10-291"><a href="#cb10-291"></a>&amp;=  \sum _{k} p_k ( x_k - \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> )^2</span>
+<span id="cb10-292"><a href="#cb10-292"></a>\end{aligned}</span>
+<span id="cb10-293"><a href="#cb10-293"></a>$$</span>
+<span id="cb10-294"><a href="#cb10-294"></a>:::</span>
+<span id="cb10-295"><a href="#cb10-295"></a></span>
+<span id="cb10-296"><a href="#cb10-296"></a>:::{.callout-important}</span>
+<span id="cb10-297"><a href="#cb10-297"></a><span class="fu">## 標準偏差</span></span>
+<span id="cb10-298"><a href="#cb10-298"></a>**標準偏差**(standard deviation)は分散の平方根であり，次のように定義されます。</span>
+<span id="cb10-299"><a href="#cb10-299"></a>$$</span>
+<span id="cb10-300"><a href="#cb10-300"></a>\begin{aligned}</span>
+<span id="cb10-301"><a href="#cb10-301"></a>\sigma <span class="co">[</span><span class="ot">X</span><span class="co">]</span> := \sqrt{\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>}</span>
+<span id="cb10-302"><a href="#cb10-302"></a>\end{aligned}</span>
+<span id="cb10-303"><a href="#cb10-303"></a>$$</span>
+<span id="cb10-304"><a href="#cb10-304"></a>:::</span>
+<span id="cb10-305"><a href="#cb10-305"></a></span>
+<span id="cb10-306"><a href="#cb10-306"></a>先に示した確率分布の特徴は，分布の中心である期待値と，ばらつきの程度である分散(あるいは標準偏差)で表現されます。</span>
+<span id="cb10-307"><a href="#cb10-307"></a>ばらつきの程度の指標である分散は，不確実性の程度を表しており，ファイナンスでは**リスク**(risk)とよびます。</span>
+<span id="cb10-308"><a href="#cb10-308"></a>重要なことですが、上で説明した期待値，分散，標準偏差といった指標はパラメータ(定数)であり，確率変数ではありません。</span>
+<span id="cb10-309"><a href="#cb10-309"></a></span>
+<span id="cb10-310"><a href="#cb10-310"></a>:::{.callout-tip}</span>
+<span id="cb10-311"><a href="#cb10-311"></a><span class="fu">## 例5：資産投資</span></span>
+<span id="cb10-312"><a href="#cb10-312"></a>投資資産$A$と$B$を運用して得られるリターンが以下の通りとします。</span>
+<span id="cb10-313"><a href="#cb10-313"></a></span>
+<span id="cb10-314"><a href="#cb10-314"></a><span class="pp">|</span>投資資産A <span class="pp">|</span>         <span class="pp">|</span>        <span class="pp">|</span>        <span class="pp">|</span>        <span class="pp">|</span>       <span class="pp">|</span></span>
+<span id="cb10-315"><a href="#cb10-315"></a><span class="pp">|:--------:</span>  <span class="pp">|:-----:</span> <span class="pp">|:-----:</span> <span class="pp">|:----:</span> <span class="pp">|:----:</span>  <span class="pp">|:----:</span> <span class="pp">|</span></span>
+<span id="cb10-316"><a href="#cb10-316"></a><span class="pp">|</span>状態      <span class="pp">|</span>1        <span class="pp">|</span>2       <span class="pp">|</span>3       <span class="pp">|</span>4       <span class="pp">|</span>5      <span class="pp">|</span></span>
+<span id="cb10-317"><a href="#cb10-317"></a><span class="pp">|</span>確率      <span class="pp">|</span>$40\%$   <span class="pp">|</span>$20\%$  <span class="pp">|</span>$20\%$  <span class="pp">|</span>$10\%$  <span class="pp">|</span>$10\%$ <span class="pp">|</span></span>
+<span id="cb10-318"><a href="#cb10-318"></a><span class="pp">|</span>リターン  <span class="pp">|</span>$-100\%$ <span class="pp">|</span>$-75\%$ <span class="pp">|</span>$-50\%$ <span class="pp">|</span>$-25\%$ <span class="pp">|</span> $1000\%$  <span class="pp">|</span></span>
+<span id="cb10-319"><a href="#cb10-319"></a></span>
+<span id="cb10-320"><a href="#cb10-320"></a></span>
+<span id="cb10-321"><a href="#cb10-321"></a><span class="pp">|</span>投資資産B <span class="pp">|</span>         <span class="pp">|</span>        <span class="pp">|</span>        <span class="pp">|</span>        <span class="pp">|</span>       <span class="pp">|</span></span>
+<span id="cb10-322"><a href="#cb10-322"></a><span class="pp">|:--------:</span>  <span class="pp">|:-----:</span> <span class="pp">|:-----:</span> <span class="pp">|:----:</span> <span class="pp">|:----:</span> <span class="pp">| :----:</span> <span class="pp">|</span></span>
+<span id="cb10-323"><a href="#cb10-323"></a><span class="pp">|</span>状態      <span class="pp">|</span>1        <span class="pp">|</span>2       <span class="pp">|</span>3       <span class="pp">|</span>4       <span class="pp">|</span>5      <span class="pp">|</span></span>
+<span id="cb10-324"><a href="#cb10-324"></a><span class="pp">|</span>確率      <span class="pp">|</span>$40\%$   <span class="pp">|</span>$20\%$  <span class="pp">|</span>$20\%$  <span class="pp">|</span>$10\%$  <span class="pp">|</span>$10\%$ <span class="pp">|</span></span>
+<span id="cb10-325"><a href="#cb10-325"></a><span class="pp">|</span>リターン  <span class="pp">|</span>$-15\%$  <span class="pp">|</span>$0\%$   <span class="pp">|</span>$15\%$  <span class="pp">|</span>$10\%$  <span class="pp">|</span>$25\%$ <span class="pp">|</span></span>
+<span id="cb10-326"><a href="#cb10-326"></a></span>
+<span id="cb10-327"><a href="#cb10-327"></a><span class="pp">|</span>         <span class="pp">|</span> 投資資産A <span class="pp">|</span> 投資資産B <span class="pp">|</span></span>
+<span id="cb10-328"><a href="#cb10-328"></a><span class="pp">|:-------</span> <span class="pp">| -------:</span> <span class="pp">| -------:</span> <span class="pp">|</span></span>
+<span id="cb10-329"><a href="#cb10-329"></a><span class="pp">|</span>$\mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$  <span class="pp">|</span> $32.5$ <span class="pp">|</span> $0.5$ <span class="pp">|</span></span>
+<span id="cb10-330"><a href="#cb10-330"></a><span class="pp">|</span>$\mathbb{SD}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$  <span class="pp">|</span> $323.5$ <span class="pp">|</span> $14.4$ <span class="pp">|</span></span>
+<span id="cb10-331"><a href="#cb10-331"></a>:::</span>
+<span id="cb10-332"><a href="#cb10-332"></a></span>
+<span id="cb10-333"><a href="#cb10-333"></a></span>
+<span id="cb10-334"><a href="#cb10-334"></a>:::{.callout-warning}</span>
+<span id="cb10-335"><a href="#cb10-335"></a><span class="fu">## 練習問題</span></span>
+<span id="cb10-336"><a href="#cb10-336"></a></span>
+<span id="cb10-337"><a href="#cb10-337"></a>上記設定のもとで、2つの資産が生み出すリターンの期待値と分散を求めてください。</span>
+<span id="cb10-338"><a href="#cb10-338"></a></span>
+<span id="cb10-339"><a href="#cb10-339"></a><span class="pp">|</span>              <span class="pp">|</span>   資産$A$  <span class="pp">|</span> 資産$B$  <span class="pp">|</span></span>
+<span id="cb10-340"><a href="#cb10-340"></a><span class="pp">|:-------:</span>  <span class="pp">|:-------:</span> <span class="pp">|:-------:</span> <span class="pp">|</span></span>
+<span id="cb10-341"><a href="#cb10-341"></a><span class="pp">|</span>$\mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$ <span class="pp">|</span>   $32.5$  <span class="pp">|</span> ($\quad$) <span class="pp">|</span></span>
+<span id="cb10-342"><a href="#cb10-342"></a><span class="pp">|</span>$\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$ <span class="pp">|</span>   $323.5$ <span class="pp">|</span> ($\quad$) <span class="pp">|</span></span>
+<span id="cb10-343"><a href="#cb10-343"></a>:::</span>
+<span id="cb10-344"><a href="#cb10-344"></a></span>
+<span id="cb10-345"><a href="#cb10-345"></a>:::{.callout-warning collapse="true"}</span>
+<span id="cb10-346"><a href="#cb10-346"></a><span class="fu">## 解答</span></span>
+<span id="cb10-347"><a href="#cb10-347"></a></span>
+<span id="cb10-348"><a href="#cb10-348"></a>定義通りに、投資資産$A$の期待値と分散を求めます。</span>
+<span id="cb10-349"><a href="#cb10-349"></a></span>
+<span id="cb10-350"><a href="#cb10-350"></a><span class="pp">|</span>              <span class="pp">|</span>   資産$A$  <span class="pp">|</span> 資産$B$  <span class="pp">|</span></span>
+<span id="cb10-351"><a href="#cb10-351"></a><span class="pp">|:-------:</span>  <span class="pp">|:-------:</span> <span class="pp">|:-------:</span> <span class="pp">|</span></span>
+<span id="cb10-352"><a href="#cb10-352"></a><span class="pp">|</span>$\mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$ <span class="pp">|</span>   $32.5$  <span class="pp">|</span> ($\quad$) <span class="pp">|</span></span>
+<span id="cb10-353"><a href="#cb10-353"></a><span class="pp">|</span>$\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$ <span class="pp">|</span>   $323.5$ <span class="pp">|</span> ($\quad$) <span class="pp">|</span></span>
+<span id="cb10-354"><a href="#cb10-354"></a></span>
+<span id="cb10-355"><a href="#cb10-355"></a>$$</span>
+<span id="cb10-356"><a href="#cb10-356"></a>\begin{aligned}</span>
+<span id="cb10-357"><a href="#cb10-357"></a>\mathbb{E}<span class="co">[</span><span class="ot">A</span><span class="co">]</span> &amp;= 0.4 \times (-100) + 0.2 \times (-75) + 0.2 \times (-50) <span class="sc">\\</span></span>
+<span id="cb10-358"><a href="#cb10-358"></a>&amp;+ 0.1 \times (-25) + 0.1 \times 1000<span class="sc">\\</span></span>
+<span id="cb10-359"><a href="#cb10-359"></a>       &amp;= 32.50\% <span class="sc">\\</span></span>
+<span id="cb10-360"><a href="#cb10-360"></a>\mathbb{V}<span class="co">[</span><span class="ot">A</span><span class="co">]</span>&amp;= 0.4(-100 - 32.5)^2 + 0.2(-75 - 32.5)^2 + 0.2(-50 - 32.5)^2 <span class="sc">\\</span></span>
+<span id="cb10-361"><a href="#cb10-361"></a>&amp;+ 0.1(-25 - 32.5)^2 + 0.1(1000 - 32.5)^2 <span class="sc">\\</span></span>
+<span id="cb10-362"><a href="#cb10-362"></a>        &amp;= 104631.25<span class="sc">\\</span></span>
+<span id="cb10-363"><a href="#cb10-363"></a>\sigma<span class="co">[</span><span class="ot">A</span><span class="co">]</span> &amp; = \sqrt{104631.25} = 323.47\%</span>
+<span id="cb10-364"><a href="#cb10-364"></a>\end{aligned}</span>
+<span id="cb10-365"><a href="#cb10-365"></a>$$</span>
+<span id="cb10-366"><a href="#cb10-366"></a>:::</span>
+<span id="cb10-367"><a href="#cb10-367"></a></span>
+<span id="cb10-368"><a href="#cb10-368"></a><span class="fu">### 2つの確率変数どうしの関係</span></span>
+<span id="cb10-369"><a href="#cb10-369"></a></span>
+<span id="cb10-370"><a href="#cb10-370"></a></span>
+<span id="cb10-371"><a href="#cb10-371"></a>2つの確率変数の関連性は，共分散と相関係数で表します。</span>
+<span id="cb10-372"><a href="#cb10-372"></a>以下では、それぞれの定義とともに、その統計量の特徴を説明します。</span>
+<span id="cb10-373"><a href="#cb10-373"></a></span>
+<span id="cb10-374"><a href="#cb10-374"></a>:::{.callout-important}</span>
+<span id="cb10-375"><a href="#cb10-375"></a><span class="fu">## 共分散</span></span>
+<span id="cb10-376"><a href="#cb10-376"></a></span>
+<span id="cb10-377"><a href="#cb10-377"></a>確率変数$X_i$と$X_j$との**共分散**(covariance)を$\mathbb{COV}<span class="co">[</span><span class="ot">X_i,X_j</span><span class="co">]</span>$で表す。</span>
+<span id="cb10-378"><a href="#cb10-378"></a>$$</span>
+<span id="cb10-379"><a href="#cb10-379"></a>\begin{aligned}</span>
+<span id="cb10-380"><a href="#cb10-380"></a>\mathbb{COV} <span class="co">[</span><span class="ot">X_i,X_j</span><span class="co">]</span> &amp;= \sigma _{ij} <span class="sc">\\</span></span>
+<span id="cb10-381"><a href="#cb10-381"></a>&amp;= \mathbb{E} \left<span class="co">[</span><span class="ot"> (X_i - \mathbb{E}[X_i])(X_j - \mathbb{E}[X_j]) \right</span><span class="co">]</span><span class="sc">\\</span></span>
+<span id="cb10-382"><a href="#cb10-382"></a>&amp;= \sum _k p_k (x_{i,k} - \mathbb{E} [X_i])(x_{j,k} - \mathbb{E} <span class="co">[</span><span class="ot">X_j</span><span class="co">]</span>)</span>
+<span id="cb10-383"><a href="#cb10-383"></a>\end{aligned}</span>
+<span id="cb10-384"><a href="#cb10-384"></a>$$</span>
+<span id="cb10-385"><a href="#cb10-385"></a>:::</span>
+<span id="cb10-386"><a href="#cb10-386"></a></span>
+<span id="cb10-387"><a href="#cb10-387"></a>定義より，$i=j$のとき，$\mathbb{COV} <span class="co">[</span><span class="ot">X_i,X_j</span><span class="co">]</span> = \mathbb{V}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>$となります。</span>
+<span id="cb10-388"><a href="#cb10-388"></a>つまり分散は共分散の特殊ケース($i=j$のケース)となります。</span>
+<span id="cb10-389"><a href="#cb10-389"></a></span>
+<span id="cb10-390"><a href="#cb10-390"></a>:::{.callout-important}</span>
+<span id="cb10-391"><a href="#cb10-391"></a><span class="fu">## 相関係数</span></span>
+<span id="cb10-392"><a href="#cb10-392"></a></span>
+<span id="cb10-393"><a href="#cb10-393"></a>2変数の関係を表すもう1つの尺度が**相関係数**(correlation)です。</span>
+<span id="cb10-394"><a href="#cb10-394"></a>$X_i$と$X_j$との相関係数を$\rho _{ij}$で表すとします。なぜか伝統的にギリシャ文字のロー$\rho$で相関係数を表すことが多いので覚えておきましょう。</span>
+<span id="cb10-395"><a href="#cb10-395"></a>相関係数は，2つの変数の共分散をそれぞれの標準偏差の積で除した値です。こうすることで，共分散の値が変数の単位に依存しない値となります。</span>
+<span id="cb10-396"><a href="#cb10-396"></a></span>
+<span id="cb10-397"><a href="#cb10-397"></a>$$</span>
+<span id="cb10-398"><a href="#cb10-398"></a>\begin{aligned}</span>
+<span id="cb10-399"><a href="#cb10-399"></a>\rho _{ij} \equiv \frac{\mathbb{COV}<span class="co">[</span><span class="ot">X_i,X_j</span><span class="co">]</span>}{\sigma <span class="co">[</span><span class="ot">X_i</span><span class="co">]</span> \sigma <span class="co">[</span><span class="ot">X_j</span><span class="co">]</span>}</span>
+<span id="cb10-400"><a href="#cb10-400"></a>\end{aligned}</span>
+<span id="cb10-401"><a href="#cb10-401"></a>$$</span>
+<span id="cb10-402"><a href="#cb10-402"></a></span>
+<span id="cb10-403"><a href="#cb10-403"></a></span>
+<span id="cb10-404"><a href="#cb10-404"></a><span class="ss">- </span>相関係数は，$-1 \leq \rho _{ij} \leq 1$の値をとります。</span>
+<span id="cb10-405"><a href="#cb10-405"></a><span class="ss">- </span>相関係数は，$X_i$と$X_j$との**線形関係の程度**を表します</span>
+<span id="cb10-406"><a href="#cb10-406"></a><span class="ss">- </span>相関係数の符号を決定づけるのは，$\mathbb{COV}<span class="co">[</span><span class="ot">X_i, X_j</span><span class="co">]</span>$の符号です。</span>
+<span id="cb10-407"><a href="#cb10-407"></a><span class="ss">- </span>相関係数の大きさは，共分散の大きさだけでなく，$\sigma <span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>$と$\sigma <span class="co">[</span><span class="ot">X_j</span><span class="co">]</span>$の大きさに依存します。</span>
+<span id="cb10-408"><a href="#cb10-408"></a>:::</span>
+<span id="cb10-409"><a href="#cb10-409"></a></span>
+<span id="cb10-410"><a href="#cb10-410"></a>:::{.callout-warning}</span>
+<span id="cb10-411"><a href="#cb10-411"></a><span class="fu">## 問題2：投資資産</span></span>
+<span id="cb10-412"><a href="#cb10-412"></a></span>
+<span id="cb10-413"><a href="#cb10-413"></a>上記の投資資産の数値例に基づいて，投資資産$A$と$B$の共分散および相関係数を求めよ。</span>
+<span id="cb10-414"><a href="#cb10-414"></a></span>
+<span id="cb10-415"><a href="#cb10-415"></a><span class="ss">- </span>$\sigma _{AB}$</span>
+<span id="cb10-416"><a href="#cb10-416"></a><span class="ss">- </span>$\rho _{AB}$</span>
+<span id="cb10-417"><a href="#cb10-417"></a>:::</span>
+<span id="cb10-418"><a href="#cb10-418"></a></span>
+<span id="cb10-419"><a href="#cb10-419"></a><span class="fu">## 演算規則</span></span>
+<span id="cb10-420"><a href="#cb10-420"></a></span>
+<span id="cb10-421"><a href="#cb10-421"></a><span class="fu">### 期待値の演算規則</span></span>
+<span id="cb10-422"><a href="#cb10-422"></a></span>
+<span id="cb10-423"><a href="#cb10-423"></a>期待値の演算について，次のような法則が成り立っています。</span>
+<span id="cb10-424"><a href="#cb10-424"></a>重要な法則ですので、一つ一つ確認しながら理解するようにしてください。</span>
+<span id="cb10-425"><a href="#cb10-425"></a></span>
+<span id="cb10-426"><a href="#cb10-426"></a>まず，$X$が確率変数ではなく，定数・パラメータであるとき，</span>
+<span id="cb10-427"><a href="#cb10-427"></a>$$</span>
+<span id="cb10-428"><a href="#cb10-428"></a>\begin{aligned}</span>
+<span id="cb10-429"><a href="#cb10-429"></a>\mathbb{E} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> = X</span>
+<span id="cb10-430"><a href="#cb10-430"></a>\end{aligned}</span>
+<span id="cb10-431"><a href="#cb10-431"></a>$$</span>
+<span id="cb10-432"><a href="#cb10-432"></a></span>
+<span id="cb10-433"><a href="#cb10-433"></a>たとえば，</span>
+<span id="cb10-434"><a href="#cb10-434"></a></span>
+<span id="cb10-435"><a href="#cb10-435"></a>$$</span>
+<span id="cb10-436"><a href="#cb10-436"></a>\begin{aligned}</span>
+<span id="cb10-437"><a href="#cb10-437"></a>\mathbb{E} <span class="co">[</span><span class="ot">10</span><span class="co">]</span> = 10</span>
+<span id="cb10-438"><a href="#cb10-438"></a>\end{aligned}</span>
+<span id="cb10-439"><a href="#cb10-439"></a>$$</span>
+<span id="cb10-440"><a href="#cb10-440"></a></span>
+<span id="cb10-441"><a href="#cb10-441"></a>同様に，$a$がパラメータや代表値(期待値，分散，標準偏差)であるとき，</span>
+<span id="cb10-442"><a href="#cb10-442"></a></span>
+<span id="cb10-443"><a href="#cb10-443"></a>$$</span>
+<span id="cb10-444"><a href="#cb10-444"></a>\begin{aligned}</span>
+<span id="cb10-445"><a href="#cb10-445"></a>\mathbb{E} <span class="co">[</span><span class="ot">a</span><span class="co">]</span> &amp;= a<span class="sc">\\</span></span>
+<span id="cb10-446"><a href="#cb10-446"></a>\mathbb{E} <span class="co">[</span><span class="ot"> \mathbb{E}[X]</span><span class="co">]</span> &amp;= \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span><span class="sc">\\</span></span>
+<span id="cb10-447"><a href="#cb10-447"></a>\mathbb{E} <span class="co">[</span><span class="ot">\mathbb{V} [X]</span><span class="co">]</span> &amp;= \mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span></span>
+<span id="cb10-448"><a href="#cb10-448"></a>\end{aligned}</span>
+<span id="cb10-449"><a href="#cb10-449"></a>$$</span>
+<span id="cb10-450"><a href="#cb10-450"></a></span>
+<span id="cb10-451"><a href="#cb10-451"></a>となります。</span>
+<span id="cb10-452"><a href="#cb10-452"></a></span>
+<span id="cb10-453"><a href="#cb10-453"></a>次に、$X$が確率変数であり，$b$がパラメータであるとき，</span>
+<span id="cb10-454"><a href="#cb10-454"></a>$$</span>
+<span id="cb10-455"><a href="#cb10-455"></a>\begin{aligned}</span>
+<span id="cb10-456"><a href="#cb10-456"></a>\mathbb{E} <span class="co">[</span><span class="ot">bX</span><span class="co">]</span> &amp;= b \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> <span class="sc">\\</span></span>
+<span id="cb10-457"><a href="#cb10-457"></a>\mathbb{E} <span class="co">[</span><span class="ot">\mathbb{E}[X] X</span><span class="co">]</span> &amp;= \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> \times \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>^2</span>
+<span id="cb10-458"><a href="#cb10-458"></a>\end{aligned}</span>
+<span id="cb10-459"><a href="#cb10-459"></a>$$</span>
+<span id="cb10-460"><a href="#cb10-460"></a></span>
+<span id="cb10-461"><a href="#cb10-461"></a>パラメータは期待値の外に出すことができます。</span>
+<span id="cb10-462"><a href="#cb10-462"></a>したがって，</span>
+<span id="cb10-463"><a href="#cb10-463"></a></span>
+<span id="cb10-464"><a href="#cb10-464"></a>$$</span>
+<span id="cb10-465"><a href="#cb10-465"></a>\begin{aligned}</span>
+<span id="cb10-466"><a href="#cb10-466"></a>\mathbb{E} <span class="co">[</span><span class="ot">X</span><span class="co">]</span>^2 \not = \mathbb{E} <span class="co">[</span><span class="ot">X^2</span><span class="co">]</span></span>
+<span id="cb10-467"><a href="#cb10-467"></a>\end{aligned}</span>
+<span id="cb10-468"><a href="#cb10-468"></a>$$</span>
+<span id="cb10-469"><a href="#cb10-469"></a></span>
+<span id="cb10-470"><a href="#cb10-470"></a>$X$と$Y$が確率変数であるとき，</span>
+<span id="cb10-471"><a href="#cb10-471"></a></span>
+<span id="cb10-472"><a href="#cb10-472"></a>$$</span>
+<span id="cb10-473"><a href="#cb10-473"></a>\begin{aligned}</span>
+<span id="cb10-474"><a href="#cb10-474"></a>\mathbb{E}<span class="co">[</span><span class="ot">X+Y</span><span class="co">]</span> = \mathbb{E} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> + \mathbb{E} <span class="co">[</span><span class="ot">Y</span><span class="co">]</span></span>
+<span id="cb10-475"><a href="#cb10-475"></a>\end{aligned}</span>
+<span id="cb10-476"><a href="#cb10-476"></a>$$</span>
+<span id="cb10-477"><a href="#cb10-477"></a></span>
+<span id="cb10-478"><a href="#cb10-478"></a>のように，期待値を分解することができます。</span>
+<span id="cb10-479"><a href="#cb10-479"></a></span>
+<span id="cb10-480"><a href="#cb10-480"></a>$a$が確定変数であり，$X$が確率変数であり，$b$がパラメータであるとき，</span>
+<span id="cb10-481"><a href="#cb10-481"></a></span>
+<span id="cb10-482"><a href="#cb10-482"></a>$$</span>
+<span id="cb10-483"><a href="#cb10-483"></a>\begin{aligned}</span>
+<span id="cb10-484"><a href="#cb10-484"></a>\mathbb{E} <span class="co">[</span><span class="ot">a + bX</span><span class="co">]</span> = \mathbb{E} <span class="co">[</span><span class="ot">a</span><span class="co">]</span> + \mathbb{E} <span class="co">[</span><span class="ot">bX</span><span class="co">]</span> = a + b \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span></span>
+<span id="cb10-485"><a href="#cb10-485"></a>\end{aligned}</span>
+<span id="cb10-486"><a href="#cb10-486"></a>$$</span>
+<span id="cb10-487"><a href="#cb10-487"></a></span>
+<span id="cb10-488"><a href="#cb10-488"></a>が成り立ちます。</span>
+<span id="cb10-489"><a href="#cb10-489"></a></span>
+<span id="cb10-490"><a href="#cb10-490"></a><span class="fu">### 分散の演算規則</span></span>
+<span id="cb10-491"><a href="#cb10-491"></a></span>
+<span id="cb10-492"><a href="#cb10-492"></a>$X$が確率変数ではなく，確定変数であるとき，</span>
+<span id="cb10-493"><a href="#cb10-493"></a></span>
+<span id="cb10-494"><a href="#cb10-494"></a>$$</span>
+<span id="cb10-495"><a href="#cb10-495"></a>\begin{aligned}</span>
+<span id="cb10-496"><a href="#cb10-496"></a>\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 0</span>
+<span id="cb10-497"><a href="#cb10-497"></a>\end{aligned}</span>
+<span id="cb10-498"><a href="#cb10-498"></a>$$</span>
+<span id="cb10-499"><a href="#cb10-499"></a></span>
+<span id="cb10-500"><a href="#cb10-500"></a>:::{.callout-warning collapse="true"}</span>
+<span id="cb10-501"><a href="#cb10-501"></a><span class="fu">## 証明</span></span>
+<span id="cb10-502"><a href="#cb10-502"></a></span>
+<span id="cb10-503"><a href="#cb10-503"></a>分散の定義は</span>
+<span id="cb10-504"><a href="#cb10-504"></a>$$</span>
+<span id="cb10-505"><a href="#cb10-505"></a>\begin{aligned}</span>
+<span id="cb10-506"><a href="#cb10-506"></a>\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = \sum _k p_k (x_i - \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>)</span>
+<span id="cb10-507"><a href="#cb10-507"></a>\end{aligned}</span>
+<span id="cb10-508"><a href="#cb10-508"></a>$$</span>
+<span id="cb10-509"><a href="#cb10-509"></a></span>
+<span id="cb10-510"><a href="#cb10-510"></a>です。いま$X$が確定変数であるため，$x_i = X$かつ$\mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = X$となります。</span>
+<span id="cb10-511"><a href="#cb10-511"></a>つまり$\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 0$となります。</span>
+<span id="cb10-512"><a href="#cb10-512"></a>:::</span>
+<span id="cb10-513"><a href="#cb10-513"></a></span>
+<span id="cb10-514"><a href="#cb10-514"></a>同様に，$a$がパラメータや代表値(期待値・分散・標準偏差)であるとき，</span>
+<span id="cb10-515"><a href="#cb10-515"></a>$$</span>
+<span id="cb10-516"><a href="#cb10-516"></a>\begin{aligned}</span>
+<span id="cb10-517"><a href="#cb10-517"></a>\mathbb{V} <span class="co">[</span><span class="ot">a</span><span class="co">]</span> &amp;= 0 , &amp; \mathbb{V} <span class="co">[</span><span class="ot">\mathbb{E}[X]</span><span class="co">]</span> &amp;= 0,&amp;  \mathbb{V}<span class="co">[</span><span class="ot">\mathbb{V}[X]</span><span class="co">]</span> &amp;= 0</span>
+<span id="cb10-518"><a href="#cb10-518"></a>\end{aligned}</span>
+<span id="cb10-519"><a href="#cb10-519"></a>$$</span>
+<span id="cb10-520"><a href="#cb10-520"></a>が成立する。</span>
+<span id="cb10-521"><a href="#cb10-521"></a></span>
+<span id="cb10-522"><a href="#cb10-522"></a>$X$が確率変数であり，$b$が定数やパラメータであるとき，</span>
+<span id="cb10-523"><a href="#cb10-523"></a>$$</span>
+<span id="cb10-524"><a href="#cb10-524"></a>\begin{aligned}</span>
+<span id="cb10-525"><a href="#cb10-525"></a>\mathbb{V}<span class="co">[</span><span class="ot">bX</span><span class="co">]</span> &amp;\equiv \mathbb{E} \left <span class="co">[</span><span class="ot">(bX -E[bx])^2 \right </span><span class="co">]</span> \qquad \Leftarrow \mathbb{E}<span class="co">[</span><span class="ot">bX</span><span class="co">]</span> = b\mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> \nonumber <span class="sc">\\</span></span>
+<span id="cb10-526"><a href="#cb10-526"></a>         &amp;= \mathbb{E} \left<span class="co">[</span><span class="ot">(bX - b \mathbb{E}[X])^2\right </span><span class="co">]</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-527"><a href="#cb10-527"></a>         &amp;= \mathbb{E} \left<span class="co">[</span><span class="ot">b^2 (X-\mathbb{E}[X])^2\right </span><span class="co">]</span> \qquad \Leftarrow \mathbb{E}<span class="co">[</span><span class="ot">bX</span><span class="co">]</span> = b\mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-528"><a href="#cb10-528"></a>         &amp;= b^2 \mathbb{E} \left<span class="co">[</span><span class="ot">(X-\mathbb{E}[X])^2\right </span><span class="co">]</span> \qquad \Leftarrow \mathbb{V} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> = \mathbb{E} \left <span class="co">[</span><span class="ot">(X-\mathbb{E}[X])^2 \right </span><span class="co">]</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-529"><a href="#cb10-529"></a>         &amp;= b^2 \mathbb{V} <span class="co">[</span><span class="ot">X</span><span class="co">]</span></span>
+<span id="cb10-530"><a href="#cb10-530"></a>\end{aligned}</span>
+<span id="cb10-531"><a href="#cb10-531"></a>$$</span>
+<span id="cb10-532"><a href="#cb10-532"></a></span>
+<span id="cb10-533"><a href="#cb10-533"></a>となります。</span>
+<span id="cb10-534"><a href="#cb10-534"></a>パラメータは分散の外に出すことができるが，期待値のケースと異なり二乗されます。</span>
+<span id="cb10-535"><a href="#cb10-535"></a></span>
+<span id="cb10-536"><a href="#cb10-536"></a>$$</span>
+<span id="cb10-537"><a href="#cb10-537"></a>\begin{aligned}</span>
+<span id="cb10-538"><a href="#cb10-538"></a>\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> &amp;\equiv \mathbb{E} \left <span class="co">[</span><span class="ot"> (X - \mathbb{E} [X])^2 \right </span><span class="co">]</span> \nonumber  <span class="sc">\\</span></span>
+<span id="cb10-539"><a href="#cb10-539"></a>        &amp;=\mathbb{E} \left <span class="co">[</span><span class="ot"> X^2 - 2X\mathbb{E}[X] + \mathbb{E}[X]^2 \right </span><span class="co">]</span> \qquad \Leftarrow \text{(9)式を適用し，期待値を分解}\nonumber <span class="sc">\\</span></span>
+<span id="cb10-540"><a href="#cb10-540"></a>        &amp;=\mathbb{E} \left <span class="co">[</span><span class="ot"> X^2 \right </span><span class="co">]</span> - \mathbb{E} \left <span class="co">[</span><span class="ot"> 2 X \mathbb{E}[X] \right </span><span class="co">]</span> + \mathbb{E} \left <span class="co">[</span><span class="ot"> \mathbb{E}[X]^2 \right </span><span class="co">]</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-541"><a href="#cb10-541"></a>        &amp;=\mathbb{E} \left <span class="co">[</span><span class="ot"> X^2 \right </span><span class="co">]</span> - 2 X \mathbb{E} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> + \mathbb{E} <span class="co">[</span><span class="ot">X</span><span class="co">]</span>^2\nonumber <span class="sc">\\</span></span>
+<span id="cb10-542"><a href="#cb10-542"></a>        &amp;=\mathbb{E} \left <span class="co">[</span><span class="ot"> X^2 \right </span><span class="co">]</span> - \mathbb{E} <span class="co">[</span><span class="ot">X</span><span class="co">]</span>^2</span>
+<span id="cb10-543"><a href="#cb10-543"></a>\end{aligned}</span>
+<span id="cb10-544"><a href="#cb10-544"></a>$$</span>
+<span id="cb10-545"><a href="#cb10-545"></a></span>
+<span id="cb10-546"><a href="#cb10-546"></a></span>
+<span id="cb10-547"><a href="#cb10-547"></a><span class="fu">### 共分散の演算規則</span></span>
+<span id="cb10-548"><a href="#cb10-548"></a></span>
+<span id="cb10-549"><a href="#cb10-549"></a>共分散については，以下の法則が成り立ちます。</span>
+<span id="cb10-550"><a href="#cb10-550"></a></span>
+<span id="cb10-551"><a href="#cb10-551"></a>$$</span>
+<span id="cb10-552"><a href="#cb10-552"></a>\begin{aligned}</span>
+<span id="cb10-553"><a href="#cb10-553"></a>\mathbb{COV}<span class="co">[</span><span class="ot">X_i,X_j</span><span class="co">]</span> = \sigma _{ij} &amp;\equiv \mathbb{E}  \left <span class="co">[</span><span class="ot">(X_i - \mathbb{E}[X_i])(X_j - \mathbb{E}[X_j]) \right </span><span class="co">]</span> \nonumber <span class="sc">\\</span></span>
+<span id="cb10-554"><a href="#cb10-554"></a>&amp;= \mathbb{E}<span class="co">[</span><span class="ot">X_i X_j - X_i \mathbb{E}[X_j] - \mathbb{E}[X_i]X_j + \mathbb{E}[X_i]\mathbb{E}[X_j]</span><span class="co">]</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-555"><a href="#cb10-555"></a>&amp;= \mathbb{E}<span class="co">[</span><span class="ot">X_i X_j</span><span class="co">]</span> - \mathbb{E}<span class="co">[</span><span class="ot">X_i \mathbb{E}[X_j]</span><span class="co">]</span> - \mathbb{E}<span class="co">[</span><span class="ot">\mathbb{E}[X_i]X_j</span><span class="co">]</span> + \mathbb{E}<span class="co">[</span><span class="ot">\mathbb{E}[X_i]\mathbb{E}[X_j]</span><span class="co">]</span>\nonumber  <span class="sc">\\</span></span>
+<span id="cb10-556"><a href="#cb10-556"></a>&amp;= \mathbb{E}<span class="co">[</span><span class="ot">X_i X_j</span><span class="co">]</span> - \mathbb{E}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span> \mathbb{E}<span class="co">[</span><span class="ot">X_j</span><span class="co">]</span> - \mathbb{E}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>\mathbb{E}<span class="co">[</span><span class="ot">X_j</span><span class="co">]</span> + \mathbb{E}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>\mathbb{E}<span class="co">[</span><span class="ot">X_j</span><span class="co">]</span> \nonumber <span class="sc">\\</span></span>
+<span id="cb10-557"><a href="#cb10-557"></a>&amp;= \mathbb{E}<span class="co">[</span><span class="ot">X_i X_j</span><span class="co">]</span> - \mathbb{E}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span> \mathbb{E}<span class="co">[</span><span class="ot">X_j</span><span class="co">]</span></span>
+<span id="cb10-558"><a href="#cb10-558"></a>\end{aligned}</span>
+<span id="cb10-559"><a href="#cb10-559"></a>$$</span>
+<span id="cb10-560"><a href="#cb10-560"></a></span>
+<span id="cb10-561"><a href="#cb10-561"></a>$\mathbb{COV}<span class="co">[</span><span class="ot">X_i,X_j</span><span class="co">]</span>=0$つまり無相関であるなら，次の関係が成り立つ。</span>
+<span id="cb10-562"><a href="#cb10-562"></a></span>
+<span id="cb10-563"><a href="#cb10-563"></a>$$</span>
+<span id="cb10-564"><a href="#cb10-564"></a>\begin{aligned}</span>
+<span id="cb10-565"><a href="#cb10-565"></a>\mathbb{E}<span class="co">[</span><span class="ot">X_iX_j</span><span class="co">]</span> = \mathbb{E}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>\mathbb{E}<span class="co">[</span><span class="ot">X_j</span><span class="co">]</span></span>
+<span id="cb10-566"><a href="#cb10-566"></a>\end{aligned}</span>
+<span id="cb10-567"><a href="#cb10-567"></a>$$</span>
+<span id="cb10-568"><a href="#cb10-568"></a></span>
+<span id="cb10-569"><a href="#cb10-569"></a><span class="fu">## 確率変数のアフィン変換</span></span>
+<span id="cb10-570"><a href="#cb10-570"></a></span>
+<span id="cb10-571"><a href="#cb10-571"></a>確率変数$X$がアフィン変換(affine transformation)をする場合を考えます。</span>
+<span id="cb10-572"><a href="#cb10-572"></a></span>
+<span id="cb10-573"><a href="#cb10-573"></a>$$</span>
+<span id="cb10-574"><a href="#cb10-574"></a>\begin{aligned}</span>
+<span id="cb10-575"><a href="#cb10-575"></a>Y = a + bX</span>
+<span id="cb10-576"><a href="#cb10-576"></a>\end{aligned}</span>
+<span id="cb10-577"><a href="#cb10-577"></a>$$</span>
+<span id="cb10-578"><a href="#cb10-578"></a></span>
+<span id="cb10-579"><a href="#cb10-579"></a>によって確率変数$X$が確率変数$Y$に変換されたとします。</span>
+<span id="cb10-580"><a href="#cb10-580"></a>ここで$a$と$b$はパラメータです。</span>
+<span id="cb10-581"><a href="#cb10-581"></a>このとき，次の関係が成立します。</span>
+<span id="cb10-582"><a href="#cb10-582"></a></span>
+<span id="cb10-583"><a href="#cb10-583"></a>まず期待値については</span>
+<span id="cb10-584"><a href="#cb10-584"></a></span>
+<span id="cb10-585"><a href="#cb10-585"></a>$$</span>
+<span id="cb10-586"><a href="#cb10-586"></a>\begin{aligned}</span>
+<span id="cb10-587"><a href="#cb10-587"></a>\mathbb{E}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= \mathbb{E}<span class="co">[</span><span class="ot">a + bX</span><span class="co">]</span> \nonumber <span class="sc">\\</span></span>
+<span id="cb10-588"><a href="#cb10-588"></a>       &amp;= \mathbb{E}<span class="co">[</span><span class="ot">a</span><span class="co">]</span> + \mathbb{E}<span class="co">[</span><span class="ot">bX</span><span class="co">]</span> \nonumber<span class="sc">\\</span></span>
+<span id="cb10-589"><a href="#cb10-589"></a>       &amp;= a + b \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span></span>
+<span id="cb10-590"><a href="#cb10-590"></a>\end{aligned}</span>
+<span id="cb10-591"><a href="#cb10-591"></a>$$</span>
+<span id="cb10-592"><a href="#cb10-592"></a>となり，分散については，</span>
+<span id="cb10-593"><a href="#cb10-593"></a>$$</span>
+<span id="cb10-594"><a href="#cb10-594"></a>\begin{aligned}</span>
+<span id="cb10-595"><a href="#cb10-595"></a>\mathbb{V}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span></span>
+<span id="cb10-596"><a href="#cb10-596"></a>        &amp;= \mathbb{E}<span class="co">[</span><span class="ot">(Y - \mathbb{E}[Y])^2</span><span class="co">]</span>      \nonumber <span class="sc">\\</span></span>
+<span id="cb10-597"><a href="#cb10-597"></a>        &amp;= \mathbb{E}<span class="co">[</span><span class="ot">(a + bX - (a+b\mathbb{E}[X]))^2</span><span class="co">]</span> \nonumber<span class="sc">\\</span></span>
+<span id="cb10-598"><a href="#cb10-598"></a>        &amp;= \mathbb{E}<span class="co">[</span><span class="ot">(bX - b \mathbb{E}[X])^2</span><span class="co">]</span>   \nonumber<span class="sc">\\</span></span>
+<span id="cb10-599"><a href="#cb10-599"></a>        &amp;= \mathbb{E}<span class="co">[</span><span class="ot">b^2 (X - \mathbb{E}[X])^2</span><span class="co">]</span>  \nonumber<span class="sc">\\</span></span>
+<span id="cb10-600"><a href="#cb10-600"></a>        &amp;= b^2 \mathbb{E}<span class="co">[</span><span class="ot"> (X - \mathbb{E}[X])^2</span><span class="co">]</span> \nonumber<span class="sc">\\</span></span>
+<span id="cb10-601"><a href="#cb10-601"></a>        &amp;= b^2 \mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span></span>
+<span id="cb10-602"><a href="#cb10-602"></a>\end{aligned}</span>
+<span id="cb10-603"><a href="#cb10-603"></a>$$</span>
+<span id="cb10-604"><a href="#cb10-604"></a></span>
+<span id="cb10-605"><a href="#cb10-605"></a>となり，標準偏差については，</span>
+<span id="cb10-606"><a href="#cb10-606"></a></span>
+<span id="cb10-607"><a href="#cb10-607"></a>$$</span>
+<span id="cb10-608"><a href="#cb10-608"></a>\begin{aligned}</span>
+<span id="cb10-609"><a href="#cb10-609"></a>\sigma _Y = \sqrt{\mathbb{V}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>} = |b| \sqrt{\mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>}</span>
+<span id="cb10-610"><a href="#cb10-610"></a>\end{aligned}</span>
+<span id="cb10-611"><a href="#cb10-611"></a>$$</span>
+<span id="cb10-612"><a href="#cb10-612"></a></span>
+<span id="cb10-613"><a href="#cb10-613"></a>となります。</span>
+<span id="cb10-614"><a href="#cb10-614"></a></span>
+<span id="cb10-615"><a href="#cb10-615"></a></span>
+<span id="cb10-616"><a href="#cb10-616"></a>:::{.callout-tip}</span>
+<span id="cb10-617"><a href="#cb10-617"></a><span class="fu">## アフィン変換</span></span>
+<span id="cb10-618"><a href="#cb10-618"></a></span>
+<span id="cb10-619"><a href="#cb10-619"></a>ある工事が完了する日数とその確率が次のように予測されているとします。</span>
+<span id="cb10-620"><a href="#cb10-620"></a></span>
+<span id="cb10-621"><a href="#cb10-621"></a><span class="pp">|</span> 日数$X$     <span class="pp">|</span> 1     <span class="pp">|</span> 2      <span class="pp">|</span> 3      <span class="pp">|</span> 4      <span class="pp">|</span> 5      <span class="pp">|</span></span>
+<span id="cb10-622"><a href="#cb10-622"></a><span class="pp">|:-----------:|:-----:|:------:|:------:|:------:|:------:|</span></span>
+<span id="cb10-623"><a href="#cb10-623"></a><span class="pp">|</span> 確率$p(x)$  <span class="pp">|</span> $5\%$ <span class="pp">|</span> $20\%$ <span class="pp">|</span> $35\%$ <span class="pp">|</span> $30\%$ <span class="pp">|</span> $10\%$ <span class="pp">|</span></span>
+<span id="cb10-624"><a href="#cb10-624"></a></span>
+<span id="cb10-625"><a href="#cb10-625"></a>このとき</span>
+<span id="cb10-626"><a href="#cb10-626"></a></span>
+<span id="cb10-627"><a href="#cb10-627"></a>$$</span>
+<span id="cb10-628"><a href="#cb10-628"></a>\begin{aligned}</span>
+<span id="cb10-629"><a href="#cb10-629"></a>\mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> &amp;\equiv \sum _k p_k x_k \text{より} &amp; \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> &amp;= 3.2<span class="sc">\\</span></span>
+<span id="cb10-630"><a href="#cb10-630"></a>\mathbb{V} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> &amp;\equiv \sum _k p_k (x_k - \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>)^2 \text{より} &amp; \mathbb{V} <span class="co">[</span><span class="ot">X</span><span class="co">]</span> &amp;= 1.06</span>
+<span id="cb10-631"><a href="#cb10-631"></a>\end{aligned}</span>
+<span id="cb10-632"><a href="#cb10-632"></a>$$</span>
+<span id="cb10-633"><a href="#cb10-633"></a></span>
+<span id="cb10-634"><a href="#cb10-634"></a>この工事では，固定費として100万円，変動費として1日あたり10万円の費用がかかるとすると，総費用は，</span>
+<span id="cb10-635"><a href="#cb10-635"></a></span>
+<span id="cb10-636"><a href="#cb10-636"></a>$$</span>
+<span id="cb10-637"><a href="#cb10-637"></a>\begin{aligned}</span>
+<span id="cb10-638"><a href="#cb10-638"></a>Y = 100  + 10 X</span>
+<span id="cb10-639"><a href="#cb10-639"></a>\end{aligned}</span>
+<span id="cb10-640"><a href="#cb10-640"></a>$$</span>
+<span id="cb10-641"><a href="#cb10-641"></a></span>
+<span id="cb10-642"><a href="#cb10-642"></a>として表される。</span>
+<span id="cb10-643"><a href="#cb10-643"></a>このとき，総費用の期待値および分散は，</span>
+<span id="cb10-644"><a href="#cb10-644"></a></span>
+<span id="cb10-645"><a href="#cb10-645"></a>$$</span>
+<span id="cb10-646"><a href="#cb10-646"></a>\begin{aligned}</span>
+<span id="cb10-647"><a href="#cb10-647"></a>\mathbb{E}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= 100 + 10 \mathbb{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 100 + 10 \times 3.2 = 132<span class="sc">\\</span></span>
+<span id="cb10-648"><a href="#cb10-648"></a>\mathbb{V}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= 10^2 \mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 100  \times 1.06 = 106</span>
+<span id="cb10-649"><a href="#cb10-649"></a>\end{aligned}</span>
+<span id="cb10-650"><a href="#cb10-650"></a>$$</span>
+<span id="cb10-651"><a href="#cb10-651"></a></span>
+<span id="cb10-652"><a href="#cb10-652"></a>となる。</span>
+<span id="cb10-653"><a href="#cb10-653"></a>:::</span>
+<span id="cb10-654"><a href="#cb10-654"></a></span>
+<span id="cb10-655"><a href="#cb10-655"></a></span>
+<span id="cb10-656"><a href="#cb10-656"></a></span>
+<span id="cb10-657"><a href="#cb10-657"></a></span>
+<span id="cb10-658"><a href="#cb10-658"></a>より一般的に，$k$個の確率変数$X_i$, $i = 1, \dots ,k$の一次結合$Y = c_0 + c_1 X_1 + \cdots + c_k X_k$で表される確率変数$Y$において，次の関係が成立する。</span>
+<span id="cb10-659"><a href="#cb10-659"></a>ここで，$c_0,c_1, \dots, c_k$はパラメータで，定数です。</span>
+<span id="cb10-660"><a href="#cb10-660"></a></span>
+<span id="cb10-661"><a href="#cb10-661"></a>$$</span>
+<span id="cb10-662"><a href="#cb10-662"></a>\begin{aligned}</span>
+<span id="cb10-663"><a href="#cb10-663"></a>\mathbb{E}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= c_0 + c_1 \mu _1 + \cdots c_k \mu_k<span class="sc">\\</span></span>
+<span id="cb10-664"><a href="#cb10-664"></a>\mathbb{V} <span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= c_1^2 \sigma_1^2 + \cdots +  c_k^2 \sigma _k^2 + \sum _{i\not = j}^k \sum_{j \not = i}^k c_i c_j \sigma _{ij}</span>
+<span id="cb10-665"><a href="#cb10-665"></a>\end{aligned}</span>
+<span id="cb10-666"><a href="#cb10-666"></a>$$</span>
+<span id="cb10-667"><a href="#cb10-667"></a></span>
+<span id="cb10-668"><a href="#cb10-668"></a>ここで，$\mu _i = \mathbb{E}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>$，$\sigma _i^2 = \mathbb{V}<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>$，$\sigma _{ij} = \mathbb{COV}<span class="co">[</span><span class="ot">X_i,X_j</span><span class="co">]</span>$である。</span>
+<span id="cb10-669"><a href="#cb10-669"></a></span>
+<span id="cb10-670"><a href="#cb10-670"></a>例えば，$k=2$のケースでは，</span>
+<span id="cb10-671"><a href="#cb10-671"></a></span>
+<span id="cb10-672"><a href="#cb10-672"></a>$$</span>
+<span id="cb10-673"><a href="#cb10-673"></a>\begin{aligned}</span>
+<span id="cb10-674"><a href="#cb10-674"></a>\mathbb{E}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>   &amp;= c_0 + c_1 \mu _1 + c_2 \mu_2<span class="sc">\\</span></span>
+<span id="cb10-675"><a href="#cb10-675"></a>\mathbb{V} <span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= c_1^2 \sigma_1^2 + c_2^2 \sigma _2^2 + 2 c_1 c_2 \sigma _{12}</span>
+<span id="cb10-676"><a href="#cb10-676"></a>\end{aligned}</span>
+<span id="cb10-677"><a href="#cb10-677"></a>$$</span>
+<span id="cb10-678"><a href="#cb10-678"></a></span>
+<span id="cb10-679"><a href="#cb10-679"></a>:::{.callout-warning}</span>
+<span id="cb10-680"><a href="#cb10-680"></a><span class="fu">## 問題3</span></span>
+<span id="cb10-681"><a href="#cb10-681"></a></span>
+<span id="cb10-682"><a href="#cb10-682"></a>$k=3$のケースにおける確率変数$Y$の期待値と分散を求めなさい。</span>
+<span id="cb10-683"><a href="#cb10-683"></a>:::</span>
+<span id="cb10-684"><a href="#cb10-684"></a></span>
+<span id="cb10-685"><a href="#cb10-685"></a>:::{.callout-warning}</span>
+<span id="cb10-686"><a href="#cb10-686"></a><span class="fu">## 例8</span></span>
+<span id="cb10-687"><a href="#cb10-687"></a></span>
+<span id="cb10-688"><a href="#cb10-688"></a>$k=2$のケースで，$Y=0.5X_1 + 0.5 X_2$の期待値および分散を求めます。</span>
+<span id="cb10-689"><a href="#cb10-689"></a>ただし，$\mu _1 = 0.07$，$\sigma _1^2 = 1.48$，$\mu_2 = -0.02$，$\sigma _2^2 = 1.46$とします。</span>
+<span id="cb10-690"><a href="#cb10-690"></a></span>
+<span id="cb10-691"><a href="#cb10-691"></a><span class="ss">- </span>無相関($\rho _{12} = 0$, $\mathbb{COV}<span class="co">[</span><span class="ot">X_1, X_2</span><span class="co">]</span> = 0$ )のケース</span>
+<span id="cb10-692"><a href="#cb10-692"></a>    $$</span>
+<span id="cb10-693"><a href="#cb10-693"></a>  \begin{aligned}</span>
+<span id="cb10-694"><a href="#cb10-694"></a>    \mathbb{E}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025<span class="sc">\\</span></span>
+<span id="cb10-695"><a href="#cb10-695"></a>    \mathbb{V} <span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times 0 = 0.735</span>
+<span id="cb10-696"><a href="#cb10-696"></a>    \end{aligned}</span>
+<span id="cb10-697"><a href="#cb10-697"></a>  $$</span>
+<span id="cb10-698"><a href="#cb10-698"></a></span>
+<span id="cb10-699"><a href="#cb10-699"></a>  $Y$の分散は，$X_1$と$X_2$の分散よりも小さい。</span>
+<span id="cb10-700"><a href="#cb10-700"></a></span>
+<span id="cb10-701"><a href="#cb10-701"></a><span class="ss">- </span>負の相関($\rho _{12} = -0.99 \Leftrightarrow \mathbb{COV}<span class="co">[</span><span class="ot">X_1,X_2</span><span class="co">]</span> = -1.46$)のケース</span>
+<span id="cb10-702"><a href="#cb10-702"></a>    $$</span>
+<span id="cb10-703"><a href="#cb10-703"></a>  \begin{aligned}</span>
+<span id="cb10-704"><a href="#cb10-704"></a>    \mathbb{E}<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>   &amp;= 0.5 \times 0.07 + 0.5 \times - 0.02 = 0.025<span class="sc">\\</span></span>
+<span id="cb10-705"><a href="#cb10-705"></a>    \mathbb{V} <span class="co">[</span><span class="ot">Y</span><span class="co">]</span> &amp;= 0.5^2 \times 1.48 + 0.5^2 \times 1.46 + 2 \times 0.5 \times 0.5 \times -1.46 = 0.005</span>
+<span id="cb10-706"><a href="#cb10-706"></a>    \end{aligned}</span>
+<span id="cb10-707"><a href="#cb10-707"></a>  $$</span>
+<span id="cb10-708"><a href="#cb10-708"></a></span>
+<span id="cb10-709"><a href="#cb10-709"></a>    $Y$の分散は，$X_1$と$X_2$の分散よりも小さい。</span>
+<span id="cb10-710"><a href="#cb10-710"></a></span>
+<span id="cb10-711"><a href="#cb10-711"></a></span>
+<span id="cb10-712"><a href="#cb10-712"></a>$X_1$と$X_2$の共分散は，$Y$の分散に影響を与える。</span>
+<span id="cb10-713"><a href="#cb10-713"></a>:::</span>
+<span id="cb10-714"><a href="#cb10-714"></a></span>
+<span id="cb10-715"><a href="#cb10-715"></a><span class="fu">## 共分散の重要公式</span></span>
+<span id="cb10-716"><a href="#cb10-716"></a></span>
+<span id="cb10-717"><a href="#cb10-717"></a>共分散について，以下の公式が成立する。</span>
+<span id="cb10-718"><a href="#cb10-718"></a></span>
+<span id="cb10-719"><a href="#cb10-719"></a>$$</span>
+<span id="cb10-720"><a href="#cb10-720"></a>\begin{aligned}</span>
+<span id="cb10-721"><a href="#cb10-721"></a>\mathbb{COV}<span class="co">[</span><span class="ot">X, a + bY</span><span class="co">]</span> &amp; \equiv \mathbb{E}<span class="co">[</span><span class="ot">(X - \mathbb{E}[X])</span><span class="co">](a+bY - \mathbb{E}[a + bY])</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-722"><a href="#cb10-722"></a>                &amp;= \mathbb{E}<span class="co">[</span><span class="ot">(X - \mathbb{E}[X])(b(Y - \mathbb{E}[Y]))</span><span class="co">]</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-723"><a href="#cb10-723"></a>                &amp;= b \mathbb{E}<span class="co">[</span><span class="ot"> (X - \mathbb{E}[X])(Y - \mathbb{E}[Y])</span><span class="co">]</span>\nonumber <span class="sc">\\</span></span>
+<span id="cb10-724"><a href="#cb10-724"></a>                &amp;= b \mathbb{COV}<span class="co">[</span><span class="ot">X,Y</span><span class="co">]</span></span>
+<span id="cb10-725"><a href="#cb10-725"></a>\end{aligned}</span>
+<span id="cb10-726"><a href="#cb10-726"></a>$$</span>
+<span id="cb10-727"><a href="#cb10-727"></a></span>
+<span id="cb10-728"><a href="#cb10-728"></a>同様に，上の式の発展系として，以下が成立する。</span>
+<span id="cb10-729"><a href="#cb10-729"></a></span>
+<span id="cb10-730"><a href="#cb10-730"></a>$$</span>
+<span id="cb10-731"><a href="#cb10-731"></a>\begin{aligned}</span>
+<span id="cb10-732"><a href="#cb10-732"></a>\mathbb{COV}<span class="co">[</span><span class="ot">X_1, c_0 + c_1 X_1 + \cdots + c_k X_k</span><span class="co">]</span> = c_1 \mathbb{V}<span class="co">[</span><span class="ot">X_1</span><span class="co">]</span> + \cdots + c_2\mathbb{COV}<span class="co">[</span><span class="ot">X_1,X_2</span><span class="co">]</span> + \cdots + c_k \mathbb{COV}<span class="co">[</span><span class="ot">X_1,X_2</span><span class="co">]</span></span>
+<span id="cb10-733"><a href="#cb10-733"></a>\end{aligned}</span>
+<span id="cb10-734"><a href="#cb10-734"></a>$$</span>
+<span id="cb10-735"><a href="#cb10-735"></a></span>
+<span id="cb10-736"><a href="#cb10-736"></a>ここで， $\mathbb{COV}<span class="co">[</span><span class="ot">X,X</span><span class="co">]</span> = \mathbb{E}<span class="co">[</span><span class="ot"> ( X - \mathbb{E}[X])(X- \mathbb{E}[X]) </span><span class="co">]</span> = \mathbb{V}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$ であることを思い出そう。</span>
+<span id="cb10-737"><a href="#cb10-737"></a></span></code></pre></div><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p>ファイナンス基礎ノート</p>
+<p>Copyright 2026, Soichi Matsuura</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>本書は <a href="https://quarto.org/">Quarto</a> で作成されました。</p>
+      <ul class="footer-items list-unstyled">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ma2ura">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/matsuura_rits">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+</ul>
 </div>
   </div>
-</footer>
-
-
+</footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 </body></html>

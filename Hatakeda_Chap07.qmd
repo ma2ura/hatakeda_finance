@@ -3,6 +3,7 @@
 ## 状態価格と資産価格
 
 ```{r setup}
+pacman::p_load(pdftools)
 pacman::p_load(tidyverse, ggthemes, knitr, kableExtra)
 ```
 
@@ -29,12 +30,12 @@ pacman::p_load(tidyverse, ggthemes, knitr, kableExtra)
 |  状態1  |  1  |  0  |  2  |
 |  状態2  |  0  |  1  |  4  |
 
-- 資産 $A$ : $P_A = 0.8$
-- 資産 $B$ : $P_B = 0.6$
-- 資産 $C$ : $P_C = ?$
+- 資産 $A$ の価格 : $P_A = 0.8$
+- 資産 $B$ の価格 : $P_B = 0.6$
 
+このとき、資産 $C$ の価格 : $P_C = ?$ を求めてみましょう。
 
-ここで，金融資産Aを2単位，金融資産Bを4単位からなるポートフォリオPを考える。
+ここで，金融資産Aを2単位，金融資産Bを4単位からなるポートフォリオPを考えます。
 このポートフォリオPの1年後のCFは，
 
 - 状態1 : $CF_A \times 2 \text{単位}  + CF_B \times 4 \text{単位} = 2 \times 1 + 4 \times 0 = 2$

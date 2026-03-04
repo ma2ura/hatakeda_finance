@@ -88,4 +88,3 @@ p.3 の図を挿入
 ![](img/DeBont_Thaler_1985_fig1.png){width=80%}
 
 
-

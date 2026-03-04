@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.36">
-
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
+<meta name="author" content="Soichi Matsuura">
 <title>8&nbsp; 市場の効率性 – 畠田 証券投資論</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,8 +19,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -56,7 +55,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -66,23 +64,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./Hatakeda_Chap09.html" rel="next">
 <link href="./Hatakeda_Chap07.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<link href="./img/favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-474c6d7e63be50eb6972897072b39b27.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-00438af671115a5c76feb004a9a15e92.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b0e034859a901dbfbbe28485e46a269e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+<link href="site_libs/bootstrap/bootstrap-69a9052b974a41e2694cfa3b64b64ceb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-51a73a95415d95c9f0047f692c2c82dc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-69a9052b974a41e2694cfa3b64b64ceb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -91,22 +96,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "一致なし",
+    "search-matching-documents-text": "一致した文書",
+    "search-copy-link-title": "検索へのリンクをコピー",
+    "search-hide-matches-text": "追加の検索結果を非表示",
+    "search-more-match-text": "追加の検索結果",
+    "search-more-matches-text": "追加の検索結果",
+    "search-clear-button-title": "消去",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
   }
-}</script>
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SFB56VHK63"></script><script type="text/javascript">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SFB56VHK63', { 'anonymize_ip': true});
+</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+.marky {
+  background: linear-gradient(transparent 60%, #FCFFC1 0%);
+}
+.markb {
+  background: linear-gradient(transparent 60%, #88E2EA 0%);
+}
+.markp{
+  background: linear-gradient(transparent 70%, #ffcdd2 0%)
+}
+</style>
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -119,9 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 <script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
@@ -133,7 +151,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -148,117 +166,214 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
+<meta name="twitter:title" content="8&nbsp; 市場の効率性 – 畠田 証券投資論">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://so-ichi.com/Hatakeda_Chap08_files/figure-html/tikz-example-1.png">
+<meta name="twitter:image:alt" content="株価に対して正の影響を及ぼす予想外情報のケース">
+<meta name="twitter:image-height" content="471">
+<meta name="twitter:image-width" content="892">
+<meta name="twitter:card" content="summary_large_image">
 </head>
-
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">畠田 証券投資論</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">ガイダンス</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap02.html"> 
-<span class="menu-text">確率</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap03.html"> 
-<span class="menu-text">統計</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap04.html"> 
-<span class="menu-text">選好</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap05.html"> 
-<span class="menu-text">ポートフォリオ理論</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap06.html"> 
-<span class="menu-text">CAPM</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap07.html"> 
-<span class="menu-text">裁定価格</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap08.html"> 
-<span class="menu-text">市場の効率性</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Hatakeda_Chap09.html"> 
-<span class="menu-text">行動</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://so-ichi.com"> <i class="bi bi-house" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/matsuura_rits"> <i class="bi bi-twitter" role="img" aria-label="Twitter">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Hatakeda_Chap08.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">畠田 証券投資論</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/ma2ura/Hatakeda_Finance/" title="ソースコード" class="quarto-navigation-tool px-1" aria-label="ソースコード"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="リーダーモードの切り替え">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Hatakeda_Chap08.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="サーチ"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
@@ -313,28 +428,24 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+</div>
+    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">ここの目次</h2>
    
-  <ul>
-  <li><a href="#市場の効率性の定義" id="toc-市場の効率性の定義" class="nav-link active" data-scroll-target="#市場の効率性の定義"><span class="header-section-number">8.1</span> 1. 市場の効率性の定義</a></li>
-  <li><a href="#つの情報の効率性" id="toc-つの情報の効率性" class="nav-link" data-scroll-target="#つの情報の効率性"><span class="header-section-number">8.2</span> 2. 3つの情報の効率性</a></li>
-  <li><a href="#市場の効率性と期待リターン" id="toc-市場の効率性と期待リターン" class="nav-link" data-scroll-target="#市場の効率性と期待リターン"><span class="header-section-number">8.3</span> 3. 市場の効率性と期待リターン</a></li>
-  <li><a href="#semi-strong型の効率的市場仮説" id="toc-semi-strong型の効率的市場仮説" class="nav-link" data-scroll-target="#semi-strong型の効率的市場仮説"><span class="header-section-number">8.4</span> Semi-strong型の効率的市場仮説</a></li>
-  </ul>
-</nav>
+  <ul class="collapse">
+<li><a href="#%E5%B8%82%E5%A0%B4%E3%81%AE%E5%8A%B9%E7%8E%87%E6%80%A7%E3%81%AE%E5%AE%9A%E7%BE%A9" id="toc-市場の効率性の定義" class="nav-link active" data-scroll-target="#%E5%B8%82%E5%A0%B4%E3%81%AE%E5%8A%B9%E7%8E%87%E6%80%A7%E3%81%AE%E5%AE%9A%E7%BE%A9"><span class="header-section-number">8.1</span> 1. 市場の効率性の定義</a></li>
+  <li><a href="#%E3%81%A4%E3%81%AE%E6%83%85%E5%A0%B1%E3%81%AE%E5%8A%B9%E7%8E%87%E6%80%A7" id="toc-つの情報の効率性" class="nav-link" data-scroll-target="#%E3%81%A4%E3%81%AE%E6%83%85%E5%A0%B1%E3%81%AE%E5%8A%B9%E7%8E%87%E6%80%A7"><span class="header-section-number">8.2</span> 2. 3つの情報の効率性</a></li>
+  <li><a href="#%E5%B8%82%E5%A0%B4%E3%81%AE%E5%8A%B9%E7%8E%87%E6%80%A7%E3%81%A8%E6%9C%9F%E5%BE%85%E3%83%AA%E3%82%BF%E3%83%BC%E3%83%B3" id="toc-市場の効率性と期待リターン" class="nav-link" data-scroll-target="#%E5%B8%82%E5%A0%B4%E3%81%AE%E5%8A%B9%E7%8E%87%E6%80%A7%E3%81%A8%E6%9C%9F%E5%BE%85%E3%83%AA%E3%82%BF%E3%83%BC%E3%83%B3"><span class="header-section-number">8.3</span> 3. 市場の効率性と期待リターン</a></li>
+  <li><a href="#semi-strong%E5%9E%8B%E3%81%AE%E5%8A%B9%E7%8E%87%E7%9A%84%E5%B8%82%E5%A0%B4%E4%BB%AE%E8%AA%AC" id="toc-semi-strong型の効率的市場仮説" class="nav-link" data-scroll-target="#semi-strong%E5%9E%8B%E3%81%AE%E5%8A%B9%E7%8E%87%E7%9A%84%E5%B8%82%E5%A0%B4%E4%BB%AE%E8%AA%AC"><span class="header-section-number">8.4</span> Semi-strong型の効率的市場仮説</a></li>
+  </ul></nav>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">市場の効率性</span>
+</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> コード</button></div></div>
 </div>
 
 
@@ -348,12 +459,9 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>市場の効率性(market efficiency)</p>
-<section id="市場の効率性の定義" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="市場の効率性の定義"><span class="header-section-number">8.1</span> 1. 市場の効率性の定義</h2>
+</header><p>市場の効率性(market efficiency)</p>
+<section id="市場の効率性の定義" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="市場の効率性の定義">
+<span class="header-section-number">8.1</span> 1. 市場の効率性の定義</h2>
 <p><span class="marky">現実のマーケットが理論(期待効用最大化原理，あるいはCAPM)どおりに機能していることを<strong>市場が効率的である</strong>という。</span> 市場が効率的であるという<strong>仮説</strong>を，<strong>効率的市場仮説</strong>(Efficient Market Hypothesis: EMH)とよぶ。</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -361,7 +469,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-効率的市場の定義
+<span class="screen-reader-only">重要</span>効率的市場の定義
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -369,16 +477,15 @@ window.Quarto = {
 </div>
 </div>
 <p>この章での市場の効率性とは，主として，<span class="marky">価格に金融資産に関する情報が繁栄されている(価格(情報)の効率性)に重点を置く。</span> 資源配分の効率性が実現されている（資源配分の効率性）を表すとは限らない。</p>
-</section>
-<section id="つの情報の効率性" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="つの情報の効率性"><span class="header-section-number">8.2</span> 2. 3つの情報の効率性</h2>
+</section><section id="つの情報の効率性" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="つの情報の効率性">
+<span class="header-section-number">8.2</span> 2. 3つの情報の効率性</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-情報の効率性の定義
+<span class="screen-reader-only">重要</span>情報の効率性の定義
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -387,13 +494,11 @@ window.Quarto = {
 </div>
 <p>すなわち，<span class="markp">資産価格には，あらゆる情報が集約されている！</span></p>
 <ul>
-<li><p><strong>Weak型の効率性</strong><br> <span class="markb">過去の資産価格</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</p></li>
-<li><p><strong>Semi-strong型の効率性</strong><br> <span class="markb">公開情報(過去の資産価格も含めて)</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</p></li>
-<li><p><strong>Strong型の効率性</strong><br> <span class="markb">公開情報，一部の人しか知りえない内部情報(インサイダー情報)</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</p></li>
-</ul>
-</section>
-<section id="市場の効率性と期待リターン" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="市場の効率性と期待リターン"><span class="header-section-number">8.3</span> 3. 市場の効率性と期待リターン</h2>
+<li><p><strong>Weak型の効率性</strong><br><span class="markb">過去の資産価格</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</p></li>
+<li><p><strong>Semi-strong型の効率性</strong><br><span class="markb">公開情報(過去の資産価格も含めて)</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</p></li>
+<li><p><strong>Strong型の効率性</strong><br><span class="markb">公開情報，一部の人しか知りえない内部情報(インサイダー情報)</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</p></li>
+</ul></section><section id="市場の効率性と期待リターン" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="市場の効率性と期待リターン">
+<span class="header-section-number">8.3</span> 3. 市場の効率性と期待リターン</h2>
 <p>効率的市場の命題は，市場が効率的であるならば，(条件付)期待リターンが次式で決定される。</p>
 <p><span class="math display">
 \mathbb{E}[r_i \mid I ] = r_f + \beta_1 (r_M - r_f)
@@ -401,21 +506,17 @@ window.Quarto = {
 <p>この式が成立するように，資産価格(<span class="math inline">P_{t,i}</span>)は調整される。 ここで，<span class="math inline">I</span> は時点<span class="math inline">t</span>で利用可能な情報集合を，<span class="math inline">\mathbb{E}[r_i \mid I]</span> は<span class="math inline">t</span>時点の情報 <span class="math inline">I</span> に基づいて予測される金融資産の期待リターン， <span class="math inline">r_f + \beta_i (r_M - r_f)</span> はCAPMによって表現される理論上の期待リターンを表す。</p>
 <p>3つの効率性が想定する情報集合 <span class="math inline">I</span> は以下の通りである。</p>
 <ul>
-<li><p><strong>Weak型の効率性</strong><br> <span class="math inline">I = \{ P_{-1,i}, P_{-2,i}, \dots\}</span></p></li>
-<li><p><strong>Semi-strong型の効率性</strong><br> <span class="math inline">I =  \{ P_{-1,i}, P_{-2,i}, \dots, X_{-1,i} , X_{-2,i}, \dots \}</span> <br> <span class="math inline">X_{-k,i}</span> としては，過去の利益やライバル企業の株価など。</p></li>
-<li><p><strong>Strong型の効率性</strong><br> <span class="math inline">I =  \{ P_{-1,i}, P_{-2,i}, \dots, X_{-1,i} , X_{-2,i}, \dots , Z_{-1,i}, Z_{-2,i}, \dots \}</span> <br> <span class="math inline">Z_{-k,i}</span> としては企業内部者しか知らないインサイダー情報など。</p></li>
-</ul>
-</section>
-<section id="semi-strong型の効率的市場仮説" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="semi-strong型の効率的市場仮説"><span class="header-section-number">8.4</span> Semi-strong型の効率的市場仮説</h2>
+<li><p><strong>Weak型の効率性</strong><br><span class="math inline">I = \{ P_{-1,i}, P_{-2,i}, \dots\}</span></p></li>
+<li><p><strong>Semi-strong型の効率性</strong><br><span class="math inline">I =  \{ P_{-1,i}, P_{-2,i}, \dots, X_{-1,i} , X_{-2,i}, \dots \}</span> <br><span class="math inline">X_{-k,i}</span> としては，過去の利益やライバル企業の株価など。</p></li>
+<li><p><strong>Strong型の効率性</strong><br><span class="math inline">I =  \{ P_{-1,i}, P_{-2,i}, \dots, X_{-1,i} , X_{-2,i}, \dots , Z_{-1,i}, Z_{-2,i}, \dots \}</span> <br><span class="math inline">Z_{-k,i}</span> としては企業内部者しか知らないインサイダー情報など。</p></li>
+</ul></section><section id="semi-strong型の効率的市場仮説" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="semi-strong型の効率的市場仮説">
+<span class="header-section-number">8.4</span> Semi-strong型の効率的市場仮説</h2>
 <p>現時点で利用可能な公開情報 <span class="math inline">I</span> は完全に資産価格 <span class="math inline">P_i</span> に繁栄されるので，資産価格に影響するのは，公開されていない情報の追加である。 追加的な情報が公開された以降では資産価格は変化しない。</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Hatakeda_Chap08_files/figure-html/tikz-example-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption>株価に対して正の影響を及ぼす予想外情報のケース</figcaption>
-</figure>
+<figure class="figure"><p><a href="Hatakeda_Chap08_files/figure-html/tikz-example-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="株価に対して正の影響を及ぼす予想外情報のケース"><img src="Hatakeda_Chap08_files/figure-html/tikz-example-1.png" class="img-fluid figure-img" style="width:90.0%" alt="株価に対して正の影響を及ぼす予想外情報のケース"></a></p>
+<figcaption>株価に対して正の影響を及ぼす予想外情報のケース</figcaption></figure>
 </div>
 </div>
 </div>
@@ -425,7 +526,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-具体例
+<span class="screen-reader-only">ヒント</span>具体例
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -444,7 +545,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-自社株買いのケース
+<span class="screen-reader-only">ヒント</span>自社株買いのケース
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -453,470 +554,407 @@ window.Quarto = {
 </div>
 <p>実際はどうなのか，確認してみましょう。 東芝の会計処理の適正性について第三者委員会の設置がアナウンスされた2015年5月7日と，LIXILの会計処理の適正性について監査人及び法律顧問による特別監査の導入がアナウンスされた2015年4月27日周辺の株価(終値)と売買代金の推移を確認する。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, scales)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lixil_toshiba_stock.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(期間,銘柄名称,終値,売買高)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, scales)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lixil_toshiba_stock.csv"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 290 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): 上場コード, 銘柄名称
+dbl  (3): 株式コード, 終値, 売買高
+date (1): 期間
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">select</span>(期間,銘柄名称,終値,売買高)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>toshiba_scale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">**</span><span class="dv">9</span>  <span class="co"># 売買代金のスケーリング係数</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_toshiba <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(銘柄名称 <span class="sc">==</span> <span class="st">"東芝"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    売買代金 <span class="ot">=</span> 終値 <span class="sc">*</span> 売買高 <span class="sc">/</span> toshiba_scale</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df_toshiba <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-  期間       銘柄名称  終値   売買高 売買代金
-  &lt;date&gt;     &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-1 2015-02-02 東芝      468. 18145000     8.50
-2 2015-02-03 東芝      467. 18872000     8.82
-3 2015-02-04 東芝      476. 21558000    10.3 
-4 2015-02-05 東芝      476. 21505000    10.2 
-5 2015-02-06 東芝      476. 15788000     7.52
-6 2015-02-09 東芝      479. 15478000     7.42</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>toshiba_scale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">**</span><span class="dv">9</span>  <span class="co"># 売買代金のスケーリング係数</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>df_toshiba <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">filter</span>(銘柄名称 <span class="sc">==</span> <span class="st">"東芝"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    売買代金 <span class="ot">=</span> 終値 <span class="sc">*</span> 売買高 <span class="sc">/</span> toshiba_scale</span>
+<span id="cb4-7"><a href="#cb4-7"></a>  )</span>
+<span id="cb4-8"><a href="#cb4-8"></a>df_toshiba <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["期間"],"name":[1],"type":["date"],"align":["right"]},{"label":["銘柄名称"],"name":[2],"type":["chr"],"align":["left"]},{"label":["終値"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["売買高"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["売買代金"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"2015-02-02","2":"東芝","3":"468.2","4":"18145000","5":"8.495489"},{"1":"2015-02-03","2":"東芝","3":"467.1","4":"18872000","5":"8.815111"},{"1":"2015-02-04","2":"東芝","3":"475.8","4":"21558000","5":"10.257296"},{"1":"2015-02-05","2":"東芝","3":"476.3","4":"21505000","5":"10.242831"},{"1":"2015-02-06","2":"東芝","3":"476.4","4":"15788000","5":"7.521403"},{"1":"2015-02-09","2":"東芝","3":"479.1","4":"15478000","5":"7.415510"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_toshiba <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> 期間)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 終値), <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 売買代金), <span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2015-05-08"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_breaks =</span> <span class="st">"1 week"</span>,         <span class="co"># 1週間ごとに目盛り</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m-%d"</span>        <span class="co"># ラベル形式（年-月-日）</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"期間"</span>, <span class="at">title =</span> <span class="st">"東芝の終値と売買代金の推移"</span>) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 日本語フォントの指定</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>),</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x軸を90度回転</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>df_toshiba <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> 期間)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 終値), <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 売買代金), <span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2015-05-08"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">scale_x_date</span>(</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="at">date_breaks =</span> <span class="st">"1 week"</span>,         <span class="co"># 1週間ごとに目盛り</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m-%d"</span>        <span class="co"># ラベル形式（年-月-日）</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"期間"</span>, <span class="at">title =</span> <span class="st">"東芝の終値と売買代金の推移"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="co"># 日本語フォントの指定</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>),</span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb5-16"><a href="#cb5-16"></a>    <span class="co"># x軸を90度回転</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb5-18"><a href="#cb5-18"></a>  )</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap08_files/figure-html/toshiba-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><a href="Hatakeda_Chap08_files/figure-html/toshiba-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Hatakeda_Chap08_files/figure-html/toshiba-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scale_factor <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">**</span><span class="dv">7</span>  <span class="co"># 売買代金のスケーリング係数</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(銘柄名称 <span class="sc">==</span> <span class="st">"LIXIL"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    期間 <span class="ot">=</span> <span class="fu">as.Date</span>(期間),</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    売買代金 <span class="ot">=</span> 終値 <span class="sc">*</span> 売買高 <span class="sc">/</span> scale_factor</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> 期間)) <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 終値), <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 売買代金), <span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2015-04-27"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_breaks =</span> <span class="st">"1 week"</span>,         <span class="co"># 1週間ごとに目盛り</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m-%d"</span>        <span class="co"># ラベル形式（年-月-日）</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"期間"</span>, <span class="at">title =</span> <span class="st">"LIXILの終値と売買代金の推移"</span>) <span class="sc">+</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>),</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x軸を90度回転</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>scale_factor <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">**</span><span class="dv">7</span>  <span class="co"># 売買代金のスケーリング係数</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">filter</span>(銘柄名称 <span class="sc">==</span> <span class="st">"LIXIL"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    期間 <span class="ot">=</span> <span class="fu">as.Date</span>(期間),</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    売買代金 <span class="ot">=</span> 終値 <span class="sc">*</span> 売買高 <span class="sc">/</span> scale_factor</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> 期間)) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 終値), <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 売買代金), <span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2015-04-27"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>  <span class="fu">scale_x_date</span>(</span>
+<span id="cb7-14"><a href="#cb7-14"></a>    <span class="at">date_breaks =</span> <span class="st">"1 week"</span>,         <span class="co"># 1週間ごとに目盛り</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m-%d"</span>        <span class="co"># ラベル形式（年-月-日）</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"期間"</span>, <span class="at">title =</span> <span class="st">"LIXILの終値と売買代金の推移"</span>) <span class="sc">+</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-20"><a href="#cb7-20"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>),</span>
+<span id="cb7-21"><a href="#cb7-21"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb7-22"><a href="#cb7-22"></a>    <span class="co"># x軸を90度回転</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb7-24"><a href="#cb7-24"></a>  )</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="Hatakeda_Chap08_files/figure-html/lixil-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><a href="Hatakeda_Chap08_files/figure-html/lixil-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Hatakeda_Chap08_files/figure-html/lixil-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
 </div>
 
 
-</section>
+<!-- -->
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> トップに戻る</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "コピーしました");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "コピーしました");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/so-ichi\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -924,187 +962,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./Hatakeda_Chap07.html" class="pagination-link" aria-label="裁定価格理論">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">裁定価格理論</span></span>
       </a>          
@@ -1114,23 +1126,240 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">行動ファイナンス</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">ソースコード</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu"># 市場の効率性</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a>市場の効率性(market efficiency)</span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">## 1. 市場の効率性の定義</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"marky"</span><span class="dt">&gt;</span>現実のマーケットが理論(期待効用最大化原理，あるいはCAPM)どおりに機能していることを**市場が効率的である**という。<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>市場が効率的であるという**仮説**を，**効率的市場仮説**(Efficient Market Hypothesis: EMH)とよぶ。</span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a>:::{.callout-important}</span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">### 効率的市場の定義</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a></span>
+<span id="cb8-13"><a href="#cb8-13"></a>効率的な市場とは，全ての金融資産の市場価格が常にその投資価値に等しい市場であることを指す。</span>
+<span id="cb8-14"><a href="#cb8-14"></a>:::</span>
+<span id="cb8-15"><a href="#cb8-15"></a></span>
+<span id="cb8-16"><a href="#cb8-16"></a>この章での市場の効率性とは，主として，<span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"marky"</span><span class="dt">&gt;</span>価格に金融資産に関する情報が繁栄されている(価格(情報)の効率性)に重点を置く。<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>資源配分の効率性が実現されている（資源配分の効率性）を表すとは限らない。</span>
+<span id="cb8-18"><a href="#cb8-18"></a></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="fu">## 2. 3つの情報の効率性</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a></span>
+<span id="cb8-21"><a href="#cb8-21"></a>:::{.callout-important}</span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="fu">## 情報の効率性の定義</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a></span>
+<span id="cb8-24"><a href="#cb8-24"></a>市場がある情報に関して効率的であるとは，その情報に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない(**裁定機会がない**)ことを言う。</span>
+<span id="cb8-25"><a href="#cb8-25"></a>:::</span>
+<span id="cb8-26"><a href="#cb8-26"></a></span>
+<span id="cb8-27"><a href="#cb8-27"></a>すなわち，<span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"markp"</span><span class="dt">&gt;</span>資産価格には，あらゆる情報が集約されている！<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="ss">- </span>**Weak型の効率性**<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a>  <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"markb"</span><span class="dt">&gt;</span>過去の資産価格<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</span>
+<span id="cb8-31"><a href="#cb8-31"></a></span>
+<span id="cb8-32"><a href="#cb8-32"></a><span class="ss">- </span>**Semi-strong型の効率性**<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-33"><a href="#cb8-33"></a>  <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"markb"</span><span class="dt">&gt;</span>公開情報(過去の資産価格も含めて)<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</span>
+<span id="cb8-34"><a href="#cb8-34"></a></span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="ss">- </span>**Strong型の効率性**<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-36"><a href="#cb8-36"></a>  <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"markb"</span><span class="dt">&gt;</span>公開情報，一部の人しか知りえない内部情報(インサイダー情報)<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>に基づいた投資戦略をどのように策定しても，過大な投資収益率を平均的に稼ぐことができない。</span>
+<span id="cb8-37"><a href="#cb8-37"></a></span>
+<span id="cb8-38"><a href="#cb8-38"></a><span class="fu">## 3. 市場の効率性と期待リターン</span></span>
+<span id="cb8-39"><a href="#cb8-39"></a></span>
+<span id="cb8-40"><a href="#cb8-40"></a>効率的市場の命題は，市場が効率的であるならば，(条件付)期待リターンが次式で決定される。</span>
+<span id="cb8-41"><a href="#cb8-41"></a></span>
+<span id="cb8-42"><a href="#cb8-42"></a>$$</span>
+<span id="cb8-43"><a href="#cb8-43"></a>\mathbb{E}<span class="co">[</span><span class="ot">r_i \mid I </span><span class="co">]</span> = r_f + \beta_1 (r_M - r_f)</span>
+<span id="cb8-44"><a href="#cb8-44"></a>$$</span>
+<span id="cb8-45"><a href="#cb8-45"></a></span>
+<span id="cb8-46"><a href="#cb8-46"></a>この式が成立するように，資産価格($P_{t,i}$)は調整される。</span>
+<span id="cb8-47"><a href="#cb8-47"></a>ここで，$I$ は時点$t$で利用可能な情報集合を，$\mathbb{E}<span class="co">[</span><span class="ot">r_i \mid I</span><span class="co">]</span>$ は$t$時点の情報 $I$ に基づいて予測される金融資産の期待リターン，</span>
+<span id="cb8-48"><a href="#cb8-48"></a>$r_f + \beta_i (r_M - r_f)$ はCAPMによって表現される理論上の期待リターンを表す。</span>
+<span id="cb8-49"><a href="#cb8-49"></a></span>
+<span id="cb8-50"><a href="#cb8-50"></a>3つの効率性が想定する情報集合 $I$ は以下の通りである。</span>
+<span id="cb8-51"><a href="#cb8-51"></a></span>
+<span id="cb8-52"><a href="#cb8-52"></a><span class="ss">- </span>**Weak型の効率性**<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-53"><a href="#cb8-53"></a>  $I = <span class="sc">\{</span> P_{-1,i}, P_{-2,i}, \dots<span class="sc">\}</span>$</span>
+<span id="cb8-54"><a href="#cb8-54"></a></span>
+<span id="cb8-55"><a href="#cb8-55"></a><span class="ss">- </span>**Semi-strong型の効率性**<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-56"><a href="#cb8-56"></a>  $I =  <span class="sc">\{</span> P_{-1,i}, P_{-2,i}, \dots, X_{-1,i} , X_{-2,i}, \dots <span class="sc">\}</span>$ <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-57"><a href="#cb8-57"></a>  $X_{-k,i}$ としては，過去の利益やライバル企業の株価など。</span>
+<span id="cb8-58"><a href="#cb8-58"></a></span>
+<span id="cb8-59"><a href="#cb8-59"></a><span class="ss">- </span>**Strong型の効率性**<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-60"><a href="#cb8-60"></a>  $I =  <span class="sc">\{</span> P_{-1,i}, P_{-2,i}, \dots, X_{-1,i} , X_{-2,i}, \dots , Z_{-1,i}, Z_{-2,i}, \dots <span class="sc">\}</span>$ <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb8-61"><a href="#cb8-61"></a>  $Z_{-k,i}$ としては企業内部者しか知らないインサイダー情報など。</span>
+<span id="cb8-62"><a href="#cb8-62"></a></span>
+<span id="cb8-63"><a href="#cb8-63"></a><span class="fu">## Semi-strong型の効率的市場仮説</span></span>
+<span id="cb8-64"><a href="#cb8-64"></a></span>
+<span id="cb8-65"><a href="#cb8-65"></a>現時点で利用可能な公開情報 $I$ は完全に資産価格 $P_i$ に繁栄されるので，資産価格に影響するのは，公開されていない情報の追加である。</span>
+<span id="cb8-66"><a href="#cb8-66"></a>追加的な情報が公開された以降では資産価格は変化しない。</span>
+<span id="cb8-67"><a href="#cb8-67"></a></span>
+<span id="cb8-68"><a href="#cb8-68"></a></span>
+<span id="cb8-69"><a href="#cb8-69"></a><span class="in">```{r tikz-example, engine='tikz', out.width='90%', fig.cap='株価に対して正の影響を及ぼす予想外情報のケース'}</span></span>
+<span id="cb8-70"><a href="#cb8-70"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-71"><a href="#cb8-71"></a>\begin{tikzpicture}</span>
+<span id="cb8-72"><a href="#cb8-72"></a>\draw [<span class="ot">-&gt;</span>] (<span class="sc">-</span>.<span class="dv">5</span>,<span class="dv">0</span>) <span class="sc">--</span> (<span class="dv">6</span>,<span class="dv">0</span>) node [right]{Time};</span>
+<span id="cb8-73"><a href="#cb8-73"></a>\draw [<span class="ot">-&gt;</span>] (<span class="dv">0</span>,<span class="sc">-</span>.<span class="dv">5</span>) <span class="sc">--</span> (<span class="dv">0</span>,<span class="dv">3</span>) node [above]{Price};</span>
+<span id="cb8-74"><a href="#cb8-74"></a>\draw [ultra thick, red](<span class="dv">0</span>,<span class="dv">0</span>) <span class="sc">--</span> (<span class="dv">3</span>,<span class="dv">0</span>);</span>
+<span id="cb8-75"><a href="#cb8-75"></a>\draw [ultra thick, red](<span class="dv">3</span>,<span class="dv">2</span>) <span class="sc">--</span> (<span class="dv">6</span>,<span class="dv">2</span>);</span>
+<span id="cb8-76"><a href="#cb8-76"></a>\draw [dotted] (<span class="dv">3</span>,<span class="dv">0</span>) <span class="sc">--</span> (<span class="dv">3</span>,<span class="dv">2</span>) <span class="sc">--</span> (<span class="dv">0</span>,<span class="dv">2</span>);</span>
+<span id="cb8-77"><a href="#cb8-77"></a>\<span class="fu">draw</span> (<span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">--</span> (<span class="dv">1</span>, <span class="fl">0.2</span>);</span>
+<span id="cb8-78"><a href="#cb8-78"></a>\<span class="fu">draw</span> (<span class="dv">2</span>, <span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">--</span> (<span class="dv">2</span>, <span class="fl">0.2</span>);</span>
+<span id="cb8-79"><a href="#cb8-79"></a>\<span class="fu">draw</span> (<span class="dv">3</span>, <span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">--</span> (<span class="dv">3</span>, <span class="fl">0.2</span>);</span>
+<span id="cb8-80"><a href="#cb8-80"></a>\<span class="fu">draw</span> (<span class="dv">4</span>, <span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">--</span> (<span class="dv">4</span>, <span class="fl">0.2</span>);</span>
+<span id="cb8-81"><a href="#cb8-81"></a>\<span class="fu">draw</span> (<span class="dv">5</span>, <span class="sc">-</span><span class="fl">0.2</span>) <span class="sc">--</span> (<span class="dv">5</span>, <span class="fl">0.2</span>);</span>
+<span id="cb8-82"><a href="#cb8-82"></a>\end{tikzpicture}</span>
+<span id="cb8-83"><a href="#cb8-83"></a><span class="in">```</span></span>
+<span id="cb8-84"><a href="#cb8-84"></a></span>
+<span id="cb8-85"><a href="#cb8-85"></a></span>
+<span id="cb8-86"><a href="#cb8-86"></a>:::{.callout-tip}</span>
+<span id="cb8-87"><a href="#cb8-87"></a><span class="fu">### 具体例</span></span>
+<span id="cb8-88"><a href="#cb8-88"></a></span>
+<span id="cb8-89"><a href="#cb8-89"></a>増益(減益)，増配(減配・無配)， 増資(減資，自社株買い)，株式分割， M&amp;A，etc，に予想されていない情報が含まれているとき，公開日に株価(リター</span>
+<span id="cb8-90"><a href="#cb8-90"></a>ン)が変化する。</span>
+<span id="cb8-91"><a href="#cb8-91"></a></span>
+<span id="cb8-92"><a href="#cb8-92"></a>:::</span>
+<span id="cb8-93"><a href="#cb8-93"></a></span>
+<span id="cb8-94"><a href="#cb8-94"></a></span>
+<span id="cb8-95"><a href="#cb8-95"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"markp"</span><span class="dt">&gt;</span>情報は証券価格にどのように織り込まれるのか？<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb8-96"><a href="#cb8-96"></a></span>
+<span id="cb8-97"><a href="#cb8-97"></a><span class="ss">1. </span>瞬時に(完全に)織り込まれるのか？</span>
+<span id="cb8-98"><a href="#cb8-98"></a><span class="ss">2. </span>時間をかけて織り込まれるのか？</span>
+<span id="cb8-99"><a href="#cb8-99"></a></span>
+<span id="cb8-100"><a href="#cb8-100"></a></span>
+<span id="cb8-101"><a href="#cb8-101"></a>1 のとき効率的市場仮説が成立している。</span>
+<span id="cb8-102"><a href="#cb8-102"></a></span>
+<span id="cb8-103"><a href="#cb8-103"></a>:::{.callout-tip}</span>
+<span id="cb8-104"><a href="#cb8-104"></a><span class="fu">### 自社株買いのケース</span></span>
+<span id="cb8-105"><a href="#cb8-105"></a></span>
+<span id="cb8-106"><a href="#cb8-106"></a>投資家は優良な企業か否かわからない。 一方，企業は自分がどういう企業か知っている。 <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"marky"</span><span class="dt">&gt;</span>「自社株買いをするのは，その企業にとって，その資産が有益な投資資産であるからである。」<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>(詳細な理由は省略)：砂川先生のコーポレート・ファイナンスを参照したがって，もし「 」の話が本当であるならば，自社株買いの発表(情報の公開)があった後で，株価は上昇する。さらに，Semi-strong 型の効率的市場仮説が成立しているならば，図1のようになるはず。</span>
+<span id="cb8-107"><a href="#cb8-107"></a>:::</span>
+<span id="cb8-108"><a href="#cb8-108"></a></span>
+<span id="cb8-109"><a href="#cb8-109"></a></span>
+<span id="cb8-110"><a href="#cb8-110"></a>実際はどうなのか，確認してみましょう。</span>
+<span id="cb8-111"><a href="#cb8-111"></a>東芝の会計処理の適正性について第三者委員会の設置がアナウンスされた2015年5月7日と，LIXILの会計処理の適正性について監査人及び法律顧問による特別監査の導入がアナウンスされた2015年4月27日周辺の株価(終値)と売買代金の推移を確認する。</span>
+<span id="cb8-112"><a href="#cb8-112"></a></span>
+<span id="cb8-113"><a href="#cb8-113"></a><span class="in">```{r read_csv}</span></span>
+<span id="cb8-114"><a href="#cb8-114"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, scales)</span>
+<span id="cb8-115"><a href="#cb8-115"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lixil_toshiba_stock.csv"</span>)</span>
+<span id="cb8-116"><a href="#cb8-116"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb8-117"><a href="#cb8-117"></a>  <span class="fu">select</span>(期間,銘柄名称,終値,売買高)</span>
+<span id="cb8-118"><a href="#cb8-118"></a><span class="in">```</span></span>
+<span id="cb8-119"><a href="#cb8-119"></a></span>
+<span id="cb8-120"><a href="#cb8-120"></a><span class="in">```{r toshiba}</span></span>
+<span id="cb8-121"><a href="#cb8-121"></a>toshiba_scale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">**</span><span class="dv">9</span>  <span class="co"># 売買代金のスケーリング係数</span></span>
+<span id="cb8-122"><a href="#cb8-122"></a></span>
+<span id="cb8-123"><a href="#cb8-123"></a>df_toshiba <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb8-124"><a href="#cb8-124"></a>  <span class="fu">filter</span>(銘柄名称 <span class="sc">==</span> <span class="st">"東芝"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-125"><a href="#cb8-125"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-126"><a href="#cb8-126"></a>    売買代金 <span class="ot">=</span> 終値 <span class="sc">*</span> 売買高 <span class="sc">/</span> toshiba_scale</span>
+<span id="cb8-127"><a href="#cb8-127"></a>  )</span>
+<span id="cb8-128"><a href="#cb8-128"></a>df_toshiba <span class="sc">|&gt;</span> <span class="fu">head</span>()</span>
+<span id="cb8-129"><a href="#cb8-129"></a>df_toshiba <span class="sc">|&gt;</span></span>
+<span id="cb8-130"><a href="#cb8-130"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> 期間)) <span class="sc">+</span></span>
+<span id="cb8-131"><a href="#cb8-131"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 終値), <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-132"><a href="#cb8-132"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 売買代金), <span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-133"><a href="#cb8-133"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2015-05-08"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb8-134"><a href="#cb8-134"></a>  <span class="fu">scale_x_date</span>(</span>
+<span id="cb8-135"><a href="#cb8-135"></a>    <span class="at">date_breaks =</span> <span class="st">"1 week"</span>,         <span class="co"># 1週間ごとに目盛り</span></span>
+<span id="cb8-136"><a href="#cb8-136"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m-%d"</span>        <span class="co"># ラベル形式（年-月-日）</span></span>
+<span id="cb8-137"><a href="#cb8-137"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-138"><a href="#cb8-138"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"期間"</span>, <span class="at">title =</span> <span class="st">"東芝の終値と売買代金の推移"</span>) <span class="sc">+</span></span>
+<span id="cb8-139"><a href="#cb8-139"></a>  <span class="co"># 日本語フォントの指定</span></span>
+<span id="cb8-140"><a href="#cb8-140"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-141"><a href="#cb8-141"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-142"><a href="#cb8-142"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>),</span>
+<span id="cb8-143"><a href="#cb8-143"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb8-144"><a href="#cb8-144"></a>    <span class="co"># x軸を90度回転</span></span>
+<span id="cb8-145"><a href="#cb8-145"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb8-146"><a href="#cb8-146"></a>  )</span>
+<span id="cb8-147"><a href="#cb8-147"></a><span class="in">```</span></span>
+<span id="cb8-148"><a href="#cb8-148"></a></span>
+<span id="cb8-149"><a href="#cb8-149"></a><span class="in">```{r lixil}</span></span>
+<span id="cb8-150"><a href="#cb8-150"></a></span>
+<span id="cb8-151"><a href="#cb8-151"></a>scale_factor <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">**</span><span class="dv">7</span>  <span class="co"># 売買代金のスケーリング係数</span></span>
+<span id="cb8-152"><a href="#cb8-152"></a></span>
+<span id="cb8-153"><a href="#cb8-153"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb8-154"><a href="#cb8-154"></a>  <span class="fu">filter</span>(銘柄名称 <span class="sc">==</span> <span class="st">"LIXIL"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-155"><a href="#cb8-155"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-156"><a href="#cb8-156"></a>    期間 <span class="ot">=</span> <span class="fu">as.Date</span>(期間),</span>
+<span id="cb8-157"><a href="#cb8-157"></a>    売買代金 <span class="ot">=</span> 終値 <span class="sc">*</span> 売買高 <span class="sc">/</span> scale_factor</span>
+<span id="cb8-158"><a href="#cb8-158"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb8-159"><a href="#cb8-159"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> 期間)) <span class="sc">+</span></span>
+<span id="cb8-160"><a href="#cb8-160"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 終値), <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-161"><a href="#cb8-161"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 売買代金), <span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-162"><a href="#cb8-162"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2015-04-27"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb8-163"><a href="#cb8-163"></a>  <span class="fu">scale_x_date</span>(</span>
+<span id="cb8-164"><a href="#cb8-164"></a>    <span class="at">date_breaks =</span> <span class="st">"1 week"</span>,         <span class="co"># 1週間ごとに目盛り</span></span>
+<span id="cb8-165"><a href="#cb8-165"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m-%d"</span>        <span class="co"># ラベル形式（年-月-日）</span></span>
+<span id="cb8-166"><a href="#cb8-166"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-167"><a href="#cb8-167"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"期間"</span>, <span class="at">title =</span> <span class="st">"LIXILの終値と売買代金の推移"</span>) <span class="sc">+</span></span>
+<span id="cb8-168"><a href="#cb8-168"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-169"><a href="#cb8-169"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-170"><a href="#cb8-170"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraKakuProN-W3"</span>),</span>
+<span id="cb8-171"><a href="#cb8-171"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb8-172"><a href="#cb8-172"></a>    <span class="co"># x軸を90度回転</span></span>
+<span id="cb8-173"><a href="#cb8-173"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb8-174"><a href="#cb8-174"></a>  )</span>
+<span id="cb8-175"><a href="#cb8-175"></a><span class="in">```</span></span></code></pre></div><button title="コピー" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p>ファイナンス基礎ノート</p>
+<p>Copyright 2026, Soichi Matsuura</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>本書は <a href="https://quarto.org/">Quarto</a> で作成されました。</p>
+      <ul class="footer-items list-unstyled">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ma2ura">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/matsuura_rits">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+</ul>
 </div>
   </div>
-</footer>
-
-
+</footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 </body></html>

@@ -28,7 +28,15 @@ $$
 必要なパッケージとデータを読み込みます。
 
 ```{r setup}
-pacman::p_load(tidyverse, ggthemes, patchwork, datasauRus, gganimate, gifski)
+pacman::p_load(
+    tidyverse,
+    ggthemes,
+    patchwork,
+    datasauRus,
+    gganimate,
+    gifski
+    )
+
 mystyle <- list (#  ggplotのテーマ
   theme_few(),
   theme(
@@ -40,9 +48,13 @@ mystyle <- list (#  ggplotのテーマ
 )
 ```
 
+- `datasauRus`は、散布図の例題データを提供するパッケージ
+- `gganimate`は、ggplot2のグラフをアニメーション化するためのパッケージ
+- `gifski`は、gganimateで作成したアニメーションをGIF形式で保存するためのパッケージ
+
 `ggplot2`パッケージの`geom_line()`を用いて折れ線グラフを作成します。
 
-```{r}
+```{r read-data, filename = "データの読み込み"}
 df <- read_csv("data/stock_data.csv") # データの読み込み
 df |>
     filter(企業名 == "トヨタ自動車") |> # トヨタ自動車を抽出
