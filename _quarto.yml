@@ -2,54 +2,43 @@ project:
   type: book
   output-dir: docs
 
+lightbox: auto
+
 book:
   title: "畠田 証券投資論"
-  author: "松浦総一"
-  date: "7/24/2023"
-  reader-mode: true
-  language: "ja"
-  sidebar:
-    alignment: left
-    style: "docked"
-    search: true
-  navbar:
-    search: true
-    background: "#a10000"
-    left:
-      - text: "ガイダンス"
-        file: index.qmd
-      - text: "確率"
-        file: Hatakeda_Chap02.qmd
-      - text: "統計"
-        file: Hatakeda_Chap03.qmd
-      - text: "選好"
-        file: Hatakeda_Chap04.qmd
-      - text: "ポートフォリオ理論"
-        file: Hatakeda_Chap05.qmd
-      - text: "CAPM"
-        file: Hatakeda_Chap06.qmd
-      - text: "裁定価格"
-        file: Hatakeda_Chap07.qmd
-      # - text: "市場の効率性"
-      #   file: Hatakeda_Chap08.qmd
-      # - text: "行動"
-      #   file: Hatakeda_Chap09.qmd
-
-    right:
-      - icon: house
-        href: https://so-ichi.com
-      - icon: github
-        href: https://github.com/
-        aria-label: GitHub
-      - icon: twitter
-        href: https://twitter.com/matsuura_rits
-        aria-label: Twitter
-  page-footer:
-    left: |
-      ファイナンス基礎ノート
-    right: |
-      本書は <a href="https://quarto.org/">Quarto</a> で作成されました。
+  author:
+    - name: "Soichi Matsuura"
+    - affiliation: Ritsumeikan University
+    - email: matsuura@fc.ritsumei.ac.jp
+  date: "11/28/2024"
+  search: true
+  favicon: img/favicon.ico
   cover-image: "img/shoken.jpg"
+
+
+  reader-mode: true
+  google-analytics: "G-SFB56VHK63"
+  page-navigation: true
+
+  site-url: https://so-ichi.com
+  repo-url: https://github.com/ma2ura/Hatakeda_Finance/
+  repo-branch: main
+
+  page-footer:
+      border: true
+      background: "#a10000"
+      left: "Copyright 2026, Soichi Matsuura"
+      right:
+        - icon: github
+          href: https://github.com/ma2ura
+        - icon: twitter
+          href: https://twitter.com/matsuura_rits
+          aria-label: Twitter
+
+  sidebar:
+    style: docked
+    background: light
+    collapse: true
 
   chapters:
     - index.qmd
@@ -59,42 +48,60 @@ book:
     - Hatakeda_Chap05.qmd
     - Hatakeda_Chap06.qmd
     - Hatakeda_Chap07.qmd
-    # - Hatakeda_Chap08.qmd
-    # - Hatakeda_Chap09.qmd
+    - Hatakeda_Chap08.qmd
+    - Hatakeda_Chap09.qmd
 
-bibliography: references.bib
+
+website:
+  back-to-top-navigation: true
 
 format:
   html:
     theme:
-      light: [flatly, r4ds.scss]
-      dark: [cyborg]
+      light: united
+      dark: cyborg
+    mainfont: "Noto Sans JP"
+    monofont: "0xProto" # ※このフォントがシステムにない場合、デフォルトになります
+
+    toc: true
+    toc-location: left
+    toc-title: "ここの目次"
+    toc-depth: 2
+    toc-expand: true
+
+    code-tools: true
+    code-link: true
+    code-line-numbers: true
+    code-block-bg: true
+    code-block-border-left: "#002D72"
+    code-copy: hover
+    code-overflow: scroll
+    link-external-icon: true
+
+
     html-math-method: katex
+    author-meta: "Soichi Matsuura"
+    df-print: paged
+    page-navigation: true
+    back-to-top-navigation: true
+    twitter-card: true
+
+    include-in-header:
+      text: |
+        <style>
+        .marky {
+          background: linear-gradient(transparent 60%, #FCFFC1 0%);
+        }
+        .markb {
+          background: linear-gradient(transparent 60%, #88E2EA 0%);
+        }
+        .markp{
+          background: linear-gradient(transparent 70%, #ffcdd2 0%)
+        }
+        </style>
     grid:
       sidebar-width: 200px
       body-width: 1200px
-
-  pdf:
-    pdf-engine: lualatex
-    theme: sandstone
-    keep-tex: true
-    toc: true
-    toc-depth: 2
-    number-sections: true
-    colorlinks: true
-    documentclass: ltjsbook
-    documentclassoptions: [report]
-    monofontoptions:
-    - Scale=0.8
-    classoption:
-      - pandoc
-      - ja=standard
-      - jafont = hiragino-pron
-    fig-width: 6
-    fig-height: 4
-
-
-code-block-bg: "#F6F6F6"
 
 imagify:
   header-includes:
@@ -103,9 +110,15 @@ imagify:
     \usetikzlibrary{positioning,shapes,arrows,intersections}
     \usetikzlibrary{calc,decorations.markings,through}
 
+lang: "ja"
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    dpi: 600
 
 execute:
-  message : false
-  warning: false
+  error: false
+  message: false
 
-dev: cairo_pdf
+
+bibliography: references.bib
